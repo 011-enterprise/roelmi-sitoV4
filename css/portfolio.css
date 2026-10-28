@@ -336,3 +336,9 @@
     margin-top: 1.75rem;
   }
 }
+
+/* PROVA SITO 4, Portfolio su Ocean: il grigio secondario non passa sul fondo
+   Ocean, quindi la seconda riga del titolo resta Ricepaper ma più leggera */
+.theme-ocean .finder-title span {
+  font-weight: 300;
+}

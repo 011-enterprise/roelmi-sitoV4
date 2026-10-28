@@ -135,8 +135,53 @@
 .theme-cerulean { --bg: var(--cerulean); }
 .theme-antique  { --bg: var(--antique); }
 
+/* PROVA SITO 4 (28/10/2026): fondo Ocean al posto del nero (Portfolio, NIP, Blog,
+   footer), richiesta del cliente di usare meno il nero.
+   Accessibilità: su Ocean #42709E passa solo il Ricepaper (4.70:1, AA anche
+   per il testo piccolo; la grana scurisce appena e migliora). Quindi niente
+   grigio secondario né Cerulean (2.6:1): testo, secondario, accento, focus e
+   linee sono tutti Ricepaper. Le variabili "on-dark" usate nei file delle
+   sezioni vengono ridefinite qui, così ereditano i colori giusti */
+.theme-ocean {
+  --bg: var(--ocean);
+  --fg: var(--ricepaper);
+  --fg-muted: var(--ricepaper);
+  --accent: var(--ricepaper);
+  --rule: rgba(247, 243, 235, 0.45);
+  --muted-on-dark: var(--ricepaper);
+  --ocean-on-dark: var(--ricepaper);
+  --line-on-dark: rgba(247, 243, 235, 0.45);
+  /* Goccia e logo in negativo (bianco): l'azzurro del logo su Ocean si
+     perdeva. --logo-blue = gocce decorative, --logo-accent = parti azzurre
+     del simbolo del logo (HPC e goccia, nel footer) */
+  --logo-blue: var(--ricepaper);
+  --logo-accent: var(--ricepaper);
+}
+
+/* CTA piena su Ocean: Ricepaper con testo Ocean (4.70:1); in hover Hard Grey
+   con testo Ricepaper (17:1), così l'hover si vede */
+.theme-ocean .btn--solid:hover,
+.theme-ocean .pill-submit:hover {
+  border-color: var(--hard-grey);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+/* Contorno pieno in hover: Ricepaper con testo Ocean (4.70:1) */
+.theme-ocean .btn--outline:hover {
+  color: var(--ocean);
+}
+
+/* Force Field: pensato per il nero, su Ocean non serve (i bagliori
+   schiarirebbero il fondo sotto il testo) */
+.theme-ocean .section-field,
+.theme-ocean .nip-field {
+  display: none;
+}
+
 .theme-light,
 .theme-dark,
+.theme-ocean,
 .theme-olive,
 .theme-cerulean,
 .theme-antique {

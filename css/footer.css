@@ -359,3 +359,25 @@
     padding-block: 0.25rem 0;
   }
 }
+
+/* --------------------------------------------------------------------------
+   PROVA SITO 4: footer su Ocean (.theme-ocean, regole e contrasti in
+   base.css). Il colore dei link in hover non cambierebbe (tutto Ricepaper):
+   in hover si sottolineano
+   -------------------------------------------------------------------------- */
+
+.site-footer.theme-ocean {
+  background-color: var(--ocean);
+}
+
+.site-footer.theme-ocean a:not(.btn):hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Social: in hover il cerchio si riempie (Ricepaper, icona Ocean 4.70:1) */
+.site-footer.theme-ocean .ft-social a:hover {
+  border-color: var(--ricepaper);
+  background-color: var(--ricepaper);
+  color: var(--ocean);
+}
