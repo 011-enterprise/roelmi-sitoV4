@@ -108,3 +108,15 @@
     drop-shadow(0 0 1px rgba(25, 25, 25, 0.35))
     drop-shadow(0 10px 22px rgba(25, 25, 25, 0.2));
 }
+
+/* Accessibilità (check del 28/10/2026): la descrizione in vetro chiaro delle
+   schede ora sta sopra la lastra Hard Grey. Con il vetro 0.50 il testo Hard
+   Grey scendeva a 4.8:1 (al limite per un testo di 13-14px): vetro più
+   pieno, 0.72 → 8.7:1. Solo con il mouse: su touch la descrizione sta sotto
+   il riquadro, senza vetro */
+@media (hover: hover) {
+  .fx-card-media--picto .fx-card-glass,
+  .product-media:has(> .picto) .product-desc {
+    background-color: rgba(247, 243, 235, 0.72);
+  }
+}
