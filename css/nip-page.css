@@ -1,0 +1,668 @@
+/* ==========================================================================
+   Pagina NIP® — Nature is People (testi e ordine di SITO 1, sistema SITO 3)
+   1 Apertura (scuro): reticolo molecolare + box con la texture di NIP e il
+     titolo su vetro scuro, come la sezione NIP della home
+   2 Introduzione (chiaro) · 3 Tre pilastri (chiaro, schede a fondo
+   d'accento) · 4 Sustainability in action (scuro, reticolo) · 5 Box finale
+   (.cta-box, base.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1 · Apertura
+   -------------------------------------------------------------------------- */
+
+.np-hero {
+  isolation: isolate;   /* il reticolo (.section-field) sta sotto il box */
+  padding-top: calc(var(--header-h) + 0.5rem);
+}
+
+/* Percorso: Home / Company / Sustainability · NIP® */
+.np-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--fs-small);
+}
+
+.np-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ricepaper);
+}
+
+.np-breadcrumb li + li::before {
+  content: "/";
+  content: "/" / "";   /* separatore solo visivo: lo screen reader non legge "slash" */
+}
+
+.np-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--ricepaper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.np-breadcrumb a[aria-current="page"] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Box con la texture di NIP (come in home) e il titolo sul vetro scuro */
+.np-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  align-items: end;
+  min-height: min(72vh, 680px);
+  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  border-radius: var(--r-stage);
+}
+
+.np-stage-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.np-stage-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.np-head {
+  width: fit-content;
+  max-width: 100%;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2.5rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+/* Titolo su tre righe; davanti a ogni riga la goccia ROELMI nel colore del
+   suo pilastro (decorativa: sul vetro il testo resta tutto Ricepaper) */
+.np-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.016em;
+  color: var(--ricepaper);
+}
+
+.np-title .eyebrow {
+  margin-bottom: 1.25rem;   /* misura dell'etichetta come nel resto del sito */
+}
+
+.np-line {
+  display: flex;
+  align-items: baseline;   /* parola in grassetto e resto sulla stessa linea di base */
+  gap: 0.35em;
+}
+
+.np-line b {
+  font-weight: 500;
+}
+
+.np-line::before {
+  content: "";
+  flex: none;
+  /* accanto alla prima riga anche se la frase va a capo:
+     (interlinea 1.12em - goccia 0.58em) / 2 */
+  align-self: flex-start;
+  width: 0.4em;
+  height: 0.58em;
+  margin-top: 0.27em;
+  margin-right: 0.15em;
+  background-color: var(--logo-blue);   /* goccia sempre nel colore del logo (regola del brand) */
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+}
+
+.np-line--nature     { --np-color: var(--olive); }
+.np-line--innovation { --np-color: var(--cerulean); }
+.np-line--people     { --np-color: var(--antique); }
+
+/* --------------------------------------------------------------------------
+   2 · Introduzione
+   -------------------------------------------------------------------------- */
+
+/* Paragrafo grande: come il paragrafo di Who We Are, parole chiave in Ocean */
+.np-statement {
+  max-width: 46ch;
+  /* SITO 4: paragrafo d'apertura nel font del testo, come Who We Are e il
+     prodotto (con Iwona a questa lunghezza si leggeva male) */
+  font-family: var(--font-body);
+  font-size: var(--fs-statement);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--hard-grey);
+}
+
+.np-statement strong {
+  font-weight: 600;
+}
+
+.np-statement .accent {
+  color: var(--ocean);
+}
+
+/* Parole spente finché lo scroll non le raggiunge (nip-page.js): grigio
+   della palette (6.2:1, leggibile anche spento), come Who in home */
+.np-word {
+  transition: color 0.45s var(--ease-out);
+}
+
+.np-statement.is-ready .np-word {
+  color: var(--muted);
+}
+
+.np-statement.is-ready .np-word.is-lit {
+  color: var(--hard-grey);
+}
+
+.np-statement.is-ready .accent .np-word.is-lit {
+  color: var(--ocean);
+}
+
+.np-intro-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem clamp(1.5rem, 1rem + 3vw, 4.5rem);
+  max-width: 64rem;
+  margin-top: var(--title-gap);
+  margin-left: auto;
+}
+
+.np-text {
+  line-height: 1.65;
+  color: var(--hard-grey);
+}
+
+.np-text strong {
+  font-weight: 600;
+}
+
+.np-text a,
+.np-lead a {
+  color: var(--ocean);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.np-intro-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  max-width: 64rem;
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  margin-left: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.np-lead {
+  max-width: 48ch;
+  color: var(--hard-grey);
+}
+
+/* --------------------------------------------------------------------------
+   3 · I tre pilastri: schede chiare che in hover si riempiono del loro colore
+   (Olive 9.2 · Cerulean 8.9 · Antique 10.4:1)
+   -------------------------------------------------------------------------- */
+
+.np-pillars-title {
+  max-width: 34ch;
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--hard-grey);
+}
+
+.np-pillars-title .eyebrow {
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.np-pillars-title strong {
+  font-weight: 500;
+}
+
+.np-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  margin-top: var(--title-gap);
+}
+
+.np-pillar {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.25rem, 1rem + 1.2vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  color: var(--hard-grey);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) var(--ease-out);
+}
+
+.np-pillar--nature     { --np-color: var(--olive); }
+.np-pillar--innovation { --np-color: var(--cerulean); }
+.np-pillar--people     { --np-color: var(--antique); }
+
+/* Come i riquadri di Impact: a riposo scheda chiara con bordo sottile e
+   goccia ROELMI nel colore del pilastro (decorativa); in hover si riempie
+   del suo colore. Testo sempre Hard Grey (Olive 9.2 · Cerulean 8.9 ·
+   Antique 10.4:1); Olive/Cerulean/Antique mai come testo sul chiaro */
+.np-pillar-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.np-pillar-mark::before {
+  content: "";
+  flex: none;
+  width: 0.42em;
+  height: 0.62em;
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+  transition: background-color var(--dur-ui) var(--ease-out);
+}
+
+.np-pillar:hover {
+  background-color: var(--np-color);
+  border-color: var(--np-color);
+}
+
+/* Iniziale grande (N · I · P): decorativa, il nome è nel titolo */
+.np-pillar-mark {
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.016em;
+}
+
+.np-pillar-title {
+  margin-top: clamp(2rem, 1rem + 3vw, 4rem);
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+
+.np-pillar p {
+  margin-top: 0.85rem;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.np-pillar strong {
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4 · Sustainability in action (scuro, reticolo molecolare)
+   -------------------------------------------------------------------------- */
+
+.np-section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-section);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.018em;
+  color: var(--fg);
+}
+
+.np-section-title span:not(.eyebrow) {
+  display: block;
+  margin-top: 1.25rem;   /* come in home */
+}
+
+.np-action-intro {
+  max-width: 48ch;
+  margin-top: 1.25rem;
+  color: var(--muted-on-dark);
+}
+
+/* Schede prodotto: come quelle del Finder, ma sul fondo scuro */
+.np-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  margin-top: var(--title-gap);
+}
+
+.np-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.75rem 0.75rem 1.25rem;
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--r-card);
+  transition: border-color var(--dur-ui) var(--ease-out);
+}
+
+.np-card-media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--r-inner);
+  background:
+    radial-gradient(closest-side, rgba(161, 187, 216, 0.22), rgba(161, 187, 216, 0.06) 60%, transparent),
+    rgba(247, 243, 235, 0.04);
+}
+
+.np-card-media img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.np-card-name {
+  margin-top: 1rem;
+  padding-inline: 0.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ricepaper);
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+/* Il link è il nome; la sua area cliccabile copre tutta la scheda */
+.np-card-link {
+  color: inherit;
+}
+
+.np-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--r-card);
+}
+
+.np-card-text {
+  margin-top: 0.5rem;
+  padding-inline: 0.25rem;
+  font-size: var(--fs-body);   /* grigio su nero: 16px (regola comune) */
+  line-height: 1.6;
+  color: var(--muted-on-dark);
+}
+
+/* Testo ancora da fornire */
+.np-card-text--todo {
+  font-style: italic;
+}
+
+.np-card:hover,
+.np-card:focus-within {
+  border-color: var(--ricepaper);
+}
+
+.np-card:hover .np-card-name,
+.np-card:focus-within .np-card-name {
+  color: var(--ocean-on-dark);
+}
+
+.np-card:hover .np-card-media img,
+.np-card:focus-within .np-card-media img {
+  transform: scale(1.05);
+}
+
+.np-card-link:focus-visible {
+  outline: none;
+}
+
+.np-card-link:focus-visible::after {
+  outline: 2px solid var(--ocean-on-dark);
+  outline-offset: 4px;
+}
+
+.motion-paused .np-card-media img {
+  transform: none;
+}
+
+/* Barra Ingredient Finder sotto le schede */
+.np-finder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-top: var(--section-y);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.np-finder-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--ricepaper);
+}
+
+.np-finder-title span {
+  display: block;
+  color: var(--muted-on-dark);
+}
+
+.np-finder .btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023.98px) {
+  .np-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Tablet e telefono: i tre pilastri scorrono di lato con aggancio, come le
+     schede di Sustainability in action; il successivo si intravede */
+  .np-pillars-grid {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+  }
+
+  .np-pillar {
+    flex: 0 0 min(80%, 420px);
+    scroll-snap-align: start;
+  }
+
+  .np-pillar-title {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 699.98px) {
+  .np-stage {
+    min-height: 0;
+    padding: 0.6rem;
+    padding-top: 24vh;
+    border-radius: var(--r-card);
+  }
+
+  .np-head {
+    width: auto;
+    padding: 1.1rem;
+    border-radius: var(--r-inner);
+  }
+
+  /* Telefono: titolo al livello "testo grande", così ogni frase sta su una riga */
+  .np-title {
+    font-size: var(--fs-large);
+  }
+
+  .np-intro-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .np-pillar {
+    border-radius: var(--r-inner);
+  }
+
+  .np-finder .btn {
+    width: 100%;
+  }
+}
+
+/* Telefono: le schede scorrono di lato con aggancio, come i Related products
+   di CytoFruit e il Blog (in due colonne erano troppo strette per il testo
+   a 16px); la successiva si intravede a destra */
+@media (max-width: 699.98px) {
+  .np-cards {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+  }
+
+  .np-cards > li {
+    flex: 0 0 72%;
+    scroll-snap-align: start;
+  }
+
+  .np-card {
+    border-radius: var(--r-inner);
+  }
+}
+
+/* ==========================================================================
+   Apertura: tre gocce che diventano una (scelta da Chiara il 22/10/2026)
+   Le gocce del logo nei colori dei tre pilastri (Olive · Cerulean · Antique)
+   partono separate, si avvicinano lentamente e si sovrappongono; al loro
+   posto resta una goccia sola con i tre colori sfumati ("closely
+   interconnected"). Si muove una volta, all'apertura. Stato di base = stato
+   finale (goccia unica): è quello che vedono Stop animation e reduced-motion.
+   Alternativa scartata, se servisse: trittico di texture (uno per pilastro).
+   ========================================================================== */
+
+/* Dentro il vetro scuro, a destra del titolo: sul fondo scuro i tre colori
+   risaltano (sulla texture chiara si perdevano). Margini laterali = spazio
+   per le gocce ancora separate all'inizio */
+.np-head {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.np-drops {
+  --drop-w: clamp(48px, 2.5rem + 2.5vw, 88px);
+  position: relative;
+  width: var(--drop-w);
+  aspect-ratio: 291.5 / 430;   /* goccia del logo (--drop-full) */
+  margin-inline: calc(var(--drop-w) * 1.4);
+  pointer-events: none;
+}
+
+.np-drop {
+  position: absolute;
+  inset: 0;
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+  opacity: 0;
+}
+
+/* Colori della palette come in SITO 3: scelta di Chiara (28/10/2026), è
+   l'unica eccezione alla regola del brand "goccia solo nel colore del logo" */
+.np-drop--nature     { background-color: var(--olive);    --drop-x: -135%; }
+.np-drop--innovation { background-color: var(--cerulean); --drop-x: 0%; }
+.np-drop--people     { background-color: var(--antique);  --drop-x: 135%; }
+
+.np-drop--one {
+  background-image: linear-gradient(160deg, var(--olive) 10%, var(--cerulean) 50%, var(--antique) 90%);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .np-drop:not(.np-drop--one) {
+    animation: np-drop-meet 2.8s cubic-bezier(0.65, 0, 0.35, 1) 0.6s both;
+  }
+
+  html:not(.motion-paused) .np-drop--one {
+    animation: np-drop-one 2.8s ease-out 0.6s both;
+  }
+}
+
+@keyframes np-drop-meet {
+  0%   { opacity: 0;   transform: translate3d(var(--drop-x), 12%, 0); }
+  15%  { opacity: 0.9; transform: translate3d(var(--drop-x), 0, 0); }
+  70%  { opacity: 0.9; transform: translate3d(0, 0, 0); }
+  100% { opacity: 0;   transform: translate3d(0, 0, 0); }
+}
+
+@keyframes np-drop-one {
+  0%, 62% { opacity: 0; transform: scale(0.92); }
+  100%    { opacity: 1; transform: none; }
+}
+
+/* Tablet e telefono: le gocce sopra il titolo, dentro il vetro */
+@media (max-width: 899.98px) {
+  .np-head {
+    grid-template-columns: auto;
+    row-gap: 1.25rem;
+  }
+
+  .np-drops {
+    --drop-w: 40px;
+    order: -1;
+    justify-self: center;
+  }
+}
+
+/* ==========================================================================
+   SITO 4 (28/10/2026): pagina allineata a home e prodotto.
+   Apertura su Hard Grey senza Force Field · intro e pilastri su fondo neutro
+   con sfumature (.theme-soft) · "In action" su Ocean (.theme-ocean: tutto
+   Ricepaper 4.70:1, Force Field nascosto) · chiusura su Ricepaper.
+   Sulle sfumature l'Ocean scende a 3.8:1: le parole chiave del paragrafo e il
+   link dell'intro diventano Hard Grey (semibold / sottolineato)
+   ========================================================================== */
+
+.theme-soft .np-statement .accent,
+.theme-soft .np-statement.is-ready .accent .np-word.is-lit,
+.theme-soft .np-lead a,
+.theme-soft .np-text a {
+  color: var(--hard-grey);
+}
+
+.theme-soft .np-statement .accent {
+  font-weight: 600;
+}

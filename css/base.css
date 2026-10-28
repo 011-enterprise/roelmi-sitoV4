@@ -712,3 +712,131 @@ a.btn:not(:has(svg)):hover::after,
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Fascia finale comune .cta-band (27/10/2026) — formato unico per chiudere
+   le pagine: riquadro basso e largo con texture, vetro chiaro sopra, testo e
+   frase a sinistra, bottoni a destra (nato dalla CTA dell'Ingredient Finder).
+   Testi e texture cambiano da pagina a pagina, il formato no.
+   Vetro chiaro (testo Hard Grey) → texture CHIARE; con una texture scura
+   usare .cta-band--dark (vetro scuro, testo Ricepaper), regola del vetro.
+   Formati di box nel sito: 1 questa fascia (chiusure) · 2 Newsletter (home,
+   Blog) · 3 box con texture dentro le pagine (.cta-box e simili)
+   ========================================================================== */
+
+.cta-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  border-radius: var(--r-stage);
+}
+
+.cta-band-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.cta-band-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vetro chiaro: dentro valgono sempre i colori del tema chiaro (anche se la
+   fascia sta in una sezione scura o Olive) */
+.cta-band-glass {
+  --fg: var(--hard-grey);
+  --bg: var(--ricepaper);
+  --accent: var(--ocean);
+  --fg-muted: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem clamp(1.5rem, 1rem + 4vw, 6rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+  border-radius: var(--r-card);
+  background-color: var(--glass-light-bg);
+  background-image: var(--glass-light-sheen);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-light-line);
+  color: var(--hard-grey);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .cta-band-glass {
+    background-color: rgba(247, 243, 235, 0.85);
+  }
+}
+
+.cta-band-copy {
+  flex: 1 1 22rem;
+}
+
+.cta-band-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.016em;
+  color: inherit;
+}
+
+.cta-band-text {
+  max-width: 46ch;
+  margin-top: 0.85rem;
+  font-size: var(--fs-body);
+  color: inherit;
+}
+
+.cta-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cta-band :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+/* Variante per texture scure: vetro scuro, testo Ricepaper */
+.cta-band--dark .cta-band-glass {
+  --fg: var(--ricepaper);
+  --bg: var(--hard-grey);
+  --accent: var(--cerulean);
+  --fg-muted: var(--muted-on-dark);
+  background-color: var(--glass-dark-bg);
+  background-image: none;
+  box-shadow: var(--glass-dark-line);
+  color: var(--ricepaper);
+}
+
+.cta-band--dark :focus-visible {
+  outline-color: var(--ricepaper);
+}
+
+@media (max-width: 599.98px) {
+  .cta-band {
+    padding: 0.6rem;
+    border-radius: var(--r-card);
+  }
+
+  .cta-band-glass {
+    padding: 1.25rem 1.1rem;
+    border-radius: var(--r-inner);
+  }
+
+  .cta-band-actions,
+  .cta-band-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .cta-band-actions .btn {
+    white-space: normal;
+    line-height: 1.3;
+    text-align: center;
+  }
+}
