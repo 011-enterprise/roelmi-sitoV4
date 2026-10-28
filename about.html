@@ -68,7 +68,7 @@
             </button>
             <div class="subnav" id="sub-company">
               <ul>
-                <li><a href="about.html" aria-current="page">About us</a></li>
+                <li><a href="#">About us</a></li>
                 <li><a href="#">Philosophy</a></li>
                 <li><a href="#">Sustainability</a></li>
                 <li><a href="#">NIP®</a></li>
@@ -108,14 +108,10 @@
     <span id="top"></span>
 
     <!-- ==================================================================
-         1 · APERTURA (scuro) — video + "RO · EL · MI" che diventa i nomi
+         1 · APERTURA (chiaro) — titolo, frase, tre fatti dell'azienda e video nel riquadro.
+         Niente video né nomi (richiesta del cliente, 26/10/2026)
          ================================================================== -->
-    <section class="ab-hero theme-dark" aria-labelledby="ab-title">
-      <div class="ab-hero-media" aria-hidden="true">
-        <video class="ab-video" muted loop playsinline preload="metadata" poster="video/about-poster.jpg" data-src="video/about-loop.mp4"></video>
-        <div class="ab-hero-scrim"></div>
-      </div>
-
+    <section class="ab-hero theme-light grain" aria-labelledby="ab-title">
       <div class="container ab-hero-inner">
         <nav class="ab-breadcrumb" aria-label="Breadcrumb">
           <ol>
@@ -124,38 +120,48 @@
           </ol>
         </nav>
 
-        <h1 class="ab-title" id="ab-title">
-          <span class="eyebrow">About us</span>
-          <span>The story behind a name</span>
-        </h1>
+        <div class="ab-hero-grid">
+          <div class="ab-hero-text">
+            <h1 class="ab-title" id="ab-title">
+              <span class="eyebrow">About us</span>
+              <span>The story behind a name</span>
+            </h1>
 
-        <!-- Il nome: lettura per lo screen reader + versione visiva animata -->
-        <p class="sr-only">ROELMI comes from ROsella, ELeonora and MIchela. HPC stands for Health and Personal Care.</p>
-        <div class="ab-name" aria-hidden="true">
-          <span class="ab-syl"><b>RO</b><span class="ab-tail"><span>sella</span></span></span>
-          <span class="ab-dot">·</span>
-          <span class="ab-syl"><b>EL</b><span class="ab-tail"><span>eonora</span></span></span>
-          <span class="ab-dot">·</span>
-          <span class="ab-syl"><b>MI</b><span class="ab-tail"><span>chela</span></span></span>
+            <!-- Prima frase del testo del prototipo (il seguito è nella sezione sotto) -->
+            <p class="ab-hero-lead">We are a family-owned company with an international business.</p>
+
+            <!-- Tre fatti già presenti nella pagina (timeline, sedi) -->
+            <ul class="ab-facts">
+              <li><span class="ab-fact-k">Since</span> <span class="ab-fact-v">2000</span></li>
+              <li><span class="ab-fact-k">Headquarters</span> <span class="ab-fact-v">Origgio, near Milan</span></li>
+              <li><span class="ab-fact-k">Offices</span> <span class="ab-fact-v">France, USA, China, South Korea</span></li>
+            </ul>
+          </div>
+
+          <!-- Video decorativo nel riquadro (hero-home-mobile di SITO 2, in loop), senza testo sopra.
+               Si ripete senza fine: il suo Stop animation sta nell'angolo -->
+          <div class="ab-hero-media">
+            <figure class="ab-hero-frame" aria-hidden="true">
+              <video class="ab-video" muted loop playsinline preload="metadata" poster="video/hero-home-poster-mobile.jpg" data-src="video/hero-home-mobile.mp4"></video>
+            </figure>
+            <button class="motion-toggle ab-motion" type="button" aria-pressed="false" data-motion-toggle>
+              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+              <span data-motion-label>Stop animation</span>
+            </button>
+          </div>
         </div>
-        <p class="ab-hpc" aria-hidden="true"><b>HPC</b> <span>Health and Personal Care</span></p>
       </div>
-
-      <button class="motion-toggle ab-motion" type="button" aria-pressed="false" data-motion-toggle>
-        <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
-        <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
-        <span data-motion-label>Stop animation</span>
-      </button>
     </section>
 
     <!-- ==================================================================
-         2 · LA STORIA (chiaro) — famiglia e sede
+         2 · LA STORIA (scuro) — famiglia e sede
          ================================================================== -->
-    <section class="ab-story section theme-light grain" aria-label="Our story">
+    <section class="ab-story section theme-ocean grain" aria-label="Our story">
       <div class="container ab-story-grid">
         <div class="ab-story-text">
-          <p class="ab-lead" data-reveal>We are a <strong>family-owned company</strong> with an international business. The name <strong>ROELMI</strong> is the combination of the names <strong>Rosella Malanchin</strong>, and the daughters <strong>Eleonora</strong> and <strong>Michela Santus</strong>. Through a play on letters and sounds, the name came to represent a strong sense of identity and the ambition to grow, expand and bring the Group’s vision to an international audience. <strong>HPC</strong> stands for <strong>Health and Personal Care</strong>, the two main areas in which we operate.</p>
-          <p class="ab-text" data-reveal>Our headquarters are located in Origgio, near Milan, with commercial offices in both Europe and outside the European Union, including <a href="#world">France, the USA, China and South Korea</a>. Our goal is to continue expanding our international presence providing high quality ingredients.</p>
+          <p class="ab-lead" data-reveal>The name <strong>ROELMI</strong> is the combination of the names <strong>Rosella Malanchin</strong>, and the daughters <strong>Eleonora</strong> and <strong>Michela Santus</strong>. Through a play on letters and sounds, the name came to represent a strong sense of identity and the ambition to grow, expand and bring the Group’s vision to an international audience. <strong>HPC</strong> stands for <strong>Health and Personal Care</strong>, the two main areas in which we operate.</p>
+          <p class="ab-text" data-reveal>Our headquarters are located in Origgio, near Milan, with commercial offices in both Europe and outside the European Union, including <a href="#presence">France, the USA, China and South Korea</a>. Our goal is to continue expanding our international presence providing high quality ingredients.</p>
         </div>
         <figure class="ab-photo" data-reveal>
           <div class="ab-photo-placeholder">Foto di famiglia — da fornire</div>
@@ -164,21 +170,38 @@
     </section>
 
     <!-- ==================================================================
-         3 · WHAT WE DO EVERYDAY + NIP® (scuro)
+         3 · WHAT WE DO EVERYDAY (chiaro)
          ================================================================== -->
-    <section class="ab-what section theme-dark grain" aria-labelledby="ab-what-title">
+    <section class="ab-what section theme-soft grain" aria-labelledby="ab-what-title">
       <div class="container">
         <h2 class="ab-section-title" id="ab-what-title">
           <span class="eyebrow" data-reveal>Our work</span>
           <span data-reveal data-reveal-delay="0.1">What we do everyday</span>
         </h2>
         <p class="ab-statement" data-reveal>We specialize in the development of active ingredients and functional ingredients for the <a href="#">personal care market</a>, as well as for the <a href="#">nutraceutical one</a>. Attention to detail is part of our everyday work, together with a strong commitment to quality and <strong>respect for the environment</strong>.</p>
+      </div>
+    </section>
 
-        <div class="ab-nip" data-reveal>
-          <p class="ab-nip-word" aria-hidden="true"><b>N</b>ature <b>i</b>s <b>P</b>eople</p>
-          <div class="ab-nip-text">
-            <p>In the early 2000s, this approach led to the creation of <a href="#">NIP® (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
-            <a class="btn btn--solid" href="#">Discover NIP®</a>
+    <!-- ==================================================================
+         3b · NIP® (scuro) — sezione a sé (in SITO 1 era un riquadro dentro
+         What we do). Riquadro texture + vetro scuro come in home
+         ================================================================== -->
+    <section class="ab-nip-sec section theme-soft grain" aria-labelledby="ab-nip-title" data-force-field-host>
+      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
+      <!-- Riquadro come la NIP della home, con la stessa texture (texture-18) +
+           vetro scuro con titolo, testo e bottone. Vetro scuro = texture libera -->
+      <div class="container">
+        <div class="cta-box ab-nip-box theme-dark">
+          <div class="cta-box-bg" aria-hidden="true">
+            <img src="images/nip/texture-18.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="cta-box-glass glass" data-reveal>
+            <h2 class="cta-box-title" id="ab-nip-title">
+              <span class="eyebrow">NIP®</span>
+              <span class="ab-nip-word"><b>N</b>ature <b>i</b>s <b>P</b>eople</span>
+            </h2>
+            <p class="cta-box-text">In the early 2000s, this approach led to the creation of <a href="#">NIP® (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
+            <div class="cta-box-actions"><a class="btn btn--solid" href="#">Discover NIP®</a></div>
           </div>
         </div>
       </div>
@@ -227,8 +250,10 @@
          La scena resta ferma e gli anni scorrono di lato (about.js).
          Senza animazione: riga scorrevole a mano.
          ================================================================== -->
-    <section class="ab-timeline theme-dark grain" aria-labelledby="ab-tl-title">
+    <section class="ab-timeline theme-ocean grain" aria-labelledby="ab-tl-title" data-force-field-host>
       <div class="ab-tl-stage">
+        <!-- Force Field dentro la parte ferma (sticky): resta con la linea del tempo -->
+        <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
         <div class="container ab-tl-head">
           <h2 class="ab-section-title" id="ab-tl-title">
             <span class="eyebrow">Since 2000</span>
@@ -298,116 +323,156 @@
     </section>
 
     <!-- ==================================================================
-         6 · WHERE FIND US IN THE WORLD (chiaro) — mappa a puntini + sedi
+         6 · GLOBAL PRESENCE (chiaro) — identica alla home, anche su telefono
+         (filtri, mappa, elenco a tendine, scheda della sede)
          ================================================================== -->
-    <section class="ab-world presence section theme-light grain" id="world" aria-labelledby="ab-world-title">
+    <section class="presence section theme-light grain" id="presence" aria-labelledby="presence-title">
       <div class="container">
-        <h2 class="ab-section-title" id="ab-world-title">
-          <span class="eyebrow" data-reveal>Global presence</span>
-          <span data-reveal data-reveal-delay="0.1">Where find us in the world</span>
+        <h2 class="presence-title" id="presence-title">
+          <span class="eyebrow" data-reveal>Global Presence</span>
+          <span data-reveal data-reveal-delay="0.1">Where we are in the world</span>
         </h2>
 
-        <div class="presence-map ab-map" aria-hidden="true" data-reveal>
-          <img src="images/presence/world-dots.svg" alt="" loading="lazy" decoding="async">
-          <span class="map-pin cat--site" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Origgio, near Milan</span></span>
-          <span class="map-pin cat--branch" style="left: 50.64%; top: 24.74%;"><span class="map-pin-hit"></span><span class="map-pin-label">Commercial office</span></span>
-          <span class="map-pin cat--branch" style="left: 29.42%; top: 30.35%;"><span class="map-pin-hit"></span><span class="map-pin-label">ROELMI USA</span></span>
-          <span class="map-pin cat--branch" style="left: 83.38%; top: 37.85%;"><span class="map-pin-hit"></span><span class="map-pin-label">ROELMI CHINA</span></span>
-          <span class="map-pin cat--branch" style="left: 85.31%; top: 32.83%;"><span class="map-pin-hit"></span><span class="map-pin-label">ROELMI KOREA</span></span>
+        <div class="presence-filters" role="group" aria-label="Filter locations">
+          <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-pill" type="button" data-filter="site" aria-pressed="false"><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</button>
+          <button class="filter-pill" type="button" data-filter="branch" aria-pressed="false"><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</button>
+          <button class="filter-pill" type="button" data-filter="biotech" aria-pressed="false"><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</button>
+          <button class="filter-pill" type="button" data-filter="lab" aria-pressed="false"><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</button>
+          <button class="filter-pill" type="button" data-filter="production" aria-pressed="false"><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</button>
+        </div>
+        <p class="presence-status sr-only" aria-live="polite"></p>
+
+        <div class="presence-stage" data-reveal>
+          <!-- Mappa: decorativa, le stesse informazioni sono nell'elenco sotto -->
+          <div class="presence-map" aria-hidden="true">
+            <img src="images/presence/world-dots.svg" alt="" loading="lazy" decoding="async">
+            <span class="map-pin map-pin--multi" data-group="italy" data-types="site lab biotech production" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Italy</span></span>
+            <span class="map-pin cat--branch" data-group="paris" data-types="branch" style="left: 50.64%; top: 24.74%;"><span class="map-pin-hit"></span><span class="map-pin-label">Paris</span></span>
+            <span class="map-pin cat--site" data-group="la" data-types="site" style="left: 17.16%; top: 35.18%;"><span class="map-pin-hit"></span><span class="map-pin-label">RK Colors</span></span>
+            <span class="map-pin cat--branch" data-group="nj" data-types="branch" style="left: 29.42%; top: 30.35%;"><span class="map-pin-hit"></span><span class="map-pin-label">Saddle Brook</span></span>
+            <span class="map-pin cat--branch" data-group="hz" data-types="branch" style="left: 83.38%; top: 37.85%;"><span class="map-pin-hit"></span><span class="map-pin-label">Hangzhou</span></span>
+            <span class="map-pin cat--branch" data-group="kr" data-types="branch" style="left: 85.31%; top: 32.83%;"><span class="map-pin-hit"></span><span class="map-pin-label">Seongnam-si</span></span>
+          </div>
+
+          <!-- Scheda della sede (si apre dall'elenco o dalla mappa) -->
+          <div class="site-card" id="siteCard" role="dialog" aria-modal="false" aria-labelledby="siteCardTitle" hidden>
+            <button class="site-card-close" type="button" aria-label="Close">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+            <p class="site-card-type"><span class="cat-dot" aria-hidden="true"></span><span class="site-card-type-text"></span></p>
+            <h3 class="site-card-title" id="siteCardTitle" tabindex="-1"></h3>
+            <p class="site-card-desc"></p>
+            <ul class="site-card-list"></ul>
+          </div>
         </div>
 
-        <ul class="ab-sites">
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--site" aria-hidden="true"></span>Italy</span>
-                <h3 class="ab-site-name">Origgio, near Milan</h3>
-              </summary>
-              <p class="ab-site-extra">Headquarters</p>
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--branch" aria-hidden="true"></span>France</span>
-                <h3 class="ab-site-name">Commercial office</h3>
-              </summary>
-              
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--branch" aria-hidden="true"></span>USA</span>
-                <h3 class="ab-site-name">ROELMI USA</h3>
-              </summary>
-              <p class="ab-site-extra">2018</p>
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--branch" aria-hidden="true"></span>China</span>
-                <h3 class="ab-site-name">ROELMI CHINA</h3>
-              </summary>
-              <p class="ab-site-extra">2022</p>
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--branch" aria-hidden="true"></span>South Korea</span>
-                <h3 class="ab-site-name">ROELMI KOREA</h3>
-              </summary>
-              <p class="ab-site-extra">2024</p>
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-          <li class="ab-site">
-            <details>
-              <summary>
-                <span class="ab-site-country"><span class="cat-dot cat--biotech" aria-hidden="true"></span>Italy</span>
-                <h3 class="ab-site-name">ROELMI BIOTECH</h3>
-              </summary>
-              <p class="ab-site-extra">2024</p>
-              <p class="ab-site-details">Details to be provided</p>
-            </details>
-          </li>
-        </ul>
+        <div class="presence-list">
+          <details class="presence-group" data-type="site">
+            <summary><h3><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Lainate</span><span class="site-sub">Production hub — Varese, Italy</span></button><p class="site-desc" hidden>Production plant dedicated to the development and manufacture of active ingredients for personal care.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Naples</span><span class="site-sub">Production hub — Campania, Italy</span></button><p class="site-desc" hidden>Production site in southern Italy, dedicated to processing naturally derived ingredients and marine bioactives.</p></li>
+              <li><button class="site-btn" type="button" data-group="la" aria-controls="siteCard" aria-expanded="false"><span class="site-name">RK Colors</span><span class="site-sub">Production hub — USA</span></button><p class="site-desc" hidden>US plant dedicated to the development and manufacture of functionalised pigments and active make-up ingredients.</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="branch">
+            <summary><h3><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="paris" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Paris</span><span class="site-sub">Subsidiary — France</span></button><p class="site-desc" hidden>ROELMI HPC France SARL — 32, rue de l'Arcade, 75008 Paris, France.</p></li>
+              <li><button class="site-btn" type="button" data-group="nj" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Saddle Brook</span><span class="site-sub">Subsidiary — USA</span></button><p class="site-desc" hidden>ROELMI HPC USA, LLC — 250 Pehle Avenue, Suite 200, Saddle Brook, New Jersey 07663, USA.</p></li>
+              <li><button class="site-btn" type="button" data-group="hz" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Hangzhou</span><span class="site-sub">Subsidiary — China (Asia-Pacific)</span></button><p class="site-desc" hidden>Hangzhou ROELMI HPC Biotech Co., Ltd — Room 505, Building 4, No. 199 Shimin Street, Shangcheng District, Hangzhou, Zhejiang, China.</p></li>
+              <li><button class="site-btn" type="button" data-group="kr" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Seongnam-si</span><span class="site-sub">Subsidiary — South Korea</span></button><p class="site-desc" hidden>ROELMI HPC Korea Ltd. — 918 &amp; 919, 9F, 36 Hwangsaeul-ro 200beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, South Korea (13595).</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="biotech">
+            <summary><h3><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BIOTECH</span><span class="site-sub">Biotech R&amp;D — Italy</span></button><p class="site-desc" hidden>Hub dedicated to the research and development of biotech solutions, fermentation-derived ingredients and advanced probiotics. Via Roberto Lepetit 34, 21040 Gerenzano (VA), Italy.</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="lab">
+            <summary><h3><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Solaro</span><span class="site-sub">Laboratory — Milan, Italy</span></button><p class="site-desc" hidden>Laboratory dedicated to the analysis and processing of active raw materials for the nutraceutical and food markets.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Origgio</span><span class="site-sub">Laboratory — Origgio (VA), Italy</span></button><p class="site-desc" hidden>ROELMI HPC — Via Celeste Milani 224, 21040 Origgio (VA), Italy.</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="production">
+            <summary><h3><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Vortex SRL SB</span><span class="site-sub">Manufacturing — Piedmont, Italy</span></button><p class="site-desc" hidden>Vortex SRL SB — Manufacturing site in Piedmont, Italy.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Isuschem srl</span><span class="site-sub">Manufacturing — Caserta, Italy</span></button><p class="site-desc" hidden>Isuschem srl — Via Thomas Alva Edison, 81100 Caserta (CE), Italy.</p></li>
+            </ul>
+          </details>
+        </div>
       </div>
     </section>
 
     <!-- ==================================================================
          7 · TOGETHER FOR A BETTER WORLD (scuro) — partner (segnaposto)
          ================================================================== -->
-    <section class="ab-partners section theme-dark grain" aria-labelledby="ab-partners-title">
+    <section class="ab-partners section theme-ocean grain" aria-labelledby="ab-partners-title" data-force-field-host>
+      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <h2 class="ab-section-title" id="ab-partners-title">
           <span class="eyebrow" data-reveal>Partners</span>
           <span data-reveal data-reveal-delay="0.1">Together for a better world</span>
         </h2>
-        <ul class="ab-logos">
-          <li class="ab-logo">Logo partner — da fornire</li>
-          <li class="ab-logo">Logo partner — da fornire</li>
-          <li class="ab-logo">Logo partner — da fornire</li>
-          <li class="ab-logo">Logo partner — da fornire</li>
-          <li class="ab-logo">Logo partner — da fornire</li>
-          <li class="ab-logo">Logo partner — da fornire</li>
-        </ul>
+      </div>
+      <!-- Loghi che scorrono come le certificazioni in home: la seconda copia
+           serve solo allo scorrimento continuo. Si ferma al passaggio del
+           mouse e con Stop animation; con reduced-motion vanno a capo -->
+      <div class="ab-partners-band" data-reveal>
+        <div class="ab-partners-track">
+          <ul class="ab-logos" aria-label="Partners">
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+          </ul>
+          <ul class="ab-logos" aria-hidden="true">
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+            <li class="ab-logo">Logo partner — da fornire</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container ab-partners-controls">
+        <button class="motion-toggle ab-partners-motion" type="button" aria-pressed="false" data-motion-toggle>
+          <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+          <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+          <span data-motion-label>Stop animation</span>
+        </button>
       </div>
     </section>
 
     <!-- ==================================================================
-         8 · CHIUSURA (chiaro) — Ingredient Finder
+         8 · CHIUSURA (chiaro) — Ingredient Finder, nel box come la fine di
+         CytoFruit: riquadro con texture (quella dell'Ingredient Finder) e
+         vetro scuro sopra
          ================================================================== -->
-    <section class="ab-close section theme-light grain" aria-labelledby="ab-close-title">
-      <div class="container ab-close-inner">
-        <h2 class="ab-close-title" id="ab-close-title" data-reveal>Looking for a specific target? <span>Explore our portfolio in the Ingredient Finder</span></h2>
-        <a class="btn btn--solid ab-close-cta" href="ingredient-finder.html" data-reveal data-reveal-delay="0.1">Open Ingredient Finder <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <section class="ab-close section theme-soft grain" aria-labelledby="ab-close-title">
+      <div class="container">
+        <aside class="cta-band" aria-labelledby="ab-close-title" data-reveal>
+          <div class="cta-band-bg" aria-hidden="true">
+            <img src="images/finder/texture-13.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="cta-band-glass">
+            <div class="cta-band-copy">
+              <h2 class="cta-band-title" id="ab-close-title">Looking for a specific target?</h2>
+              <p class="cta-band-text">Explore our portfolio in the Ingredient Finder.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn--solid" href="ingredient-finder.html">Open Ingredient Finder</a>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -442,7 +507,7 @@
         <nav class="ft-col" aria-labelledby="ft-company">
           <h2 class="ft-h" id="ft-company">Company</h2>
           <ul>
-            <li><a href="about.html">About us</a></li>
+            <li><a href="#">About us</a></li>
             <li><a href="#">Philosophy</a></li>
             <li><a href="#">Sustainability</a></li>
             <li><a href="#">Certifications</a></li>
@@ -490,6 +555,9 @@
   <script src="js/motion.js"></script>
   <script src="js/reveal.js" defer></script>
   <script src="js/header.js" defer></script>
+  <script src="js/force-field.js" defer></script>
+  <!-- presence.js: filtri, elenco, scheda della sede e onda dei pallini, come in home -->
+  <script src="js/presence.js" defer></script>
   <script src="js/about.js" defer></script>
 </body>
 </html>

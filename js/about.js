@@ -1,12 +1,13 @@
 /* ==========================================================================
    About us
-   1. Video dell'apertura in loop (si ferma con Stop animation)
-   2. "RO · EL · MI" si apre nei nomi: un solo momento, al caricamento
+   1. Video dell'apertura nel riquadro a destra, in loop (si ferma con
+      Stop animation / reduced-motion: resta il fotogramma fermo)
+   2. What we do: la frase si accende parola per parola scorrendo
    3. Our Approach: la linea della sequenza si riempie scorrendo
    4. Timeline: la scena resta ferma e gli anni scorrono di lato
       (da tastiera: il focus su un link porta l'anno in vista)
-   Con Stop animation / reduced-motion: nome già aperto, linea piena,
-   timeline come riga scorrevole a mano.
+   Con Stop animation / reduced-motion: linea piena, timeline come riga
+   scorrevole a mano.
    ========================================================================== */
 
 (function () {
@@ -19,7 +20,7 @@
   }
 
   /* ------------------------------------------------------------------------
-     1. Video
+     1. Video dell'apertura
      ------------------------------------------------------------------------ */
 
   var video = document.querySelector('.ab-video');
@@ -32,23 +33,58 @@
   if (video) {
     video.muted = true;
     if (video.dataset.src) video.src = video.dataset.src;
+    // File mancante: resta il fotogramma di anteprima
     video.addEventListener('error', function () { video.removeAttribute('src'); video.load(); }, true);
   }
 
+
   /* ------------------------------------------------------------------------
-     2. Il nome che si apre
+     2. What we do: la frase si accende parola per parola scorrendo (come
+        Who We Are in home). Le parole si dividono sul posto, così i link e
+        i grassetti restano veri e lo screen reader legge la frase intera.
+        Con Stop animation / reduced-motion: tutta accesa.
      ------------------------------------------------------------------------ */
 
-  var hero = document.querySelector('.ab-hero');
-  function expandName() { if (hero) hero.classList.add('is-expanded'); }
+  var statement = document.querySelector('.ab-statement');
+  var words = [];
 
-  if (hero) {
-    if (!motionOn()) {
-      expandName();
-    } else {
-      var go = function () { setTimeout(expandName, 500); };
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(go); else go();
-      setTimeout(expandName, 2500); // rete di sicurezza
+  function splitWords(el) {
+    Array.prototype.slice.call(el.childNodes).forEach(function (node) {
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            var w = document.createElement('span');
+            w.className = 'ab-word';
+            w.textContent = part;
+            frag.appendChild(w);
+            words.push(w);
+          }
+        });
+        el.replaceChild(frag, node);
+      } else if (node.nodeType === 1) {
+        splitWords(node);
+      }
+    });
+  }
+
+  if (statement) {
+    splitWords(statement);
+    statement.classList.add('is-ready');
+  }
+
+  function renderWords() {
+    if (!statement) return;
+    var vh = window.innerHeight;
+    var r = statement.getBoundingClientRect();
+    // si accende mentre la frase sale dall'85% dello schermo
+    var p = motionOn() ? clamp((vh * 0.85 - r.top) / (r.height + vh * 0.5)) : 1;
+    var lit = Math.round(p * words.length);
+    for (var i = 0; i < words.length; i++) {
+      words[i].classList.toggle('is-lit', i < lit);
     }
   }
 
@@ -121,13 +157,13 @@
      ------------------------------------------------------------------------ */
 
   function onScroll() {
+    renderWords();
     renderSteps();
     renderTimeline();
   }
 
   function onChange() {
     syncVideo();
-    if (!motionOn()) expandName();
     measureTimeline();
     onScroll();
   }
