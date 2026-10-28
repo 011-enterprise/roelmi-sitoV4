@@ -205,8 +205,99 @@
       </div>
     </section>
 
+
     <!-- ==================================================================
-         4 · TECHNICAL DETAILS (chiaro) — tre gruppi a tendina + certificazioni
+         4 · TECHNICAL DATA (chiaro) — da SITO 3, come SITO 1: carosello, testo a sinistra
+         e grafico (immagine) a destra. Senza JS i grafici sono in colonna;
+         frecce e scorrimento: js/product-charts.js
+         ================================================================== -->
+    <section class="pd-charts section theme-light grain" id="technical-data" aria-labelledby="pd-charts-title">
+      <div class="container">
+        <div class="pd-charts-head">
+          <h2 class="pd-section-title" id="pd-charts-title">
+            <span class="eyebrow" data-reveal>Technical data</span>
+            <span class="pd-todo" data-reveal data-reveal-delay="0.1">Titolo della sezione — da definire</span>
+          </h2>
+          <div class="pd-charts-nav">
+            <button class="pd-arrow" type="button" data-dir="-1" aria-label="Previous chart" aria-controls="pd-charts-track">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button class="pd-arrow" type="button" data-dir="1" aria-label="Next chart" aria-controls="pd-charts-track">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="pd-charts-track" id="pd-charts-track" role="region" aria-roledescription="carousel" aria-label="Technical data" data-reveal data-reveal-delay="0.15">
+          <article class="pd-chart" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="pd-chart-text">
+              <h3 class="pd-chart-title pd-todo">Titolo del grafico 01 — da fornire</h3>
+              <p class="pd-placeholder">Descrizione tecnica da fornire: cosa mostra il grafico, in quali condizioni è stato ottenuto il dato e che cosa se ne conclude.</p>
+            </div>
+            <figure class="pd-chart-fig">
+              <div class="pd-chart-ph"><span>Grafico 01 — da fornire</span></div>
+              <figcaption><b>Fig. 01</b> <span class="pd-placeholder">Didascalia e metodo — da fornire</span></figcaption>
+            </figure>
+          </article>
+          <article class="pd-chart" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="pd-chart-text">
+              <h3 class="pd-chart-title pd-todo">Titolo del grafico 02 — da fornire</h3>
+              <p class="pd-placeholder">Descrizione tecnica da fornire: cosa mostra il grafico, in quali condizioni è stato ottenuto il dato e che cosa se ne conclude.</p>
+            </div>
+            <figure class="pd-chart-fig">
+              <div class="pd-chart-ph"><span>Grafico 02 — da fornire</span></div>
+              <figcaption><b>Fig. 02</b> <span class="pd-placeholder">Didascalia e metodo — da fornire</span></figcaption>
+            </figure>
+          </article>
+          <article class="pd-chart" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="pd-chart-text">
+              <h3 class="pd-chart-title pd-todo">Titolo del grafico 03 — da fornire</h3>
+              <p class="pd-placeholder">Descrizione tecnica da fornire: cosa mostra il grafico, in quali condizioni è stato ottenuto il dato e che cosa se ne conclude.</p>
+            </div>
+            <figure class="pd-chart-fig">
+              <div class="pd-chart-ph"><span>Grafico 03 — da fornire</span></div>
+              <figcaption><b>Fig. 03</b> <span class="pd-placeholder">Didascalia e metodo — da fornire</span></figcaption>
+            </figure>
+          </article>
+          <article class="pd-chart" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="pd-chart-text">
+              <h3 class="pd-chart-title pd-todo">Titolo del grafico 04 — da fornire</h3>
+              <p class="pd-placeholder">Descrizione tecnica da fornire: cosa mostra il grafico, in quali condizioni è stato ottenuto il dato e che cosa se ne conclude.</p>
+            </div>
+            <figure class="pd-chart-fig">
+              <div class="pd-chart-ph"><span>Grafico 04 — da fornire</span></div>
+              <figcaption><b>Fig. 04</b> <span class="pd-placeholder">Didascalia e metodo — da fornire</span></figcaption>
+            </figure>
+          </article>
+        </div>
+        <p class="sr-only" aria-live="polite" data-charts-status></p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         5 · VIDEO (fondo Ocean, SITO 4) — da SITO 3, come SITO 1: anteprima a sinistra, testo a destra.
+         Il clic apre il video su YouTube in una nuova scheda
+         ================================================================== -->
+    <section class="pd-video section theme-ocean grain" id="video" aria-labelledby="pd-video-title">
+      <div class="container pd-video-grid">
+        <a class="pd-video-link" href="#" target="_blank" rel="noopener" data-reveal>
+          <span class="pd-video-ph" aria-hidden="true">Fotogramma del video — da fornire</span>
+          <span class="pd-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 5l11 7-11 7z"/></svg></span>
+          <span class="sr-only">Watch the video on YouTube (opens in a new tab)</span>
+        </a>
+        <div class="pd-video-text">
+          <h2 class="pd-section-title" id="pd-video-title">
+            <span class="eyebrow" data-reveal>Watch</span>
+            <span class="pd-todo" data-reveal data-reveal-delay="0.1">Titolo del video — da definire</span>
+          </h2>
+          <p class="pd-video-desc pd-placeholder" data-reveal data-reveal-delay="0.15">Una o due righe che dicano che cosa si vede nel video e perché vale la pena guardarlo.</p>
+          <p class="pd-video-meta pd-placeholder">Durata da fornire</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         6 · TECHNICAL DETAILS (chiaro) — tre gruppi a tendina + certificazioni
          ================================================================== -->
     <section class="pd-tech section theme-light grain" aria-labelledby="pd-tech-title">
       <div class="container">
@@ -271,7 +362,7 @@
     </section>
 
     <!-- ==================================================================
-         5 · RELATED PRODUCTS (chiaro) — stesse schede del Finder
+         7 · RELATED PRODUCTS (chiaro) — stesse schede del Finder
          ================================================================== -->
     <section class="pd-related section theme-light grain" aria-labelledby="pd-related-title">
       <div class="container">
@@ -322,7 +413,7 @@
     </section>
 
     <!-- ==================================================================
-         6 · RICHIESTA (fondo Olive) — texture + vetro scuro (il riquadro resta scuro: bottoni e testo come su Hard Grey)
+         8 · RICHIESTA (fondo Olive) — texture + vetro scuro (il riquadro resta scuro: bottoni e testo come su Hard Grey)
          ================================================================== -->
     <section class="pd-contact section theme-olive grain" id="contact" aria-labelledby="pd-contact-title">
       <div class="container">
@@ -423,5 +514,6 @@
   <script src="js/header.js" defer></script>
   <script src="js/product-hero.js" defer></script>
   <script src="js/force-field.js" defer></script>
+  <script src="js/product-charts.js" defer></script>
 </body>
 </html>
