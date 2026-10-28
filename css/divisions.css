@@ -43,7 +43,7 @@
 
 .division-name {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 1.1rem + 1vw, 2.125rem);
+  font-size: clamp(1.4rem, 0.935rem + 0.85vw, 1.806rem);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.035em;

@@ -87,7 +87,7 @@
   display: block;
   max-width: 18ch;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 1.3rem + 3vw, 4rem);
+  font-size: clamp(2rem, 1.105rem + 2.55vw, 3.4rem);
   font-weight: 500;
   line-height: 1.04;
   letter-spacing: -0.045em;
@@ -98,7 +98,7 @@
 /* Prima frase: grande e centrata, come Until */
 .story-step--intro {
   max-width: none;
-  font-size: clamp(2.5rem, 1.4rem + 4.8vw, 5.75rem);
+  font-size: clamp(2.5rem, 1.19rem + 4.08vw, 4.888rem);
   text-align: center;
 }
 

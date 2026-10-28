@@ -221,7 +221,7 @@
 
 .finder-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 1.2rem + 3vw, 4.25rem);
+  font-size: clamp(2rem, 1.02rem + 2.55vw, 3.612rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.045em;

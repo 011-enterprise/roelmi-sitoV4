@@ -193,31 +193,26 @@
     </section>
 
     <!-- ==================================================================
-         2 · WHO WE ARE (chiaro) — dichiarazione che si accende con lo scroll
+         2 · WHO WE ARE (chiaro) — foto a sinistra (da SITO 1), testo che si accende con lo scroll
          ================================================================== -->
     <section class="who section theme-light grain" id="who" aria-labelledby="who-title">
       <div class="container who-inner">
-        <h2 class="who-heading" id="who-title">
-          <span class="eyebrow" data-reveal>Who We Are</span>
-          <span class="who-title" data-reveal data-reveal-delay="0.1">Innovation for Health and Personal Care</span>
-        </h2>
+        <figure class="who-figure" data-reveal>
+          <img src="images/who/chi-siamo.jpg" alt="" width="1125" height="1800" loading="lazy" decoding="async">
+        </figure>
 
-        <p class="who-statement">Since 2017, <strong>ROELMI HPC</strong> has been turning scientific research into <strong class="accent">functional and active ingredients</strong> designed for real-world applications. Across the Cosmetics and Nutraceutical sectors, the portfolio continues to evolve around emerging global needs, including the <strong class="accent">IN&amp;OUT approach</strong>, <strong class="accent">longevity</strong>, <strong class="accent">metabolic health</strong> and <strong class="accent">overall wellbeing</strong>.</p>
+        <div class="who-text">
+          <h2 class="who-heading" id="who-title">
+            <span class="eyebrow" data-reveal>Who We Are</span>
+            <span class="who-title" data-reveal data-reveal-delay="0.1">Innovation for Health and Personal Care</span>
+          </h2>
 
-        <div class="who-actions" data-reveal>
-          <a class="btn btn--outline" href="#">Contact Us</a>
-          <a class="btn btn--solid" href="#">Discover more<span class="sr-only"> about ROELMI HPC</span></a>
-        </div>
-      </div>
+          <p class="who-statement">Since 2017, <strong>ROELMI HPC</strong> has been turning scientific research into <strong class="accent">functional and active ingredients</strong> designed for real-world applications. Across the Cosmetics and Nutraceutical sectors, the portfolio continues to evolve around emerging global needs, including the <strong class="accent">IN&amp;OUT approach</strong>, <strong class="accent">longevity</strong>, <strong class="accent">metabolic health</strong> and <strong class="accent">overall wellbeing</strong>.</p>
 
-      <!-- Texture decorative, tutte della stessa dimensione -->
-      <div class="who-gallery" aria-hidden="true">
-        <div class="who-track">
-          <figure class="who-shot"><img src="images/who/texture-7.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <figure class="who-shot"><img src="images/who/texture-8.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <figure class="who-shot"><img src="images/who/texture-9.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <figure class="who-shot"><img src="images/who/texture-10.jpg" alt="" loading="lazy" decoding="async"></figure>
-          <figure class="who-shot"><img src="images/who/texture-11.jpg" alt="" loading="lazy" decoding="async"></figure>
+          <div class="who-actions glass theme-dark" data-reveal>
+            <a class="btn btn--solid" href="#">Contact Us</a>
+            <a class="btn btn--outline" href="#">Discover more<span class="sr-only"> about ROELMI HPC</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -431,6 +426,14 @@
           </ul>
         </div>
       </div>
+      <!-- Stop animation anche qui, accanto al carosello (non basta la pausa in hover) -->
+      <div class="certs-controls">
+        <button class="motion-toggle certs-motion" type="button" aria-pressed="false" data-motion-toggle>
+          <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+          <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+          <span data-motion-label>Stop animation</span>
+        </button>
+      </div>
     </section>
 
     <!-- ==================================================================
@@ -575,9 +578,10 @@
     </section>
 
     <!-- ==================================================================
-         8 · BLOG (chiaro) — lista editoriale con anteprima al passaggio
+         8 · BLOG (scuro) — struttura di SITO 1: tre schede affiancate
          ================================================================== -->
-    <section class="blog section theme-dark grain" id="blog" aria-labelledby="blog-title">
+    <section class="blog section theme-dark grain" id="blog" aria-labelledby="blog-title" data-force-field-host>
+      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <div class="blog-head">
           <h2 class="blog-title" id="blog-title">
@@ -586,11 +590,12 @@
           </h2>
           <div class="blog-intro" data-reveal data-reveal-delay="0.15">
             <p>New product launches, the exhibitions that we attend, <strong>the science behind our ingredients</strong>.</p>
-            <a class="btn btn--outline" href="#">Discover more<span class="sr-only"> on the blog</span></a>
+            <a class="btn btn--solid" href="#">Discover more<span class="sr-only"> on the blog</span></a>
           </div>
         </div>
 
-        <div class="blog-list">
+        <!-- Come SITO 1: tre schede affiancate (su telefono scorrono di lato) -->
+        <div class="blog-grid">
           <article class="post">
             <div class="post-thumb" aria-hidden="true"><img src="images/blog/korea.jpg" alt="" loading="lazy" decoding="async"></div>
             <p class="post-cat">Events</p>
@@ -613,12 +618,6 @@
             <span class="post-more" aria-hidden="true"><span class="post-more-text">Read more</span><span class="post-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
           </article>
 
-          <!-- Anteprima che segue il cursore (decorativa) -->
-          <div class="blog-preview" aria-hidden="true">
-            <img src="images/blog/korea.jpg" alt="" loading="lazy" decoding="async">
-            <img src="images/blog/sole24ore.jpg" alt="" loading="lazy" decoding="async">
-            <img src="images/blog/equibiotics.jpg" alt="" loading="lazy" decoding="async">
-          </div>
         </div>
       </div>
     </section>
@@ -772,7 +771,6 @@
   <script src="js/nip.js" defer></script>
   <script src="js/force-field.js" defer></script>
   <script src="js/presence.js" defer></script>
-  <script src="js/blog.js" defer></script>
   <script src="js/newsletter.js" defer></script>
   <script src="js/popup.js" defer></script>
 </body>

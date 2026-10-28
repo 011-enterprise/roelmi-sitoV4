@@ -202,7 +202,7 @@
           <p class="ab-nip-word" aria-hidden="true"><b>N</b>ature <b>i</b>s <b>P</b>eople</p>
           <div class="ab-nip-text">
             <p>In the early 2000s, this approach led to the creation of <a href="#">NIP® (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
-            <a class="btn btn--outline" href="#">Discover NIP®</a>
+            <a class="btn btn--solid" href="#">Discover NIP®</a>
           </div>
         </div>
       </div>
@@ -258,7 +258,16 @@
             <span class="eyebrow">Since 2000</span>
             <span>Our evolution in the years</span>
           </h2>
-          <div class="ab-tl-progress" aria-hidden="true"><span></span></div>
+          <!-- A destra del titolo: Stop animation (gli anni scorrono di lato
+               con lo scroll) sopra la barra di avanzamento -->
+          <div class="ab-tl-tools">
+            <button class="motion-toggle ab-tl-motion" type="button" aria-pressed="false" data-motion-toggle>
+              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+              <span data-motion-label>Stop animation</span>
+            </button>
+            <div class="ab-tl-progress" aria-hidden="true"><span></span></div>
+          </div>
         </div>
         <div class="ab-tl-viewport">
           <ol class="ab-tl-track">

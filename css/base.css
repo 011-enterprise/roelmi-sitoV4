@@ -22,6 +22,9 @@
   --line: rgba(25, 25, 25, 0.16);
   --line-on-dark: rgba(247, 243, 235, 0.18);
 
+  /* Freccia di SITO 1 (stessa linea dei cerchi del Blog), usata come maschera */
+  --arrow-right: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>");
+
   /* Goccia del logo ROELMI (con le foglie), usata come maschera */
   --roelmi-drop: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='218.8 0 36.3 54'><path fill-rule='evenodd' d='M219.592 39.0469L219.592 39.0469C219.413 39.1744 219.246 39.3085 219.08 39.4447C220.325 46.6456 225.814 52.3868 232.882 54C235.897 50.6007 236.325 45.4714 233.62 41.5769C230.452 37.0142 224.192 35.8746 219.625 39.0252C226.547 34.242 236.04 35.9632 240.844 42.8765C243.029 46.025 243.863 49.7033 243.478 53.2345C245.208 52.5598 246.808 51.6321 248.236 50.4947C247.749 48.1096 246.783 45.785 245.308 43.6636C239.666 35.5437 228.681 33.3381 220.377 38.5041C231.189 31.5173 245.148 32.9142 254.362 41.2806C254.809 39.7086 255.052 38.05 255.052 36.3373C255.052 34.3717 254.729 32.4861 254.148 30.7129C250.818 18.3914 236.928 0 236.928 0C236.928 0 223.039 18.3914 219.709 30.7129C219.134 32.4861 218.809 34.3717 218.809 36.3373C218.809 37.3883 218.905 38.4219 219.075 39.4253C219.246 39.2955 219.415 39.1701 219.592 39.0469'/></svg>");
 
@@ -34,11 +37,13 @@
   --fs-small: 0.875rem;                             /* 14px */
   --fs-body: 1rem;                                  /* 16px */
   --fs-lead: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem);
-  --fs-h3: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
-  --fs-h2: clamp(2.5rem, 1.4rem + 4.6vw, 6.5rem);
-  --fs-display: clamp(3.25rem, 1.6rem + 7.2vw, 9.5rem);
+  --fs-h3: clamp(1.5rem, 0.935rem + 1.19vw, 1.912rem);
+  --fs-h2: clamp(2.5rem, 1.19rem + 3.91vw, 5.525rem);
+  --fs-display: clamp(3.25rem, 1.36rem + 6.12vw, 8.075rem);
   /* Titolo di sezione: una sola misura per tutte (NIP® resta più grande) */
-  --fs-section: clamp(2rem, 1.2rem + 2.8vw, 4rem);
+  --fs-section: clamp(2rem, 1.02rem + 2.38vw, 3.4rem);
+  /* Testo grande (da SITO 3): paragrafo di Who, titoli delle schede del Blog */
+  --fs-large: clamp(1.5rem, 0.977rem + 0.765vw, 1.806rem);
 
   /* Angoli: tre misure fisse */
   --r-stage: 28px;   /* grandi riquadri (NIP, Newsletter) */
@@ -168,6 +173,18 @@ body {
   pointer-events: none;
 }
 
+/* Force Field (js/force-field.js) sul fondo di una sezione scura con grana
+   (Blog, da SITO 3): sotto la grana (-1) e sopra il fondo della sezione.
+   La sezione ha data-force-field-host. Decorativo, fermo con Stop animation */
+.section-field {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* --------------------------------------------------------------------------
    Tipografia comune: etichetta piccola + titolo molto grande
    -------------------------------------------------------------------------- */
@@ -250,12 +267,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.6em;
-  min-height: 44px;
-  padding: 0 1.4rem;
-  border: 1px solid currentColor;
+  /* CTA più evidenti (SITO 4): 48px di altezza e testo 15px */
+  min-height: 48px;
+  padding: 0 1.6rem;
+  border: 1.5px solid currentColor;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: var(--fs-small);
+  font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -290,6 +308,28 @@ body {
 .btn--outline:hover {
   background-color: var(--fg);
   color: var(--bg);
+}
+
+/* Freccia → sulle CTA che portano altrove (link), come in SITO 3; in hover
+   scorre appena a destra. Esclusi i bottoni che agiscono sul posto (<button>)
+   e i link che hanno già la loro freccia (svg) */
+a.btn:not(:has(svg))::after {
+  content: "";
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+a.btn:not(:has(svg)):hover::after {
+  transform: translateX(3px);
+}
+
+.motion-paused a.btn::after {
+  transform: none !important;
 }
 
 /* --------------------------------------------------------------------------

@@ -1,9 +1,8 @@
 /* ==========================================================================
    Who We Are
-   1. Il paragrafo si accende parola per parola durante lo scroll
-      (lo screen reader legge sempre il testo intero)
-   2. La fascia di immagini scorre da destra verso sinistra con lo scroll
-   Con Stop animation / reduced-motion: tutto acceso, immagini ferme.
+   Il paragrafo si accende parola per parola durante lo scroll
+   (lo screen reader legge sempre il testo intero).
+   Con Stop animation / reduced-motion: tutto acceso.
    ========================================================================== */
 
 (function () {
@@ -13,8 +12,7 @@
   if (!section) return;
 
   var statement = section.querySelector('.who-statement');
-  var gallery = section.querySelector('.who-gallery');
-  var track = section.querySelector('.who-track');
+  if (!statement) return;
   var words = [];
 
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
@@ -51,52 +49,30 @@
     });
   }
 
-  if (statement) {
-    var original = statement.cloneNode(true);
-    var sr = document.createElement('span');
-    sr.className = 'sr-only';
-    sr.textContent = statement.textContent.replace(/\s+/g, ' ').trim();
-    var vis = document.createElement('span');
-    vis.setAttribute('aria-hidden', 'true');
-    splitInto(original, vis);
-    statement.textContent = '';
-    statement.appendChild(sr);
-    statement.appendChild(vis);
-    statement.classList.add('is-ready');
-  }
+  var original = statement.cloneNode(true);
+  var sr = document.createElement('span');
+  sr.className = 'sr-only';
+  sr.textContent = statement.textContent.replace(/\s+/g, ' ').trim();
+  var vis = document.createElement('span');
+  vis.setAttribute('aria-hidden', 'true');
+  splitInto(original, vis);
+  statement.textContent = '';
+  statement.appendChild(sr);
+  statement.appendChild(vis);
+  statement.classList.add('is-ready');
 
   /* ------------------------------------------------------------------------
-     2. Disegno in base allo scroll
+     2. Disegno in base allo scroll: le parole si accendono mentre il
+        paragrafo sale dall'85% al 35% dello schermo
      ------------------------------------------------------------------------ */
 
   function render() {
     var vh = window.innerHeight;
-    var animated = motionOn();
-
-    // Parole: si accendono mentre il paragrafo sale dall'85% al 35% dello schermo
-    if (words.length) {
-      var r = statement.getBoundingClientRect();
-      var p = animated ? clamp((vh * 0.85 - r.top) / (r.height + vh * 0.5)) : 1;
-      var lit = Math.round(p * words.length);
-      for (var i = 0; i < words.length; i++) {
-        words[i].classList.toggle('is-lit', i < lit);
-      }
-    }
-
-    // Immagini: da destra verso sinistra. Il movimento è distribuito su
-    // tutto il passaggio della sezione (non solo della fascia): così è più
-    // lento e si vedono tutte le texture
-    if (track) {
-      if (!animated) {
-        track.style.transform = '';
-        return;
-      }
-      var s = section.getBoundingClientRect();
-      var prog = clamp((vh - s.top) / (vh + s.height));
-      var travel = Math.max(0, track.scrollWidth - window.innerWidth);
-      var startX = window.innerWidth * 0.15;
-      var x = startX - prog * (travel + startX);
-      track.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+    var r = statement.getBoundingClientRect();
+    var p = motionOn() ? clamp((vh * 0.85 - r.top) / (r.height + vh * 0.5)) : 1;
+    var lit = Math.round(p * words.length);
+    for (var i = 0; i < words.length; i++) {
+      words[i].classList.toggle('is-lit', i < lit);
     }
   }
 

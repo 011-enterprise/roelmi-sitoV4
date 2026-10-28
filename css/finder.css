@@ -33,7 +33,7 @@
 }
 
 /* Texture 13: si avvicina e si allontana lentissimamente.
-   Ferma con lo Stop animation del footer e con reduced-motion */
+   Ferma con il suo Stop animation (.fx-motion), quello del footer e con reduced-motion */
 .fx-texture {
   width: 100%;
   height: 100%;
@@ -50,9 +50,28 @@
   animation-play-state: paused;
 }
 
+/* Stop animation in alto a destra, pillola di vetro scuro come in About */
+.fx-motion {
+  position: absolute;
+  top: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  right: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  padding-inline: 1rem;
+  border-radius: 999px;
+  background-color: var(--glass-dark-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-dark-line);
+  color: var(--ricepaper);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fx-texture {
     animation: none;
+  }
+
+  /* La texture è già ferma: il bottone qui non serve */
+  .fx-motion {
+    display: none;
   }
 }
 
@@ -543,7 +562,7 @@
 
 .fx-empty-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  font-size: clamp(1.4rem, 0.935rem + 0.85vw, 1.7rem);
   font-weight: 500;
   letter-spacing: -0.03em;
 }

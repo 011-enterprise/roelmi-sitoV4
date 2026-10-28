@@ -66,7 +66,7 @@
 .stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 1.8rem + 6vw, 8rem);
+  font-size: clamp(3.5rem, 1.53rem + 5.1vw, 6.8rem);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.055em;
@@ -143,9 +143,30 @@
   animation-play-state: paused;
 }
 
+/* Bottone Stop animation sotto la fascia, a destra (stesso bottone di hero e
+   footer, motion.js): qui su fondo chiaro, quindi Hard Grey e hover Ocean */
+.certs-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.certs-motion {
+  color: var(--hard-grey);
+}
+
+.certs-motion:hover {
+  color: var(--ocean);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .certs-track {
     animation: none;
+  }
+
+  /* La fascia è già ferma: il bottone qui non serve */
+  .certs-controls {
+    display: none;
   }
 
   /* Ferma: la lista va a capo invece di scorrere */

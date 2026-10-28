@@ -1,19 +1,45 @@
 /* ==========================================================================
-   2 · Who We Are (chiaro) — la "dichiarazione" in stile Until
-   Etichetta · titolo · paragrafo grande che si accende parola per parola
-   durante lo scroll · link · fascia di immagini che entra da destra.
+   2 · Who We Are (chiaro) — via di mezzo tra SITO 1 e SITO 2
+   Foto a sinistra (da SITO 1) · a destra etichetta, titolo, paragrafo che
+   si accende parola per parola durante lo scroll (da SITO 2, più piccolo)
+   e i due bottoni allineati al testo.
    ========================================================================== */
 
 .who {
-  /* Grigio delle parole "spente": 3.2:1 su Ricepaper, valido solo per testo
-     grande (il paragrafo è sempre ≥ 24px) */
-  --who-dim: #8A8780;
-  overflow: hidden;
+  /* Grigio delle parole "spente": il grigio della palette (--muted), 6.2:1
+     su Ricepaper, valido anche come testo normale. Prima era #8A8780 (3.2:1,
+     solo per testo grande e fuori palette) */
+  --who-dim: var(--muted);
 }
 
 .who-inner {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
 }
+
+/* --------------------------------------------------------------------------
+   Foto
+   -------------------------------------------------------------------------- */
+
+.who-figure {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background-color: var(--line);
+}
+
+.who-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+
+/* --------------------------------------------------------------------------
+   Testo
+   -------------------------------------------------------------------------- */
 
 .who-title {
   display: block;
@@ -27,19 +53,14 @@
   color: var(--hard-grey);
 }
 
-/* --------------------------------------------------------------------------
-   Paragrafo-dichiarazione
-   -------------------------------------------------------------------------- */
-
 .who-statement {
-  max-width: 28ch;
+  max-width: 32ch;
   margin-top: var(--title-gap);
-  margin-left: auto;
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 1rem + 2.4vw, 3.25rem);
+  font-size: var(--fs-large);
   font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: -0.035em;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--hard-grey);
 }
 
@@ -69,78 +90,69 @@
 }
 
 /* --------------------------------------------------------------------------
-   Link
+   Bottoni: allineati a sinistra con il testo
    -------------------------------------------------------------------------- */
 
+/* Come le CTA di NIP in home (e la pillola di SITO 1): una pillola di vetro
+   scuro che contiene i due bottoni. .theme-dark sulla pillola: CTA piena
+   Cerulean con testo Hard Grey, contorno Ricepaper (sul vetro 0.68 sopra il
+   Ricepaper il fondo è ≈ #605E5A: Ricepaper ≥ 6:1) */
 .who-actions {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  max-width: 28ch;
-  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
-  margin-left: auto;
-  font-size: clamp(1.625rem, 1rem + 2.4vw, 3.25rem); /* allinea alla colonna del paragrafo */
+  gap: 0.5rem;
+  margin-top: clamp(1.75rem, 1.25rem + 1.2vw, 2.5rem);
+  padding: 0.5rem;
+  border-radius: 999px;
 }
 
-.who-actions .btn {
-  font-size: var(--fs-small);
+.who-actions :focus-visible {
+  outline-color: var(--ricepaper);
 }
 
-.who-actions svg {
-  width: 14px;
-  height: 14px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  transition: transform var(--dur-ui) var(--ease-out);
-}
+@media (max-width: 599.98px) {
+  .who-actions {
+    display: flex;
+    border-radius: var(--r-inner);
+  }
 
-.who-actions .btn:hover svg {
-  transform: translateX(3px);
+  .who-actions .btn {
+    flex: 1 1 auto;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   Fascia di immagini: entra da destra verso sinistra con lo scroll
+   Tablet e telefono: una colonna, foto sopra
    -------------------------------------------------------------------------- */
 
-.who-gallery {
-  margin-top: var(--section-y);
+@media (max-width: 899.98px) {
+  .who-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .who-figure {
+    aspect-ratio: 4 / 3;
+  }
 }
 
-.who-track {
-  display: flex;
-  gap: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
-  width: max-content;
-  padding-left: var(--gutter);
-  will-change: transform;
-}
+/* Telefono (23/10/2026): niente pillola di vetro dietro i bottoni. Sul fondo
+   Ricepaper i bottoni tornano nei colori del tema chiaro: piena Ocean con
+   testo Ricepaper (4.69:1), contorno Hard Grey; focus Ocean */
+@media (max-width: 599.98px) {
+  .who-actions {
+    --fg: var(--hard-grey);
+    --bg: var(--ricepaper);
+    --accent: var(--ocean);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--hard-grey);
+  }
 
-.who-shot {
-  flex: none;
-  width: clamp(240px, 16rem + 18vw, 560px);
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: var(--r-card);
-  background-color: var(--line);
-}
-
-.who-shot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Senza animazione (Stop animation, reduced-motion o senza JS):
-   la fascia si può scorrere a mano */
-.who-gallery {
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.who-gallery::-webkit-scrollbar {
-  display: none;
-}
-
-.js:not(.motion-paused) .who-gallery {
-  overflow: visible;
+  .who-actions :focus-visible {
+    outline-color: var(--ocean);
+  }
 }
