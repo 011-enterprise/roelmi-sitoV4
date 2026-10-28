@@ -1282,3 +1282,106 @@ html:not(.js) .pd-charts-nav {
   background-color: var(--hard-grey);
   color: var(--ricepaper);
 }
+
+/* ==========================================================================
+   PROVA SITO 4 (28/10/2026): apertura con il pittogramma (.pd-phero,
+   P.heroVariant = 'picto' nel generatore). Sostituisce la goccia con la
+   texture (la goccia del logo compare solo nel suo colore: regola del brand).
+   Fondo .theme-soft; testo sempre sul fondo chiaro (Hard Grey ≥ 12.8:1,
+   grigio ≥ 5:1); riquadro nel colore del mercato (css/picto.css) con il
+   pittogramma che esce a destra e in basso, sopra la sezione seguente.
+   ========================================================================== */
+
+/* Sopra la sezione seguente: il pittogramma che esce dal fondo resta visibile */
+.pd-phero {
+  position: relative;
+  z-index: 2;
+  padding-top: calc(var(--header-h) + clamp(1.5rem, 1rem + 2vw, 3rem));
+}
+
+.pd-phero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 1rem + 4vw, 6rem);
+  align-items: center;
+}
+
+.pd-phero-name {
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--hard-grey);
+}
+
+.pd-phero-name > span:not(.eyebrow) {
+  display: block;
+  margin-top: 1rem;
+  font-size: var(--fs-h2);   /* ~88px: i nomi lunghi (SelectSIEVE® HopE) vanno a capo nella colonna */
+  letter-spacing: -0.016em;
+}
+
+/* Testi dell'apertura: nel tema della sezione (prima erano Ricepaper sul vetro scuro) */
+.pd-phero .pd-function {
+  color: var(--hard-grey);
+}
+
+.pd-phero .pd-intro {
+  color: var(--hard-grey);
+}
+
+.pd-phero .pd-tags li {
+  border-color: var(--hard-grey);
+  color: var(--hard-grey);
+}
+
+.pd-phero .pd-breadcrumb li + li::before,
+.pd-phero .pd-breadcrumb a {
+  color: var(--muted);
+}
+
+.pd-phero .pd-breadcrumb a[aria-current="page"] {
+  color: var(--hard-grey);
+}
+
+.pd-phero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.5rem, 1rem + 1vw, 2.25rem);
+}
+
+/* Riquadro: più alto che largo; il pittogramma esce di più che nelle schede.
+   --picto-shift lo sposta con lo scroll (js/product-picto.js) */
+.pd-phero-visual .picto {
+  --picto-ratio: 4 / 5;
+}
+
+.pd-phero-visual .picto-img {
+  right: -9%;
+  bottom: -18%;
+  height: 112%;
+  transform: translate3d(0, var(--picto-shift, 0px), 0);
+  transition: none;
+}
+
+.pd-phero-visual .picto-blob {
+  filter: blur(40px);
+}
+
+/* Tablet e telefono: riquadro sopra (più basso), testo sotto */
+@media (max-width: 899.98px) {
+  .pd-phero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pd-phero-visual {
+    order: -1;
+    width: min(100%, 420px);
+    margin-bottom: clamp(2.5rem, 8vw, 4rem);   /* spazio per la parte che esce */
+  }
+
+  .pd-phero-visual .picto {
+    --picto-ratio: 1 / 1;
+  }
+}

@@ -79,8 +79,9 @@
     var onLight = false;
     for (var i = 0; i < els.length; i++) {
       if (header.contains(els[i])) continue;
-      var sec = els[i].closest('.theme-light, .theme-dark, .hero, .theme-olive, .theme-cerulean, .theme-antique');
-      if (sec) { onLight = !sec.classList.contains('theme-dark') && !sec.classList.contains('hero'); break; }
+      // SITO 4: anche i fondi neutri con sfumature (chiari) e Ocean (scuro)
+      var sec = els[i].closest('.theme-light, .theme-soft, .theme-dark, .theme-ocean, .hero, .theme-olive, .theme-cerulean, .theme-antique');
+      if (sec) { onLight = !sec.classList.contains('theme-dark') && !sec.classList.contains('theme-ocean') && !sec.classList.contains('hero'); break; }
     }
     header.classList.toggle('is-on-light', onLight);
   }

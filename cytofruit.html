@@ -111,20 +111,18 @@
     <span id="top"></span>
 
     <!-- ==================================================================
-         1 · APERTURA (scuro) — variante scelta in P.heroVariant: 'word' (B) o 'drop' (A)
-         All'inizio la texture si vede dentro una goccia enorme; scorrendo la
-         goccia riempie lo schermo e compare la scheda di vetro.
-         Stop animation / reduced-motion: subito lo stato finale.
+         1 · APERTURA con il pittogramma (SITO 4, P.heroVariant = 'picto')
+         Fondo neutro con sfumature · a sinistra percorso, nome, funzione,
+         descrizione, certificazioni e CTA (sempre sul fondo chiaro) · a destra
+         il riquadro nel colore del mercato con il pittogramma della forma
+         fisica (P.form) in vetro, che esce dal bordo destro e da quello
+         inferiore, sopra la sezione seguente. Decorativo (aria-hidden).
+         Movimento: il pittogramma sale appena più lento (js/product-picto.js),
+         fermo con Stop animation / reduced-motion
          ================================================================== -->
-    <section class="pd-hero pd-hero--drop theme-dark" aria-labelledby="pd-title">
-      <div class="pd-hero-stage">
-        <div class="pd-hero-media" aria-hidden="true">
-          <img class="pd-hero-full" src="images/portfolio/texture-2.jpg" alt="" decoding="async">
-          <div class="pd-hero-scrim"></div>
-          <div class="pd-hero-drop"><img src="images/portfolio/texture-2.jpg" alt="" decoding="async"></div>
-        </div>
-
-        <div class="container pd-hero-inner">
+    <section class="pd-phero section theme-soft grain" aria-labelledby="pd-title">
+      <div class="container pd-phero-grid">
+        <div class="pd-phero-text">
           <nav class="pd-breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li><a href="index.html">Home</a></li>
@@ -133,19 +131,26 @@
             </ol>
           </nav>
 
-          <h1 class="pd-hero-name" id="pd-title">
+          <h1 class="pd-phero-name" id="pd-title">
             <span class="eyebrow">Personal Care, Nature</span>
-            <span class="pd-hero-word" style="background-image: url('images/portfolio/texture-2.jpg')">CytoFruit<sup class="pd-reg">®</sup></span>
+            <span>CytoFruit<sup class="pd-reg">®</sup></span>
           </h1>
+          <p class="pd-function">Biologically active waters</p>
+          <p class="pd-intro">Fruit-derived active waters designed to replace demineralized water in cosmetic formulations — a symbiosis between technology and sustainability, obtained from ingredients that have already left the food chain.</p>
+          <ul class="pd-tags" aria-label="Certifications">
+            <li>COSMOS / ICEA</li>
+            <li>Palm oil free</li>
+          </ul>
+          <div class="pd-phero-actions">
+            <a class="btn btn--solid" href="#contact">Request datasheet</a>
+            <a class="btn btn--outline" href="#technical-data">Technical data</a>
+          </div>
+        </div>
 
-          <div class="pd-hero-card glass">
-            <p class="pd-function">Biologically active waters</p>
-            <p class="pd-intro">Fruit-derived active waters designed to replace demineralized water in cosmetic formulations — a symbiosis between technology and sustainability, obtained from ingredients that have already left the food chain.</p>
-            <ul class="pd-tags" aria-label="Certifications">
-              <li>COSMOS / ICEA</li>
-              <li>Palm oil free</li>
-            </ul>
-            <a class="btn btn--solid pd-cta" href="#contact">Request datasheet</a>
+        <div class="pd-phero-visual">
+          <div class="picto" aria-hidden="true">
+            <span class="picto-frame"><span class="picto-blob"></span></span>
+            <img class="picto-img" src="images/pittogrammi/LIQUIDI.png" alt="" decoding="async" fetchpriority="high">
           </div>
         </div>
       </div>
@@ -512,7 +517,7 @@
   <script src="js/motion.js"></script>
   <script src="js/reveal.js" defer></script>
   <script src="js/header.js" defer></script>
-  <script src="js/product-hero.js" defer></script>
+  <script src="js/product-picto.js" defer></script>
   <script src="js/force-field.js" defer></script>
   <script src="js/product-charts.js" defer></script>
 </body>
