@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Pop-up evento (home) — come in SITO 1, nello stile nuovo
+   Fondo Antique pieno (accento della palette) con testo Hard Grey: 10.4:1.
+   In basso a destra ma sopra "Stop animation" del hero. Entra scivolando dal basso; con
+   reduced-motion compare e basta.
+   ========================================================================== */
+
+.site-popup {
+  position: fixed;
+  right: var(--gutter);
+  bottom: clamp(4.5rem, 3.5rem + 2vw, 5.5rem);
+  z-index: 90;   /* sotto l'header (100) e il suo pannello */
+  width: min(320px, calc(100vw - 2 * var(--gutter)));
+  padding: 1.25rem 1.25rem 1.35rem;
+  border-radius: var(--r-card);
+  color: var(--hard-grey);
+  background-color: var(--antique);
+  box-shadow: 0 12px 40px rgba(25, 25, 25, 0.22);
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+.site-popup.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.site-popup :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+.site-popup-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--hard-grey);
+  transition: background-color var(--dur-ui) var(--ease-out);
+}
+
+.site-popup-close:hover {
+  background-color: rgba(25, 25, 25, 0.08);
+}
+
+.site-popup-close svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+}
+
+.site-popup-tag {
+  padding-right: 2.5rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+.site-popup-title {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.site-popup-desc {
+  margin-top: 0.6rem;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--hard-grey);
+}
+
+.site-popup-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.4rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-popup-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-popup {
+    transform: none;
+    transition: opacity 0.01ms;
+  }
+}
+
+/* Telefono: in basso, a tutta larghezza, sopra la barra del hero */
+@media (max-width: 559.98px) {
+  .site-popup {
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+    bottom: 4.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Linguetta laterale: compare quando il pop-up è chiuso e lo riapre.
+   Bordo destro, a metà altezza; testo verticale dal basso verso l'alto.
+   Antique pieno + Hard Grey (10.4:1); larga 44px (target touch).
+   -------------------------------------------------------------------------- */
+
+.site-popup-tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 90;
+  min-width: 44px;
+  padding: 1.1rem 0.75rem;
+  border-radius: 0 var(--r-inner) var(--r-inner) 0;   /* ruotata di 180°: angoli tondi a sinistra */
+  background-color: var(--antique);
+  color: var(--hard-grey);
+  box-shadow: 0 8px 24px rgba(25, 25, 25, 0.18);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: translate3d(100%, -50%, 0) rotate(180deg);
+  opacity: 0;
+  cursor: pointer;
+  transition:
+    transform 0.6s var(--ease-out),
+    opacity 0.45s var(--ease-out),
+    padding var(--dur-ui) var(--ease-out);
+}
+
+.site-popup-tab.is-visible {
+  transform: translate3d(0, -50%, 0) rotate(180deg);
+  opacity: 1;
+}
+
+.site-popup-tab:hover {
+  padding-right: 1rem;
+}
+
+/* Contorno dentro la linguetta (fuori finirebbe oltre il bordo dello schermo) */
+.site-popup-tab:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: -5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-popup-tab,
+  .site-popup-tab.is-visible {
+    transform: translate3d(0, -50%, 0) rotate(180deg);
+    transition: opacity 0.01ms;
+  }
+}
+
+/* Telefono: più piccola e più in basso (non a metà schermo).
+   A vista è larga 28px; l'area di tocco resta 44px grazie a ::after,
+   che la allarga verso l'interno della pagina */
+@media (max-width: 559.98px) {
+  .site-popup-tab {
+    top: auto;
+    bottom: 7.5rem;
+    min-width: 0;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
+    transform: translate3d(100%, 0, 0) rotate(180deg);
+  }
+
+  .site-popup-tab.is-visible {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+
+  .site-popup-tab::after {
+    content: "";
+    position: absolute;
+    inset: 0 -16px 0 0;   /* ruotata: il lato destro è quello verso la pagina */
+  }
+
+  .site-popup-tab:hover {
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 559.98px) and (prefers-reduced-motion: reduce) {
+  .site-popup-tab,
+  .site-popup-tab.is-visible {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+}
