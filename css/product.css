@@ -898,8 +898,7 @@
   width: 0.85rem;
   height: 1.25rem;
   margin-bottom: 1rem;
-  /* Goccia piena nel colore del logo (non negli accenti: regola del brand);
-     in hover sul fondo d'accento diventa Hard Grey (nero su chiaro) */
+  /* Goccia del logo sempre nel suo azzurro, anche in hover (regola del brand) */
   background-color: var(--logo-blue);
   -webkit-mask: var(--drop-full) center / contain no-repeat;
   mask: var(--drop-full) center / contain no-repeat;
@@ -918,10 +917,6 @@
     background-color: var(--pd-accent);
     background-image: none;
     box-shadow: none;
-  }
-
-  .pd-benefit:hover::before {
-    background-color: var(--hard-grey);
   }
 }
 

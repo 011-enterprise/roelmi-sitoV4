@@ -219,9 +219,3 @@
   }
 }
 
-/* Gocce separatrici a colori alternati (accenti della palette).
-   Sono decorative: il contrasto non serve a leggere i nomi.
-   6 voci per lista, ciclo di 3 → la giunzione del carosello resta continua */
-.certs-list li:nth-child(3n + 1)::after { background-color: var(--antique); }
-.certs-list li:nth-child(3n + 2)::after { background-color: var(--olive); }
-.certs-list li:nth-child(3n)::after     { background-color: var(--cerulean); }
