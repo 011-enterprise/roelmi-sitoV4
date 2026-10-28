@@ -102,3 +102,93 @@
   if (window.RoelmiMotion) window.RoelmiMotion.onChange(render);
   render();
 })();
+
+/* ==========================================================================
+   SITO 4 — animazioni nuove della pagina NIP
+   1. Ciclo dell'economia circolare: il cerchio si disegna mentre l'intro
+      attraversa lo schermo (--loop-p da 0 a 1); le tappe si accendono quando
+      il cerchio le raggiunge (in alto 0, destra 0.25, basso 0.5, sinistra 0.75)
+   2. Pilastri: entrata quando la scheda entra (.is-filled: texture che si
+      assesta, lettera e vetro che salgono); su schermi larghi la texture
+      scorre più lenta della scheda (--np-shift)
+   Con Stop animation / reduced-motion: stato finale, fermo.
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  function motionOn() {
+    return window.RoelmiMotion ? !window.RoelmiMotion.isPaused() : true;
+  }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+  var loop = document.querySelector('[data-np-loop]');
+  var steps = loop ? Array.prototype.slice.call(loop.querySelectorAll('.np-loop-step')) : [];
+  var pillarsSec = document.querySelector('.np-pillars');
+  var pillars = pillarsSec ? Array.prototype.slice.call(pillarsSec.querySelectorAll('.np-pillar')) : [];
+  var wideMq = window.matchMedia('(min-width: 900px)');
+  var SHIFT = [0, 0, 0];   // pilastri versione 5: nessuno scorrimento
+  var ticking = false;
+
+  function setup() {
+    var on = motionOn();
+    if (loop) loop.classList.toggle('is-animated', on);
+    if (pillarsSec) pillarsSec.classList.toggle('is-animated', on);
+    if (!on) {
+      if (loop) loop.style.removeProperty('--loop-p');
+      pillars.forEach(function (p) { p.style.removeProperty('--np-shift'); });
+    }
+    request();
+  }
+
+  function draw() {
+    ticking = false;
+    if (!motionOn()) return;
+    var vh = window.innerHeight;
+
+    if (loop) {
+      // 0 quando il cerchio entra dal basso, 1 quando il suo centro è a metà schermo
+      var r = loop.getBoundingClientRect();
+      var p = clamp((vh - r.top) / (vh * 0.5 + r.height * 0.5));
+      loop.style.setProperty('--loop-p', p.toFixed(3));
+      steps.forEach(function (s, i) { s.classList.toggle('is-on', p >= i * 0.25 + 0.04); });
+    }
+
+    if (pillarsSec && wideMq.matches) {
+      var pr = pillarsSec.getBoundingClientRect();
+      var q = clamp((vh - pr.top) / (vh + pr.height)) - 0.5;   // da -0.5 a 0.5
+      pillars.forEach(function (el, i) {
+        el.style.setProperty('--np-shift', (q * 2 * (SHIFT[i] || 0)).toFixed(1) + 'px');
+      });
+    } else {
+      pillars.forEach(function (el) { el.style.removeProperty('--np-shift'); });
+    }
+  }
+
+  function request() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(draw);
+    }
+  }
+
+  // Lettere: si riempiono una volta, quando la scheda è ben dentro lo schermo
+  if ('IntersectionObserver' in window && pillars.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-filled');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    pillars.forEach(function (p) { io.observe(p); });
+  } else {
+    pillars.forEach(function (p) { p.classList.add('is-filled'); });
+  }
+
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request);
+  if (window.RoelmiMotion) window.RoelmiMotion.onChange(setup);
+  setup();
+})();

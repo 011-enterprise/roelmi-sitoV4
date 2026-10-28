@@ -157,6 +157,31 @@
           <p class="np-text">We apply the principles of the <strong>circular economy</strong> to agricultural resources: using <strong>cutting-edge technological processes</strong>, we regenerate supply chain waste to <strong>create premium raw materials for the cosmetics and nutraceuticals markets</strong>.</p>
         </div>
 
+        <!-- SITO 4: il ciclo dell'economia circolare (dal testo qui sopra).
+             Elenco ordinato leggibile anche senza il disegno; il cerchio è
+             decorativo e si disegna con lo scroll (js/nip-page.js) -->
+        <div class="np-loop" data-np-loop>
+          <svg class="np-loop-ring" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="npLoopGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#B4C09D"/>
+                <stop offset="0.5" stop-color="#A1BBD8"/>
+                <stop offset="1" stop-color="#E9BEAF"/>
+              </linearGradient>
+            </defs>
+            <circle class="np-loop-track" cx="200" cy="200" r="160"/>
+            <circle class="np-loop-path" cx="200" cy="200" r="160" pathLength="1" transform="rotate(-90 200 200)"/>
+            <g class="np-loop-dot"><circle cx="200" cy="40" r="11"/></g>
+          </svg>
+          <p class="np-loop-center" aria-hidden="true">Circular<br>economy</p>
+          <ol class="np-loop-steps" aria-label="Our circular economy, step by step">
+            <li class="np-loop-step" style="--n:1"><span class="np-loop-n" aria-hidden="true">01</span>Agricultural supply chain waste</li>
+            <li class="np-loop-step" style="--n:2"><span class="np-loop-n" aria-hidden="true">02</span>Cutting-edge technological processes</li>
+            <li class="np-loop-step" style="--n:3"><span class="np-loop-n" aria-hidden="true">03</span>Premium raw materials</li>
+            <li class="np-loop-step" style="--n:4"><span class="np-loop-n" aria-hidden="true">04</span>Cosmetics and nutraceuticals markets</li>
+          </ol>
+        </div>
+
         <div class="np-intro-foot">
           <p class="np-lead">Discover how our <a href="#in-action">sustainability initiatives</a> are turning our commitments into concrete results.</p>
           <a class="btn btn--outline" href="#">Download the Sustainability Report</a>
@@ -175,23 +200,38 @@
         </h2>
 
         <ul class="np-pillars-grid" data-reveal data-reveal-delay="0.15">
-          <li class="np-pillar np-pillar--nature">
-            <span class="np-pillar-mark" aria-hidden="true">N</span>
-            <h3 class="np-pillar-title">Nature</h3>
-            <p>We promote the use of <strong>renewable raw materials</strong> while working constantly to optimize our production processes and lower carbon emissions.</p>
-            <p>By embracing <strong>circular economy</strong> principles, we help our customers develop ingredients with a lower ecological footprint.</p>
+          <!-- Box con la sola iniziale; il testo appare in un vetro al passaggio
+               del mouse o con il focus da tastiera (tabindex 0). Lo screen
+               reader legge sempre titolo e testo -->
+          <li class="np-pillar np-pillar--nature" tabindex="0">
+            <span class="np-pillar-mark" aria-hidden="true"><span class="np-pillar-letter">N</span></span>
+            <div class="np-pillar-glass">
+              <h3 class="np-pillar-title">Nature</h3>
+              <p>We promote the use of <strong>renewable raw materials</strong> while working constantly to optimize our production processes and lower carbon emissions.</p>
+              <p>By embracing <strong>circular economy</strong> principles, we help our customers develop ingredients with a lower ecological footprint.</p>
+            </div>
           </li>
-          <li class="np-pillar np-pillar--innovation">
-            <span class="np-pillar-mark" aria-hidden="true">I</span>
-            <h3 class="np-pillar-title">Innovation</h3>
-            <p>We develop <strong>innovative technologies</strong> and <strong>smarter solutions</strong> to improve our product performance while continuously maximizing process efficiency.</p>
-            <p>We are constantly striving to improve our production processes and reduce waste that is harmful to the environment.</p>
+          <!-- Box con la sola iniziale; il testo appare in un vetro al passaggio
+               del mouse o con il focus da tastiera (tabindex 0). Lo screen
+               reader legge sempre titolo e testo -->
+          <li class="np-pillar np-pillar--innovation" tabindex="0">
+            <span class="np-pillar-mark" aria-hidden="true"><span class="np-pillar-letter">I</span></span>
+            <div class="np-pillar-glass">
+              <h3 class="np-pillar-title">Innovation</h3>
+              <p>We develop <strong>innovative technologies</strong> and <strong>smarter solutions</strong> to improve our product performance while continuously maximizing process efficiency.</p>
+              <p>We are constantly striving to improve our production processes and reduce waste that is harmful to the environment.</p>
+            </div>
           </li>
-          <li class="np-pillar np-pillar--people">
-            <span class="np-pillar-mark" aria-hidden="true">P</span>
-            <h3 class="np-pillar-title">People</h3>
-            <p>We invest heavily in creating a <strong>safe and inclusive</strong> workplace while strongly supporting the professional development and overall wellbeing of our employees.</p>
-            <p>We firmly believe that responsible innovation can only start with people who feel fully valued, supported, and empowered.</p>
+          <!-- Box con la sola iniziale; il testo appare in un vetro al passaggio
+               del mouse o con il focus da tastiera (tabindex 0). Lo screen
+               reader legge sempre titolo e testo -->
+          <li class="np-pillar np-pillar--people" tabindex="0">
+            <span class="np-pillar-mark" aria-hidden="true"><span class="np-pillar-letter">P</span></span>
+            <div class="np-pillar-glass">
+              <h3 class="np-pillar-title">People</h3>
+              <p>We invest heavily in creating a <strong>safe and inclusive</strong> workplace while strongly supporting the professional development and overall wellbeing of our employees.</p>
+              <p>We firmly believe that responsible innovation can only start with people who feel fully valued, supported, and empowered.</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -213,8 +253,8 @@
         <ul class="np-cards" data-reveal data-reveal-delay="0.2">
           <li>
             <article class="np-card">
-              <div class="np-card-media" aria-hidden="true">
-                <img src="images/portfolio/cytofruit.png" alt="" loading="lazy" decoding="async">
+              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/LIQUIDI.svg" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="cytofruit.html">CytoFruit<sup>®</sup></a></h3>
               <p class="np-card-text">We offer fruit-derived waters from food chain by-products as alternative to demineralized water in cosmetics.</p>
@@ -222,8 +262,8 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media" aria-hidden="true">
-                <img src="images/portfolio/seidotech-capillys.png" alt="" loading="lazy" decoding="async">
+              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/LIQUIDI-GEL.png" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="#">SeidoTech<sup>®</sup> Capillys</a></h3>
               <p class="np-card-text">Precision fermentation is applied to byproducts of pruning Italian prickly pears to create the ally in hair care.</p>
@@ -231,8 +271,8 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media" aria-hidden="true">
-                <img src="images/portfolio/emotion-glow.png" alt="" loading="lazy" decoding="async">
+              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/CERE-PERLE.png" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="#">EMotion<sup>®</sup> Glow and EMotion<sup>®</sup> SKin</a></h3>
               <p class="np-card-text">Produced through the valorization of olive byproducts from the food industry.</p>
@@ -240,8 +280,8 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media" aria-hidden="true">
-                <img src="images/portfolio/selectsieve-optichol.png" alt="" loading="lazy" decoding="async">
+              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/POLVERI.png" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="#">SelectSIEVE OptiChol</a></h3>
               <p class="np-card-text np-card-text--todo">Description to be provided</p>
@@ -261,7 +301,7 @@
          Texture con Cerulean, Olive e Antique: i colori dei tre pilastri.
          Testo da SITO 1 (lì segnato come da definire)
          ================================================================== -->
-    <section class="np-close section theme-light grain" aria-labelledby="np-close-title">
+    <section class="np-close section theme-soft grain" aria-labelledby="np-close-title">
       <div class="container">
         <aside class="cta-band" aria-labelledby="np-close-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">

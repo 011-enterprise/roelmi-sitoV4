@@ -497,23 +497,27 @@
     </section>
 
     <!-- ==================================================================
-         8 · RICHIESTA (fondo Olive) — texture + vetro scuro (il riquadro resta scuro: bottoni e testo come su Hard Grey)
+         8 · RICHIESTA — fascia finale comune .cta-band (base.css), uguale in
+         tutte le pagine: fondo neutro con sfumature, texture chiara, vetro
+         chiaro con titolo e frase a sinistra, bottoni a destra (SITO 4)
          ================================================================== -->
-    <section class="pd-contact section theme-olive grain" id="contact" aria-labelledby="pd-contact-title">
+    <section class="pd-contact section theme-soft grain" id="contact" aria-labelledby="pd-contact-title">
       <div class="container">
-        <div class="pd-stage pd-stage--cta theme-dark">
-          <div class="pd-bg" aria-hidden="true">
+        <aside class="cta-band" aria-labelledby="pd-contact-title" data-reveal>
+          <div class="cta-band-bg" aria-hidden="true">
             <img src="images/product/texture-16.jpg" alt="" loading="lazy" decoding="async">
           </div>
-          <div class="pd-glass glass" data-reveal>
-            <h2 class="pd-section-title" id="pd-contact-title">Interested in CytoFruit®?</h2>
-            <p class="pd-intro">Contact our team to request the technical datasheet or learn how to integrate CytoFruit® into your formulation.</p>
-            <div class="pd-actions">
+          <div class="cta-band-glass">
+            <div class="cta-band-copy">
+              <h2 class="cta-band-title" id="pd-contact-title">Interested in CytoFruit®?</h2>
+              <p class="cta-band-text">Contact our team to request the technical datasheet or learn how to integrate CytoFruit® into your formulation.</p>
+            </div>
+            <div class="cta-band-actions">
               <a class="btn btn--solid" href="#">Contact us</a>
               <a class="btn btn--outline" href="#">Formulation Area</a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   </main>

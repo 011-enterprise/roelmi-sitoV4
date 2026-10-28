@@ -666,3 +666,429 @@
 .theme-soft .np-statement .accent {
   font-weight: 600;
 }
+
+/* ==========================================================================
+   SITO 4 (28/10/2026) — animazioni nuove, per dare profondità alla pagina.
+   Stato di base = finale e fermo (senza JS, Stop animation, reduced-motion);
+   js/nip-page.js aggiunge le classi e aggiorna le variabili.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Intro: il ciclo dell'economia circolare.
+   Cerchio a gradiente della palette che si disegna con lo scroll (--loop-p
+   da 0 a 1) e un pallino di vetro che lo percorre; le quattro tappe sono
+   pillole di vetro chiaro attorno al cerchio e si accendono una alla volta.
+   Testo Hard Grey su vetro chiaro (≥ 12:1). Su telefono: elenco verticale
+   -------------------------------------------------------------------------- */
+
+.np-loop {
+  --loop-p: 1;
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 1;
+  margin: clamp(3rem, 2rem + 4vw, 6rem) auto 0;
+}
+
+.np-loop-ring {
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+  overflow: visible;
+}
+
+.np-loop-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.np-loop-path {
+  fill: none;
+  stroke: url(#npLoopGrad);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--loop-p));
+}
+
+/* Pallino di vetro che segue la punta del cerchio */
+.np-loop-dot {
+  transform-box: view-box;
+  transform-origin: 200px 200px;
+  transform: rotate(calc(var(--loop-p) * 360deg));
+}
+
+.np-loop-dot circle {
+  fill: rgba(247, 243, 235, 0.85);
+  stroke: var(--hard-grey);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 4px 8px rgba(25, 25, 25, 0.2));
+}
+
+.np-loop-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--hard-grey);
+}
+
+/* Tappe: in alto, a destra, in basso, a sinistra */
+.np-loop-step {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 15rem;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  border-radius: 999px;
+  background-color: rgba(247, 243, 235, 0.78);
+  background-image: var(--glass-light-sheen);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-light-line), 0 10px 24px rgba(25, 25, 25, 0.08);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--hard-grey);
+  transition:
+    opacity 0.6s var(--ease-out),
+    translate 0.6s var(--ease-out);
+}
+
+.np-loop-n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+  font-size: var(--fs-label);
+  font-weight: 700;
+}
+
+.np-loop-step:nth-child(1) { top: 0;    left: 50%; transform: translate(-50%, -30%); }
+.np-loop-step:nth-child(2) { top: 50%;  right: -8%; transform: translateY(-50%); }
+.np-loop-step:nth-child(3) { bottom: 0; left: 50%; transform: translate(-50%, 30%); }
+.np-loop-step:nth-child(4) { top: 50%;  left: -8%; transform: translateY(-50%); }
+
+/* Con JS e movimento: tappe spente finché il cerchio non le raggiunge */
+.np-loop.is-animated .np-loop-step {
+  opacity: 0;
+  translate: 0 10px;
+}
+
+.np-loop.is-animated .np-loop-step.is-on {
+  opacity: 1;
+  translate: none;
+}
+
+.motion-paused .np-loop {
+  --loop-p: 1 !important;
+}
+
+.motion-paused .np-loop .np-loop-step {
+  opacity: 1 !important;
+  translate: none !important;
+}
+
+/* Telefono: cerchio piccolo sopra, tappe in colonna sotto */
+@media (max-width: 699.98px) {
+  .np-loop {
+    aspect-ratio: auto;
+    width: 100%;
+  }
+
+  .np-loop-ring {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: min(70%, 260px);
+    height: auto;
+    aspect-ratio: 1;
+    margin-inline: auto;
+  }
+
+  .np-loop-center {
+    inset: 0 0 auto;
+    height: min(70vw, 260px);
+    font-size: var(--fs-h5);
+  }
+
+  .np-loop-steps {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .np-loop-step {
+    position: static;
+    max-width: none;
+    transform: none !important;
+  }
+}
+
+/* SITO 4: niente goccia accanto alle iniziali dei pilastri (richiesta di Chiara) */
+.np-pillar-mark::before {
+  content: none;
+}
+
+/* --------------------------------------------------------------------------
+   "Sustainability in action": al posto delle foto dei prodotti i pittogrammi
+   della forma fisica, da soli, in vetro (SITO 4, prova). Sul fondo Ocean il
+   vetro bianco si legge bene: solo un alone chiaro e un'ombra morbida per
+   staccarlo dal riquadro. Decorativi (il riquadro è aria-hidden)
+   -------------------------------------------------------------------------- */
+
+/* In posizione assoluta: l'altezza in % ora si calcola sul riquadro (prima
+   valeva "auto" e il pittogramma usciva a grandezza naturale, tagliato) */
+.np-card-media--picto {
+  position: relative;
+}
+
+.np-card-media--picto img.np-card-picto {
+  position: absolute;
+  inset: 9% 0;
+  width: 100%;
+  height: 82%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 0.6px rgba(247, 243, 235, 0.7))
+    drop-shadow(0 0 28px rgba(247, 243, 235, 0.18))
+    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
+}
+
+
+/* ==========================================================================
+   Pilastri N · I · P — versione 5 (28/10/2026, indicazione di Chiara):
+   box con la SOLA iniziale nel colore della palette (come la prima prova);
+   il testo compare in un pannello di vetro al passaggio del mouse.
+   - Box chiaro con bordo sottile; iniziale enorme in Iwona, piena del colore
+     del pilastro (Olive · Cerulean · Antique) con un contorno Hard Grey
+     sottile, così si legge sul fondo chiaro
+   - Quando il box entra nello schermo la lettera si riempie dal basso, come
+     un liquido (una volta, .is-filled da js/nip-page.js)
+   - Hover / focus da tastiera (il box ha tabindex 0): sopra la lettera arriva
+     un vetro chiaro con titolo e testo; la lettera si vede sfocata dietro.
+     Testo Hard Grey su vetro 0.78 → ≥ 10:1
+   - Touch (niente hover): il vetro è sempre visibile, in basso
+   - Lo screen reader legge sempre titolo e testo (non sono nascosti, solo
+     trasparenti); con Stop animation / reduced-motion niente movimento
+   ========================================================================== */
+
+@property --np-fill {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 100%;
+}
+
+.np-pillars-grid {
+  align-items: stretch;
+}
+
+.np-pillar {
+  --np-fill: 100%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  min-height: clamp(24rem, 18rem + 14vw, 34rem);
+  padding: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background-color: rgba(247, 243, 235, 0.5);
+  color: var(--hard-grey);
+  transition:
+    border-color var(--dur-ui) var(--ease-out),
+    box-shadow 0.6s var(--ease-out),
+    --np-fill 1.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.np-pillar:hover,
+.np-pillar:focus-visible {
+  border-color: var(--np-color);
+  background-color: rgba(247, 243, 235, 0.5);
+  box-shadow: 0 24px 50px rgba(25, 25, 25, 0.1);
+}
+
+/* Il contorno del focus: tutto il box */
+.np-pillar:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 4px;
+}
+
+/* Iniziale enorme, piena del colore del pilastro */
+.np-pillar-mark {
+  grid-area: 1 / 1;
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(11rem, 6rem + 12vw, 20rem);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: 0;
+  transition:
+    filter 0.6s var(--ease-out),
+    transform 0.9s var(--ease-out);
+}
+
+.np-pillar-letter {
+  display: inline-block;
+  color: transparent;
+  background-image: linear-gradient(to top, var(--np-color) var(--np-fill), transparent var(--np-fill));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1.5px var(--hard-grey);
+}
+
+/* Pannello di vetro con titolo e testo */
+.np-pillar-glass {
+  grid-area: 1 / 1;
+  align-self: stretch;
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  border-radius: var(--r-inner);
+  background-color: rgba(247, 243, 235, 0.78);
+  background-image: var(--glass-light-sheen);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: var(--glass-light-line);
+  opacity: 0;
+  translate: 0 16px;
+  transition:
+    opacity 0.5s var(--ease-out),
+    translate 0.6s var(--ease-out);
+}
+
+.np-pillar-glass .np-pillar-title {
+  margin-top: 0;
+  color: var(--hard-grey);
+}
+
+.np-pillar-glass p,
+.np-pillar-glass strong {
+  color: var(--hard-grey);
+}
+
+.np-pillar:hover .np-pillar-glass,
+.np-pillar:focus-visible .np-pillar-glass,
+.np-pillar:focus-within .np-pillar-glass {
+  opacity: 1;
+  translate: none;
+}
+
+/* La lettera arretra un po' quando arriva il vetro */
+.np-pillar:hover .np-pillar-mark,
+.np-pillar:focus-visible .np-pillar-mark {
+  transform: scale(0.94);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .np-pillar-glass {
+    background-color: rgba(247, 243, 235, 0.95);
+  }
+}
+
+/* Touch: niente hover, il testo è sempre visibile in basso */
+@media (hover: none) {
+  .np-pillar {
+    place-items: start stretch;
+    grid-template-rows: auto 1fr;
+  }
+
+  .np-pillar-mark {
+    grid-area: 1 / 1;
+    justify-self: center;
+    padding-block: 1.5rem;
+  }
+
+  .np-pillar-glass {
+    grid-area: 2 / 1;
+    opacity: 1;
+    translate: none;
+  }
+}
+
+/* Entrata: lettere vuote finché il box non entra nello schermo */
+.np-pillars.is-animated .np-pillar {
+  --np-fill: 0%;
+}
+
+.np-pillars.is-animated .np-pillar.is-filled {
+  --np-fill: 100%;
+}
+
+.np-pillars.is-animated .np-pillar:nth-child(2).is-filled { transition-delay: 0s, 0s, 0.2s; }
+.np-pillars.is-animated .np-pillar:nth-child(3).is-filled { transition-delay: 0s, 0s, 0.4s; }
+
+/* Fermo: lettere piene, nessun movimento (il vetro compare senza scorrere) */
+.motion-paused .np-pillar {
+  --np-fill: 100% !important;
+}
+
+.motion-paused .np-pillar-glass,
+.motion-paused .np-pillar-mark {
+  translate: none !important;
+  transform: none !important;
+  transition: opacity 0.2s linear !important;
+}
+
+/* Lettere dei pilastri, rifinitura (28/10/2026):
+   - niente contorno nero (era grossolano): un filo appena più scuro dello
+     stesso colore, e una leggera ombra che le stacca dal fondo
+   - Iwona Medium (il peso della guida del brand per i titoli)
+   - colore un po' più pieno (palette + 12% Hard Grey), così si leggono bene
+     sul chiaro senza perdere il tono pastello
+   - tolta la striscia bianca in fondo alle lettere: il fondo colorato
+     (background-clip: text) era più basso della lettera; ora la scatola
+     della lettera ha un po' di spazio sotto */
+.np-pillar {
+  --np-ink: color-mix(in srgb, var(--np-color) 88%, var(--hard-grey));
+}
+
+.np-pillar-mark {
+  font-weight: 500;
+  line-height: 1;
+}
+
+.np-pillar-letter {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  background-image: linear-gradient(to top, var(--np-ink) var(--np-fill), transparent var(--np-fill));
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--np-color) 60%, var(--hard-grey));
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--np-color) 45%, transparent));
+}
+
+/* Vetro dei pilastri più "vetro" (28/10/2026: si vedeva solo un pannello
+   lattiginoso). Più trasparente (0.42) e sfocatura leggera (6px): dietro si
+   vede la lettera colorata, ammorbidita come attraverso un vetro vero; bordo
+   e riflesso più luminosi. La lettera non arretra più.
+   Contrasto calcolato: testo Hard Grey sopra la lettera dietro il vetro
+   ≥ 10:1 (anche sopra il suo contorno più scuro ≥ 7:1) */
+.np-pillar-glass {
+  background-color: rgba(247, 243, 235, 0.42);
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.22) 100%);
+  -webkit-backdrop-filter: blur(6px) saturate(1.5);
+  backdrop-filter: blur(6px) saturate(1.5);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 12px 30px rgba(25, 25, 25, 0.08);
+}
+
+.np-pillar:hover .np-pillar-mark,
+.np-pillar:focus-visible .np-pillar-mark {
+  transform: none;
+}
