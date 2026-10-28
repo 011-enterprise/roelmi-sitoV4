@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Pittogrammi della forma fisica in vetro (SITO 4, proposta del cliente per
+   le anteprime "From science to the concept": Portfolio in home, schede
+   dell'Ingredient Finder).
+   Il pittogramma è il protagonista del riquadro; dietro una forma di colore
+   sfocata (al centro); il pittogramma è decentrato ed esce dal bordo destro e
+   da quello inferiore, come i suoi elementi escono dalla goccia.
+   Colore = mercato: Personal Care Antique, Nutraceutical Olive (.picto--nutra).
+   Proporzioni del riquadro: --picto-ratio (4/3 di base).
+   Tutto decorativo (aria-hidden): nome, funzione e mercato sono nel testo.
+   Il contenitore deve avere overflow visibile.
+   Markup: .picto > .picto-frame > .picto-blob  +  img.picto-img
+   ========================================================================== */
+
+.picto {
+  --picto-color: var(--antique);
+  position: relative;
+  aspect-ratio: var(--picto-ratio, 4 / 3);
+}
+
+.picto--nutra {
+  --picto-color: var(--olive);
+}
+
+/* Cornice: colore del mercato, tagliata agli angoli */
+.picto-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background-color: var(--picto-color);
+}
+
+/* Forma di colore al centro: una goccia più scura e sfocata */
+.picto-blob {
+  position: absolute;
+  left: 42%;
+  top: 46%;
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50% 0 50% 50%;
+  background-color: color-mix(in srgb, var(--picto-color) 55%, var(--hard-grey));
+  opacity: 0.55;
+  filter: blur(22px);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Pittogramma (vetro bianco): decentrato, esce a destra e in basso.
+   Ombra leggera: i contorni bianchi si vedono anche fuori dalla cornice.
+   Lo spostamento in hover è nei file delle sezioni (finder.css, portfolio.css) */
+.picto-img {
+  position: absolute;
+  right: -6%;
+  bottom: -10%;
+  z-index: 1;
+  width: auto;
+  max-width: none;
+  height: 108%;
+  filter:
+    drop-shadow(0 0 0.5px rgba(25, 25, 25, 0.45))
+    drop-shadow(0 10px 24px rgba(25, 25, 25, 0.18));
+  transform-origin: 60% 80%;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.motion-paused .picto-img {
+  transform: none !important;
+}
+
+@media (max-width: 599.98px) {
+  .picto-frame {
+    border-radius: var(--r-inner);
+  }
+
+  .picto-blob {
+    filter: blur(14px);
+  }
+}

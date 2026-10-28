@@ -122,15 +122,15 @@
   color: var(--hard-grey);
 }
 
-/* Separatore: goccia del logo ROELMI in Ocean (decorativa) */
+/* Separatore: goccia piena nel colore del logo (decorativa, regola del brand) */
 .certs-list li::after {
   content: "";
   flex: none;
   width: 0.6em;
   height: 0.9em;
-  background-color: var(--accent);
-  -webkit-mask: var(--roelmi-drop) center / contain no-repeat;
-  mask: var(--roelmi-drop) center / contain no-repeat;
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
 }
 
 @keyframes certs-scroll {

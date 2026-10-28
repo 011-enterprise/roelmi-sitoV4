@@ -355,9 +355,9 @@
   flex: none;
   width: 0.6em;
   height: 0.9em;
-  background-color: var(--ocean);
-  -webkit-mask: var(--roelmi-drop) center / contain no-repeat;
-  mask: var(--roelmi-drop) center / contain no-repeat;
+  background-color: var(--logo-blue);   /* goccia piena, colore del logo */
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
 }
 
 /* --------------------------------------------------------------------------
@@ -551,11 +551,12 @@
   opacity: var(--full, 1);
 }
 
-/* La goccia: la texture vista attraverso il simbolo del logo */
+/* La goccia: la texture vista attraverso la goccia piena (non il simbolo
+   del logo, che compare solo nel suo colore: regola del brand) */
 .pd-hero-drop {
   opacity: var(--drop-o, 0);
-  -webkit-mask: var(--roelmi-drop) no-repeat;
-  mask: var(--roelmi-drop) no-repeat;
+  -webkit-mask: var(--drop-full) no-repeat;
+  mask: var(--drop-full) no-repeat;
   -webkit-mask-size: auto var(--drop-h, 70vh);
   mask-size: auto var(--drop-h, 70vh);
   -webkit-mask-position: var(--drop-x, 72%) var(--drop-y, 55%);
@@ -897,9 +898,11 @@
   width: 0.85rem;
   height: 1.25rem;
   margin-bottom: 1rem;
-  background-color: var(--pd-accent);
-  -webkit-mask: var(--roelmi-drop) center / contain no-repeat;
-  mask: var(--roelmi-drop) center / contain no-repeat;
+  /* Goccia piena nel colore del logo (non negli accenti: regola del brand);
+     in hover sul fondo d'accento diventa Hard Grey (nero su chiaro) */
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
   transition: background-color var(--dur-ui) var(--ease-out);
 }
 

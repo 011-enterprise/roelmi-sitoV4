@@ -176,7 +176,7 @@
 }
 
 .logo-drop .logo-svg {
-  width: 21px;
+  width: 18px;
 }
 
 /* --------------------------------------------------------------------------
@@ -502,7 +502,7 @@
 }
 
 .site-header.is-compact .logo-drop {
-  width: 21px;
+  width: 18px;
   opacity: 1;
 }
 
@@ -526,7 +526,7 @@
   }
 
   .logo-drop {
-    width: 21px;
+    width: 18px;
     opacity: 1;
   }
 

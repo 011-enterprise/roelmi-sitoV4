@@ -82,7 +82,7 @@
   background-color: rgba(247, 243, 235, 0.06);
 }
 
-.product-media img {
+.product-media > img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -155,8 +155,8 @@
   border-radius: var(--r-card);
 }
 
-.product-card:hover .product-media img,
-.product-card:focus-within .product-media img {
+.product-card:hover .product-media > img,
+.product-card:focus-within .product-media > img {
   transform: scale(1.06);
 }
 
@@ -204,7 +204,7 @@
 }
 
 /* Con Stop animation: niente zoom */
-.motion-paused .product-card .product-media img {
+.motion-paused .product-card .product-media > img {
   transform: none;
 }
 
@@ -299,5 +299,40 @@
 @media (min-width: 768px) {
   .product-caption {
     min-height: 6.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pittogrammi in vetro (css/picto.css) al posto delle texture (SITO 4,
+   proposta del cliente per "From science to the concept"). Riquadro quadrato;
+   il pittogramma esce a destra e in basso, quindi niente overflow nascosto.
+   Sul fondo scuro i contorni bianchi che escono si vedono bene
+   -------------------------------------------------------------------------- */
+
+.product-media:has(> .picto) {
+  --picto-ratio: 1 / 1;
+  overflow: visible;
+  background: none;
+}
+
+.product-card:hover .picto-img,
+.product-card:focus-within .picto-img {
+  transform: scale(1.04) translate3d(-1%, -1%, 0);
+}
+
+/* La descrizione in vetro resta sopra il pittogramma */
+.product-media:has(> .picto) .product-desc {
+  z-index: 1;
+}
+
+/* Touch: il riquadro cresce con la descrizione sotto, con spazio per la
+   parte del pittogramma che esce */
+@media (hover: none) {
+  .product-media:has(> .picto) {
+    aspect-ratio: auto;
+  }
+
+  .product-media:has(> .picto) .product-desc {
+    margin-top: 1.75rem;
   }
 }

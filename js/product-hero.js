@@ -24,7 +24,7 @@
   var word = hero.querySelector('.pd-hero-word');
   var nameEl = hero.querySelector('.pd-hero-name');
   var inner = hero.querySelector('.pd-hero-inner');
-  var DROP_RATIO = 159.5 / 194.75;   // larghezza / altezza della goccia (viewBox di --roelmi-drop)
+  var DROP_RATIO = 291.5 / 430;   // larghezza / altezza della goccia (viewBox di --drop-full)
   var mobileMq = window.matchMedia('(max-width: 899.98px)');
   var VARS = ['--drop-h', '--drop-x', '--drop-y', '--drop-o', '--full', '--name-o', '--card-o', '--name-top'];
 

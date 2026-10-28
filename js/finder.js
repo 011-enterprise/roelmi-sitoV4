@@ -128,12 +128,12 @@
       // PROVA SITO 4: pittogramma della forma fisica in vetro, protagonista
       // del riquadro (decorativo). Colore della forma dietro = mercato
       media.classList.add('fx-card-media--picto');
-      var visual = el('div', 'fx-picto' + (asList(item.market)[0] === 'Nutraceutical' ? ' fx-picto--nutra' : ''));
+      var visual = el('div', 'picto' + (asList(item.market)[0] === 'Nutraceutical' ? ' picto--nutra' : ''));
       visual.setAttribute('aria-hidden', 'true');
-      var frame = el('span', 'fx-picto-frame');
-      frame.appendChild(el('span', 'fx-picto-blob'));
+      var frame = el('span', 'picto-frame');
+      frame.appendChild(el('span', 'picto-blob'));
       visual.appendChild(frame);
-      var pimg = el('img', 'fx-picto-img');
+      var pimg = el('img', 'picto-img');
       pimg.src = picto;
       pimg.alt = '';
       pimg.loading = 'lazy';
