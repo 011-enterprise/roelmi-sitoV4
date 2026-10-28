@@ -257,7 +257,7 @@
       <canvas class="pd-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <!-- Il riquadro resta scuro (theme-dark): vetri scuri e testo Ricepaper sopra la texture -->
-        <div class="pd-benefits-stage theme-dark">
+        <div class="pd-benefits-stage theme-dark" data-benefits>
           <div class="pd-bg" aria-hidden="true">
             <img src="images/product/texture-17.jpg" alt="" loading="lazy" decoding="async">
           </div>
@@ -269,18 +269,22 @@
 
           <ul class="pd-benefit-list">
             <li class="pd-benefit glass">
+              <span class="pd-benefit-n" aria-hidden="true">01</span>
               <h3 class="pd-benefit-title">Enhanced Cell Vitality</h3>
               <p>Boosts cellular vitality through naturally active oligoelements, promoting healthy and resilient skin.</p>
             </li>
             <li class="pd-benefit glass">
+              <span class="pd-benefit-n" aria-hidden="true">02</span>
               <h3 class="pd-benefit-title">Antioxidant Protection</h3>
               <p>Protects skin cells against pollution and oxidative stress, supporting long-term skin health.</p>
             </li>
             <li class="pd-benefit glass">
+              <span class="pd-benefit-n" aria-hidden="true">03</span>
               <h3 class="pd-benefit-title">Anti-inflammatory Effect</h3>
               <p>Modulating action on skin inflammation, suitable for sensitive and reactive skin types.</p>
             </li>
             <li class="pd-benefit glass">
+              <span class="pd-benefit-n" aria-hidden="true">04</span>
               <h3 class="pd-benefit-title">Universal Compatibility</h3>
               <p>Dermatologically compatible with all skin types, making it a versatile ingredient for any cosmetic formula.</p>
             </li>
@@ -489,6 +493,23 @@
               </div>
             </article>
           </li>
+          <li class="fx-card">
+            <article>
+              <h3 class="fx-card-name"><a class="fx-card-link" href="#">ColorGLAM®</a></h3>
+              <p class="fx-card-function">Color portfolio</p>
+              <p class="market-pills fx-card-markets"><span class="market-pill">Personal Care</span></p>
+              <div class="fx-card-media fx-card-media--picto">
+                <!-- Pittogramma della forma fisica in vetro (css/picto.css), decorativo -->
+                <div class="picto" aria-hidden="true">
+                  <span class="picto-frame"><span class="picto-blob"></span></span>
+                  <img class="picto-img" src="images/pittogrammi/POLVERI.png" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="fx-card-glass">
+                  <p>Ester-coated pigments functionalized with Tripelargonin, an upcycled sustainable ester — for high color release, formulation stability and a weightless, refined skin feel.</p>
+                </div>
+              </div>
+            </article>
+          </li>
           <li class="pd-related-more">
             <a class="btn btn--solid" href="ingredient-finder.html">All ingredients in the Ingredient Finder</a>
           </li>
@@ -603,5 +624,6 @@
   <script src="js/product-picto.js" defer></script>
   <script src="js/force-field.js" defer></script>
   <script src="js/product-charts.js" defer></script>
+  <script src="js/product-benefits.js" defer></script>
 </body>
 </html>

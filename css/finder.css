@@ -848,7 +848,7 @@
 
 .fx-card:hover .picto-img,
 .fx-card:focus-within .picto-img {
-  transform: scale(1.04) translate3d(-1%, -1%, 0);
+  transform: scale(1.05);   /* come le schede della NIP */
 }
 
 /* La descrizione in vetro resta sopra il pittogramma */

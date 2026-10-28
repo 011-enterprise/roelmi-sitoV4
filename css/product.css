@@ -386,7 +386,7 @@
    -------------------------------------------------------------------------- */
 
 .pd-related-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));   /* 3 prodotti + "All ingredients" (SITO 4) */
 }
 
 .pd-related-more {
@@ -1709,4 +1709,104 @@ html:not(.js) .pd-charts-nav {
 .pg-lens,
 .pd-phero-visual .pg {
   transform: none;
+}
+
+/* ==========================================================================
+   Key benefits — animazione (SITO 4, 28/10/2026): "vetri che mettono a
+   fuoco" + profondità col mouse. js/product-benefits.js.
+   - Entrata: i quattro vetri arrivano dal basso uno dopo l'altro (.is-in)
+   - Fuoco: mentre la sezione attraversa lo schermo il fuoco passa da un
+     beneficio al successivo (.is-focus): quel vetro sfoca molto meno, quindi
+     la texture dietro diventa nitida, si solleva, il bordo si accende e il
+     numero diventa pieno. Anche al passaggio del mouse.
+     La tinta del vetro scuro NON cambia (0.68): il testo Ricepaper resta
+     ≥ 4.5:1 sul punto più chiaro della texture, anche a fuoco
+   - Mouse: la texture si sposta piano al contrario (--bx / --by)
+   Fermo (Stop animation / reduced-motion / senza JS): tutti visibili, niente
+   movimento, nessun fuoco
+   ========================================================================== */
+
+.pd-benefits-stage .pd-bg img {
+  transform: translate3d(calc(var(--bx, 0) * -18px), calc(var(--by, 0) * -18px), 0) scale(1.08);
+  transition: transform 0.8s var(--ease-out);
+}
+
+/* Numero del beneficio (decorativo) */
+.pd-benefit-n {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(247, 243, 235, 0.55);
+  border-radius: 50%;
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ricepaper);
+  transition:
+    background-color 0.5s var(--ease-out),
+    border-color 0.5s var(--ease-out),
+    color 0.5s var(--ease-out);
+}
+
+/* Il numero prende il posto della goccia sopra il titolo */
+.pd-benefit::before {
+  content: none;
+}
+
+.pd-benefit {
+  transition:
+    background-color 0.45s var(--ease-out),
+    color 0.45s var(--ease-out),
+    -webkit-backdrop-filter 0.7s var(--ease-out),
+    backdrop-filter 0.7s var(--ease-out),
+    box-shadow 0.6s var(--ease-out),
+    translate 0.7s var(--ease-out),
+    opacity 0.7s var(--ease-out);
+}
+
+/* Fuoco (scroll) o mouse: vetro quasi trasparente alla sfocatura, sollevato */
+.pd-benefit.is-focus,
+.pd-benefit:hover {
+  -webkit-backdrop-filter: blur(3px) saturate(1.4);
+  backdrop-filter: blur(3px) saturate(1.4);
+  box-shadow:
+    inset 0 0 0 1px rgba(247, 243, 235, 0.55),
+    0 18px 36px rgba(25, 25, 25, 0.35);
+  translate: 0 -6px;
+}
+
+.pd-benefit.is-focus .pd-benefit-n,
+.pd-benefit:hover .pd-benefit-n {
+  border-color: var(--ricepaper);
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+/* In hover il vecchio riempimento d'accento resta: numero scuro su chiaro */
+.pd-benefit:hover .pd-benefit-n {
+  border-color: var(--hard-grey);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+/* Entrata (solo con JS e movimento) */
+.pd-benefits-stage.is-animated:not(.is-in) .pd-benefit {
+  opacity: 0;
+  translate: 0 32px;
+}
+
+.pd-benefits-stage.is-animated .pd-benefit:nth-child(2) { transition-delay: 0s, 0s, 0s, 0s, 0s, 0.12s, 0.12s; }
+.pd-benefits-stage.is-animated .pd-benefit:nth-child(3) { transition-delay: 0s, 0s, 0s, 0s, 0s, 0.24s, 0.24s; }
+.pd-benefits-stage.is-animated .pd-benefit:nth-child(4) { transition-delay: 0s, 0s, 0s, 0s, 0s, 0.36s, 0.36s; }
+
+/* Fermo */
+.motion-paused .pd-benefits-stage .pd-bg img {
+  transform: scale(1.08) !important;
+}
+
+.motion-paused .pd-benefit {
+  translate: none !important;
+  opacity: 1 !important;
 }
