@@ -80,13 +80,13 @@
 /* --------------------------------------------------------------------------
    SITO 4 (28/10/2026), come l'apertura del prodotto: sul pastello il vetro
    bianco non si vedeva. Cornice = lastra scura appena più chiara dell'Hard
-   Grey, con un bordo chiaro sottile; il colore del mercato diventa una luce
+   Grey (ora Hard Grey esatto), con un bordo chiaro sottile; il colore del mercato diventa una luce
    dietro la goccia (Antique / Olive), e la macchia al centro è dello stesso
    colore invece che scura. Decorativo (nessun testo sopra)
    -------------------------------------------------------------------------- */
 
 .picto-frame {
-  background-color: #232323;
+  background-color: var(--hard-grey);   /* Hard Grey della palette, sempre (scelta di Chiara) */
   background-image:
     radial-gradient(62% 58% at 62% 60%, color-mix(in srgb, var(--picto-color) 72%, transparent), transparent 72%),
     radial-gradient(70% 60% at 14% 10%, rgba(247, 243, 235, 0.08), transparent 60%);

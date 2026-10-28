@@ -1666,7 +1666,7 @@ html:not(.js) .pd-charts-nav {
 
 /* Lastra scura con le luci di colore */
 .pd-phero.theme-dark .picto-frame {
-  background-color: #232323;
+  background-color: var(--hard-grey);   /* Hard Grey della palette, sempre (scelta di Chiara) */
   background-image:
     radial-gradient(60% 55% at 62% 58%, color-mix(in srgb, var(--picto-color) 70%, transparent), transparent 70%),
     radial-gradient(70% 60% at 15% 10%, rgba(247, 243, 235, 0.08), transparent 60%);
