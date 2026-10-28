@@ -994,3 +994,21 @@
 .pd-tech.theme-light + .pd-related.theme-light {
   padding-top: 0;
 }
+
+/* ==========================================================================
+   PROVA SITO 4: Descrizione e Key benefits su fondo "neutro" con sfumature
+   (.theme-soft, base.css), come Who We Are e NIP in home.
+   - Key benefits: il riquadro con la texture resta scuro (.theme-dark sul
+     .pd-benefits-stage): vetri scuri e testo Ricepaper come prima.
+     Force Field nascosto (era pensato per il fondo nero).
+   - Descrizione: sulle sfumature l'Ocean scende a 3.8:1, quindi le parole
+     chiave sono Hard Grey semibold invece che Ocean
+   ========================================================================== */
+
+.theme-soft .pd-field {
+  display: none;
+}
+
+.theme-soft .pd-statement .accent {
+  color: var(--hard-grey);
+}
