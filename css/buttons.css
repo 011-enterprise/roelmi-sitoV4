@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Sistema dei bottoni (SITO 4, 28/10/2026) — UN solo set per tutto il sito.
+   Caricato per ultimo in ogni pagina: vince sulle regole sparse nei file
+   delle sezioni. Quattro famiglie, ognuna con un solo tipo di hover:
+
+   1. Bottone PIENO (.btn--solid, .pill-submit, .header-cta)
+      Fondi chiari, neutri e d'accento: Ocean + testo Ricepaper (4.70:1)
+      Fondi scuri (Hard Grey, vetro scuro): Cerulean + testo Hard Grey (8.89:1)
+      Fondo Ocean: Ricepaper + testo Ocean (4.70:1)
+      HOVER = più contrasto: verso il nero sui fondi chiari e su Ocean
+      (Hard Grey + Ricepaper, 17:1), verso il chiaro sui fondi scuri
+      (Ricepaper + Hard Grey, 17:1)
+   2. Bottone a CONTORNO (.btn--outline): bordo e testo nel colore del testo
+      della sezione; HOVER = si riempie di quel colore (testo nel colore del
+      fondo)
+   3. PILLOLE di scelta (filtri della mappa e del Finder, argomenti della
+      Newsletter): contorno Hard Grey; HOVER = velo leggero; SCELTA = Ocean
+      pieno + testo Ricepaper
+   4. Bottoni ROTONDI con icona (frecce, social, chiudi): cerchio 44px con
+      contorno; HOVER = si riempie del colore dell'icona
+   + Stop animation: solo testo e icona; HOVER = sottolineato (il colore non
+     cambia, così resta leggibile su ogni fondo)
+   Il focus da tastiera resta quello comune (contorno 2px, base.css)
+   ========================================================================== */
+
+/* Colori del bottone pieno, per tipo di fondo */
+:root,
+.theme-light,
+.theme-soft,
+.theme-olive,
+.theme-cerulean,
+.theme-antique,
+.cta-band-glass,
+.nip-stage--light .glass,
+.site-header.is-on-light,
+.site-header.is-menu-open {
+  --btn-bg: var(--ocean);
+  --btn-fg: var(--ricepaper);
+  --btn-hover-bg: var(--hard-grey);
+  --btn-hover-fg: var(--ricepaper);
+}
+
+.theme-dark,
+.glass:not(.cta-band-glass),
+.site-header {
+  --btn-bg: var(--cerulean);
+  --btn-fg: var(--hard-grey);
+  --btn-hover-bg: var(--ricepaper);
+  --btn-hover-fg: var(--hard-grey);
+}
+
+/* Ripetuti dopo .glass/.site-header: questi contesti sono chiari */
+.cta-band-glass,
+.nip-stage--light .glass,
+.site-header.is-on-light,
+.site-header.is-menu-open {
+  --btn-bg: var(--ocean);
+  --btn-fg: var(--ricepaper);
+  --btn-hover-bg: var(--hard-grey);
+  --btn-hover-fg: var(--ricepaper);
+}
+
+.theme-ocean {
+  --btn-bg: var(--ricepaper);
+  --btn-fg: var(--ocean);
+  --btn-hover-bg: var(--hard-grey);
+  --btn-hover-fg: var(--ricepaper);
+}
+
+/* 1. Pieno */
+.btn--solid,
+.pill-submit,
+.btn.header-cta {
+  border-color: var(--btn-bg);
+  background-color: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.btn--solid:hover,
+.pill-submit:hover,
+.btn.header-cta:hover,
+.theme-ocean .btn--solid:hover,
+.theme-ocean .pill-submit:hover,
+.theme-soft .btn--solid:hover,
+.theme-soft .pill-submit:hover {
+  border-color: var(--btn-hover-bg);
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-fg);
+}
+
+/* 2. Contorno */
+.btn--outline,
+.nip-actions .btn--outline {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.btn--outline:hover,
+.theme-ocean .btn--outline:hover,
+.nip-actions .btn--outline:hover {
+  border-color: var(--fg);
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+/* 3. Pillole di scelta */
+.filter-pill,
+.fx-pill span,
+.nl-pill span {
+  border: 1px solid var(--hard-grey);
+  color: var(--hard-grey);
+}
+
+.filter-pill:hover,
+.fx-pill:hover input:not(:checked) + span,
+.nl-pill:hover input:not(:checked) + span {
+  background-color: rgba(25, 25, 25, 0.06);
+}
+
+.filter-pill[aria-pressed="true"],
+.fx-pill input:checked + span,
+.nl-pill input:checked + span {
+  border-color: var(--ocean);
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+}
+
+/* 4. Rotondi con icona */
+.pd-arrow,
+.ft-social a,
+.site-card-close,
+.site-popup-close {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) var(--ease-out);
+}
+
+.pd-arrow:hover {
+  border-color: var(--fg);
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+.ft-social a:hover,
+.site-footer.theme-ocean .ft-social a:hover {
+  border-color: var(--ricepaper);
+  background-color: var(--ricepaper);
+  color: var(--ocean);
+}
+
+.site-card-close:hover {
+  border-color: var(--ricepaper);
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+.site-popup-close:hover {
+  border-color: var(--hard-grey);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+/* Stop animation: in hover solo sottolineato, il colore resta */
+.motion-toggle:hover,
+.ft-motion:hover,
+.certs-motion:hover,
+.ab-motion:hover,
+.fx-motion:hover {
+  color: inherit;
+}
+
+.motion-toggle:hover [data-motion-label] {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
