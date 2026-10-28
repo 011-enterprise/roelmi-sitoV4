@@ -1,6 +1,6 @@
 /* ==========================================================================
    Header — pillola in stile Until
-   1. Si stringe dopo un po' di scroll (.is-compact)
+   1. SITO 4 (come SITO 3): pillola sempre aperta e fissa, non si stringe più con lo scroll
    2. Modalità: voci in riga (desktop, pillola larga) o pannello (.is-panel-mode)
    3. Tendine (in riga) / accordion (pannello)
    4. Pannello a tutto schermo: focus intrappolato, Esc, blocco scroll
@@ -17,7 +17,6 @@
   var triggers = Array.prototype.slice.call(header.querySelectorAll('.nav-trigger'));
   var desktopMq = window.matchMedia('(min-width: 1200px)');
   var hoverMq = window.matchMedia('(hover: hover) and (pointer: fine)');
-  var COMPACT_AT = 80;
   var closeTimer = null;
 
   function isPanelMode() {
@@ -46,7 +45,8 @@
   function updateMode(immediate) {
     // Con il pannello aperto la pagina è bloccata: non cambiamo stato
     if (isMenuOpen()) return;
-    var compact = window.scrollY > COMPACT_AT;
+    // Mai compatta: da 1200px voci in riga, sotto goccia · menu
+    var compact = false;
     var desktop = desktopMq.matches;
 
     header.classList.toggle('is-compact', compact);

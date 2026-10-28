@@ -12,7 +12,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.018em;
   color: var(--fg);
 }
 
@@ -101,9 +101,9 @@
 .ab-title {
   margin-top: auto;
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 0.935rem + 1.19vw, 2.125rem);
+  font-size: var(--fs-large);
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
   color: var(--ricepaper);
 }
 
@@ -123,7 +123,7 @@
   font-size: clamp(2.75rem, 0.85rem + 4.42vw, 5.737rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   color: var(--ricepaper);
 }
 
@@ -172,7 +172,7 @@
 .ab-hpc b {
   font-family: var(--font-display);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.008em;
 }
 
 .ab-hpc span {
@@ -223,7 +223,7 @@
   font-size: clamp(1.25rem, 1rem + 1vw, 1.875rem);
   font-weight: 400;
   line-height: 1.35;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.008em;
   color: var(--hard-grey);
 }
 
@@ -260,14 +260,15 @@
    -------------------------------------------------------------------------- */
 
 .ab-statement {
-  max-width: 32ch;
+  max-width: 46ch;
   margin-top: var(--title-gap);
   margin-left: auto;
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 0.85rem + 1.36vw, 2.125rem);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  /* Paragrafo d'apertura nel font del testo (Chiron Hei HK): con Iwona
+     a questa lunghezza si leggeva male (SITO 4) */
+  font-family: var(--font-body);
+  font-size: var(--fs-statement);
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--ricepaper);
 }
 
@@ -283,7 +284,7 @@
 }
 
 .ab-statement strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .ab-nip {
@@ -301,7 +302,7 @@
   font-size: clamp(2.5rem, 1.02rem + 3.825vw, 5.1rem);
   font-weight: 300;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   color: var(--ricepaper);
 }
 
@@ -382,10 +383,10 @@
 .ab-step-num {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 1.275rem + 2.55vw, 3.825rem);
+  font-size: var(--fs-box);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   color: var(--muted);
   transition: color 0.5s var(--ease-out);
 }
@@ -398,9 +399,9 @@
 .ab-step-title {
   margin-top: 1rem;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
   color: var(--hard-grey);
 }
 
@@ -516,10 +517,10 @@
 .ab-tl-year {
   margin-top: 1rem;
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 1.275rem + 2.125vw, 3.188rem);
+  font-size: var(--fs-box);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
 }
 
 .ab-tl-text {
@@ -558,11 +559,55 @@
   gap: 0 clamp(1.25rem, 1rem + 2vw, 3rem);
   margin-top: var(--title-gap);
   border-top: 1px solid var(--hard-grey);
+  align-items: start;
 }
 
+/* Ogni sede è una tendina (<details>, SITO 4): chiusa all'inizio, si apre
+   dal nome; dentro anno/ruolo e dettagli */
 .ab-site {
-  padding: 1.25rem 0;
   border-bottom: 1px solid var(--line);
+}
+
+.ab-site summary {
+  position: relative;
+  display: block;
+  padding: 1.25rem 2rem 1.25rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.ab-site summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Freccia della tendina, come nella Global Presence della home */
+.ab-site summary::after {
+  content: "";
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid var(--hard-grey);
+  border-bottom: 1.5px solid var(--hard-grey);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.ab-site details[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.ab-site summary:hover .ab-site-name {
+  color: var(--ocean);
+}
+
+.ab-site summary:focus-visible {
+  outline-offset: -2px;
+}
+
+.ab-site details > p:last-child {
+  padding-bottom: 1.25rem;
 }
 
 .ab-site-country {
@@ -577,9 +622,9 @@
 .ab-site-name {
   margin-top: 0.4rem;
   font-family: var(--font-display);
-  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.5rem);
+  font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   color: var(--hard-grey);
 }
 
@@ -636,7 +681,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1.02;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.018em;
   color: var(--hard-grey);
 }
 

@@ -158,7 +158,7 @@
 }
 
 .logo-full {
-  width: 148px;
+  width: 176px;   /* nuovo logo più largo (6:1): 176px ≈ 29px di altezza */
 }
 
 .logo-drop {
@@ -172,11 +172,11 @@
 }
 
 .logo-full .logo-svg {
-  width: 148px;
+  width: 176px;
 }
 
 .logo-drop .logo-svg {
-  width: 18px;
+  width: 21px;
 }
 
 /* --------------------------------------------------------------------------
@@ -200,7 +200,7 @@
   border-color: var(--cta-bg);
   background-color: var(--cta-bg);
   color: var(--cta-fg);
-  font-size: var(--fs-small);
+  font-size: 0.9375rem;
   transition:
     max-width 0.5s var(--ease-out),
     padding 0.5s var(--ease-out),
@@ -502,7 +502,7 @@
 }
 
 .site-header.is-compact .logo-drop {
-  width: 18px;
+  width: 21px;
   opacity: 1;
 }
 
@@ -526,7 +526,7 @@
   }
 
   .logo-drop {
-    width: 18px;
+    width: 21px;
     opacity: 1;
   }
 
@@ -613,7 +613,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);
   font-weight: 500;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.014em;
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }

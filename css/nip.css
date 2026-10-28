@@ -1,22 +1,25 @@
 /* ==========================================================================
    6 · NIP® — Our Sustainability Approach (scuro)
-   La texture è in primo piano, a tutta larghezza; i testi stanno in pannelli
-   di vetro scuro, lo stesso vetro della pillola del menu.
+   Via di mezzo: il riquadro basso e largo di SITO 1, con i materiali di
+   SITO 2 (texture, vetro scuro, Force Field sul fondo nero).
+   Numeri in alto a destra · titolo e testo in basso a sinistra · CTA in
+   basso a destra.
    Tinta del vetro 0.68 + riflesso 0.06: anche sopra un punto bianco della
    texture il fondo resta ≈ #6B6B6B → testo Ricepaper ≥ 4.5:1.
    ========================================================================== */
 
 .nip-stage {
+  --nip-space: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border-radius: var(--r-stage);
-  padding: clamp(1rem, 0.5rem + 2vw, 2.5rem);
-  min-height: min(92vh, 900px);
+  padding: clamp(1rem, 0.5rem + 2vw, 2rem);
+  min-height: clamp(380px, 38vw, 540px);
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto 1fr auto;
-  gap: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  gap: var(--nip-space);
 }
 
 /* Texture (decorativa): zoom lentissimo con lo scroll, gestito da nip.js */
@@ -37,37 +40,40 @@
 /* Il vetro .glass è in base.css (comune a tutte le pagine) */
 
 /* --------------------------------------------------------------------------
-   Titolo
+   Titolo e testo: in basso a sinistra
    -------------------------------------------------------------------------- */
 
-/* Il box si stringe attorno al titolo (niente vuoto a destra o in alto) */
-.nip-head {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  align-self: start;
-  justify-self: start;
-  width: fit-content;
-  max-width: 100%;
-  padding: clamp(1.25rem, 1rem + 1.2vw, 2.25rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+.nip-copy {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
+  width: min(100%, 44rem);
 }
 
 .nip-title {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 1.02rem + 3.4vw, 4.675rem);
+  font-size: var(--fs-box);
   font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.045em;
+  line-height: 1.02;
+  letter-spacing: -0.016em;
   color: var(--ricepaper);
 }
 
 .nip-title span:not(.eyebrow) {
   display: block;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
+}
+
+.nip-copy p {
+  max-width: 62ch;
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+  line-height: 1.65;
 }
 
 /* Il titolo sale da una maschera quando il box entra (come le frasi del hero) */
 @media (prefers-reduced-motion: no-preference) {
-  .js .nip-head[data-reveal] .nip-title span:not(.eyebrow) {
+  .js .nip-copy[data-reveal] .nip-title span:not(.eyebrow) {
     clip-path: inset(0 0 100% 0);
     transform: translate3d(0, 0.35em, 0);
     transition:
@@ -75,47 +81,64 @@
       transform 1.1s var(--ease-out) 0.25s;
   }
 
-  .js .nip-head.is-in .nip-title span:not(.eyebrow) {
+  .js .nip-copy.is-in .nip-title span:not(.eyebrow) {
     clip-path: inset(0 0 -0.2em 0);
     transform: none;
   }
 }
 
-.motion-paused .nip-head .nip-title span:not(.eyebrow) {
+.motion-paused .nip-copy .nip-title span:not(.eyebrow) {
   clip-path: none !important;
   transform: none !important;
 }
 
 /* --------------------------------------------------------------------------
-   Numeri: tre pannelli in riga
+   CTA: pillola di vetro in basso a destra (sul vetro il contorno resta
+   leggibile, direttamente sulla texture no)
+   -------------------------------------------------------------------------- */
+
+.nip-actions {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   Numeri: tre piccoli pannelli in alto a destra
    -------------------------------------------------------------------------- */
 
 .nip-stats {
   grid-column: 1 / -1;
-  grid-row: 3;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.6fr);
-  gap: inherit;
-  align-items: stretch;
+  grid-row: 1;
+  justify-self: end;
+  display: flex;
+  gap: var(--nip-space);
 }
 
-/* Numero in alto, didascalia in basso: il box resta pieno anche quando
-   si allunga fino all'altezza del paragrafo */
+.nip-stat {
+  min-width: 9.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--r-inner);
+}
+
 .nip-stat > span[aria-hidden] {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  height: 100%;
+  gap: 0.5rem;
 }
 
 .nip-stat .stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 1.275rem + 2.89vw, 4.25rem);
+  font-size: clamp(1.75rem, 1.02rem + 1.19vw, 2.338rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   color: var(--ricepaper);
   font-variant-numeric: tabular-nums;
 }
@@ -129,32 +152,9 @@
 
 .nip-stat .stat-label {
   display: block;
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
+  line-height: 1.35;
   color: var(--ricepaper);
-}
-
-/* --------------------------------------------------------------------------
-   Paragrafo + link
-   -------------------------------------------------------------------------- */
-
-.nip-text p {
-  font-size: var(--fs-body);
-  line-height: 1.65;
-}
-
-.nip-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.nip-actions svg {
-  width: 14px;
-  height: 14px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
 }
 
 .nip :focus-visible {
@@ -162,55 +162,65 @@
 }
 
 /* --------------------------------------------------------------------------
-   Responsive
+   Tablet: CTA sotto il testo
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1023.98px) {
-  .nip-head {
-    grid-column: 1 / -1;
-  }
-
-  .nip-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .nip-text {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 599.98px) {
   .nip-stage {
-    min-height: 0;
-    grid-template-rows: auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto auto;
   }
 
-  .nip-stats {
-    grid-row: auto;
-    grid-template-columns: 1fr;
-  }
-
-  /* Fascia di texture visibile tra titolo e numeri */
-  .nip-head {
-    margin-bottom: 30vh;
+  .nip-actions {
+    grid-column: 1;
+    grid-row: 4;
+    justify-self: start;
   }
 }
 
 /* --------------------------------------------------------------------------
-   Mobile: sezione molto più bassa — numeri in una riga compatta,
-   testi più piccoli, poca texture libera tra titolo e numeri
+   Telefono: numeri in una riga compatta, poi una fascia di texture, testo
+   e CTA. Margini uniformi: stesso bordo, stesso spazio tra i pannelli
    -------------------------------------------------------------------------- */
 
 @media (max-width: 599.98px) {
   .nip-stage {
-    gap: 0.5rem;
-    padding: 0.6rem;
+    --nip-space: 0.6rem;
+    min-height: 0;
+    padding: var(--nip-space);
     border-radius: var(--r-card);
   }
 
-  .nip-head {
-    margin-bottom: 7vh;
-    padding: 1rem 1.15rem;
+  .nip-stats {
+    justify-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nip-stat {
+    min-width: 0;
+    padding: 0.85rem 0.7rem;
+  }
+
+  .nip-stat > span[aria-hidden] {
+    gap: 0.4rem;
+  }
+
+  .nip-stat .stat-num {
+    font-size: 1.75rem;
+    letter-spacing: -0.016em;
+  }
+
+  .nip-stat .stat-label {
+    font-size: var(--fs-small);   /* 14px: minimo del sito, anche su telefono */
+    line-height: 1.3;
+  }
+
+  .nip-copy {
+    width: auto;
+    margin-top: 18vh;
+    padding: 1rem;
+    border-radius: var(--r-inner);
   }
 
   .nip-title {
@@ -221,68 +231,18 @@
     margin-top: 0.6rem;
   }
 
-  .nip-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.5rem;
-  }
-
-  .nip-stat {
-    padding: 0.85rem 0.7rem;
-    border-radius: var(--r-inner);
-  }
-
-  .nip-stat > span[aria-hidden] {
-    gap: 0.4rem;
-  }
-
-  .nip-stat .stat-num {
-    font-size: 1.75rem;
-    letter-spacing: -0.04em;
-  }
-
-  .nip-stat .stat-label {
-    font-size: 0.8125rem;
-    line-height: 1.3;
-  }
-
-  .nip-text {
-    grid-column: 1 / -1;
-    padding: 1rem 1.15rem;
-    border-radius: var(--r-inner);
-  }
-
-  .nip-text p {
+  .nip-copy p {
     font-size: var(--fs-small);
     line-height: 1.55;
   }
 
   .nip-actions {
-    margin-top: 1rem;
-  }
-}
-
-/* Mobile: margini uniformi — stesso bordo del riquadro, stesso spazio tra i
-   pannelli e stesso spazio interno; titolo largo quanto il riquadro */
-@media (max-width: 599.98px) {
-  .nip-stage {
-    --nip-space: 0.6rem;
-    gap: var(--nip-space);
-    padding: var(--nip-space);
-  }
-
-  .nip-stats {
-    gap: var(--nip-space);
-  }
-
-  .nip-head {
-    width: auto;
     justify-self: stretch;
+    border-radius: var(--r-inner);
   }
 
-  .nip-head,
-  .nip-text,
-  .nip-stat {
-    padding: 1rem;
+  .nip-actions .btn {
+    flex: 1 1 auto;
   }
 }
 
@@ -303,4 +263,131 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* ==========================================================================
+   PROVA (23/10/2026): texture 18 + vetro CHIARO al posto di quello scuro
+   (.nip-stage--light). Misure sulla texture 18 sfocata come dal vetro:
+   numeri 7.0:1 · testo 5.0:1 · CTA 5.4:1 (Hard Grey su Ricepaper 0.50).
+   Il vetro scuro più chiaro non bastava sui numeri (3.2:1 a 0.50).
+   Per tornare indietro: togliere .nip-stage--light e rimettere texture-14.
+   ========================================================================== */
+
+.nip-stage--light .glass {
+  background-color: var(--glass-light-bg);
+  background-image: var(--glass-light-sheen);
+  box-shadow: var(--glass-light-line);
+  color: var(--hard-grey);
+  /* Colori del tema chiaro sui pannelli: CTA piena Ocean con testo
+     Ricepaper, contorno Hard Grey */
+  --fg: var(--hard-grey);
+  --bg: var(--ricepaper);
+  --accent: var(--ocean);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nip-stage--light .glass {
+    background-color: rgba(247, 243, 235, 0.85);
+  }
+}
+
+.nip-stage--light .nip-title,
+.nip-stage--light .nip-stat .stat-num,
+.nip-stage--light .nip-stat .stat-unit,
+.nip-stage--light .nip-stat .stat-label {
+  color: var(--hard-grey);
+}
+
+/* Sul vetro chiaro: niente azzurro per il focus, contorno Hard Grey */
+.nip-stage--light :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+/* ==========================================================================
+   Telefono (23/10/2026): composizione più ordinata.
+   Pannello con titolo e testo (subito in alto, niente fascia vuota) · i tre
+   numeri in un'unica striscia di vetro con divisori · bottoni.
+   (Prima: tre riquadri stretti in alto, un vuoto, un pannello lungo.)
+   Ordine di lettura invariato nel codice: testo, bottoni, numeri.
+   ========================================================================== */
+
+@media (max-width: 599.98px) {
+  .nip-stage {
+    grid-template-rows: auto auto auto;
+    padding-top: var(--nip-space);   /* niente fascia vuota in alto: stesso margine dei lati */
+  }
+
+  .nip-copy {
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  /* Una sola striscia di vetro per i tre numeri */
+  .nip-stats {
+    grid-row: 2;
+    gap: 0;
+    padding: 0.9rem 0.25rem;
+    border-radius: var(--r-inner);
+    background-color: var(--glass-dark-bg);
+    background-image: var(--glass-dark-sheen);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-dark-line);
+  }
+
+  .nip-stage--light .nip-stats {
+    background-color: var(--glass-light-bg);
+    background-image: var(--glass-light-sheen);
+    box-shadow: var(--glass-light-line);
+  }
+
+  /* I tre numeri dentro la striscia: niente vetro proprio, divisori sottili */
+  .nip-stat.glass {
+    padding: 0.1rem 0.75rem;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .nip-stat + .nip-stat {
+    border-left: 1px solid currentColor;
+    border-left-color: color-mix(in srgb, currentColor 30%, transparent);
+  }
+
+  .nip-stat .stat-num {
+    font-size: 1.6rem;
+  }
+
+  .nip-stat .stat-label {
+    font-size: var(--fs-small);   /* 14px: minimo del sito, anche su telefono */
+  }
+
+  .nip-actions {
+    grid-row: 3;
+  }
+}
+
+/* Telefono: niente vetro dietro i bottoni. Il bottone a contorno prende un
+   fondo pieno (il --bg del pannello: Ricepaper sul vetro chiaro, Hard Grey
+   sul vetro scuro), così il testo non sta mai direttamente sulla texture */
+@media (max-width: 599.98px) {
+  /* Selettore forte: deve battere .nip-stage--light .glass (vetro chiaro) */
+  .nip-stage .nip-actions.glass {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .nip-actions .btn--outline {
+    background-color: var(--bg);
+  }
+
+  .nip-actions .btn--outline:hover {
+    background-color: var(--fg);
+  }
 }

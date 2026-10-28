@@ -37,7 +37,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.018em;
   color: var(--hard-grey);
 }
 
@@ -145,7 +145,9 @@
 .map-pin--multi[data-show="biotech"]::before    { background: var(--cat-biotech); }
 .map-pin--multi[data-show="production"]::before { background: var(--cat-production); }
 
-/* Onda che pulsa piano (si ferma con Stop animation / reduced-motion) */
+/* Onda che pulsa piano per 5 secondi (2 × 2.5s) e poi si ferma (SITO 4).
+   Con JS parte quando la mappa entra nello schermo (.is-in di reveal.js),
+   senza JS al caricamento. Ferma con Stop animation / reduced-motion */
 .map-pin::after {
   content: "";
   position: absolute;
@@ -155,8 +157,13 @@
   height: 20px;
   border-radius: 50%;
   border: 2px solid var(--cat, var(--ocean));
-  animation: pin-pulse 2.6s var(--ease-out) infinite;
+  opacity: 0;
+  animation: pin-pulse 2.5s var(--ease-out) 2;
   pointer-events: none;
+}
+
+.js [data-reveal]:not(.is-in) .map-pin::after {
+  animation: none;
 }
 
 @keyframes pin-pulse {
@@ -306,10 +313,10 @@
 .site-card-title {
   margin-top: 0.75rem;
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 1.1rem + 0.8vw, 1.875rem);
+  font-size: var(--fs-large);
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
 }
 
 .site-card-title:focus {
@@ -390,9 +397,9 @@
 .site-name {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.25rem);
+  font-size: var(--fs-h5);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.008em;
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }
@@ -448,18 +455,55 @@
 }
 
 /* --------------------------------------------------------------------------
-   Gruppi come tendine (<details>): su desktop sempre aperti, su mobile
-   chiusi all'inizio — la sezione diventa molto più bassa
+   Gruppi come tendine (<details>), chiusi all'inizio su tutti gli schermi
+   (SITO 4): su desktop una riga di 5 tendine, ognuna si apre nella sua
+   colonna; su mobile una colonna sola
    -------------------------------------------------------------------------- */
+
+.presence-list {
+  align-items: start;
+}
 
 .presence-group > summary {
   display: block;
   list-style: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .presence-group > summary::-webkit-details-marker {
   display: none;
+}
+
+.presence-group h3 {
+  position: relative;
+  min-height: 48px;
+  padding: 0 2rem 0 0;
+}
+
+/* Freccia della tendina */
+.presence-group h3::after {
+  content: "";
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.presence-group[open] h3::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.presence-group > summary:hover h3 {
+  color: var(--ocean);
+}
+
+.presence-group > summary:focus-visible {
+  outline-offset: -2px;
 }
 
 @media (max-width: 699.98px) {
@@ -483,37 +527,12 @@
   }
 
   .presence-group > summary {
-    cursor: pointer;
     border-bottom: 1px solid var(--line);
   }
 
   .presence-group h3 {
-    position: relative;
     min-height: 52px;
-    padding: 0 2rem 0 0;
     border-bottom: 0;
-  }
-
-  /* Freccia della tendina */
-  .presence-group h3::after {
-    content: "";
-    position: absolute;
-    right: 0.35rem;
-    top: 50%;
-    width: 9px;
-    height: 9px;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: translateY(-70%) rotate(45deg);
-    transition: transform var(--dur-ui) var(--ease-out);
-  }
-
-  .presence-group[open] h3::after {
-    transform: translateY(-30%) rotate(-135deg);
-  }
-
-  .presence-group > summary:focus-visible {
-    outline-offset: -2px;
   }
 
   .presence-group ul {

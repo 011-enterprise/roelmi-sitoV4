@@ -70,7 +70,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
 }
 
 .site-popup-desc {
@@ -85,7 +85,7 @@
   align-items: center;
   min-height: 44px;
   margin-top: 0.4rem;
-  font-size: var(--fs-small);
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--hard-grey);
   text-decoration: underline;

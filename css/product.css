@@ -11,7 +11,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.018em;
   color: var(--fg);
 }
 
@@ -99,9 +99,9 @@
 .pd-function {
   margin-top: 0.75rem;
   font-family: var(--font-display);
-  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.5rem);
+  font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.008em;
   color: var(--ricepaper);
 }
 
@@ -138,14 +138,15 @@
    -------------------------------------------------------------------------- */
 
 .pd-statement {
-  max-width: 34ch;
+  max-width: 46ch;
   margin-top: var(--title-gap);
   margin-left: auto;
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 0.85rem + 1.36vw, 2.125rem);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  /* Paragrafo d'apertura nel font del testo (Chiron Hei HK): con Iwona
+     a questa lunghezza si leggeva male (SITO 4) */
+  font-family: var(--font-body);
+  font-size: var(--fs-statement);
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--hard-grey);
 }
 
@@ -185,10 +186,10 @@
 
 .pd-benefit-title {
   font-family: var(--font-display);
-  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  font-size: var(--fs-h5);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
 
 .pd-benefit p {
@@ -233,9 +234,9 @@
   min-height: 64px;
   padding-right: 2rem;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }
@@ -597,7 +598,7 @@
   margin-top: 1rem;
   font-size: clamp(3rem, 1.275rem + 5.95vw, 8.075rem);
   line-height: 0.95;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.022em;
 }
 
 .pd-hero-card {
@@ -674,7 +675,7 @@
   margin-top: 0.75rem;
   font-size: clamp(3.5rem, 15.5vw, 17rem);
   line-height: 0.88;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.024em;
   color: var(--ricepaper);
 }
 
@@ -871,7 +872,7 @@
 /* Descrizione: parole chiave in Ocean, come il paragrafo di Who We Are
    (Ocean su Ricepaper 4.69:1, testo grande) */
 .pd-statement strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pd-statement .accent {

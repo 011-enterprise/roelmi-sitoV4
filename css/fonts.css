@@ -1,21 +1,49 @@
 /* ==========================================================================
-   Font serviti dal sito (non da Google): niente dati dei visitatori
-   inviati a terzi (GDPR). Licenza SIL Open Font License.
-   File variabili, sottoinsieme latino: un file per famiglia, tutti i pesi.
+   Font del brand (guida ROELMI HPC, "Tipografia #2"), serviti dal sito (non da
+   Google): niente dati dei visitatori inviati a terzi (GDPR).
+   - Iwona (titoli, display, sottotitoli; peso principale Medium) di Janusz M.
+     Nowacki, GUST Font License (fonts/LICENSE-iwona.txt). Un file per peso.
+   - Chiron Hei HK (testo), SIL Open Font License (fonts/LICENSE-chironheihk.txt).
+     File variabile ridotto ai pesi 300–700.
+   Sottoinsieme latino + greco (α, β, γ, δ) + punteggiatura, apici e pedici.
    ========================================================================== */
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Iwona";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 300;
   font-display: swap;
-  src: url("../fonts/montserrat-latin.woff2") format("woff2");
+  src: url("../fonts/iwona-light-latin.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Iwona";
   font-style: normal;
-  font-weight: 300 800;
+  font-weight: 400;
   font-display: swap;
-  src: url("../fonts/opensans-latin.woff2") format("woff2");
+  src: url("../fonts/iwona-regular-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iwona";
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("../fonts/iwona-medium-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iwona";
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+  src: url("../fonts/iwona-bold-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Chiron Hei HK";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/chironheihk-latin.woff2") format("woff2");
 }

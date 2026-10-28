@@ -212,9 +212,9 @@
 })();
 
 /* ==========================================================================
-   Gruppi a tendina (<details>): aperti su desktop, chiusi su mobile.
-   Su desktop il titolo non chiude il gruppo; scegliendo un filtro su mobile
-   il gruppo corrispondente si apre da solo.
+   Gruppi a tendina (<details>), chiusi all'inizio su tutti gli schermi
+   (SITO 4, richiesta del cliente). Si aprono dal titolo; scegliendo un
+   filtro si apre da solo il gruppo corrispondente ("All" li richiude).
    ========================================================================== */
 
 (function () {
@@ -224,26 +224,11 @@
   if (!section) return;
 
   var groups = Array.prototype.slice.call(section.querySelectorAll('details.presence-group'));
-  var mobileMq = window.matchMedia('(max-width: 699.98px)');
-
-  function sync() {
-    groups.forEach(function (g) { g.open = !mobileMq.matches; });
-  }
-
-  groups.forEach(function (g) {
-    g.querySelector('summary').addEventListener('click', function (e) {
-      if (!mobileMq.matches) e.preventDefault();
-    });
-  });
 
   section.querySelectorAll('.filter-pill').forEach(function (p) {
     p.addEventListener('click', function () {
-      if (!mobileMq.matches) return;
       var type = p.getAttribute('data-filter');
       groups.forEach(function (g) { g.open = type !== 'all' && g.getAttribute('data-type') === type; });
     });
   });
-
-  mobileMq.addEventListener('change', sync);
-  sync();
 })();
