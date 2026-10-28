@@ -95,6 +95,15 @@
     return n;
   }
 
+  // Pittogrammi delle forme fisiche (images/pittogrammi, PNG provvisori)
+  var PICTOS = {
+    'powder': 'images/pittogrammi/POLVERI.png',
+    'wax': 'images/pittogrammi/CERE.png',
+    'wax-pearls': 'images/pittogrammi/CERE-PERLE.png',
+    'liquid': 'images/pittogrammi/LIQUIDI.png',
+    'liquid-gel': 'images/pittogrammi/LIQUIDI-GEL.png'
+  };
+
   function card(item) {
     var li = el('li', 'fx-card');
     var art = el('article');
@@ -114,12 +123,31 @@
     art.appendChild(pills);
 
     var media = el('div', 'fx-card-media');
-    var img = el('img');
-    img.src = item.texture;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    media.appendChild(img);
+    var picto = PICTOS[item.form];
+    if (picto) {
+      // PROVA SITO 4: pittogramma della forma fisica in vetro, protagonista
+      // del riquadro (decorativo). Colore della forma dietro = mercato
+      media.classList.add('fx-card-media--picto');
+      var visual = el('div', 'fx-picto' + (asList(item.market)[0] === 'Nutraceutical' ? ' fx-picto--nutra' : ''));
+      visual.setAttribute('aria-hidden', 'true');
+      var frame = el('span', 'fx-picto-frame');
+      frame.appendChild(el('span', 'fx-picto-blob'));
+      visual.appendChild(frame);
+      var pimg = el('img', 'fx-picto-img');
+      pimg.src = picto;
+      pimg.alt = '';
+      pimg.loading = 'lazy';
+      pimg.decoding = 'async';
+      visual.appendChild(pimg);
+      media.appendChild(visual);
+    } else {
+      var img = el('img');
+      img.src = item.texture;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      media.appendChild(img);
+    }
 
     var glass = el('div', 'fx-card-glass');
     glass.appendChild(el('p', '', item.description));

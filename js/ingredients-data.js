@@ -9,6 +9,7 @@ window.ROELMI_INGREDIENTS = [
   {
     id: 1,
     name: 'CytoFruit®',
+    form: 'liquid',   // forma fisica = pittogramma (PROVA SITO 4, assegnata a occhio)
     line: 'CytoFruit',
     function: 'Biologically active waters',
     market: ['Personal Care'],
@@ -24,6 +25,7 @@ window.ROELMI_INGREDIENTS = [
   {
     id: 2,
     name: 'SelectSIEVE® HopE',
+    form: 'powder',
     line: 'SelectSIEVE',
     function: 'GLP-1 natural support',
     market: ['Nutraceutical'],
@@ -39,6 +41,7 @@ window.ROELMI_INGREDIENTS = [
   {
     id: 3,
     name: 'TechnoHYAL® HyaPearl',
+    form: 'wax-pearls',
     line: 'TechnoHYAL',
     function: 'Active Make-Up',
     market: ['Personal Care'],
@@ -54,6 +57,7 @@ window.ROELMI_INGREDIENTS = [
   {
     id: 4,
     name: 'ColorGLAM®',
+    form: 'powder',
     line: 'ColorGLAM',
     function: 'Color portfolio',
     market: ['Personal Care'],
