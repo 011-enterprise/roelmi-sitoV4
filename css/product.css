@@ -1385,3 +1385,327 @@ html:not(.js) .pd-charts-nav {
     --picto-ratio: 1 / 1;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Apertura con il pittogramma — versione 2 (28/10/2026): pittogramma SVG a
+   strati (images/pittogrammi/<form>.svg, in linea nella pagina) che "si
+   forma" all'apertura e prende profondità al passaggio del mouse.
+   Riquadro quadrato, mai più alto del 64% dello schermo; la goccia si vede
+   quasi tutta, escono dal bordo destro e da quello inferiore gli elementi
+   interni e la punta del fondo, come nei pittogrammi.
+   Stato di base = pittogramma già formato e fermo (senza JS, con Stop
+   animation, con reduced-motion). js/product-picto.js aggiunge .is-forming
+   e aggiorna --mx / --my (mouse) e --picto-shift (scroll, telefono)
+   -------------------------------------------------------------------------- */
+
+.pd-phero-visual .picto {
+  --picto-ratio: 1 / 1;
+  width: min(100%, 64vh);
+  margin-left: auto;
+}
+
+.picto .pg {
+  position: absolute;
+  right: -6%;
+  bottom: -7%;
+  z-index: 1;
+  height: 96%;
+  width: auto;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 0.5px rgba(25, 25, 25, 0.45))
+    drop-shadow(0 14px 32px rgba(25, 25, 25, 0.16));
+  translate: 0 var(--picto-shift, 0px);
+}
+
+/* Profondità: gli strati si spostano a velocità diverse (mouse) */
+.picto .pg-drop,
+.picto .pg-inner,
+.pd-phero-visual .picto-blob {
+  transition: translate 0.6s var(--ease-out);
+}
+
+.picto .pg-drop {
+  translate: calc(var(--mx, 0) * 6px) calc(var(--my, 0) * 6px);
+}
+
+.picto .pg-inner {
+  translate: calc(var(--mx, 0) * 16px) calc(var(--my, 0) * 16px);
+}
+
+.pd-phero-visual .picto-blob {
+  translate: calc(var(--mx, 0) * -22px) calc(var(--my, 0) * -22px);
+}
+
+/* Animazione "si forma" (una volta, circa 2.2 secondi):
+   contorno che si disegna → vetro → cerchio → onde una alla volta */
+.picto.is-forming .pg-outline {
+  stroke-dasharray: 1;
+  animation: pg-draw 1.2s var(--ease-out) both;
+}
+
+.picto.is-forming .pg-drop .pg-glass {
+  animation: pg-fade 0.8s var(--ease-out) 0.5s both;
+}
+
+.picto.is-forming .pg-core {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pg-pop 0.7s var(--ease-out) 0.85s both;
+}
+
+.picto.is-forming .pg-arc {
+  transform-box: view-box;
+  transform-origin: 327px 548px;   /* centro delle onde (LIQUIDI) */
+  animation: pg-wave 0.9s var(--ease-out) calc(1.05s + var(--i, 0) * 0.12s) both;
+}
+
+.picto.is-forming .picto-blob {
+  animation: pg-blob 1.6s var(--ease-out) both;
+}
+
+@keyframes pg-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes pg-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pg-pop {
+  from { opacity: 0; transform: scale(0.3); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes pg-wave {
+  from { opacity: 0; transform: scale(0.72) rotate(-28deg); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes pg-blob {
+  from { opacity: 0; transform: translate(-50%, -50%) rotate(-45deg) scale(0.5); }
+  to   { opacity: 0.55; transform: translate(-50%, -50%) rotate(-45deg); }
+}
+
+/* Fermo: formato subito, niente profondità né scorrimento */
+.motion-paused .picto .pg *,
+.motion-paused .picto .picto-blob {
+  animation: none !important;
+  translate: none !important;
+}
+
+.motion-paused .picto .pg {
+  translate: none;
+}
+
+@media (max-width: 899.98px) {
+  .pd-phero-visual .picto {
+    width: min(100%, 420px);
+    margin-left: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Apertura con il pittogramma — versione 3 (28/10/2026, "troppo piatto"):
+   - Sfondo del riquadro a più colori (non più tinta unita): luce Ricepaper in
+     alto a sinistra, colore del mercato, un tono più profondo in basso a
+     destra e due macchie (Cerulean e Olive/Antique) che si muovono col mouse
+   - Lente: dietro la goccia lo sfondo è sfocato e più saturo (backdrop-filter
+     con la sagoma della goccia come maschera) → vetro vero
+   - Il riquadro si inclina in 3D col mouse; goccia e lente stanno 40px
+     davanti al fondo, quindi si stacca davvero
+   - Ombre: la goccia sul fondo (CSS), gli elementi interni sulla goccia (SVG)
+   Tutto decorativo; fermo con Stop animation / reduced-motion
+   -------------------------------------------------------------------------- */
+
+.pd-phero-visual {
+  perspective: 1100px;
+}
+
+.pd-phero-visual .picto {
+  transform-style: preserve-3d;
+  transform: rotateX(calc(var(--my, 0) * -7deg)) rotateY(calc(var(--mx, 0) * 9deg));
+  transition: transform 0.7s var(--ease-out);
+}
+
+.pd-phero-visual .picto-frame {
+  background-color: var(--picto-color);
+  background-image:
+    radial-gradient(70% 60% at 18% 12%, rgba(247, 243, 235, 0.75), transparent 62%),
+    radial-gradient(80% 70% at 92% 96%, color-mix(in srgb, var(--picto-color) 62%, var(--hard-grey)), transparent 70%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Macchie di colore: si spostano al contrario del mouse */
+.pg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(46px);
+  transition: translate 0.8s var(--ease-out);
+}
+
+.pg-blob--a {
+  top: 6%;
+  right: 4%;
+  width: 46%;
+  aspect-ratio: 1;
+  background-color: var(--cerulean);
+  opacity: 0.85;
+  translate: calc(var(--mx, 0) * -30px) calc(var(--my, 0) * -24px);
+}
+
+.pg-blob--b {
+  bottom: 4%;
+  left: 8%;
+  width: 40%;
+  aspect-ratio: 1;
+  background-color: var(--olive);
+  opacity: 0.75;
+  translate: calc(var(--mx, 0) * -18px) calc(var(--my, 0) * -30px);
+}
+
+.picto--nutra .pg-blob--b {
+  background-color: var(--antique);
+}
+
+/* Lente e pittogramma: stessa scatola, davanti al fondo */
+.pg-lens,
+.pd-phero-visual .pg {
+  position: absolute;
+  right: -6%;
+  bottom: -7%;
+  height: 96%;
+  aspect-ratio: 520 / 760;
+  transform: translateZ(40px);
+}
+
+.pg-lens {
+  z-index: 1;
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+  -webkit-mask: var(--pg-drop-mask) center / 100% 100% no-repeat;
+  mask: var(--pg-drop-mask) center / 100% 100% no-repeat;
+  --pg-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
+  translate: 0 var(--picto-shift, 0px);
+}
+
+.pd-phero-visual .pg {
+  z-index: 2;
+  filter:
+    drop-shadow(0 0 0.5px rgba(25, 25, 25, 0.4))
+    drop-shadow(0 28px 34px rgba(25, 25, 25, 0.22));
+}
+
+/* L'animazione di entrata: anche la lente compare con il vetro */
+.picto.is-forming .pg-lens {
+  animation: pg-fade 0.8s var(--ease-out) 0.5s both;
+}
+
+.motion-paused .pd-phero-visual .picto {
+  transform: none;
+}
+
+.motion-paused .pg-blob,
+.motion-paused .pg-lens {
+  translate: none !important;
+  animation: none !important;
+}
+
+/* Browser senza backdrop-filter: niente lente (resta il vetro dell'SVG) */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pg-lens {
+    display: none;
+  }
+}
+
+/* Versione 3, ritocco: riquadro al centro della sua colonna (non più
+   attaccato al bordo destro) e goccia più dentro il riquadro: appena
+   spostata a destra rispetto al centro; dal bordo escono solo le onde
+   e il fondo della goccia */
+.pd-phero-visual .picto {
+  margin-inline: auto;
+}
+
+.pg-lens,
+.pd-phero-visual .pg {
+  right: 9%;
+}
+
+/* --------------------------------------------------------------------------
+   Apertura con il pittogramma — versione 4 (28/10/2026): fondo Hard Grey
+   (.theme-dark) e niente 3D. Sul nero il vetro dei pittogrammi si legge
+   meglio.
+   Testi nel tema scuro: Ricepaper 17:1, grigio secondario (--fg-muted =
+   muted-on-dark) 7.1:1. Il riquadro diventa una lastra scura appena più
+   chiara del fondo, con il colore del mercato e le due macchie come luci
+   dietro la goccia; la profondità resta solo in 2D (gli strati si spostano
+   col mouse a velocità diverse)
+   -------------------------------------------------------------------------- */
+
+.pd-phero.theme-dark .pd-function,
+.pd-phero.theme-dark .pd-intro,
+.pd-phero.theme-dark .pd-breadcrumb a[aria-current="page"] {
+  color: var(--fg);
+}
+
+.pd-phero.theme-dark .pd-tags li {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.pd-phero.theme-dark .pd-breadcrumb li + li::before,
+.pd-phero.theme-dark .pd-breadcrumb a {
+  color: var(--fg-muted);
+}
+
+.pd-phero.theme-dark .pd-phero-name {
+  color: var(--fg);
+}
+
+/* Lastra scura con le luci di colore */
+.pd-phero.theme-dark .picto-frame {
+  background-color: #232323;
+  background-image:
+    radial-gradient(60% 55% at 62% 58%, color-mix(in srgb, var(--picto-color) 70%, transparent), transparent 70%),
+    radial-gradient(70% 60% at 15% 10%, rgba(247, 243, 235, 0.08), transparent 60%);
+  box-shadow:
+    inset 0 0 0 1px rgba(247, 243, 235, 0.12),
+    inset 0 1px 0 rgba(247, 243, 235, 0.18);
+}
+
+.pd-phero.theme-dark .picto-blob {
+  background-color: var(--picto-color);
+  opacity: 0.6;
+}
+
+.pd-phero.theme-dark .pg-blob--a {
+  opacity: 0.55;
+}
+
+.pd-phero.theme-dark .pg-blob--b {
+  opacity: 0.45;
+}
+
+/* Sul nero l'ombra scura non si vede: la goccia ha invece un alone chiaro */
+.pd-phero.theme-dark .pg {
+  filter:
+    drop-shadow(0 0 0.5px rgba(247, 243, 235, 0.5))
+    drop-shadow(0 0 40px rgba(247, 243, 235, 0.08));
+}
+
+/* 2D: niente inclinazione né spessore */
+.pd-phero-visual {
+  perspective: none;
+}
+
+.pd-phero-visual .picto {
+  transform: none;
+  transform-style: flat;
+}
+
+.pg-lens,
+.pd-phero-visual .pg {
+  transform: none;
+}
