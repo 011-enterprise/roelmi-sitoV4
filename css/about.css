@@ -82,6 +82,7 @@
 
 .ab-breadcrumb li + li::before {
   content: "/";
+  content: "/" / "";   /* separatore solo visivo: lo screen reader non legge "slash" */
 }
 
 .ab-breadcrumb a {
