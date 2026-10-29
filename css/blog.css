@@ -152,16 +152,18 @@
   color: var(--fg);
 }
 
-/* Cerchi con la freccia in Olive pieno (accento della palette), freccia
-   Hard Grey (9.2:1). In hover / focus la scheda li riempie di Ricepaper */
+/* Cerchi con la freccia: Ricepaper con freccia Hard Grey; in hover / focus
+   della scheda Hard Grey con freccia Ricepaper */
 .post-arrow {
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--olive);
+  /* SITO 4: Ricepaper invece di Olive (l'Olive non è un accento usato nel
+     sito). Freccia Hard Grey su Ricepaper 17:1 */
+  border: 1px solid var(--ricepaper);
   border-radius: 50%;
-  background-color: var(--olive);
+  background-color: var(--ricepaper);
   color: var(--hard-grey);
   transition:
     background-color var(--dur-ui) var(--ease-out),
@@ -195,8 +197,11 @@
 
 .post:hover .post-arrow,
 .post:focus-within .post-arrow {
-  border-color: var(--ricepaper);
-  background-color: var(--ricepaper);
+  /* Come i bottoni del sito: in hover più contrasto, Hard Grey con freccia
+     Ricepaper (17:1) */
+  border-color: var(--hard-grey);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
   transform: translateX(3px);
 }
 
