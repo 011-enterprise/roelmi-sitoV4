@@ -11,7 +11,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--fg);
 }
 
@@ -102,7 +102,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.008em;
+  letter-spacing: var(--ls-tight);
   color: var(--ricepaper);
 }
 
@@ -189,8 +189,8 @@
   font-family: var(--font-display);
   font-size: var(--fs-h5);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
 }
 
 .pd-benefit p {
@@ -237,7 +237,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-h4);
   font-weight: 500;
-  letter-spacing: -0.012em;
+  letter-spacing: var(--ls-tight);
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }
@@ -281,7 +281,7 @@
 .pd-detail-title {
   font-size: var(--fs-body);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--hard-grey);
 }
 
@@ -351,7 +351,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: var(--fs-h5);
   font-weight: 500;
   color: var(--hard-grey);
 }
@@ -401,7 +401,7 @@
 
 .pd-related-more .btn {
   white-space: normal;
-  line-height: 1.3;
+  line-height: 1.35;
   padding-block: 0.6rem;
 }
 
@@ -481,12 +481,12 @@
   }
 
   .pd-benefit-title {
-    font-size: 1rem;
+    font-size: var(--fs-body);
   }
 
   .pd-benefit p {
     margin-top: 0.5rem;
-    font-size: 0.8125rem;
+    font-size: var(--fs-small);
     line-height: 1.5;
   }
 }
@@ -605,7 +605,7 @@
   margin-top: 1rem;
   font-size: clamp(3rem, 1.275rem + 5.95vw, 8.075rem);
   line-height: 0.95;
-  letter-spacing: -0.022em;
+  letter-spacing: var(--ls-title);
 }
 
 .pd-hero-card {
@@ -682,7 +682,7 @@
   margin-top: 0.75rem;
   font-size: clamp(3.5rem, 15.5vw, 17rem);
   line-height: 0.88;
-  letter-spacing: -0.024em;
+  letter-spacing: var(--ls-title);
   color: var(--ricepaper);
 }
 
@@ -1123,7 +1123,7 @@ html:not(.js) .pd-charts-nav {
   font-size: var(--fs-large);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.012em;
+  letter-spacing: var(--ls-tight);
   color: var(--fg);
 }
 
@@ -1319,7 +1319,7 @@ html:not(.js) .pd-charts-nav {
   display: block;
   margin-top: 1rem;
   font-size: var(--fs-h2);   /* ~88px: i nomi lunghi (SelectSIEVE® HopE) vanno a capo nella colonna */
-  letter-spacing: -0.016em;
+  letter-spacing: var(--ls-title);
 }
 
 /* Testi dell'apertura: nel tema della sezione (prima erano Ricepaper sul vetro scuro) */
@@ -1742,7 +1742,7 @@ html:not(.js) .pd-charts-nav {
   border-radius: 50%;
   font-size: var(--fs-label);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--ls-caps);
   color: var(--ricepaper);
   transition:
     background-color 0.5s var(--ease-out),

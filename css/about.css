@@ -12,7 +12,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--fg);
 }
 
@@ -142,7 +142,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--hard-grey);
 }
 
@@ -188,8 +188,8 @@
   font-family: var(--font-display);
   font-size: var(--fs-lead);
   font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.004em;
+  line-height: 1.35;
+  letter-spacing: 0;
   color: var(--hard-grey);
 }
 
@@ -258,7 +258,7 @@
   font-size: var(--fs-large);        /* testo grande, come il paragrafo di Who */
   font-weight: 400;
   line-height: 1.35;
-  letter-spacing: -0.008em;
+  letter-spacing: var(--ls-tight);
   color: var(--ricepaper);
 }
 
@@ -302,7 +302,7 @@
   font-size: var(--fs-large);        /* come il paragrafo di Who */
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.012em;
+  letter-spacing: var(--ls-tight);
   color: var(--hard-grey);
 }
 
@@ -353,7 +353,7 @@
   display: block;
   margin-top: 0;
   font-weight: 300;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
 }
 
 .ab-nip-box .ab-nip-word b {
@@ -427,7 +427,7 @@
   font-size: var(--fs-section);      /* come i numeri di Impact */
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-title);
   color: var(--muted);
   transition: color 0.5s var(--ease-out);
 }
@@ -442,7 +442,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-large);        /* titolo di scheda */
   font-weight: 500;
-  letter-spacing: -0.012em;
+  letter-spacing: var(--ls-tight);
   color: var(--hard-grey);
 }
 
@@ -566,7 +566,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-title);
 }
 
 .ab-tl-text {

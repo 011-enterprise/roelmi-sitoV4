@@ -52,8 +52,8 @@
   font-family: var(--font-display);
   font-size: var(--fs-large);
   font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.014em;
+  line-height: 1.05;
+  letter-spacing: var(--ls-tight);
 }
 
 .ft-event-desc {
@@ -235,11 +235,11 @@
   }
 
   .ft-event-title {
-    font-size: 1.25rem;
+    font-size: var(--fs-h4);
   }
 
   .ft-event-desc {
-    font-size: 0.8125rem;
+    font-size: var(--fs-small);
   }
 
   .ft-main {
@@ -305,11 +305,11 @@
 
   .ft-event-tag {
     grid-column: 1 / -1;
-    font-size: 0.8125rem;
+    font-size: var(--fs-small);
   }
 
   .ft-event-title {
-    font-size: 1.125rem;
+    font-size: var(--fs-h5);
   }
 
   .ft-event-desc {

@@ -49,7 +49,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;   /* spaziatura allentata per Iwona (SITO 4) */
+  letter-spacing: var(--ls-title);   /* spaziatura allentata per Iwona (SITO 4) */
   color: var(--hard-grey);
 }
 
@@ -60,7 +60,7 @@
   font-size: var(--fs-large);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.012em;
+  letter-spacing: var(--ls-tight);
   color: var(--hard-grey);
 }
 

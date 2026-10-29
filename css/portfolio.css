@@ -15,7 +15,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--ricepaper);
 }
 
@@ -59,7 +59,7 @@
   font-size: var(--fs-h5);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.008em;
+  letter-spacing: var(--ls-tight);
 }
 
 .product-function {
@@ -107,7 +107,7 @@
   backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-light-line);
   font-size: var(--fs-small);
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--hard-grey);
   opacity: 0;
   transform: translate3d(0, 16px, 0);
@@ -128,7 +128,7 @@
   border: 1px solid var(--hard-grey);
   border-radius: 999px;
   font-size: var(--fs-label);
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--hard-grey);
 }
 
@@ -137,7 +137,7 @@
   align-items: center;
   gap: 0.6em;
   margin-top: 0.85rem;
-  font-size: 0.9375rem;
+  font-size: var(--fs-cta);
   font-weight: 600;
   color: var(--hard-grey);
 }
@@ -224,8 +224,8 @@
   font-family: var(--font-display);
   font-size: var(--fs-section);
   font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.018em;
+  line-height: 1.05;
+  letter-spacing: var(--ls-title);
   color: var(--ricepaper);
 }
 

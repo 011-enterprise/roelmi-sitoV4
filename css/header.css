@@ -200,7 +200,7 @@
   border-color: var(--cta-bg);
   background-color: var(--cta-bg);
   color: var(--cta-fg);
-  font-size: 0.9375rem;
+  font-size: var(--fs-cta);
   transition:
     max-width 0.5s var(--ease-out),
     padding 0.5s var(--ease-out),
@@ -613,7 +613,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);
   font-weight: 500;
-  letter-spacing: -0.014em;
+  letter-spacing: var(--ls-tight);
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }

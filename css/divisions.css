@@ -11,7 +11,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--hard-grey);
 }
 
@@ -45,12 +45,12 @@
   font-family: var(--font-display);
   font-size: var(--fs-large);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.05;
   /* PROVA SITO 4 (29/10/2026): in maiuscolo, come "POLVERI" nella guida del
      brand; il maiuscolo vuole un po' di spazio tra le lettere. Il testo
      nell'HTML resta normale: lo screen reader legge "Personal Care" */
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--ls-caps);
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }
@@ -109,7 +109,7 @@
 
 .division-glass p {
   font-size: var(--fs-lead);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .division-more {
@@ -117,7 +117,7 @@
   align-items: center;
   gap: 0.6em;
   margin-top: 0.6rem;
-  font-size: 0.9375rem;
+  font-size: var(--fs-cta);
   font-weight: 600;
 }
 
@@ -222,8 +222,8 @@
   }
 
   .division-name {
-    font-size: 1.05rem;
-    letter-spacing: -0.008em;
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-tight);
   }
 
   .division-media,
@@ -241,13 +241,13 @@
   }
 
   .division-glass p {
-    font-size: 0.8125rem;
-    line-height: 1.4;
+    font-size: var(--fs-small);
+    line-height: 1.35;
   }
 
   .division-more {
     margin-top: 0.35rem;
-    font-size: 0.8125rem;
+    font-size: var(--fs-small);
   }
 }
 

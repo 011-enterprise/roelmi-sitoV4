@@ -19,7 +19,7 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: var(--ls-title);
   color: var(--fg);
 }
 
@@ -113,8 +113,8 @@
   font-family: var(--font-display);
   font-size: var(--fs-large);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.014em;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
   color: var(--fg);
   transition: color var(--dur-ui) var(--ease-out);
 }
@@ -147,7 +147,7 @@
   gap: 1rem;
   margin-top: auto;
   padding: 1.25rem 0.25rem 0;
-  font-size: 0.9375rem;
+  font-size: var(--fs-cta);
   font-weight: 600;
   color: var(--fg);
 }
