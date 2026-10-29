@@ -1836,7 +1836,7 @@ html:not(.js) .pd-charts-nav {
   pointer-events: none;
 }
 
-.pd-grad-bg svg {
+.pd-grad-bg > svg:not([width]) {   /* solo la forma azzurra: non il filtro né la goccia */
   display: block;
   width: 100%;
   height: 100%;
@@ -1912,4 +1912,67 @@ html:not(.js) .pd-charts-nav {
 
 .theme-soft .pd-statement .accent {
   color: var(--ocean);
+}
+
+/* ==========================================================================
+   Related products come Our Portfolio della home dei gradienti (29/10/2026):
+   forma azzurra sfocata (.pd-grad-bg, regole sopra) + goccia di vetro
+   lattiginoso intera, alta il 90% della sezione e tagliata a metà dal bordo
+   destro; schede con il riquadro in vetro chiaro (.pd-gradient .picto-frame,
+   sopra) e pittogrammi in Ocean (filtro #pdOcean nella pagina).
+   Accessibilità: sul punto più azzurro Hard Grey ≥ 9.5:1, quindi funzione
+   delle schede e focus in Hard Grey (il grigio secondario lì farebbe 3.7:1,
+   il focus Ocean 2.4:1). Pittogrammi decorativi (aria-hidden)
+   ========================================================================== */
+.pd-grad-drop {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  height: 90%;
+  aspect-ratio: 520 / 760;
+  transform: translateX(50%);
+}
+
+.pd-grad-drop svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.pd-grad-drop svg path {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.pd-grad-drop-lens {
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(30px) saturate(1.15);
+  backdrop-filter: blur(30px) saturate(1.15);
+  -webkit-mask: var(--pd-drop-mask) center / 100% 100% no-repeat;
+  mask: var(--pd-drop-mask) center / 100% 100% no-repeat;
+  --pd-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pd-grad-drop-lens {
+    display: none;
+  }
+}
+
+.pd-related.pd-gradient .picto-img {
+  filter:
+    url(#pdOcean)
+    drop-shadow(0 10px 18px rgba(66, 112, 158, 0.18));
+}
+
+.pd-related.pd-gradient .fx-card-function {
+  color: var(--hard-grey);
+}
+
+.pd-related.pd-gradient :focus-visible {
+  outline-color: var(--hard-grey);
 }

@@ -526,7 +526,30 @@
     <!-- ==================================================================
          7 · RELATED PRODUCTS (chiaro) — stesse schede del Finder
          ================================================================== -->
-    <section class="pd-related section theme-light grain" aria-labelledby="pd-related-title">
+    <section class="pd-related pd-gradient section theme-light grain" aria-labelledby="pd-related-title">
+      <!-- Come Our Portfolio della home dei gradienti: forma azzurra sfocata che
+           sfuma nel Ricepaper sopra e sotto e goccia di vetro lattiginoso tagliata
+           a metà dal bordo destro -->
+      <div class="pd-grad-bg" aria-hidden="true">
+        <!-- Filtro che colora i pittogrammi bianchi di Ocean (#42709E) -->
+        <svg width="0" height="0" style="position:absolute" focusable="false">
+          <filter id="pdOcean" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 0.259  0 0 0 0 0.439  0 0 0 0 0.62  0 0 0 1 0"/>
+          </filter>
+        </svg>
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="pdRelatedBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pd-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pdRelatedBlur)"/>
+        </svg>
+        <div class="pd-grad-drop">
+          <span class="pd-grad-drop-lens"></span>
+          <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
+            <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="rgba(247,243,235,0.42)" stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </div>
       <div class="container">
         <h2 class="pd-section-title" id="pd-related-title">
           <span class="eyebrow" data-reveal>More ingredients</span>
@@ -596,7 +619,7 @@
          tutte le pagine: fondo neutro con sfumature, texture chiara, vetro
          chiaro con titolo e frase a sinistra, bottoni a destra (SITO 4)
          ================================================================== -->
-    <section class="pd-contact section theme-soft grain" id="contact" aria-labelledby="pd-contact-title">
+    <section class="pd-contact section theme-light grain" id="contact" aria-labelledby="pd-contact-title">
       <div class="container">
         <aside class="cta-band" aria-labelledby="pd-contact-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">
