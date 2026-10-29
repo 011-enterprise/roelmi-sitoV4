@@ -203,7 +203,14 @@
     <!-- ==================================================================
          FILTRI + RISULTATI
          ================================================================== -->
-    <section class="fx-body section theme-light grain" aria-label="Ingredients">
+    <section class="fx-body picto-glass section theme-light grain" aria-label="Ingredients">
+      <!-- Filtro che colora i pittogrammi bianchi di Ocean (#42709E) tenendo le
+           loro trasparenze: schede con il riquadro in vetro chiaro (picto.css) -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <filter id="pictoOcean" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0 0 0 0 0.259  0 0 0 0 0.439  0 0 0 0 0.62  0 0 0 1 0"/>
+        </filter>
+      </svg>
       <div class="container fx-layout">
 
         <!-- Filtri: colonna ferma su desktop, pannello a tutto schermo su mobile -->
@@ -352,7 +359,7 @@
          tutte le pagine: fondo neutro con sfumature, texture chiara, vetro
          chiaro con titolo e frase a sinistra, bottoni a destra (SITO 4)
          ================================================================== -->
-    <section class="fx-close section theme-soft grain" aria-labelledby="fx-help-title">
+    <section class="fx-close section theme-light grain" aria-labelledby="fx-help-title">
       <div class="container">
         <aside class="cta-band" aria-labelledby="fx-help-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">

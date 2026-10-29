@@ -1919,7 +1919,7 @@ html:not(.js) .pd-charts-nav {
    forma azzurra sfocata (.pd-grad-bg, regole sopra) + goccia di vetro
    lattiginoso intera, alta il 90% della sezione e tagliata a metà dal bordo
    destro; schede con il riquadro in vetro chiaro (.pd-gradient .picto-frame,
-   sopra) e pittogrammi in Ocean (filtro #pdOcean nella pagina).
+   sopra) e pittogrammi in Ocean (.picto-glass in picto.css, filtro #pictoOcean nella pagina).
    Accessibilità: sul punto più azzurro Hard Grey ≥ 9.5:1, quindi funzione
    delle schede e focus in Hard Grey (il grigio secondario lì farebbe 3.7:1,
    il focus Ocean 2.4:1). Pittogrammi decorativi (aria-hidden)
@@ -1961,12 +1961,6 @@ html:not(.js) .pd-charts-nav {
   .pd-grad-drop-lens {
     display: none;
   }
-}
-
-.pd-related.pd-gradient .picto-img {
-  filter:
-    url(#pdOcean)
-    drop-shadow(0 10px 18px rgba(66, 112, 158, 0.18));
 }
 
 .pd-related.pd-gradient .fx-card-function {
