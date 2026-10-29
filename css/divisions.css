@@ -46,7 +46,11 @@
   font-size: var(--fs-large);
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.014em;
+  /* PROVA SITO 4 (29/10/2026): in maiuscolo, come "POLVERI" nella guida del
+     brand; il maiuscolo vuole un po' di spazio tra le lettere. Il testo
+     nell'HTML resta normale: lo screen reader legge "Personal Care" */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--hard-grey);
   transition: color var(--dur-ui) var(--ease-out);
 }
