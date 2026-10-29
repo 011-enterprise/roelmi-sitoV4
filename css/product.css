@@ -1810,3 +1810,106 @@ html:not(.js) .pd-charts-nav {
   translate: none !important;
   opacity: 1 !important;
 }
+
+/* ==========================================================================
+   PROVA (29/10/2026): apertura di CytoFruit con lo sfondo di Our Portfolio
+   (home dei gradienti): Ricepaper con la grande forma azzurra sfocata che
+   sfuma nel Ricepaper sopra e sotto, senza la goccia. Tema .theme-soft per
+   l'accento Hard Grey, senza le sue macchie pastello. Tornano le regole
+   chiare dell'apertura (riquadro nel colore del mercato, testi Hard Grey).
+   Accessibilità: sul punto più azzurro (#93BEE6 al 90%) Hard Grey resta
+   ≥ 9.5:1; il grigio secondario lì sarebbe 3.7:1, quindi anche il
+   breadcrumb è Hard Grey. Bottoni: pieno Ocean + Ricepaper (4.70:1),
+   contorno Hard Grey
+   ========================================================================== */
+.pd-gradient {
+  background-image: none;
+}
+
+/* Sotto la grana (-1). Il taglio è solo su questo livello: il pittogramma
+   deve poter uscire dal fondo dell'apertura, sopra la sezione seguente */
+.pd-grad-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pd-grad-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+.pd-grad-blob {
+  fill: #93BEE6;
+  opacity: 0.9;
+}
+
+.pd-gradient .pd-breadcrumb li + li::before,
+.pd-gradient .pd-breadcrumb a {
+  color: var(--hard-grey);
+}
+
+/* Riquadro del pittogramma in vetro CHIARO (29/10/2026) al posto del colore
+   del mercato (Antique): stesso vetro delle schede dei pittogrammi della home
+   dei gradienti; sfoca la forma azzurra dello sfondo. Dentro, le luci sono
+   solo azzurre (la macchia del mercato diventa l'azzurro dello sfondo, la
+   macchia Olive diventa Cerulean): così la goccia di vetro bianco, con il suo
+   contorno e la sua ombra, si stacca. Decorativo (aria-hidden) */
+.pd-gradient .picto-frame {
+  background-color: rgba(247, 243, 235, 0.38);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.2));
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 16px 36px rgba(25, 25, 25, 0.08);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pd-gradient .picto-frame {
+    background-color: rgba(247, 243, 235, 0.7);
+  }
+}
+
+.pd-gradient .picto-blob {
+  background-color: #93BEE6;
+  opacity: 0.8;
+}
+
+.pd-gradient .pg-blob--b {
+  background-color: var(--cerulean);
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   Paragrafo d'apertura COME WHO WE ARE (29/10/2026, scelta di Chiara): Iwona
+   Medium grande (26–38px), interlinea 1.2, parole chiave dello stesso peso,
+   solo colorate in Ocean. Accessibilità: da 26px è testo grande, quindi
+   basta 3:1; Ocean resta ≥ 3.8:1 anche sulle sfumature di theme-soft
+   (4.69:1 sul Ricepaper liscio). Le parole spente sono grigio secondario
+   (≥ 5:1)
+   ========================================================================== */
+.pd-statement {
+  max-width: 36ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.15rem + 1.2vw, 2.375rem);   /* come .who-statement */
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+}
+
+.pd-statement strong,
+.theme-soft .pd-statement .accent {
+  font-weight: 500;
+}
+
+.theme-soft .pd-statement .accent {
+  color: var(--ocean);
+}

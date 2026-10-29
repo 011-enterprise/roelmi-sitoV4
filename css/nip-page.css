@@ -1092,3 +1092,30 @@
 .np-pillar:focus-visible .np-pillar-mark {
   transform: none;
 }
+
+/* ==========================================================================
+   Paragrafo d'apertura COME WHO WE ARE (29/10/2026, scelta di Chiara): Iwona
+   Medium grande (26–38px), interlinea 1.2, parole chiave dello stesso peso,
+   solo colorate in Ocean. Accessibilità: da 26px è testo grande, quindi
+   basta 3:1; Ocean resta ≥ 3.8:1 anche sulle sfumature di theme-soft
+   (4.69:1 sul Ricepaper liscio). Le parole spente sono grigio secondario
+   (≥ 5:1)
+   ========================================================================== */
+.np-statement {
+  max-width: 36ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.15rem + 1.2vw, 2.375rem);   /* come .who-statement */
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+}
+
+.np-statement strong,
+.theme-soft .np-statement .accent {
+  font-weight: 500;
+}
+
+.theme-soft .np-statement .accent,
+.theme-soft .np-statement.is-ready .accent .np-word.is-lit {
+  color: var(--ocean);
+}

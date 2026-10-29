@@ -175,7 +175,17 @@
          Movimento: il pittogramma sale appena più lento (js/product-picto.js),
          fermo con Stop animation / reduced-motion
          ================================================================== -->
-    <section class="pd-phero section theme-dark grain" aria-labelledby="pd-title">
+    <section class="pd-phero pd-gradient section theme-soft grain" aria-labelledby="pd-title">
+      <!-- Sfondo di Our Portfolio (forma azzurra sfocata che sfuma nel Ricepaper
+           sopra e sotto), senza la goccia (prova del 29/10/2026) -->
+      <div class="pd-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="pdBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pd-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pdBlur)"/>
+        </svg>
+      </div>
       <div class="container pd-phero-grid">
         <div class="pd-phero-text">
           <nav class="pd-breadcrumb" aria-label="Breadcrumb">
@@ -293,13 +303,13 @@
     <!-- ==================================================================
          2 · DESCRIZIONE — fondo neutro con sfumature (SITO 4)
          ================================================================== -->
-    <section class="pd-desc section theme-soft grain" aria-labelledby="pd-desc-title">
+    <section class="pd-desc section theme-light grain" aria-labelledby="pd-desc-title">
       <div class="container">
         <h2 class="pd-section-title" id="pd-desc-title">
           <span class="eyebrow" data-reveal>About the product</span>
           <span data-reveal data-reveal-delay="0.1">A new generation of cosmetic water</span>
         </h2>
-        <p class="pd-statement" data-reveal>CytoFruit® is a line of <strong class="accent">fruit-derived active waters</strong> formulated to replace demineralized water in cosmetics. Obtained exclusively through <strong class="accent">natural processes from pure juices</strong> — without flash distillation or microwave treatment — they are <strong class="accent">microbiologically pure</strong> and enrich the formula with <strong class="accent">oligoelements and bioactive compounds</strong> released through a natural biological filter. The result is a water phase that is <strong class="accent">significantly more biologically active</strong> than standard distilled water, confirmed by in vitro testing.</p>
+        <p class="pd-statement" data-scroll-words>CytoFruit® is a line of <strong class="accent">fruit-derived active waters</strong> formulated to replace demineralized water in cosmetics. Obtained exclusively through <strong class="accent">natural processes from pure juices</strong> — without flash distillation or microwave treatment — they are <strong class="accent">microbiologically pure</strong> and enrich the formula with <strong class="accent">oligoelements and bioactive compounds</strong> released through a natural biological filter. The result is a water phase that is <strong class="accent">significantly more biologically active</strong> than standard distilled water, confirmed by in vitro testing.</p>
       </div>
     </section>
 
@@ -307,7 +317,16 @@
          3 · KEY BENEFITS — fondo neutro con sfumature (SITO 4, prima scuro con Force Field)
          + riquadro scuro con texture + 4 pannelli di vetro (Force Field nascosto)
          ================================================================== -->
-    <section class="pd-benefits section theme-soft grain" aria-labelledby="pd-benefits-title" data-force-field-host>
+    <section class="pd-benefits pd-gradient section theme-soft grain" aria-labelledby="pd-benefits-title" data-force-field-host>
+      <!-- Sotto il riquadro: lo sfondo di Our Portfolio, senza la goccia -->
+      <div class="pd-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="pdBenefitsBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pd-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pdBenefitsBlur)"/>
+        </svg>
+      </div>
       <!-- Force Field: reticolo di esagoni Ocean, tenue e lento, decorativo -->
       <canvas class="pd-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
@@ -688,5 +707,6 @@
   <script src="js/force-field.js" defer></script>
   <script src="js/product-charts.js" defer></script>
   <script src="js/product-benefits.js" defer></script>
+  <script src="js/scroll-words.js" defer></script>
 </body>
 </html>

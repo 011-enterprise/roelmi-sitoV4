@@ -958,3 +958,23 @@ a.btn:not(:has(svg)):hover::after,
     text-align: center;
   }
 }
+
+/* Parole che si accendono con lo scroll (js/scroll-words.js, come Who We
+   Are): spente in grigio secondario (6.2:1 sul Ricepaper, quindi leggibili
+   anche da spente), accese in Hard Grey; gli accenti .accent accesi in
+   Ocean (4.69:1, solo su fondo chiaro liscio). Solo con JS attivo */
+.sw-word {
+  transition: color 0.45s var(--ease-out);
+}
+
+[data-scroll-words].is-ready .sw-word {
+  color: var(--muted);
+}
+
+[data-scroll-words].is-ready .sw-word.is-lit {
+  color: var(--hard-grey);
+}
+
+[data-scroll-words].is-ready .accent .sw-word.is-lit {
+  color: var(--ocean);
+}
