@@ -219,3 +219,13 @@
   }
 }
 
+
+/* Telefono e tablet (29/10/2026, scelta di Chiara): sotto i 900px la sezione
+   va in colonna e la texture finiva tra il titolo e i numeri, alta quasi uno
+   schermo e solo decorativa: nascosta, il titolo va dritto sui numeri.
+   L'immagine ha loading="lazy", quindi qui non viene neanche scaricata */
+@media (max-width: 899.98px) {
+  .impact-texture {
+    display: none;
+  }
+}

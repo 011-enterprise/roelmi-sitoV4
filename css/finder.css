@@ -916,3 +916,95 @@
 .fx-hero--grad .fx-glass .pill-field:focus-within {
   outline-color: var(--ricepaper);
 }
+
+/* Telefono (29/10/2026, Chiara): Stop animation non sta più sopra la
+   texture ma sotto il riquadro, fuori, a destra, discreto: solo icona e
+   testo Hard Grey sul fondo chiaro (17:1), niente pillola di vetro. Il
+   riquadro non taglia più (overflow visibile) e la texture si taglia da sola
+   con gli angoli arrotondati; la striscia di texture sopra il vetro è più
+   bassa, perché il bottone non c'è più. Area di tocco 44px invariata */
+@media (max-width: 599.98px) {
+  .fx-hero .fx-stage {
+    overflow: visible;
+    padding-top: 2.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .fx-hero .fx-bg {
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .fx-hero .fx-motion {
+    top: calc(100% + 0.25rem);
+    right: 0;
+    padding-inline: 0.25rem;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--hard-grey);
+  }
+}
+
+/* Telefono (29/10/2026, Chiara): nell'apertura il bottone Search resta
+   DENTRO la pillola, sulla stessa riga del campo (prima sotto i 480px andava
+   sotto, a tutta larghezza, regola comune di base.css). Lente a sinistra,
+   bottone più stretto; area di tocco 48px invariata; bordo e focus Ricepaper
+   (vetro scuro) */
+@media (max-width: 479.98px) {
+  .fx-search .pill-field {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.3rem 0.3rem 1rem;
+    border: 1px solid var(--fg);
+  }
+
+  .fx-search .pill-field:focus-within {
+    outline: 2px solid var(--fg);
+    outline-offset: 3px;
+  }
+
+  .fx-search-icon {
+    position: static;
+  }
+
+  .fx-search .pill-input {
+    padding: 0;
+    border: 0;
+  }
+
+  .fx-search .pill-input:focus-visible {
+    outline: none;
+  }
+
+  .fx-search .pill-submit {
+    padding-inline: 1.1rem;
+  }
+}
+
+/* Telefono, correzione (29/10/2026: "storto"): il vetro sporgeva a destra
+   (margine 2px a destra, 10px a sinistra) e la texture si vedeva solo in una
+   fascia in alto. Ora la colonna della griglia non può allargarsi oltre il
+   riquadro (minmax(0, 1fr) + min-width 0 sul vetro) e la texture fa da
+   cornice uguale su tutti e quattro i lati */
+@media (max-width: 599.98px) {
+  .fx-hero .fx-stage {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+  }
+
+  .fx-hero .fx-glass {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Etichette delle certificazioni sulle schede (29/10/2026): da 12px
+   (--fs-label) a 14px (--fs-small), come gli altri testi piccoli del sito:
+   su telefono erano piccole da leggere */
+.fx-card-tags li {
+  font-size: var(--fs-small);
+}

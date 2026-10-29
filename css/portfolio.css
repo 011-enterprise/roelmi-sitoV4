@@ -508,3 +508,43 @@
     var(--ricepaper) 100%
   );
 }
+
+/* ==========================================================================
+   Telefono (29/10/2026, scelta di Chiara): Our Portfolio in griglia 2×2 come
+   Our Divisions subito sopra (due colonne, stessa distanza 0.75rem), al posto
+   della riga che scorreva di lato. Didascalie allineate in altezza con
+   subgrid (un nome su due righe non sposta i riquadri). Niente descrizione
+   sotto il riquadro: in colonna stretta diventava lunga; restano nome
+   (link alla pagina), funzione, mercato e pittogramma
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 0.75rem;
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .product-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    row-gap: 0.85rem;
+  }
+
+  .product-name {
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-tight);
+  }
+
+  .product-desc {
+    display: none;
+  }
+
+  .product-media:has(> .picto) {
+    aspect-ratio: 1 / 1;
+  }
+}
