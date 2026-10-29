@@ -488,8 +488,18 @@
          Force Field sul fondo nero (js/force-field.js) + riquadro basso e largo come SITO 1:
          texture, numeri in vetro in alto a destra, testo in vetro in basso a sinistra, CTA in basso a destra
          ================================================================== -->
-    <section class="nip section theme-soft grain" id="nip" aria-labelledby="nip-title" data-force-field-host>
+    <section class="nip nip-gradient section theme-soft grain" id="nip" aria-labelledby="nip-title" data-force-field-host>
       <canvas class="nip-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
+      <!-- Stesso sfondo di Our Portfolio (forma azzurra sfocata che sfuma nel
+           Ricepaper sopra e sotto), senza la goccia -->
+      <div class="pf-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="nipBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pf-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#nipBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="nip-stage nip-stage--light">
           <div class="nip-texture" aria-hidden="true">
