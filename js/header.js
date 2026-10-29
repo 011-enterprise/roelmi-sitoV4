@@ -166,7 +166,7 @@
 
   function focusables() {
     return Array.prototype.slice.call(
-      header.querySelectorAll('a[href], button:not([disabled])')
+      header.querySelectorAll('a[href], button:not([disabled]), input:not([tabindex="-1"])')
     ).filter(function (el) {
       return el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden';
     });
@@ -228,6 +228,45 @@
       e.preventDefault(); first.focus();
     }
   });
+
+  /* ------------------------------------------------------------------------
+     Ricerca (come SITO 1): la lente apre il campo dentro la pillola; con un
+     testo, la lente o Invio cercano nell'Ingredient Finder; a campo vuoto la
+     lente lo richiude. Esc chiude e riporta il focus sulla lente.
+     ------------------------------------------------------------------------ */
+
+  var search = header.querySelector('.header-search');
+  var searchBtn = search && search.querySelector('.header-search-btn');
+  var searchField = search && search.querySelector('.header-search-field');
+
+  function setSearch(open, focusBtn) {
+    search.classList.toggle('is-open', open);
+    // Mentre si cerca le voci in riga sfumano: il campo non le copre mai
+    header.classList.toggle('is-searching', open);
+    searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    searchField.tabIndex = open ? 0 : -1;
+    if (open) setTimeout(function () { searchField.focus(); }, 60);
+    else if (focusBtn) searchBtn.focus();
+  }
+
+  if (search && searchBtn && searchField) {
+    searchBtn.addEventListener('click', function () {
+      var open = search.classList.contains('is-open');
+      if (!open) { setSearch(true); return; }
+      if (searchField.value.trim()) search.submit();
+      else setSearch(false, true);
+    });
+    searchField.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        e.stopPropagation();   // non chiude anche il menu
+        setSearch(false, true);
+      }
+    });
+    // Clic o focus fuori dalla ricerca: a campo vuoto si richiude
+    search.addEventListener('focusout', function (e) {
+      if (!search.contains(e.relatedTarget) && !searchField.value.trim()) setSearch(false);
+    });
+  }
 
   /* ------------------------------------------------------------------------
      Esc: chiude tendina o pannello e riporta il focus

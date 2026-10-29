@@ -158,7 +158,7 @@
 }
 
 .logo-full {
-  width: 176px;   /* nuovo logo più largo (6:1): 176px ≈ 29px di altezza */
+  width: 200px;   /* logo della barra senza payoff (7.8:1): 200px ≈ 26px di altezza */
 }
 
 .logo-drop {
@@ -172,7 +172,7 @@
 }
 
 .logo-full .logo-svg {
-  width: 176px;
+  width: 200px;
 }
 
 .logo-drop .logo-svg {
@@ -698,4 +698,186 @@
 /* Blocca lo scroll della pagina con il pannello aperto */
 .has-menu-open {
   overflow: hidden;
+}
+
+/* ==========================================================================
+   SITO 4 (29/10/2026): barra come SITO 3 — Contact è una voce del menu e a
+   destra ci sono ricerca e account (icone rotonde 44px nel colore della
+   barra). Sotto i 1200px ricerca e account stanno nel pannello del menu.
+   Regole copiate da SITO 3; il logo resta quello a colori di SITO 4
+   ========================================================================== */
+
+.header-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--pill-fg);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.header-icon:hover {
+  background-color: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.header-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* Ricerca: il campo si apre dentro la pillola, a sinistra della lente.
+   Chiuso è largo 0 e nascosto (fuori dal Tab e dallo screen reader) */
+.header-search {
+  display: flex;
+  align-items: center;
+}
+
+.header-search-field {
+  width: 0;
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--pill-fg);
+  font: inherit;
+  font-size: var(--fs-small);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    width 0.4s var(--ease-out),
+    opacity 0.3s var(--ease-out),
+    margin 0.4s var(--ease-out),
+    visibility 0s linear 0.4s;
+}
+
+.header-search-field::placeholder {
+  color: var(--pill-fg);
+  opacity: 0.75;
+}
+
+/* Niente "x" del browser: si chiude con la lente o con Esc */
+.header-search-field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.header-search.is-open .header-search-field {
+  width: clamp(140px, 16vw, 220px);
+  margin-right: 0.35rem;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    width 0.4s var(--ease-out),
+    opacity 0.3s var(--ease-out) 0.1s,
+    margin 0.4s var(--ease-out),
+    visibility 0s;
+}
+
+.header-search-field:focus-visible {
+  outline: none;
+  border-bottom-width: 2px;
+}
+
+/* Telefono: il campo aperto è più corto, per stare nella pillola */
+@media (max-width: 599.98px) {
+  .header-search.is-open .header-search-field {
+    width: 128px;
+  }
+}
+
+.motion-paused .header-search-field {
+  transition: none;
+}
+
+
+/* Ricerca aperta: le voci sfumano, così il campo non le copre */
+.site-header.is-searching:not(.is-panel-mode) .main-nav {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s var(--ease-out),
+    visibility 0s linear 0.25s;
+}
+
+/* Sotto i 1200px ricerca e account escono dalla pillola (goccia · menu,
+   più equilibrata) e stanno nel pannello: ricerca in cima, Account in
+   fondo all'elenco (.nav-item--panel-only) */
+.site-header.is-panel-mode .header-actions {
+  display: none;
+}
+
+.site-header.is-panel-mode .menu-toggle {
+  margin-left: auto;
+}
+
+.panel-search {
+  display: none;
+}
+
+/* Pannello Ricepaper: campo nei colori del tema chiaro (bottone Ocean con
+   testo Ricepaper 4.69:1, segnaposto grigio 6.2:1) */
+.site-header.is-panel-mode .panel-search {
+  --fg: var(--hard-grey);
+  --bg: var(--ricepaper);
+  --accent: var(--ocean);
+  --fg-muted: var(--muted);
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.site-header.is-panel-mode .main-nav.is-open .panel-search {
+  opacity: 1;
+  transform: none;
+}
+
+.site-header.is-panel-mode .panel-search :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+/* Focus delle icone nel colore di focus della barra (come le voci) */
+.site-header .header-icon:focus-visible {
+  outline: 2px solid var(--pill-focus);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Voci della barra (29/10/2026: "Our Divisions" e "Ingredient Finder" andavano
+   a capo e le voci non erano allineate). Erano centrate in posizione assoluta
+   a metà pillola: avevano a disposizione solo la metà destra e si spezzavano.
+   Ora stanno nel flusso, tra logo e icone, al centro dello spazio libero, su
+   una riga sola; spazio tra le voci un po' più stretto sotto i 1440px, così
+   logo, sette voci e due icone stanno anche a 1200px
+   -------------------------------------------------------------------------- */
+
+.site-header:not(.is-panel-mode) .main-nav {
+  position: static;
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 0;
+  transform: none;
+}
+
+.site-header:not(.is-panel-mode) .nav-list {
+  gap: clamp(0.9rem, 0.2rem + 1.6vw, 2.25rem);
+}
+
+.site-header:not(.is-panel-mode) .nav-link {
+  white-space: nowrap;
+}
+
+.site-header:not(.is-panel-mode) .header-actions {
+  margin-left: 0;
 }

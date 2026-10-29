@@ -49,24 +49,23 @@
   font-size: var(--fs-section);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.018em;   /* spaziatura allentata per Iwona (SITO 4) */
   color: var(--hard-grey);
 }
 
 .who-statement {
-  max-width: 46ch;
+  max-width: 32ch;
   margin-top: var(--title-gap);
-  /* Paragrafo d'apertura nel font del testo (Chiron Hei HK): con Iwona
-     a questa lunghezza si leggeva male (SITO 4) */
-  font-family: var(--font-body);
-  font-size: var(--fs-statement);
-  font-weight: 400;
-  line-height: 1.5;
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
   color: var(--hard-grey);
 }
 
 .who-statement strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .who-statement .accent {
@@ -94,17 +93,29 @@
    Bottoni: allineati a sinistra con il testo
    -------------------------------------------------------------------------- */
 
-/* SITO 4: niente pillola di vetro scuro dietro i bottoni (sul fondo chiaro
-   era pesante). Bottoni nei colori del tema chiaro, come nelle altre sezioni:
-   piena Ocean con testo Ricepaper (4.69:1), contorno Hard Grey */
+/* Come le CTA di NIP in home (e la pillola di SITO 1): una pillola di vetro
+   scuro che contiene i due bottoni. .theme-dark sulla pillola: CTA piena
+   Cerulean con testo Hard Grey, contorno Ricepaper (sul vetro 0.68 sopra il
+   Ricepaper il fondo è ≈ #605E5A: Ricepaper ≥ 6:1) */
 .who-actions {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-top: clamp(1.75rem, 1.25rem + 1.2vw, 2.5rem);
+  padding: 0.5rem;
+  border-radius: 999px;
+}
+
+.who-actions :focus-visible {
+  outline-color: var(--ricepaper);
 }
 
 @media (max-width: 599.98px) {
+  .who-actions {
+    display: flex;
+    border-radius: var(--r-inner);
+  }
+
   .who-actions .btn {
     flex: 1 1 auto;
   }
@@ -124,19 +135,36 @@
   }
 }
 
+/* Telefono (23/10/2026): niente pillola di vetro dietro i bottoni. Sul fondo
+   Ricepaper i bottoni tornano nei colori del tema chiaro: piena Ocean con
+   testo Ricepaper (4.69:1), contorno Hard Grey; focus Ocean */
+@media (max-width: 599.98px) {
+  .who-actions {
+    --fg: var(--hard-grey);
+    --bg: var(--ricepaper);
+    --accent: var(--ocean);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--hard-grey);
+  }
 
-/* --------------------------------------------------------------------------
-   PROVA SITO 4: Who We Are su fondo "neutro" con sfumature (.theme-soft,
-   base.css). Sulle sfumature l'Ocean scende a 3.8:1 (sotto il 4.5 richiesto
-   per questo testo), quindi le parole chiave restano Hard Grey e si
-   distinguono per il peso (semibold) invece che per il colore
-   -------------------------------------------------------------------------- */
-
-.theme-soft .who-statement .accent,
-.theme-soft .who-statement.is-ready .accent .who-word.is-lit {
-  color: var(--hard-grey);
+  .who-actions :focus-visible {
+    outline-color: var(--ocean);
+  }
 }
 
-.theme-soft .who-statement .accent {
-  font-weight: 600;
+/* SITO 4: su telefono la pillola di vetro sparisce (regola qui sopra), quindi
+   i bottoni tornano nei colori del fondo chiaro anche nel sistema dei
+   bottoni (css/buttons.css): pieno Ocean + Ricepaper, hover Hard Grey */
+@media (max-width: 599.98px) {
+  .who .who-actions.glass {
+    --btn-bg: var(--ocean);
+    --btn-fg: var(--ricepaper);
+    --btn-hover-bg: var(--hard-grey);
+    --btn-hover-fg: var(--ricepaper);
+  }
 }
