@@ -268,6 +268,32 @@
          4 · OUR PORTFOLIO (scuro) — schede prodotto + Ingredient Finder
          ================================================================== -->
     <section class="portfolio section theme-ocean grain" id="portfolio" aria-labelledby="portfolio-title">
+      <!-- Goccia di vetro enorme tagliata a metà dal bordo destro, come nella
+           slide della guida del brand (stessa della home di prova). Decorativa.
+           Stili: in fondo a css/portfolio.css -->
+      <div class="pf-bg" aria-hidden="true">
+        <div class="pf-drop">
+          <span class="pf-drop-lens"></span>
+          <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <clipPath id="pfDropClip"><path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/></clipPath>
+              <linearGradient id="pfDropSheen" x1="0" y1="0" x2="1" y2="0.35">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.07"/>
+                <stop offset="0.45" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="pfRimBlur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="9"/></filter>
+            </defs>
+            <!-- vetro fumé: appena più scuro dell'Ocean (il testo chiaro migliora) -->
+            <path class="pf-drop-body" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/>
+            <!-- riflesso morbido verso il bordo sinistro e luce lungo il contorno, dentro la goccia -->
+            <g clip-path="url(#pfDropClip)">
+              <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="url(#pfDropSheen)"/>
+              <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="34" filter="url(#pfRimBlur)"/>
+            </g>
+            <path class="pf-drop-edge" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/>
+          </svg>
+        </div>
+      </div>
       <div class="container">
 
         <h2 class="portfolio-title" id="portfolio-title">
@@ -689,18 +715,26 @@
   <!-- ====================================================================
        10 · FOOTER (scuro)
        ==================================================================== -->
-  <footer class="site-footer theme-ocean">
+  <footer class="site-footer theme-light ft-gradient">
+    <!-- Sfondo come Our Portfolio della home di prova e la slide della guida del
+         brand: Ricepaper, grande forma azzurra sfumata e goccia di vetro
+         lattiginoso tagliata a metà dal bordo destro. Decorativo. Stili: footer.css -->
+    <div class="ft-bg" aria-hidden="true">
+      <svg class="ft-blob" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs>
+          <filter id="ftBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+        </defs>
+        <path d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#ftBlur)"/>
+      </svg>
+      <div class="ft-drop">
+        <span class="ft-drop-lens"></span>
+        <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
+          <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="rgba(247,243,235,0.42)" stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+    </div>
     <div class="container">
 
-      <!-- Evento (nel prototipo era un popup; qui una riga in vetro) -->
-      <aside class="ft-event" aria-labelledby="ft-event-title" data-reveal>
-        <span class="ft-event-tag">In-Cosmetics Global 2025</span>
-        <div>
-          <h2 class="ft-event-title" id="ft-event-title">Meet us in Amsterdam</h2>
-          <p class="ft-event-desc">We'll be at In-Cosmetics Global, April 8–10. Discover our latest sustainable active ingredients for personal care.</p>
-        </div>
-        <a class="btn btn--solid" href="#">Event details</a>
-      </aside>
 
       <div class="ft-main">
         <div class="ft-brand">

@@ -342,3 +342,169 @@
 .theme-ocean .finder-title span {
   font-weight: 300;
 }
+
+/* ==========================================================================
+   Our Portfolio su Ocean — goccia e sfumature (29/10/2026, come la slide
+   della guida del brand e la home di prova, ma tenendo l'Ocean):
+   - sopra e sotto il fondo Ocean sfuma nel Ricepaper, dentro lo spazio vuoto
+     della sezione (padding), così si fonde con Divisions e Impact; titoli e
+     testi Ricepaper stanno sempre sulla parte Ocean piena
+   - a destra la goccia di vetro enorme tagliata a metà dal bordo: filo bianco
+     con alone e dentro un vetro appena più scuro (Hard Grey 8%). Su Ocean un
+     velo chiaro abbasserebbe il testo Ricepaper sotto 4.5:1 (4.1); scurito
+     sale a 5.2:1. Decorativa (aria-hidden)
+   Solo nella sezione su Ocean: nella home di prova valgono css/gradienti.css
+   ========================================================================== */
+
+.portfolio.theme-ocean {
+  --pf-fade: calc(var(--section-y) * 0.85);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ocean);
+  background-image: linear-gradient(
+    to bottom,
+    var(--ricepaper) 0,
+    var(--ocean) var(--pf-fade),
+    var(--ocean) calc(100% - var(--pf-fade)),
+    var(--ricepaper) 100%
+  );
+}
+
+.portfolio.theme-ocean .pf-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.portfolio.theme-ocean .pf-drop {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  height: 90%;
+  aspect-ratio: 520 / 760;
+  transform: translateX(50%);
+}
+
+.portfolio.theme-ocean .pf-drop svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.portfolio.theme-ocean .pf-drop-body {
+  fill: rgba(25, 25, 25, 0.14);
+}
+
+.portfolio.theme-ocean .pf-drop-edge {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.55));
+}
+
+.portfolio.theme-ocean .pf-drop-lens {
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(24px) saturate(1.15);
+  backdrop-filter: blur(24px) saturate(1.15);
+  -webkit-mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
+  mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
+  --pf-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .portfolio.theme-ocean .pf-drop-lens {
+    display: none;
+  }
+}
+
+/* Sfumatura più morbida (29/10/2026: "più smooth"): la sezione ha più spazio
+   vuoto sopra e sotto (2.2 × lo spazio normale) e la sfumatura occupa quasi
+   tutto quello spazio, con passaggi intermedi (Ricepaper 80% e 40%) invece
+   di un solo salto. I testi restano sull'Ocean pieno */
+.portfolio.theme-ocean {
+  --pf-fade: calc(var(--section-y) * 2);
+  --pf-mix-a: color-mix(in srgb, var(--ricepaper) 82%, var(--ocean));
+  --pf-mix-b: color-mix(in srgb, var(--ricepaper) 42%, var(--ocean));
+  padding-block: calc(var(--section-y) * 2.2);
+  background-image: linear-gradient(
+    to bottom,
+    var(--ricepaper) 0,
+    var(--pf-mix-a) calc(var(--pf-fade) * 0.3),
+    var(--pf-mix-b) calc(var(--pf-fade) * 0.65),
+    var(--ocean) var(--pf-fade),
+    var(--ocean) calc(100% - var(--pf-fade)),
+    var(--pf-mix-b) calc(100% - var(--pf-fade) * 0.65),
+    var(--pf-mix-a) calc(100% - var(--pf-fade) * 0.3),
+    var(--ricepaper) 100%
+  );
+}
+
+/* Goccia in vetro "normale" come nella slide (29/10/2026): dentro vetro
+   smerigliato LATTIGINOSO (velo Ricepaper 0.42 + sfocatura), filo bianco con
+   alone; tolti fumé, riflesso e luce interna.
+   Il velo chiaro abbassa il contrasto del testo Ricepaper (sarebbe 2.4:1),
+   quindi la goccia non deve stare dietro i testi: è alta il 66% della
+   sezione, dall'alto fino all'altezza delle schede, e finisce prima della
+   parte "Looking for a specific target?" con la ricerca. Le didascalie della
+   quarta scheda restano a sinistra del suo bordo; le schede hanno il loro
+   riquadro e la coprono */
+.portfolio.theme-ocean .pf-drop {
+  top: 3%;
+  height: 66%;
+}
+
+.portfolio.theme-ocean .pf-drop-body {
+  fill: rgba(247, 243, 235, 0.42);
+}
+
+.portfolio.theme-ocean .pf-drop svg g {
+  display: none;   /* niente riflesso né luce interna */
+}
+
+.portfolio.theme-ocean .pf-drop-lens {
+  -webkit-backdrop-filter: blur(30px) saturate(1.15);
+  backdrop-filter: blur(30px) saturate(1.15);
+}
+
+/* Goccia identica alla home di prova (29/10/2026, richiesta di Chiara):
+   alta il 90% della sezione, dal 5% in alto, tagliata a metà dal bordo
+   destro. Controllato sullo schema della sezione: il bordo passa a destra
+   delle didascalie della quarta scheda e, nella parte bassa, dentro la
+   goccia finisce solo la parte destra del campo di ricerca con il bottone
+   pieno (che ha il suo fondo); etichetta e testo del campo restano fuori */
+.portfolio.theme-ocean .pf-drop {
+  top: 5%;
+  height: 90%;
+}
+
+/* Sfumatura meno netta (29/10/2026): passaggio "ease" a più tappe invece che
+   lineare (il colore cambia piano all'inizio e alla fine, senza la fascia
+   grigiastra a metà) e calcolato in OKLab, che tra Ricepaper e Ocean non
+   passa per i grigi. Occupa tutto lo spazio vuoto sopra e sotto */
+.portfolio.theme-ocean {
+  --pf-fade: calc(var(--section-y) * 2.15);
+  background-image: linear-gradient(
+    in oklab to bottom,
+    var(--ricepaper) 0,
+    color-mix(in oklab, var(--ricepaper) 96%, var(--ocean)) calc(var(--pf-fade) * 0.12),
+    color-mix(in oklab, var(--ricepaper) 86%, var(--ocean)) calc(var(--pf-fade) * 0.25),
+    color-mix(in oklab, var(--ricepaper) 68%, var(--ocean)) calc(var(--pf-fade) * 0.4),
+    color-mix(in oklab, var(--ricepaper) 46%, var(--ocean)) calc(var(--pf-fade) * 0.55),
+    color-mix(in oklab, var(--ricepaper) 26%, var(--ocean)) calc(var(--pf-fade) * 0.7),
+    color-mix(in oklab, var(--ricepaper) 10%, var(--ocean)) calc(var(--pf-fade) * 0.85),
+    var(--ocean) var(--pf-fade),
+    var(--ocean) calc(100% - var(--pf-fade)),
+    color-mix(in oklab, var(--ricepaper) 10%, var(--ocean)) calc(100% - var(--pf-fade) * 0.85),
+    color-mix(in oklab, var(--ricepaper) 26%, var(--ocean)) calc(100% - var(--pf-fade) * 0.7),
+    color-mix(in oklab, var(--ricepaper) 46%, var(--ocean)) calc(100% - var(--pf-fade) * 0.55),
+    color-mix(in oklab, var(--ricepaper) 68%, var(--ocean)) calc(100% - var(--pf-fade) * 0.4),
+    color-mix(in oklab, var(--ricepaper) 86%, var(--ocean)) calc(100% - var(--pf-fade) * 0.25),
+    color-mix(in oklab, var(--ricepaper) 96%, var(--ocean)) calc(100% - var(--pf-fade) * 0.12),
+    var(--ricepaper) 100%
+  );
+}

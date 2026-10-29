@@ -381,3 +381,153 @@
   background-color: var(--ricepaper);
   color: var(--ocean);
 }
+
+/* ==========================================================================
+   Footer chiaro con lo sfondo di Our Portfolio della home di prova
+   (29/10/2026, in tutte le pagine): Ricepaper, grande forma azzurra sfumata
+   (sfuma nel Ricepaper in alto, così si fonde con la sezione chiara sopra) e
+   goccia di vetro lattiginoso tagliata a metà dal bordo destro, come nella
+   slide della guida del brand.
+   Tutte le scritte in Hard Grey: sopra il punto più azzurro 9.5:1 e dentro la
+   goccia ancora di più (il vetro schiarisce). Il grigio secondario lì
+   scenderebbe a 3.7:1, quindi niente grigio: le gerarchie le fanno misura e
+   peso. Riquadro dell'evento in vetro chiaro; logo a colori (grigio + azzurro)
+   ========================================================================== */
+
+.site-footer.ft-gradient {
+  isolation: isolate;
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+.ft-gradient .ft-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ft-gradient .ft-blob {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+}
+
+.ft-gradient .ft-blob path {
+  fill: #93BEE6;
+  opacity: 0.9;
+}
+
+.ft-gradient .ft-drop {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  height: 90%;
+  aspect-ratio: 520 / 760;
+  transform: translateX(50%);
+}
+
+.ft-gradient .ft-drop svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ft-gradient .ft-drop svg path {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.ft-gradient .ft-drop-lens {
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(30px) saturate(1.15);
+  backdrop-filter: blur(30px) saturate(1.15);
+  -webkit-mask: var(--ft-drop-mask) center / 100% 100% no-repeat;
+  mask: var(--ft-drop-mask) center / 100% 100% no-repeat;
+  --ft-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .ft-gradient .ft-drop-lens {
+    display: none;
+  }
+}
+
+/* Testi, linee e icone in Hard Grey */
+.ft-gradient .ft-logo,
+.ft-gradient .ft-tag,
+.ft-gradient .ft-h,
+.ft-gradient .ft-col li > span,
+.ft-gradient .ft-bottom,
+.ft-gradient .ft-legal a,
+.ft-gradient .ft-motion,
+.ft-gradient .ft-motion:hover,
+.ft-gradient .ft-event-tag,
+.ft-gradient .ft-event-desc {
+  color: var(--hard-grey);
+}
+
+.ft-gradient a:hover {
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.ft-gradient :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+.ft-gradient .ft-h,
+.ft-gradient .ft-bottom {
+  border-color: rgba(25, 25, 25, 0.22);
+}
+
+/* Social: cerchio Hard Grey; in hover pieno Hard Grey con icona Ricepaper */
+.ft-gradient .ft-social a {
+  border-color: var(--hard-grey);
+  color: var(--hard-grey);
+}
+
+.ft-gradient .ft-social a:hover {
+  border-color: var(--hard-grey);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+  text-decoration: none;
+}
+
+/* Evento: vetro chiaro invece che scuro */
+.ft-gradient .ft-event {
+  background-color: var(--glass-light-bg);
+  background-image: var(--glass-light-sheen);
+  box-shadow: var(--glass-light-line);
+  color: var(--hard-grey);
+}
+
+.ft-gradient .ft-event {
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+/* Tutte le scritte in Hard Grey (29/10/2026), anche il logo: nel footer chiaro
+   il logo è nella versione "in positivo" monocromatica (nero su chiaro), che
+   la regola del brand ammette; HPC e la goccia non sono più azzurri */
+.ft-gradient .ft-logo {
+  --logo-accent: currentColor;
+}
+
+/* Senza il riquadro dell'evento (tolto il 29/10/2026: c'è già il pop-up) le
+   colonne partono subito, con lo spazio normale della sezione sopra */
+.ft-gradient .ft-main {
+  margin-top: 0;
+}
+
+/* Mancavano i link delle colonne (".ft-col a" era Ricepaper): ora tutti i
+   link del footer chiaro sono Hard Grey */
+.ft-gradient a,
+.ft-gradient .ft-col a {
+  color: var(--hard-grey);
+}
