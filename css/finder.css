@@ -862,3 +862,28 @@
     margin-top: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Apertura su Ocean (29/10/2026, versione approvata dal cliente): riquadro
+   con la texture e vetro scuro come prima; al posto del fondo Hard Grey,
+   Ocean pieno in alto (dietro la barra) che sfuma nel Ricepaper della
+   sezione dei filtri, con la stessa curva morbida in OKLab di Our Portfolio.
+   I testi stanno tutti sul vetro scuro (Ricepaper ≥ 4.5:1), quindi il fondo
+   non tocca il contrasto
+   ========================================================================== */
+.fx-hero--ocean {
+  --fx-fade: calc(var(--section-y) * 2.15);
+  padding-bottom: calc(var(--section-y) * 2.2);
+  background-image: linear-gradient(
+    in oklab to bottom,
+    var(--ocean) 0,
+    var(--ocean) calc(100% - var(--fx-fade)),
+    color-mix(in oklab, var(--ricepaper) 10%, var(--ocean)) calc(100% - var(--fx-fade) * 0.85),
+    color-mix(in oklab, var(--ricepaper) 26%, var(--ocean)) calc(100% - var(--fx-fade) * 0.7),
+    color-mix(in oklab, var(--ricepaper) 46%, var(--ocean)) calc(100% - var(--fx-fade) * 0.55),
+    color-mix(in oklab, var(--ricepaper) 68%, var(--ocean)) calc(100% - var(--fx-fade) * 0.4),
+    color-mix(in oklab, var(--ricepaper) 86%, var(--ocean)) calc(100% - var(--fx-fade) * 0.25),
+    color-mix(in oklab, var(--ricepaper) 96%, var(--ocean)) calc(100% - var(--fx-fade) * 0.12),
+    var(--ricepaper) 100%
+  );
+}
