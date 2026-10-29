@@ -512,11 +512,11 @@
   backdrop-filter: var(--glass-blur);
 }
 
-/* Tutte le scritte in Hard Grey (29/10/2026), anche il logo: nel footer chiaro
-   il logo è nella versione "in positivo" monocromatica (nero su chiaro), che
-   la regola del brand ammette; HPC e la goccia non sono più azzurri */
+/* Logo completo a colori, come nel file LOGO INTERO.svg (29/10/2026): grigio
+   #575756 e azzurro #009EC7 (prima era monocromatico Hard Grey) */
 .ft-gradient .ft-logo {
-  --logo-accent: currentColor;
+  --logo-ink: #575756;
+  --logo-accent: #009EC7;
 }
 
 /* Senza il riquadro dell'evento (tolto il 29/10/2026: c'è già il pop-up) le

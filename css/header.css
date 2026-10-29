@@ -881,3 +881,24 @@
 .site-header:not(.is-panel-mode) .header-actions {
   margin-left: 0;
 }
+
+/* Logo orizzontale a colori (29/10/2026, file LOGO ORIZZ.svg di Chiara):
+   su chiaro ROELMI in grigio #575756 e HPC + goccia in azzurro #009EC7,
+   come nel file; su scuro (hero, sezioni Ocean e scure) ROELMI diventa
+   Ricepaper, come prima, e l'azzurro resta. La goccia della pillola
+   stretta prende lo stesso azzurro */
+.site-header {
+  --logo-ink: var(--ricepaper);
+  --logo-accent: #009EC7;
+}
+
+.site-header.is-on-light,
+.site-header.is-menu-open {
+  --logo-ink: #575756;
+}
+
+.logo-full .logo-svg path,
+.logo-full .logo-svg polygon,
+.logo-full .logo-svg rect {
+  transition: fill 0.4s var(--ease-out);
+}
