@@ -1,6 +1,7 @@
 /* ==========================================================================
-   PROVA "home con gradienti" (home-gradienti.html, 29/10/2026)
-   Caricato SOLO in home-gradienti.html: la home vera (index.html) non cambia.
+   Sfondi a gradiente della HOME (index.html). Nato come prova "home con
+   gradienti" (home-gradienti.html, 29/10/2026), diventata la home ufficiale
+   lo stesso giorno: il file di prova non esiste più. Caricato solo da index.html
    Richiesta del cliente: sfondi come la slide della guida del brand —
    Ricepaper con una grande forma azzurra sfumata, decentrata, e un filo di
    vetro bianco che la attraversa.
@@ -338,17 +339,8 @@
   mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
 }
 
-/* --------------------------------------------------------------------------
-   Goccia PIENA al posto del simbolo del logo (29/10/2026, solo nella home di
-   prova, da far vedere al cliente: è la loro proposta). Nelle etichette sopra
-   i titoli, nei separatori delle certificazioni e ovunque il sito usa la
-   goccia decorativa (--drop-full), qui c'è la sagoma semplice della goccia
-   dei pittogrammi, senza le onde del logo, sempre nell'azzurro del logo.
-   Il logo vero (header, footer, favicon) non cambia
-   -------------------------------------------------------------------------- */
-:root {
-  --drop-full: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
-}
+/* La goccia PIENA al posto del simbolo del logo nelle gocce decorative ora
+   vale per tutto il sito: è in base.css (--drop-full) */
 
 /* --------------------------------------------------------------------------
    NIP (29/10/2026): dietro il riquadro, lo stesso sfondo di Our Portfolio

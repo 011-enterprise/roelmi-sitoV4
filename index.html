@@ -46,6 +46,7 @@
   <link rel="stylesheet" href="css/newsletter.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="css/gradienti.css">   <!-- sfondi a gradiente (home ufficiale dal 29/10/2026) -->
   <link rel="stylesheet" href="css/buttons.css">   <!-- sistema dei bottoni: per ultimo -->
 </head>
 <body>
@@ -296,30 +297,31 @@
     <!-- ==================================================================
          4 · OUR PORTFOLIO (scuro) — schede prodotto + Ingredient Finder
          ================================================================== -->
-    <section class="portfolio section theme-ocean grain" id="portfolio" aria-labelledby="portfolio-title">
-      <!-- Goccia di vetro enorme tagliata a metà dal bordo destro, come nella
-           slide della guida del brand (stessa della home di prova). Decorativa.
-           Stili: in fondo a css/portfolio.css -->
+    <section class="portfolio pf-gradient section theme-light grain" id="portfolio" aria-labelledby="portfolio-title">
+      <!-- PROVA "home con gradienti" (29/10/2026): sfondo come la slide della guida
+           del brand — grande forma azzurra sfumata, decentrata a destra, e un filo
+           di vetro bianco che la attraversa. Decorativo. Stili: css/gradienti.css -->
       <div class="pf-bg" aria-hidden="true">
+        <!-- Filtro che colora i pittogrammi bianchi di Ocean (#42709E) tenendo le
+             loro trasparenze: pittogrammi "in positivo" per lo sfondo chiaro -->
+        <svg width="0" height="0" style="position:absolute" focusable="false">
+          <filter id="pfOcean" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 0.259  0 0 0 0 0.439  0 0 0 0 0.62  0 0 0 1 0"/>
+          </filter>
+        </svg>
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="pfBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pf-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pfBlur)"/>
+        </svg>
+        <!-- Goccia di vetro opaco enorme, quasi tutta fuori a destra, come nella
+             slide: si vede solo il suo bordo sinistro (filo bianco) e, dentro, la
+             forma azzurra sfocata e schiarita come dietro un vetro smerigliato -->
         <div class="pf-drop">
           <span class="pf-drop-lens"></span>
           <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
-            <defs>
-              <clipPath id="pfDropClip"><path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/></clipPath>
-              <linearGradient id="pfDropSheen" x1="0" y1="0" x2="1" y2="0.35">
-                <stop offset="0" stop-color="#fff" stop-opacity="0.07"/>
-                <stop offset="0.45" stop-color="#fff" stop-opacity="0"/>
-              </linearGradient>
-              <filter id="pfRimBlur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="9"/></filter>
-            </defs>
-            <!-- vetro fumé: appena più scuro dell'Ocean (il testo chiaro migliora) -->
-            <path class="pf-drop-body" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/>
-            <!-- riflesso morbido verso il bordo sinistro e luce lungo il contorno, dentro la goccia -->
-            <g clip-path="url(#pfDropClip)">
-              <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="url(#pfDropSheen)"/>
-              <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="34" filter="url(#pfRimBlur)"/>
-            </g>
-            <path class="pf-drop-edge" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z"/>
+            <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="rgba(247,243,235,0.42)" stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
           </svg>
         </div>
       </div>
@@ -514,8 +516,18 @@
          Force Field sul fondo nero (js/force-field.js) + riquadro basso e largo come SITO 1:
          texture, numeri in vetro in alto a destra, testo in vetro in basso a sinistra, CTA in basso a destra
          ================================================================== -->
-    <section class="nip section theme-soft grain" id="nip" aria-labelledby="nip-title" data-force-field-host>
+    <section class="nip nip-gradient section theme-soft grain" id="nip" aria-labelledby="nip-title" data-force-field-host>
       <canvas class="nip-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
+      <!-- Stesso sfondo di Our Portfolio (forma azzurra sfocata che sfuma nel
+           Ricepaper sopra e sotto), senza la goccia -->
+      <div class="pf-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="nipBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="pf-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#nipBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="nip-stage nip-stage--light">
           <div class="nip-texture" aria-hidden="true">
@@ -698,7 +710,7 @@
     <!-- ==================================================================
          9 · NEWSLETTER (chiaro, compatta) — si stacca dal footer scuro
          ================================================================== -->
-    <section class="newsletter section theme-soft grain" id="newsletter" aria-labelledby="nlTitle">
+    <section class="newsletter section theme-light grain" id="newsletter" aria-labelledby="nlTitle">
       <div class="container">
         <div class="nl-stage">
           <div class="nl-bg" aria-hidden="true">
