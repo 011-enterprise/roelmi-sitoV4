@@ -1,0 +1,205 @@
+/* ==========================================================================
+   PROVA "home con gradienti" (home-gradienti.html, 29/10/2026)
+   Caricato SOLO in home-gradienti.html: la home vera (index.html) non cambia.
+   Richiesta del cliente: sfondi come la slide della guida del brand —
+   Ricepaper con una grande forma azzurra sfumata, decentrata, e un filo di
+   vetro bianco che la attraversa.
+
+   Our Portfolio: da Ocean a chiaro (.theme-light) con lo sfondo nuovo.
+   Accessibilità: sopra il punto più azzurro il testo Hard Grey resta ≥ 9:1;
+   il grigio secondario e l'Ocean lì non passerebbero, quindi in questa
+   sezione funzioni, didascalie e link sono Hard Grey; focus Hard Grey
+   ========================================================================== */
+
+.pf-gradient {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Sfondo: sotto la grana (-1) */
+.pf-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.pf-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pf-blob {
+  fill: #93BEE6;
+  opacity: 0.9;
+}
+
+/* Goccia di vetro opaco al lato (come i pittogrammi dei prodotti): stessa
+   sagoma della goccia dei pittogrammi, grande, decentrata a destra e un po'
+   tagliata dal bordo. Dietro, una lente che sfoca e satura la forma azzurra
+   (vetro smerigliato); sopra, vetro chiaro a gradiente, un riflesso lungo il
+   bordo sinistro e il contorno bianco. Il testo che ci passa sopra resta
+   Hard Grey: il vetro schiarisce, quindi il contrasto migliora soltanto */
+.pf-drop {
+  position: absolute;
+  top: 6%;
+  right: -7%;
+  width: clamp(320px, 38vw, 640px);
+  aspect-ratio: 520 / 760;
+  filter: drop-shadow(0 30px 60px rgba(25, 25, 25, 0.12));
+}
+
+.pf-drop svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pf-drop-lens {
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
+  mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
+  --pf-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pf-drop-lens {
+    display: none;
+  }
+}
+
+/* Telefono: goccia più piccola e più spostata, dietro l'ultima parte della riga */
+@media (max-width: 767.98px) {
+  .pf-drop {
+    top: 14%;
+    right: -22%;
+    width: 70vw;
+  }
+}
+
+/* Testi della sezione: prima erano chiari sull'Ocean */
+.pf-gradient .portfolio-title,
+.pf-gradient .product-card,
+.pf-gradient .product-function,
+.pf-gradient .finder-title,
+.pf-gradient .finder-title span,
+.pf-gradient .finder-label {
+  color: var(--hard-grey);
+}
+
+.pf-gradient .finder-title span {
+  font-weight: 300;   /* seconda riga più leggera, invece del grigio */
+}
+
+.pf-gradient .product-link:focus-visible::after {
+  outline-color: var(--hard-grey);
+}
+
+/* Touch: descrizione sotto la scheda, sul fondo chiaro */
+@media (hover: none) {
+  .pf-gradient .product-desc,
+  .pf-gradient .product-tags li,
+  .pf-gradient .product-more {
+    border-color: var(--hard-grey);
+    color: var(--hard-grey);
+  }
+}
+
+/* Goccia, versione 2 (29/10/2026: "proprio come nella slide"): enorme e
+   quasi tutta fuori dalla sezione a destra. Il suo bordo sinistro scende
+   dall'angolo in alto a destra fino in basso, con la pancia verso l'80%
+   della larghezza; dentro, vetro smerigliato lattiginoso (sfocatura forte +
+   velo Ricepaper 0.42) sopra la forma azzurra. Niente riflesso né ombra */
+.pf-drop {
+  top: -45%;
+  right: auto;
+  left: 80%;
+  width: auto;
+  height: 160%;
+  filter: none;
+}
+
+.pf-drop-lens {
+  -webkit-backdrop-filter: blur(30px) saturate(1.15);
+  backdrop-filter: blur(30px) saturate(1.15);
+}
+
+.pf-drop svg path {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+@media (max-width: 767.98px) {
+  .pf-drop {
+    top: -40%;
+    left: 78%;
+    width: auto;
+    height: 150%;
+  }
+}
+
+/* Goccia, versione 3 (29/10/2026: "troppo grande"): la misura non dipende più
+   dall'altezza della sezione (lunga, con schede e Finder: la goccia diventava
+   enorme e il bordo quasi dritto) ma dallo schermo: alta circa come lo
+   schermo, con la punta poco sopra il titolo e la pancia accanto alle schede */
+.pf-drop {
+  top: 2%;
+  left: 80%;
+  height: min(92vh, 980px);
+}
+
+@media (max-width: 767.98px) {
+  .pf-drop {
+    top: 4%;
+    left: 76%;
+    height: min(70vh, 640px);
+  }
+}
+
+/* Goccia, versione 4 (29/10/2026): si vedeva la punta, come un triangolo.
+   Nella slide la punta è fuori dall'inquadratura: alziamo la goccia di poco
+   più di un terzo della sua altezza (la punta resta sopra la sezione,
+   tagliata) e la spostiamo un po' più a destra, così entra dall'angolo in
+   alto a destra solo il fianco curvo */
+.pf-drop {
+  --pf-drop-h: min(92vh, 980px);
+  top: calc(var(--pf-drop-h) * -0.38);
+  left: 83%;
+  height: var(--pf-drop-h);
+}
+
+@media (max-width: 767.98px) {
+  .pf-drop {
+    --pf-drop-h: min(70vh, 640px);
+    top: calc(var(--pf-drop-h) * -0.34);
+    left: 80%;
+  }
+}
+
+/* Goccia, versione 5 (29/10/2026, indicazione di Chiara): la goccia intera,
+   alta poco meno della sezione (90%) e centrata in altezza, tagliata a metà
+   dal bordo destro: si vede la sua metà sinistra, dalla punta al fondo */
+.pf-drop,
+.pf-gradient .pf-drop {
+  top: 5%;
+  right: 0;
+  left: auto;
+  height: 90%;
+  transform: translateX(50%);
+}
+
+@media (max-width: 767.98px) {
+  .pf-drop,
+  .pf-gradient .pf-drop {
+    top: 5%;
+    left: auto;
+    height: 90%;
+  }
+}
