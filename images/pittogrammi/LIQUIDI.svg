@@ -43,9 +43,6 @@
   </defs>
   <g class="pg-drop">
     <path class="pg-glass" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="url(#pgGlass)"/>
-    <!-- Riflesso: una striscia di luce lungo il bordo sinistro -->
-    <path class="pg-shine" d="M206 92C150 190 60 330 52 470" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="7" stroke-linecap="round"/>
-    <ellipse class="pg-shine" cx="150" cy="560" rx="38" ry="16" transform="rotate(-50 150 560)" fill="#fff" fill-opacity="0.18"/>
     <path class="pg-outline" d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="none" stroke="url(#pgLine)" stroke-width="2.6" stroke-linejoin="round" pathLength="1"/>
   </g>
   <g class="pg-inner" filter="url(#pgShadow)">

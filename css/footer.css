@@ -541,3 +541,75 @@
     height: min(90%, 90vw);
   }
 }
+
+/* ==========================================================================
+   Telefono (29/10/2026, Chiara: "più ristretto, con collapsible"): le tre
+   colonne diventano tendine (js/footer.js), una sotto l'altra, chiuse.
+   Titolo = bottone a tutta larghezza, 44px, con la freccia che gira;
+   aperte, le voci restano affiancate su più righe come prima. Colori del
+   footer chiaro: Hard Grey (≥ 9.5:1 anche sul punto più azzurro), focus
+   Hard Grey. Spazi ancora più stretti
+   ========================================================================== */
+@media (max-width: 699.98px) {
+  .ft-main {
+    gap: 0;
+  }
+
+  .ft-brand {
+    margin-bottom: 0.75rem;
+  }
+
+  .ft-col,
+  .ft-col--contact {
+    grid-column: 1 / -1;
+  }
+
+  .ft-h:has(.ft-toggle) {
+    padding-bottom: 0;
+  }
+
+  .ft-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 44px;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    text-align: left;
+  }
+
+  .ft-toggle svg {
+    flex: none;
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform var(--dur-ui) var(--ease-out);
+  }
+
+  .ft-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+
+  .ft-gradient .ft-toggle:focus-visible {
+    outline-offset: 2px;
+  }
+
+  .ft-col ul {
+    margin-top: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .ft-col ul[hidden] {
+    display: none;
+  }
+
+  .ft-bottom {
+    margin-top: 1rem;
+  }
+}

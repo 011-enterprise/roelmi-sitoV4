@@ -1990,3 +1990,70 @@ html:not(.js) .pd-charts-nav {
     font-size: 1.375rem;
   }
 }
+
+/* ==========================================================================
+   Apertura di CytoFruit, pittogramma senza riquadro (29/10/2026, Chiara):
+   niente lastra quadrata di vetro dietro il pittogramma; la goccia sta
+   direttamente sul gradiente azzurro della sezione (la lente sfoca ancora
+   lo sfondo dietro di lei). Il pittogramma è quello vero: tolto il riflesso
+   aggiunto da me lungo il bordo sinistro (.pg-shine) anche dall'SVG e dal
+   suo generatore. Decorativo (aria-hidden); il filo scuro sottile e l'ombra
+   della goccia lo staccano dal fondo chiaro
+   ========================================================================== */
+.pd-gradient .pd-phero-visual .picto-frame {
+  display: none;
+}
+
+/* Tablet e telefono (29/10/2026, Chiara: appena arrivati sulla pagina si
+   vedeva solo la goccia, che riempiva lo schermo): prima il testo
+   (percorso, nome, descrizione, bottoni), poi il pittogramma, più piccolo e
+   centrato. Senza riquadro non serve più lo spazio extra sotto */
+@media (max-width: 899.98px) {
+  .pd-phero-visual {
+    order: 0;
+    width: 100%;
+    margin: clamp(1.5rem, 6vw, 2.5rem) 0 clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .pd-phero-visual .picto {
+    width: min(62vw, 300px);
+    margin-inline: auto;
+  }
+}
+
+/* Telefono (29/10/2026, scelta di Chiara): sotto i 600px niente goccia
+   nell'apertura, che resta solo testo e bottoni sul gradiente azzurro. Il
+   pittogramma è decorativo (aria-hidden) e si vede comunque nelle schede.
+   Su tablet resta, centrato sotto i bottoni */
+@media (max-width: 599.98px) {
+  .pd-phero-visual {
+    display: none;
+  }
+}
+
+/* Technical data su telefono (29/10/2026, Chiara: le frecce tra il titolo
+   della sezione e il grafico "non si capiscono"): sotto 700px le frecce
+   vanno sotto il grafico, dopo la didascalia, a destra. Solo l'ordine a
+   schermo cambia (la testata diventa "trasparente" e il contenitore una
+   colonna); nel codice restano prima del carosello, quindi con il Tab si
+   arriva alle frecce prima delle slide, come su desktop */
+@media (max-width: 699.98px) {
+  .pd-charts .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pd-charts-head {
+    display: contents;
+  }
+
+  .pd-charts-track {
+    order: 1;
+  }
+
+  .pd-charts-nav {
+    order: 2;
+    justify-content: flex-end;
+    margin-top: 1.25rem;
+  }
+}
