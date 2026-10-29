@@ -1970,3 +1970,23 @@ html:not(.js) .pd-charts-nav {
 .pd-related.pd-gradient :focus-visible {
   outline-color: var(--hard-grey);
 }
+
+/* Telefono (29/10/2026): la sezione in colonna è molto più alta, quindi al 90%
+   la goccia diventava enorme (la metà visibile copriva quasi tutto lo
+   schermo). Altezza al massimo il 90% della larghezza dello schermo: la metà
+   visibile resta circa un terzo dello schermo, sul bordo destro */
+@media (max-width: 767.98px) {
+  .pd-grad-drop {
+    height: min(90%, 90vw);
+  }
+}
+
+/* Telefono (29/10/2026): il paragrafo di "About the product" è lungo (~90
+   parole) e da 26px in su diventava più alto di uno schermo: qui 22px.
+   Sotto i 24px non è più "testo grande", ma la sezione è Ricepaper liscio
+   (theme-light): parole chiave Ocean 4.69:1, grigio delle parole spente 6.2:1 */
+@media (max-width: 599.98px) {
+  .pd-statement {
+    font-size: 1.375rem;
+  }
+}

@@ -902,3 +902,21 @@
 .logo-full .logo-svg rect {
   transition: fill 0.4s var(--ease-out);
 }
+
+/* Telefono e tablet (<1200px, 29/10/2026): il logo orizzontale nuovo (LOGO
+   ORIZZ.svg) invece della sola goccia del vecchio logo ricalcato. 160px ≈
+   20px di altezza: con il bottone del menu sta anche a 320px */
+@media (max-width: 1199.98px) {
+  .logo-full {
+    display: block;
+    width: 160px;
+  }
+
+  .logo-full .logo-svg {
+    width: 160px;
+  }
+
+  .logo-drop {
+    display: none;
+  }
+}

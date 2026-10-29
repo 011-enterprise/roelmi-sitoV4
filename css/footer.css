@@ -531,3 +531,13 @@
 .ft-gradient .ft-col a {
   color: var(--hard-grey);
 }
+
+/* Telefono (29/10/2026): la sezione in colonna è molto più alta, quindi al 90%
+   la goccia diventava enorme (la metà visibile copriva quasi tutto lo
+   schermo). Altezza al massimo il 90% della larghezza dello schermo: la metà
+   visibile resta circa un terzo dello schermo, sul bordo destro */
+@media (max-width: 767.98px) {
+  .ft-gradient .ft-drop {
+    height: min(90%, 90vw);
+  }
+}

@@ -382,3 +382,14 @@
     drop-shadow(0 0 28px rgba(247, 243, 235, 0.18))
     drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
 }
+
+/* Telefono (29/10/2026): la sezione in colonna è molto più alta, quindi al 90%
+   la goccia diventava enorme (la metà visibile copriva quasi tutto lo
+   schermo). Altezza al massimo il 90% della larghezza dello schermo: la metà
+   visibile resta circa un terzo dello schermo, sul bordo destro */
+@media (max-width: 767.98px) {
+  .pf-drop,
+  .pf-gradient .pf-drop {
+    height: min(90%, 90vw);
+  }
+}
