@@ -864,26 +864,55 @@
 }
 
 /* ==========================================================================
-   Apertura su Ocean (29/10/2026, versione approvata dal cliente): riquadro
-   con la texture e vetro scuro come prima; al posto del fondo Hard Grey,
-   Ocean pieno in alto (dietro la barra) che sfuma nel Ricepaper della
-   sezione dei filtri, con la stessa curva morbida in OKLab di Our Portfolio.
-   I testi stanno tutti sul vetro scuro (Ricepaper ≥ 4.5:1), quindi il fondo
-   non tocca il contrasto
+   Apertura sullo sfondo di tutto il sito (29/10/2026; Ocean pieno era
+   troppo): riquadro con la texture e vetro scuro come nella versione
+   approvata; dietro, Ricepaper con la forma azzurra sfocata di Our Portfolio
+   che sfuma nel Ricepaper sopra e sotto, senza goccia. Tema theme-soft
+   (accento Hard Grey) senza le sue macchie pastello. Tutti i testi stanno sul
+   vetro scuro (Ricepaper ≥ 4.5:1): il fondo non tocca il contrasto
    ========================================================================== */
-.fx-hero--ocean {
-  --fx-fade: calc(var(--section-y) * 2.15);
-  padding-bottom: calc(var(--section-y) * 2.2);
-  background-image: linear-gradient(
-    in oklab to bottom,
-    var(--ocean) 0,
-    var(--ocean) calc(100% - var(--fx-fade)),
-    color-mix(in oklab, var(--ricepaper) 10%, var(--ocean)) calc(100% - var(--fx-fade) * 0.85),
-    color-mix(in oklab, var(--ricepaper) 26%, var(--ocean)) calc(100% - var(--fx-fade) * 0.7),
-    color-mix(in oklab, var(--ricepaper) 46%, var(--ocean)) calc(100% - var(--fx-fade) * 0.55),
-    color-mix(in oklab, var(--ricepaper) 68%, var(--ocean)) calc(100% - var(--fx-fade) * 0.4),
-    color-mix(in oklab, var(--ricepaper) 86%, var(--ocean)) calc(100% - var(--fx-fade) * 0.25),
-    color-mix(in oklab, var(--ricepaper) 96%, var(--ocean)) calc(100% - var(--fx-fade) * 0.12),
-    var(--ricepaper) 100%
-  );
+.fx-hero--grad {
+  background-image: none;
+}
+
+/* Sotto la grana (-1) */
+.fx-grad-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fx-grad-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+.fx-grad-blob {
+  fill: #93BEE6;
+  opacity: 0.9;
+}
+
+/* Il vetro resta SCURO anche se la sezione ora è chiara (theme-soft): gli
+   ridiamo le variabili del tema scuro, così etichetta, bordo del campo,
+   testo scritto, focus e bottone Search sono di nuovo Ricepaper / Cerulean
+   come nella versione approvata (Ricepaper sul vetro scuro ≥ 4.5:1). Solo
+   le variabili: la classe .theme-dark ridarebbe al vetro il fondo pieno */
+.fx-hero--grad .fx-glass,
+.fx-hero--grad .fx-motion {
+  --bg: var(--hard-grey);
+  --fg: var(--ricepaper);
+  --fg-muted: var(--muted-on-dark);
+  --accent: var(--ocean-on-dark);
+  --rule: var(--line-on-dark);
+  color: var(--ricepaper);
+}
+
+.fx-hero--grad .fx-glass :focus-visible,
+.fx-hero--grad .fx-glass .pill-field:focus-within {
+  outline-color: var(--ricepaper);
 }

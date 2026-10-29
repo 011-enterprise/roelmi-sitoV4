@@ -166,7 +166,17 @@
     <!-- ==================================================================
          APERTURA — texture 13 (zoom lentissimo) + vetro con la ricerca
          ================================================================== -->
-    <section class="fx-hero fx-hero--ocean section theme-ocean grain" aria-labelledby="finder-title">
+    <section class="fx-hero fx-hero--grad section theme-soft grain" aria-labelledby="finder-title">
+      <!-- Sotto il riquadro: lo sfondo di tutto il sito (forma azzurra sfocata
+           di Our Portfolio che sfuma nel Ricepaper sopra e sotto), senza goccia -->
+      <div class="fx-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="fxHeroBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="fx-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#fxHeroBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="fx-stage">
           <div class="fx-bg" aria-hidden="true">
