@@ -1,6 +1,7 @@
 /* ==========================================================================
    Pop-up evento (home)
-   - Compare dopo 3 secondi, come in SITO 1
+   - Compare solo quando la hero è stata scrollata tutta (29/10/2026, prima
+     dopo 3 secondi come in SITO 1); senza hero, dopo 3 secondi
    - Si chiude con × o Esc; ricompare a ogni caricamento della pagina
    - Chiuso, resta una linguetta sul bordo destro: un clic lo riapre
    - Non ruba il focus: lo screen reader lo sente da una riga di stato
@@ -77,5 +78,22 @@
     if (e.key === 'Escape' && !popup.hidden) hide(true);
   });
 
-  setTimeout(show, DELAY);
+  // Una volta sola, quando il fondo della hero è uscito dallo schermo in alto
+  // (vale anche se la pagina si apre già più in basso, es. da un link #sezione)
+  var hero = document.getElementById('hero');
+  if (!hero) {
+    setTimeout(show, DELAY);
+    return;
+  }
+
+  var shown = false;
+  function checkHero() {
+    if (shown || hero.getBoundingClientRect().bottom > 0) return;
+    shown = true;
+    window.removeEventListener('scroll', checkHero);
+    show();
+  }
+
+  window.addEventListener('scroll', checkHero, { passive: true });
+  checkHero();
 })();
