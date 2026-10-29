@@ -168,3 +168,20 @@
     --btn-hover-fg: var(--ricepaper);
   }
 }
+
+
+/* SITO 4 (29/10/2026): stesso aspetto di V3 nei font del brand. Iwona ha
+   lettere più piccole e strette di Montserrat (il font di V3): alla stessa
+   misura sembrava molto più piccolo, in più c'era la riduzione del 15% del
+   resto del sito. Qui il titolo e il paragrafo tornano alla grandezza di V3
+   e un po' oltre (circa +12%) per compensare la differenza di font:
+   titolo fino a ~72px (V3 64px), paragrafo fino a ~38px (V3 34px).
+   Su telefono restano le misure minime di prima */
+.who-title {
+  font-size: clamp(2.25rem, 1.2rem + 3.2vw, 4.5rem);
+}
+
+.who-statement {
+  max-width: 36ch;
+  font-size: clamp(1.625rem, 1.15rem + 1.2vw, 2.375rem);
+}
