@@ -613,3 +613,19 @@
     margin-top: 1rem;
   }
 }
+
+/* Telefono, ritocco (29/10/2026): sotto l'ultima tendina c'erano due linee
+   quasi attaccate (quella del titolo "Contact" e quella sopra il copyright).
+   Resta solo la linea della tendina: la fascia in fondo non ha più la sua.
+   Stop animation allineato al bordo sinistro come il resto del testo */
+@media (max-width: 699.98px) {
+  .ft-bottom {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 1rem;
+  }
+
+  .ft-bottom .ft-motion {
+    padding-inline: 0;
+  }
+}
