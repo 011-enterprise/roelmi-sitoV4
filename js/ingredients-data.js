@@ -104,7 +104,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: 'Polyphenols from olive fruit and licorice root that reduce dark spots and hyperpigmentation for a brighter, more even complexion. Dosage: 200 mg a day.',
     texture: 'images/portfolio/texture-6.jpg',
-    link: '#'
+    link: 'selectsieve-glitter.html'
   },
   {
     id: 7,

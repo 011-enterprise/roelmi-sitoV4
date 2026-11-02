@@ -2225,3 +2225,70 @@ html:not(.js) .pd-charts-nav {
     height: 72%;
   }
 }
+
+/* ==========================================================================
+   Pagina prodotto, contenuti in più (02/11/2026, testi del cliente per
+   SelectSIEVE® Glitter; valgono per ogni prodotto che li ha)
+   ========================================================================== */
+
+/* Secondo paragrafo sotto il paragrafo grande della descrizione: testo
+   normale, allineato a destra come il paragrafo sopra */
+.pd-desc-more {
+  max-width: 62ch;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+/* Clinical trials: tre voci affiancate (dose, disegno dello studio,
+   risultati), con la linea sopra come i numeri di Our Impact */
+.pd-clinical-list {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  margin-top: var(--title-gap);
+}
+
+.pd-clinical-item {
+  padding-top: 1rem;
+  border-top: 1px solid var(--hard-grey);
+}
+
+.pd-clinical-item dt {
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.pd-clinical-item dd {
+  margin-top: 0.6rem;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+@media (max-width: 899.98px) {
+  .pd-clinical-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Pittogramma POLVERI in SVG (images/pittogrammi/POLVERI.svg): all'apertura
+   si disegna il contorno della goccia, poi il vetro, poi i granelli
+   compaiono uno alla volta, come le onde di CytoFruit. Stato di base =
+   già formato (senza JS, Stop animation, reduced-motion) */
+.picto.is-forming .pg-grain {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pg-pop 0.6s var(--ease-out) calc(0.9s + var(--i, 0) * 0.11s) both;
+}
+
+/* Clinical trials e Technical data sono tutte e due chiare: un solo spazio
+   tra le due, non doppio */
+.pd-clinical.theme-light + .pd-charts.theme-light {
+  padding-top: 0;
+}
