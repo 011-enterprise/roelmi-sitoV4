@@ -143,6 +143,8 @@
       // del riquadro (decorativo). Colore della forma dietro = mercato
       media.classList.add('fx-card-media--picto');
       var visual = el('div', 'picto' + (asList(item.market)[0] === 'Nutraceutical' ? ' picto--nutra' : ''));
+      // Colore della linea di prodotto (base.css), se il cliente l'ha dato
+      if (item.color) visual.classList.add('picto--line-' + item.color);
       visual.setAttribute('aria-hidden', 'true');
       var frame = el('span', 'picto-frame');
       frame.appendChild(el('span', 'picto-blob'));

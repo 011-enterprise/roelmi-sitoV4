@@ -2187,3 +2187,41 @@ html:not(.js) .pd-charts-nav {
     height: 72%;
   }
 }
+
+/* ==========================================================================
+   Pagine prodotto per linea (02/11/2026): prima prova SelectSIEVE® Glitter
+   (selectsieve-glitter.html, generatore + prodotti/glitter.js).
+   - .pd-line-<linea> sull'apertura: la forma sfocata dietro il testo prende
+     il colore della linea (base.css). Testi Hard Grey sopra ≥ 6.4:1
+     (marrone, il più scuro dei tre); bottoni invariati
+   - pittogramma PNG nell'apertura (quando non c'è l'SVG animato): stessa
+     posizione della goccia di CytoFruit, a cavallo del bordo sinistro
+   - i dati veloci si dividono le colonne in parti uguali (2 o 3)
+   ========================================================================== */
+.pd-phero.pd-line-glitter .pd-grad-blob { fill: var(--line-glitter); }
+.pd-phero.pd-line-beaulixir .pd-grad-blob { fill: var(--line-beaulixir); }
+.pd-phero.pd-line-seidotech .pd-grad-blob { fill: var(--line-seidotech); }
+
+.pd-gradient .pd-phero-visual .picto-img {
+  top: auto;
+  right: auto;
+  left: -34%;
+  bottom: 8%;
+  width: auto;
+  height: 80%;
+  transform: none;
+  filter: drop-shadow(0 16px 24px rgba(25, 25, 25, 0.18));
+}
+
+.pd-hero-facts {
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 899.98px) {
+  .pd-gradient .pd-phero-visual .picto-img {
+    left: -18%;
+    height: 72%;
+  }
+}

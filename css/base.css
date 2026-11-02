@@ -1008,3 +1008,8 @@ a.btn:not(:has(svg)):hover::after,
   --line-seidotech: #B0B887;   /* verde */
   --line-glitter: #BD9284;     /* marrone */
 }
+
+/* Colore della linea su una scheda o un elemento: .picto--line-<linea> */
+.picto--line-beaulixir { --line-color: var(--line-beaulixir); }
+.picto--line-seidotech { --line-color: var(--line-seidotech); }
+.picto--line-glitter { --line-color: var(--line-glitter); }

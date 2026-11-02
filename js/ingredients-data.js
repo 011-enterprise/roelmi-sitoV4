@@ -69,5 +69,58 @@ window.ROELMI_INGREDIENTS = [
     description: 'Ester-coated pigments functionalized with Tripelargonin, an upcycled sustainable ester — for high color release, formulation stability and a weightless, refined skin feel.',
     texture: 'images/portfolio/texture-5.jpg',
     link: '#'
+  },
+  // Prodotti nuovi (testi del cliente, 02/11/2026). color = colore della linea
+  // dietro il pittogramma (base.css, --line-…); form scelta da confermare
+  {
+    id: 5,
+    name: 'Beaulixir®',
+    form: 'liquid',
+    line: 'Beaulixir',
+    color: 'beaulixir',
+    function: 'A hair wellness potion',
+    market: ['Nutraceutical'],
+    technology: ['Nature'],
+    type: 'Active',
+    category: '',
+    benefits: ['Hair loss', 'Hair health'],
+    certifications: [],
+    description: 'Fatty acids and phytosterols from six botanical oils that reduce hair loss and improve density, thickness and shine. Dosage: 400–600 mg a day.',
+    texture: 'images/portfolio/texture-6.jpg',
+    link: '#'
+  },
+  {
+    id: 6,
+    name: 'SelectSIEVE® Glitter',
+    form: 'powder',
+    line: 'SelectSIEVE',
+    color: 'glitter',
+    function: 'Radiance that starts from within',
+    market: ['Nutraceutical'],
+    technology: ['Nature'],
+    type: 'Active',
+    category: '',
+    benefits: ['Dark spots', 'Skin ageing'],
+    certifications: [],
+    description: 'Polyphenols from olive fruit and licorice root that reduce dark spots and hyperpigmentation for a brighter, more even complexion. Dosage: 200 mg a day.',
+    texture: 'images/portfolio/texture-6.jpg',
+    link: '#'
+  },
+  {
+    id: 7,
+    name: 'SeidoTech® Lux',
+    form: 'liquid-gel',
+    line: 'SeidoTech',
+    color: 'seidotech',
+    function: 'Eye contour revitalization',
+    market: ['Personal Care'],
+    technology: ['Biotech'],
+    type: 'Active',
+    category: '',
+    benefits: ['Dark circles', 'Eye bags'],
+    certifications: ['COSMOS', 'Halal'],
+    description: 'A precision-fermented extract from Italian vine leaves for dark circles, eye bags and signs of fatigue, supported by a clinical study on 120 participants. Use level: 1%.',
+    texture: 'images/portfolio/texture-1.jpg',
+    link: '#'
   }
 ];

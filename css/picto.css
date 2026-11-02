@@ -265,3 +265,57 @@
   aspect-ratio: 1;
   transform: translateX(-50%);
 }
+
+/* ==========================================================================
+   Schede prodotto come la terza prova di Our Portfolio (02/11/2026, scelta
+   di Chiara: "tutte come la terza"). Vale per le schede con .picto-glass
+   (Ingredient Finder, Related products) e sostituisce la macchia sfumata.
+   - riquadro VERTICALE 4/5, alto quanto la scheda e attaccato a destra, in
+     vetro: nel colore della linea del prodotto (.picto--line-*, base.css) o
+     in Ocean se la linea non ha ancora un colore
+   - il pittogramma ORIGINALE (PNG così com'è), alto l'80%, esce un po' dal
+     bordo sinistro del riquadro; solo un'ombra morbida
+   Decorativo (aria-hidden). Bianco sui colori delle linee < 3:1 (vedi note)
+   ========================================================================== */
+.picto-glass .picto .picto-frame {
+  inset: 0 0 0 auto;
+  left: auto;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  transform: none;
+  border-radius: var(--r-card);
+  background-color: rgba(66, 112, 158, 0.76);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08));
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 16px 36px rgba(25, 25, 25, 0.12);
+  filter: none;
+}
+
+.picto-glass .picto[class*="picto--line-"] .picto-frame {
+  background-color: color-mix(in srgb, var(--line-color) 88%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 16px 36px rgba(25, 25, 25, 0.1);
+}
+
+/* Schede 4/3: il riquadro 4/5 parte dal 40% della larghezza; la goccia
+   (larga circa il 41%) parte dal 31%, quindi esce di circa un quinto */
+.picto-glass .picto .picto-img {
+  inset: 10% auto auto 31%;
+  width: auto;
+  height: 80%;
+  opacity: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 24px rgba(25, 25, 25, 0.18));
+}
+
+.picto-glass .picto::after {
+  content: none;
+}

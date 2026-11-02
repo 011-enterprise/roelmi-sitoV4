@@ -741,9 +741,7 @@
     0 16px 36px rgba(25, 25, 25, 0.1);
 }
 
-.picto--line-beaulixir { --line-color: var(--line-beaulixir); }
-.picto--line-seidotech { --line-color: var(--line-seidotech); }
-.picto--line-glitter { --line-color: var(--line-glitter); }
+/* (classi .picto--line-* spostate in base.css: valgono in tutte le pagine) */
 
 /* --------------------------------------------------------------------------
    PROVE PER IL CLIENTE con i prodotti nuovi (02/11/2026): tornano le quattro
