@@ -131,9 +131,15 @@
 
     // Etichetta del mercato: Personal Care = Antique, Nutraceutical = Olive
     var pills = el('p', 'market-pills fx-card-markets');
-    asList(item.market).forEach(function (m) {
-      pills.appendChild(el('span', 'market-pill' + (m === 'Nutraceutical' ? ' market-pill--nutra' : ''), m));
-    });
+    // Prodotti con un colore di linea: l'etichetta è la linea, nel suo colore
+    var LINES = { beaulixir: 'Beaulixir', seidotech: 'SeidoTech', glitter: 'Glitter' };
+    if (item.color && LINES[item.color]) {
+      pills.appendChild(el('span', 'market-pill market-pill--' + item.color, LINES[item.color]));
+    } else {
+      asList(item.market).forEach(function (m) {
+        pills.appendChild(el('span', 'market-pill' + (m === 'Nutraceutical' ? ' market-pill--nutra' : ''), m));
+      });
+    }
     art.appendChild(pills);
 
     var media = el('div', 'fx-card-media');

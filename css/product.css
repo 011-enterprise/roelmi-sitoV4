@@ -2327,3 +2327,12 @@ html:not(.js) .pd-charts-nav {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Correzione (02/11/2026): la parte del titolo in Ocean è uno <span> dentro
+   lo <span> del titolo, e la regola dei titoli di sezione mette ogni span
+   (tranne l'etichetta) a blocco con il margine sopra: andava a capo da
+   sola. Qui resta nella riga */
+.pd-section-title span.pd-accent {
+  display: inline;
+  margin: 0;
+}

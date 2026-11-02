@@ -1013,3 +1013,11 @@ a.btn:not(:has(svg)):hover::after,
 .picto--line-beaulixir { --line-color: var(--line-beaulixir); }
 .picto--line-seidotech { --line-color: var(--line-seidotech); }
 .picto--line-glitter { --line-color: var(--line-glitter); }
+
+/* Etichette delle linee di prodotto (02/11/2026, Chiara): sulle schede dei
+   prodotti con un colore di linea l'etichetta dice la linea (Beaulixir,
+   SeidoTech, Glitter) nel suo colore, al posto del mercato. Testo Hard Grey:
+   12.3 / 8.4 / 6.4:1 */
+.market-pill--beaulixir { background-color: var(--line-beaulixir); }
+.market-pill--seidotech { background-color: var(--line-seidotech); }
+.market-pill--glitter { background-color: var(--line-glitter); }
