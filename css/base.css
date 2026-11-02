@@ -997,3 +997,14 @@ a.btn:not(:has(svg)):hover::after,
   vertical-align: baseline;
   letter-spacing: 0;
 }
+
+/* Colori delle linee di prodotto (02/11/2026, codici mandati dal cliente):
+   fondo dietro il pittogramma nelle schede e, in futuro, gradiente
+   dell'apertura del prodotto. Tutti chiari: testo Hard Grey sopra ≥ 6.4:1;
+   il pittogramma bianco sopra NON arriva al 3:1 (giallo 1.4, verde 2.1,
+   marrone 2.8) — da verificare con AccessiWay */
+:root {
+  --line-beaulixir: #EED781;   /* giallo */
+  --line-seidotech: #B0B887;   /* verde */
+  --line-glitter: #BD9284;     /* marrone */
+}

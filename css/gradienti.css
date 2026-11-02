@@ -623,3 +623,147 @@
   box-shadow: none;
   filter: blur(8px) saturate(1.4);
 }
+
+/* --------------------------------------------------------------------------
+   PROVE PER IL CLIENTE, giro 2 (02/11/2026, Chiara). Our Portfolio:
+   1. CytoFruit (.picto--small-frame): stessa forma e stessa goccia di
+      vetro, ma il box torna di VETRO OCEAN (non più gradiente Antique)
+   2. HopE (.picto--opt-rect): il box iniziale, rettangolo intero in vetro
+      Ocean, con il pittogramma bianco originale più piccolo dentro
+   3. HyaPearl (.picto--opt-portrait): rettangolo 4/5 in vetro Ocean a
+      destra; il pittogramma bianco esce un po' dal bordo sinistro (meno
+      che nell'apertura di CytoFruit)
+   4. ColorGLAM (.picto--opt-blob): invariata (macchia Antique)
+   Bianco su vetro Ocean ≥ 3.4:1; dove la goccia esce sul chiaro la
+   stacca un filo Ocean sottile. Decorativo (aria-hidden)
+   -------------------------------------------------------------------------- */
+.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-portrait) .picto-frame {
+  background-color: rgba(66, 112, 158, 0.76);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08));
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 16px 36px rgba(25, 25, 25, 0.12);
+  filter: none;
+}
+
+/* 2 · rettangolo intero, goccia più piccola e centrata */
+.pf-gradient .picto--opt-rect .picto-frame {
+  inset: 0;
+  border-radius: var(--r-card);
+}
+
+.pf-gradient .picto--opt-rect .picto-img {
+  inset: 20% 0 auto;
+  height: 60%;
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 0.6px rgba(247, 243, 235, 0.7))
+    drop-shadow(0 0 28px rgba(247, 243, 235, 0.18))
+    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
+}
+
+/* 3 · rettangolo 4/5 a destra, goccia che esce a sinistra */
+.pf-gradient .picto--opt-portrait .picto-frame {
+  inset: 0 0 0 20%;
+  border-radius: var(--r-card);
+}
+
+.pf-gradient .picto--opt-portrait .picto-img {
+  inset: 12% auto auto 9%;
+  width: auto;
+  height: 78%;
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 0.6px #42709E)
+    drop-shadow(0 0 0.4px #42709E)
+    drop-shadow(0 0 22px rgba(247, 243, 235, 0.2))
+    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.2));
+}
+
+/* Prova 2 (HopE), pittogramma più grande possibile ma bilanciato
+   (02/11/2026): alto l'80% del box, con lo stesso margine sopra e sotto
+   (10%) e centrato in larghezza */
+.pf-gradient .picto--opt-rect .picto-img {
+  inset: 10% 0 auto;
+  height: 80%;
+}
+
+/* --------------------------------------------------------------------------
+   Prove Our Portfolio, giro 2 — pittogrammi uguali (02/11/2026, Chiara):
+   in tutte e quattro le schede il pittogramma ha la STESSA misura (80%
+   dell'altezza della scheda, 10% sopra) ed è il PNG ORIGINALE, così com'è
+   (vetro bianco semitrasparente): niente trasparenza aggiunta, niente lente
+   dietro, niente filo; solo un'ombra morbida per staccarlo dal fondo.
+   Cambiano solo forma e colore del fondo, così il confronto è onesto
+   -------------------------------------------------------------------------- */
+.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-portrait, .picto--opt-blob) .picto-img {
+  top: 10%;
+  bottom: auto;
+  height: 80%;
+  opacity: 1;
+  filter: drop-shadow(0 16px 24px rgba(25, 25, 25, 0.18));
+}
+
+/* Tre su quattro centrati; nella 3 la goccia resta spostata a sinistra */
+.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-blob) .picto-img {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.pf-gradient .picto--opt-portrait .picto-img {
+  left: 9%;
+  right: auto;
+  width: auto;
+}
+
+/* Niente lente dietro la goccia */
+.pf-gradient :is(.picto--small-frame, .picto--opt-blob)::after {
+  content: none;
+}
+
+/* --------------------------------------------------------------------------
+   PROVA COLORI DELLE LINEE (02/11/2026): in Our Portfolio una sola forma
+   per tutte e quattro le schede (rettangolo intero, pittogramma originale
+   all'80%); CytoFruit resta in vetro Ocean, le altre tre hanno il fondo nel
+   colore della loro linea (base.css), sempre come vetro: colore al 88% +
+   riflesso chiaro + bordo bianco + sfocatura
+   -------------------------------------------------------------------------- */
+.pf-gradient [class*="picto--line-"] .picto-frame {
+  background-color: color-mix(in srgb, var(--line-color) 88%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 16px 36px rgba(25, 25, 25, 0.1);
+}
+
+.picto--line-beaulixir { --line-color: var(--line-beaulixir); }
+.picto--line-seidotech { --line-color: var(--line-seidotech); }
+.picto--line-glitter { --line-color: var(--line-glitter); }
+
+/* --------------------------------------------------------------------------
+   PROVE PER IL CLIENTE con i prodotti nuovi (02/11/2026): tornano le quattro
+   forme, una per scheda, ognuna con il colore della sua linea:
+   1 CytoFruit · box piccolo (vetro Ocean, non ha colore di linea)
+   2 Beaulixir · rettangolo intero (giallo)
+   3 SelectSIEVE Glitter · rettangolo 4/5 con la goccia che esce (marrone)
+   4 SeidoTech Lux · macchia sfumata (verde)
+   Pittogramma originale all'80% in tutte (regola "pittogrammi uguali")
+   -------------------------------------------------------------------------- */
+.pf-gradient .picto--opt-blob[class*="picto--line-"] .picto-frame {
+  background-color: transparent;
+  background-image: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--line-color) 92%, var(--hard-grey)),
+    color-mix(in srgb, var(--line-color) 94%, var(--hard-grey)) 65%,
+    color-mix(in srgb, var(--line-color) 0%, transparent) 100%
+  );
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  filter: blur(4px) saturate(1.5);
+}
