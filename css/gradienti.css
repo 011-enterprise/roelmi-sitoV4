@@ -528,3 +528,98 @@
   );
   filter: blur(4px) saturate(1.5);
 }
+
+/* --------------------------------------------------------------------------
+   PROVA (02/11/2026, Chiara): tutte e quattro le forme con il trattamento
+   della quarta, tutte in ANTIQUE (anche HopE, che sarebbe Olive):
+   - fondo a gradiente Antique (centro più profondo e saturo, bordi più
+     chiari) al posto del vetro Ocean; le forme restano le loro (box
+     piccolo, cerchio, box più basso, macchia)
+   - goccia in vetro: PNG al 60% con il filo bianco + lente a goccia dietro
+   Contrasto del bianco sull'Antique < 3:1 (vedi nota 72), decorativo
+   -------------------------------------------------------------------------- */
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip, .picto--opt-blob) {
+  --picto-color: var(--antique);
+}
+
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
+  background-color: var(--antique);
+  background-image: radial-gradient(
+    closest-side at 50% 60%,
+    color-mix(in srgb, var(--antique) 90%, var(--hard-grey)),
+    var(--antique) 70%,
+    color-mix(in srgb, var(--antique) 70%, var(--ricepaper)) 100%
+  );
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    0 16px 36px rgba(120, 70, 50, 0.14);
+  filter: saturate(1.4);
+}
+
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-img {
+  opacity: 0.6;
+  filter:
+    drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 12px 20px rgba(120, 70, 50, 0.16));
+}
+
+/* Lente a goccia dietro il pittogramma (come la quarta) */
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip)::after {
+  content: "";
+  position: absolute;
+  inset: 9% 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
+}
+
+/* Nel box piccolo la goccia è più grande (3% → 97%): lente uguale */
+.pf-gradient .picto--small-frame::after {
+  inset: 3% 0;
+}
+
+/* PROVA (02/11/2026, Chiara: "come gradienti", sembravano piene): dentro le
+   tre forme con i bordi l'Antique è una sfumatura come nella quarta: pieno e
+   profondo al centro, dietro la pancia della goccia, e sempre più
+   trasparente verso i bordi, dove si vede il fondo azzurro sfocato (vetro).
+   La forma resta leggibile dal filo chiaro sul contorno */
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
+  background-color: rgba(247, 243, 235, 0.12);
+  background-image: radial-gradient(
+    closest-side at 50% 62%,
+    color-mix(in srgb, var(--antique) 92%, var(--hard-grey)),
+    color-mix(in srgb, var(--antique) 75%, transparent) 55%,
+    color-mix(in srgb, var(--antique) 10%, transparent) 100%
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 16px 36px rgba(120, 70, 50, 0.1);
+  filter: saturate(1.4);
+}
+
+/* PROVA (02/11/2026, Chiara: "il gradiente con la stessa forma del box"):
+   la forma resta quella del box (box piccolo, cerchio, box più basso) e si
+   riempie TUTTA di sfumatura Antique, più chiara in alto e più profonda in
+   basso, con i bordi sfocati come la macchia della quarta. Niente filo né
+   vetro: è una forma di colore morbida */
+.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
+  background-color: var(--antique);
+  background-image: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--antique) 70%, var(--ricepaper)) 0%,
+    var(--antique) 45%,
+    color-mix(in srgb, var(--antique) 90%, var(--hard-grey)) 100%
+  );
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  filter: blur(8px) saturate(1.4);
+}
