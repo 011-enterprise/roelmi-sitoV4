@@ -393,3 +393,70 @@
     height: min(90%, 90vw);
   }
 }
+
+/* --------------------------------------------------------------------------
+   PROVA (02/11/2026, richiesta del cliente): riquadro del pittogramma PIÙ
+   PICCOLO della goccia, solo sulla prima scheda (CytoFruit, classe
+   .picto--small-frame). Il riquadro di vetro Ocean si stringe e scende
+   (56% della larghezza, dal 26% al 92% dell'altezza); la goccia resta
+   grande (94% dell'altezza) e ne esce in alto con la punta e un po' ai
+   lati. Le parti bianche che escono stanno sul fondo chiaro: un filo scuro
+   sottile e un'ombra morbida le fanno leggere (decorativo, aria-hidden)
+   -------------------------------------------------------------------------- */
+.pf-gradient .picto--small-frame .picto-frame {
+  inset: 26% 22% 8% 22%;
+}
+
+.pf-gradient .picto--small-frame .picto-img {
+  inset: 3% 0 auto;
+  height: 94%;
+  filter:
+    drop-shadow(0 0 0.6px rgba(25, 25, 25, 0.45))
+    drop-shadow(0 0 1px rgba(25, 25, 25, 0.2))
+    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
+}
+
+/* --------------------------------------------------------------------------
+   PROVA (02/11/2026): tre modi per un fondo "più piccolo della goccia"
+   tenendo la goccia BIANCA, uno per scheda (CytoFruit resta con la prova
+   del riquadro piccolo):
+   - HopE (.picto--opt-circle): cerchio di vetro Ocean dietro la pancia
+   - HyaPearl (.picto--opt-tip): riquadro largo come prima ma più basso,
+     esce solo la punta
+   - ColorGLAM (.picto--opt-blob): macchia Ocean sfocata, senza bordi
+   Dove la goccia esce dal colore: filo Ocean sottile (non più scuro) e
+   ombra azzurra morbida. Decorativo (aria-hidden)
+   -------------------------------------------------------------------------- */
+.pf-gradient :is(.picto--opt-circle, .picto--opt-tip, .picto--opt-blob) .picto-img {
+  filter:
+    drop-shadow(0 0 0.6px #42709E)
+    drop-shadow(0 0 0.4px #42709E)
+    drop-shadow(0 16px 24px rgba(66, 112, 158, 0.25));
+}
+
+/* Cerchio */
+.pf-gradient .picto--opt-circle .picto-frame {
+  inset: auto;
+  top: 38%;
+  left: 19%;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+/* Riquadro più basso: esce la punta */
+.pf-gradient .picto--opt-tip .picto-frame {
+  inset: 24% 0 0;
+}
+
+/* Macchia sfocata */
+.pf-gradient .picto--opt-blob .picto-frame {
+  inset: 18% 6% 0;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: radial-gradient(closest-side, rgba(66, 112, 158, 0.92), rgba(66, 112, 158, 0.78) 55%, rgba(66, 112, 158, 0) 100%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  filter: blur(6px);
+}

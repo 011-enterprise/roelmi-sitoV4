@@ -982,3 +982,18 @@ a.btn:not(:has(svg)):hover::after,
 [data-scroll-words].is-ready .accent .sw-word.is-lit {
   color: var(--ocean);
 }
+
+/* ® in apice e piccola, in tutto il sito (02/11/2026, richiesta del
+   cliente: erano troppo grandi). Markup: <sup class="reg">®</sup>, messo
+   dai generatori (strumenti/reg-sup.js) e da finder.js per i nomi delle
+   schede. Circa due terzi del testo intorno (via di mezzo: a metà era troppo
+   piccola), alzata senza cambiare l'interlinea */
+.reg {
+  position: relative;
+  top: -0.45em;
+  margin-left: 0.04em;
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: baseline;
+  letter-spacing: 0;
+}

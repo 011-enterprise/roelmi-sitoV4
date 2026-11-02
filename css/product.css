@@ -2057,3 +2057,9 @@ html:not(.js) .pd-charts-nav {
     margin-top: 1.25rem;
   }
 }
+
+/* ® del nome grande nell'apertura del prodotto (02/11/2026): più piccola,
+   circa 16px invece di 18px sul nome a ~88px (via di mezzo) */
+.pd-reg {
+  font-size: max(0.18em, 0.75rem);
+}

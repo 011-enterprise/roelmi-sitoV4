@@ -12,6 +12,19 @@
 (function () {
   'use strict';
 
+  // Nome del prodotto con la ® piccola in apice (<sup class="reg">, base.css)
+  function regName(target, text) {
+    text.split('®').forEach(function (part, i) {
+      if (i) {
+        var sup = document.createElement('sup');
+        sup.className = 'reg';
+        sup.textContent = '®';
+        target.appendChild(sup);
+      }
+      if (part) target.appendChild(document.createTextNode(part));
+    });
+  }
+
   var DATA = window.ROELMI_INGREDIENTS || [];
   var form = document.getElementById('fxForm');
   var grid = document.getElementById('fxGrid');
@@ -109,7 +122,8 @@
     var art = el('article');
 
     var name = el('h3', 'fx-card-name');
-    var link = el('a', 'fx-card-link', item.name);
+    var link = el('a', 'fx-card-link');
+    regName(link, item.name);
     link.href = item.link || '#';
     name.appendChild(link);
     art.appendChild(name);
