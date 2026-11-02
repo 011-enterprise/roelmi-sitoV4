@@ -308,6 +308,10 @@
           <filter id="pfOcean" color-interpolation-filters="sRGB">
             <feColorMatrix type="matrix" values="0 0 0 0 0.259  0 0 0 0 0.439  0 0 0 0 0.62  0 0 0 1 0"/>
           </filter>
+          <!-- Pittogramma bianco pieno: colore bianco e trasparenze rinforzate (prova ColorGLAM) -->
+          <filter id="pfWhite" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.9 0"/>
+          </filter>
         </svg>
         <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
           <defs>
@@ -315,15 +319,6 @@
           </defs>
           <path class="pf-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pfBlur)"/>
         </svg>
-        <!-- Goccia di vetro opaco enorme, quasi tutta fuori a destra, come nella
-             slide: si vede solo il suo bordo sinistro (filo bianco) e, dentro, la
-             forma azzurra sfocata e schiarita come dietro un vetro smerigliato -->
-        <div class="pf-drop">
-          <span class="pf-drop-lens"></span>
-          <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
-            <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="rgba(247,243,235,0.42)" stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-          </svg>
-        </div>
       </div>
       <div class="container">
 
