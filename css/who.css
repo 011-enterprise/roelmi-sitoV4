@@ -183,5 +183,22 @@
 
 .who-statement {
   max-width: 36ch;
-  font-size: clamp(1.625rem, 1.15rem + 1.2vw, 2.375rem);
+  font-size: clamp(1.5rem, 1.035rem + 1.08vw, 2.1375rem);
+}
+
+/* Telefono (02/11/2026, Chiara: "testo troppo grosso"): sotto i 600px il
+   titolo scende a 32px (come gli altri titoli di sezione su telefono) e il
+   paragrafo a 20px, con interlinea un po' più aperta. La sezione è su
+   Ricepaper liscio: parole chiave Ocean 4.69:1 e parole spente 6.2:1 anche
+   sotto i 24px */
+@media (max-width: 599.98px) {
+  .who-title {
+    font-size: 2rem;
+  }
+
+  .who-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
 }
