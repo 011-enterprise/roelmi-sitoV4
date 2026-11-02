@@ -2063,3 +2063,127 @@ html:not(.js) .pd-charts-nav {
 .pd-reg {
   font-size: max(0.18em, 0.75rem);
 }
+
+/* Apertura senza sopratitolo (02/11/2026, Chiara): il nome è il primo
+   elemento del titolo, quindi niente spazio in più sopra */
+.pd-phero-name > span:first-child {
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   Apertura di CytoFruit, versione "texture + goccia + dati" (02/11/2026,
+   opzione 1 scelta da Chiara: l'apertura sembrava vuota). A destra:
+   - riquadro alto (4/5) con la texture 18 (acque pastello, JPG 2400px),
+     angoli grandi e ombra morbida: il riquadro del pittogramma torna
+     visibile, ma con la foto al posto del vetro
+   - la goccia del pittogramma davanti, più piccola, a cavallo del bordo
+     sinistro: lega il testo e l'immagine; la lente sfoca la texture dietro
+   - in basso a destra un vetro chiaro con tre dati veloci (Use level,
+     Appearance, pH: per ora segnaposto, come in Technical details)
+   Accessibilità: dati in un <dl> fuori dalla parte aria-hidden; sul vetro
+   chiaro Hard Grey ≥ 5.4:1 anche sopra il punto più scuro della texture
+   ========================================================================== */
+.pd-gradient .pd-phero-visual {
+  position: relative;
+}
+
+.pd-gradient .pd-phero-visual .picto {
+  --picto-ratio: 4 / 5;
+  width: min(100%, 58vh);
+}
+
+.pd-gradient .pd-phero-visual .picto-frame {
+  display: block;
+  border-radius: var(--r-stage);
+  background-color: var(--cerulean);
+  background-image: url("../images/product/texture-18.jpg");
+  background-size: cover;
+  background-position: 40% 50%;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 30px 60px rgba(25, 25, 25, 0.12);
+}
+
+.pd-gradient .pd-phero-visual .picto-frame > * {
+  display: none;
+}
+
+/* Goccia davanti, a cavallo del bordo sinistro */
+.pd-gradient .pd-phero-visual :is(.pg-lens, .pg) {
+  right: auto;
+  left: -16%;
+  bottom: 22%;
+  height: 58%;
+}
+
+/* Dati in vetro chiaro, in basso a destra sul riquadro */
+.pd-hero-facts {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: min(68%, 320px);
+  padding: 0.9rem 1rem;
+  border-radius: var(--r-card);
+  color: var(--hard-grey);
+  background-color: var(--glass-light-bg);
+  background-image: var(--glass-light-sheen);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-light-line);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pd-hero-facts {
+    background-color: rgba(247, 243, 235, 0.85);
+  }
+}
+
+.pd-hero-facts dt {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pd-hero-facts dd {
+  margin-top: 0.2rem;
+  font-size: var(--fs-small);
+  line-height: 1.35;
+}
+
+/* Tablet: riquadro centrato sotto il testo, dati sotto il riquadro */
+@media (max-width: 899.98px) {
+  .pd-gradient .pd-phero-visual .picto {
+    width: min(70vw, 340px);
+  }
+
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg) {
+    left: -10%;
+  }
+
+  .pd-hero-facts {
+    position: static;
+    width: min(100%, 420px);
+    margin: 1rem auto 0;
+  }
+}
+
+/* Goccia più grande (02/11/2026, Chiara): alta l'80% del riquadro e più
+   spostata verso sinistra, verso il testo; resta davanti al riquadro */
+.pd-gradient .pd-phero-visual :is(.pg-lens, .pg) {
+  left: -34%;
+  bottom: 8%;
+  height: 80%;
+}
+
+@media (max-width: 899.98px) {
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg) {
+    left: -18%;
+    height: 72%;
+  }
+}
