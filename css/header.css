@@ -920,3 +920,18 @@
     display: none;
   }
 }
+
+/* Logo della barra −10% in due passi (02/11/2026, Chiara: troppo grande
+   rispetto alla pillola): 180px su desktop (prima 200), 144px sotto i
+   1200px (prima 160) */
+.logo-full,
+.logo-full .logo-svg {
+  width: 180px;
+}
+
+@media (max-width: 1199.98px) {
+  .logo-full,
+  .logo-full .logo-svg {
+    width: 144px;
+  }
+}

@@ -183,7 +183,7 @@
 
 .who-statement {
   max-width: 36ch;
-  font-size: clamp(1.5rem, 1.035rem + 1.08vw, 2.1375rem);
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
 }
 
 /* Telefono (02/11/2026, Chiara: "testo troppo grosso"): sotto i 600px il

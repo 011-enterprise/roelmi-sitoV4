@@ -450,3 +450,105 @@
     font-size: var(--fs-small);
   }
 }
+
+/* ==========================================================================
+   Telefono, versione 3 (02/11/2026, Chiara: il box era ancora troppo pieno).
+   Sotto i 600px (tablet e desktop invariati):
+   - resta il titolo, la descrizione si nasconde SOLO a vista (lo screen
+     reader la legge ancora): niente contenuto perso per chi usa la voce
+   - spazio vero tra i blocchi, così tra un vetro e l'altro si vede la texture
+   - i tre numeri in tre vetri separati invece di una striscia con le linee
+   - i bottoni tornano della misura normale del sito (48px, 15px) e non
+     occupano più tutta la larghezza: stanno a sinistra, vanno a capo se
+     serve
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .nip-stage {
+    row-gap: 2.75rem;
+    padding-top: 2.75rem;
+  }
+
+  .nip-copy p {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Tre vetri separati */
+  .nip-stats,
+  .nip-stage--light .nip-stats {
+    gap: 0.5rem;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .nip-stat.glass {
+    padding: 0.75rem 0.7rem;
+    border-radius: var(--r-inner);
+    background-color: var(--glass-light-bg);
+    background-image: var(--glass-light-sheen);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-light-line);
+  }
+
+  .nip-stat + .nip-stat {
+    border-left: 0;
+  }
+
+  /* Bottoni della misura normale, non a tutta larghezza */
+  .nip-actions {
+    justify-self: start;
+    justify-content: flex-start;
+  }
+
+  .nip-actions .btn {
+    flex: 0 0 auto;
+    min-width: 0;
+    min-height: 48px;
+    padding-inline: 1.6rem;
+    font-size: var(--fs-cta);
+  }
+}
+
+/* Telefono, equilibrio (02/11/2026, Chiara: "sbilanciato"): i due bottoni
+   uno sotto l'altro con la STESSA larghezza (quella del più lungo) e
+   centrati nel riquadro; sotto ai bottoni lo stesso spazio che c'è sopra
+   al titolo, così il riquadro respira uguale in alto e in basso */
+@media (max-width: 599.98px) {
+  .nip-stage {
+    padding-bottom: 2.75rem;
+  }
+
+  .nip-actions {
+    display: grid;
+    grid-auto-rows: auto;
+    justify-self: center;
+    gap: 0.6rem;
+  }
+
+  .nip-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Telefono (02/11/2026, Chiara): sopra il titolo e sotto i bottoni lo
+   stesso margine dei lati del riquadro, non più lo spazio grande; lo
+   spazio grande resta solo TRA i blocchi */
+@media (max-width: 599.98px) {
+  .nip-stage {
+    padding-top: var(--nip-space);
+    padding-bottom: var(--nip-space);
+  }
+}

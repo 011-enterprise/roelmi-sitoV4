@@ -1899,7 +1899,7 @@ html:not(.js) .pd-charts-nav {
 .pd-statement {
   max-width: 36ch;
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.035rem + 1.08vw, 2.1375rem);   /* come .who-statement */
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);   /* come .who-statement */
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: var(--ls-tight);
