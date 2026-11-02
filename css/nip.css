@@ -393,3 +393,60 @@
     background-color: var(--fg);
   }
 }
+
+/* ==========================================================================
+   Telefono, versione compatta (02/11/2026, Chiara: il box NIP era molto più
+   alto della sezione dopo). Sotto i 600px:
+   - titolo più piccolo (--fs-large) e meno spazio dentro il vetro
+   - testo fermato a 4 righe solo a vista (lo screen reader lo legge intero;
+     il testo completo c'è da tablet in su e dietro "Our philosophy")
+   - striscia dei numeri più bassa
+   - i due bottoni affiancati sulla stessa riga, più compatti (44px, area
+     di tocco minima); se non ci stanno vanno a capo da soli
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .nip-copy {
+    padding: 0.85rem 0.95rem;
+  }
+
+  .nip-title {
+    font-size: var(--fs-large);
+  }
+
+  .nip-title span:not(.eyebrow) {
+    margin-top: 0.4rem;
+  }
+
+  .nip-copy p {
+    margin-top: 0.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .nip-stats {
+    padding-block: 0.65rem;
+  }
+
+  .nip-stat .stat-num {
+    font-size: 1.4rem;
+  }
+
+  .nip-stat > span[aria-hidden] {
+    gap: 0.25rem;
+  }
+
+  .nip-actions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nip-actions .btn {
+    flex: 1 1 0;
+    min-width: max-content;
+    min-height: 44px;
+    padding-inline: 0.9rem;
+    font-size: var(--fs-small);
+  }
+}
