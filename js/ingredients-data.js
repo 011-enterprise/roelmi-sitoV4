@@ -87,7 +87,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: 'Fatty acids and phytosterols from six botanical oils that reduce hair loss and improve density, thickness and shine. Dosage: 400–600 mg a day.',
     texture: 'images/portfolio/texture-6.jpg',
-    link: '#'
+    link: 'beaulixir.html'
   },
   {
     id: 6,
@@ -121,6 +121,6 @@ window.ROELMI_INGREDIENTS = [
     certifications: ['COSMOS', 'Halal'],
     description: 'A precision-fermented extract from Italian vine leaves for dark circles, eye bags and signs of fatigue, supported by a clinical study on 120 participants. Use level: 1%.',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'seidotech-lux.html'
   }
 ];

@@ -180,6 +180,13 @@
   gap: inherit;
 }
 
+/* Tre benefici (Beaulixir): tre colonne su schermo largo, senza buco a destra */
+@media (min-width: 1024px) {
+  .pd-benefit-list:has(> li:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .pd-benefit {
   padding: clamp(1.1rem, 1rem + 0.6vw, 1.75rem);
   border-radius: var(--r-card);
