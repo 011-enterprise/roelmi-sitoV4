@@ -164,8 +164,11 @@
          1 · APERTURA (scuro) — come la sezione NIP della home: reticolo
          molecolare sul nero, box con la texture di NIP, titolo su vetro scuro
          ================================================================== -->
-    <!-- SITO 4: apertura su Hard Grey senza Force Field, come la pagina prodotto -->
-    <section class="np-hero section theme-dark grain" aria-labelledby="np-title">
+    <!-- SITO 4 (03/11/2026, Chiara): apertura su Ricepaper con il Force Field
+         in Ocean sul fondo (prima Hard Grey); il box con la texture e il vetro
+         scuro restano com'erano -->
+    <section class="np-hero section theme-light grain" aria-labelledby="np-title" data-force-field-host>
+      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <nav class="np-breadcrumb" aria-label="Breadcrumb">
           <ol>
@@ -203,7 +206,7 @@
     <!-- ==================================================================
          2 · INTRODUZIONE (chiaro)
          ================================================================== -->
-    <section class="np-intro section theme-soft grain" aria-label="Nature is People">
+    <section class="np-intro section theme-light grain" aria-label="Nature is People">
       <div class="container">
         <p class="np-statement" data-reveal><strong>Nature is People (NIP)</strong> is much more than just a name. We believe that <strong class="accent">nature</strong>, <strong class="accent">innovation</strong> and <strong class="accent">people</strong> are closely interconnected.</p>
 
@@ -247,7 +250,9 @@
     <!-- ==================================================================
          3 · I TRE PILASTRI (chiaro) — schede a fondo d'accento
          ================================================================== -->
-    <section class="np-pillars section theme-soft grain" aria-labelledby="np-pillars-title">
+    <section class="np-pillars section theme-soft grain" aria-labelledby="np-pillars-title" data-force-field-host>
+      <!-- Force Field "lattice" dietro i tre box (03/11/2026, Chiara) -->
+      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <h2 class="np-pillars-title" id="np-pillars-title">
           <span class="eyebrow" data-reveal>Our three pillars</span>
@@ -317,7 +322,7 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-seidotech" aria-hidden="true">
                 <img class="np-card-picto" src="images/pittogrammi/LIQUIDI-GEL.png" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="#">SeidoTech<sup>®</sup> Capillys</a></h3>
@@ -335,7 +340,7 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-glitter" aria-hidden="true">
                 <img class="np-card-picto" src="images/pittogrammi/POLVERI.png" alt="" loading="lazy" decoding="async">
               </div>
               <h3 class="np-card-name"><a class="np-card-link" href="#">SelectSIEVE OptiChol</a></h3>
@@ -356,7 +361,7 @@
          Texture con Cerulean, Olive e Antique: i colori dei tre pilastri.
          Testo da SITO 1 (lì segnato come da definire)
          ================================================================== -->
-    <section class="np-close section theme-soft grain" aria-labelledby="np-close-title">
+    <section class="np-close section theme-light grain" aria-labelledby="np-close-title">
       <div class="container">
         <aside class="cta-band" aria-labelledby="np-close-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">

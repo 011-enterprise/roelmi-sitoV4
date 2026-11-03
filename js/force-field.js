@@ -19,8 +19,14 @@
 
   var MAX_HITS = 10;
   var MIPS = 4;
+  var UNIT = 800;   // misura di riferimento in px CSS (vedi uUnit nello shader)
 
   var DEFAULTS = {
+    // Forma della trama (PROVE 21/10/2026):
+    //   'lattice'  esagoni con un atomo a ogni vertice e lati sottili (in uso)
+    //   'molecule' rete irregolare di atomi e legami
+    //   'hex'      esagoni dell'originale
+    shape: 'lattice',
     color: [0.15, 0.68, 1],
     opacity: 0.9,
     cellScale: 16,
@@ -73,6 +79,8 @@ uniform float uTime;
 uniform vec3 uColor;
 uniform float uOpacity;
 uniform float uCellScale;
+uniform float uUnit;
+uniform float uShape;
 uniform float uLineWidth;
 uniform float uGridOpacity;
 uniform float uGridRevealMode;
@@ -168,6 +176,88 @@ vec4 hexCell(vec2 p){
   return vec4(d, 0.5, id);
 }
 
+// --- Rete molecolare (shape: 'molecule') --------------------------------
+// Un atomo per cella, spostato a caso e che ondeggia appena; legami sottili
+// con alcuni dei vicini (non tutti, e mai troppo lunghi); qualche atomo più
+// grande. Restituisce gli stessi dati di hexCell: x = 0.5 - distanza dalla
+// struttura (atomi o legami), y = soglia, zw = cella dell'atomo più vicino.
+vec2 atomPos(vec2 cell){
+  float r1 = hash21(cell);
+  float r2 = hash21(cell + 17.31);
+  vec2 off = vec2(r1, r2) * 0.7 + 0.15;
+  off += 0.06 * vec2(sin(uTime * 0.25 + r1 * 6.2831), cos(uTime * 0.2 + r2 * 6.2831));
+  return cell + off;
+}
+
+float segDist(vec2 p, vec2 a, vec2 b){
+  vec2 pa = p - a, ba = b - a;
+  float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+  return length(pa - ba * h);
+}
+
+vec4 molCell(vec2 p){
+  vec2 c = floor(p);
+  vec2 pts[9];
+  vec2 ids[9];
+  float dAtom = 1e3;
+  float nearD = 1e3;
+  vec2 nearId = c;
+  int k = 0;
+  for (int y = -1; y <= 1; y++) {
+    for (int x = -1; x <= 1; x++) {
+      vec2 cell = c + vec2(float(x), float(y));
+      vec2 a = atomPos(cell);
+      pts[k] = a;
+      ids[k] = cell;
+      k++;
+      float da = length(p - a);
+      float rad = hash21(cell + 3.7) > 0.8 ? 0.11 : 0.065;
+      dAtom = min(dAtom, da - rad);
+      if (da < nearD) { nearD = da; nearId = cell; }
+    }
+  }
+  float dBond = 1e3;
+  for (int i = 0; i < 9; i++) {
+    for (int j = i + 1; j < 9; j++) {
+      vec2 di = ids[j] - ids[i];
+      if (abs(di.x) > 1.0 || abs(di.y) > 1.0) continue;
+      // Diagonali in un solo verso: niente legami che si incrociano
+      if (di.x * di.y < 0.0) continue;
+      if (hash21(ids[i] * 1.31 + ids[j] * 0.71) > 0.55) continue;
+      vec2 a = pts[i];
+      vec2 b = pts[j];
+      if (length(b - a) > 1.25) continue;
+      dBond = min(dBond, segDist(p, a, b));
+    }
+  }
+  return vec4(0.5 - min(dBond, dAtom), 0.5, nearId);
+}
+
+// --- Reticolo di atomi e legami (shape: 'lattice') ------------------------
+// Gli stessi esagoni, ma come "palline e bastoncini": un atomo pieno a ogni
+// vertice, lati più sottili (i legami). Come gli anelli del benzene.
+vec4 latticeCell(vec2 p){
+  const vec2 s = vec2(1.0, 1.7320508);
+  vec4 hC = floor(vec4(p, p - vec2(0.5, 1.0)) / s.xyxy) + 0.5;
+  vec4 h = vec4(p - hC.xy * s, p - (hC.zw + 0.5) * s);
+  bool first = dot(h.xy, h.xy) < dot(h.zw, h.zw);
+  vec2 local = first ? h.xy : h.zw;
+  vec2 id = first ? hC.xy : hC.zw + 0.5;
+  vec2 cell = abs(local);
+  float d = max(dot(cell, s * 0.5), cell.x);
+  // Legame: distanza dal lato, "allargata" così la linea esce più sottile
+  float dBond = (0.5 - d) * 1.8;
+  // Atomi: i vertici dell'esagono (per simmetria bastano due)
+  float dv = min(length(cell - vec2(0.5, 0.2886751)), length(cell - vec2(0.0, 0.5773503)));
+  float dAtom = dv - 0.07;
+  return vec4(0.5 - min(dBond, dAtom), 0.5, id);
+}
+
+vec4 fieldCell(vec2 p){
+  if (uShape > 1.5) return latticeCell(p);
+  return uShape > 0.5 ? molCell(p) : hexCell(p);
+}
+
 float cellFlash(vec2 id){
   float rnd = hash21(id);
   float phase = rnd * 6.2831;
@@ -177,7 +267,9 @@ float cellFlash(vec2 id){
 
 void main(){
   vec2 frag = vUv * uResolution;
-  float minAxis = min(uResolution.x, uResolution.y);
+  // Unità fissa (non il lato corto del canvas): esagoni della stessa misura
+  // in tutte le sezioni, alte o basse che siano
+  float minAxis = uUnit;
   vec2 st = frag / minAxis;
 
   float ringContrib = 0.0;
@@ -211,7 +303,7 @@ void main(){
   impactBoost = min(impactBoost, 1.0);
 
   vec2 fieldSt = st - pushVec * (uRefraction * 1.4 / minAxis);
-  vec4 info = hexCell(fieldSt * uCellScale);
+  vec4 info = fieldCell(fieldSt * uCellScale);
   float line = smoothstep(info.y - uLineWidth, info.y, info.x);
   vec2 cellId = info.zw;
   float flash = cellFlash(cellId);
@@ -233,7 +325,7 @@ void main(){
   vec2 mouseSt = uMouse / minAxis;
   float mouseD = distance(frag, uMouse);
   float hover = exp(-mouseD * mouseD / (uHoverRadius * uHoverRadius * 0.5)) * uHoverGlow;
-  vec2 hoverCell = hexCell(mouseSt * uCellScale).zw;
+  vec2 hoverCell = fieldCell(mouseSt * uCellScale).zw;
   float sameCell = 1.0 - step(0.5, distance(hoverCell, cellId));
   float charge = sameCell * uHoverCharge * uHoverAmt;
   hover *= uHoverAmt;
@@ -507,6 +599,10 @@ void main(){
       gl.uniform3f(u.uColor, c.color[0], c.color[1], c.color[2]);
       gl.uniform1f(u.uOpacity, clamp(c.opacity, 0, 1));
       gl.uniform1f(u.uCellScale, clamp(c.cellScale, 4, 80));
+      // 800px (o la larghezza della finestra, se più stretta) diviso cellScale:
+      // ~50px a cella su desktop, uguale in NIP, Portfolio, Blog e footer
+      gl.uniform1f(u.uUnit, Math.min(UNIT, window.innerWidth) * dpr);
+      gl.uniform1f(u.uShape, c.shape === 'lattice' ? 2 : c.shape === 'molecule' ? 1 : 0);
       gl.uniform1f(u.uLineWidth, clamp(c.lineWidth, 0.005, 0.2));
       gl.uniform1f(u.uGridOpacity, clamp(c.gridOpacity, 0, 1));
       gl.uniform1f(u.uGridRevealMode, REVEAL_INDEX[c.gridReveal] != null ? REVEAL_INDEX[c.gridReveal] : 2);
@@ -684,8 +780,22 @@ void main(){
 
   window.RoelmiForceField = { create: create };
 
+  // INTERRUTTORE (23/10/2026): per ora il Force Field è spento ovunque, per
+  // introdurlo al cliente un po' alla volta. Niente è cancellato: canvas e
+  // impostazioni restano in pagina.
+  //   - per riaccenderlo dappertutto:  ENABLED_EVERYWHERE = true
+  //   - per accenderlo in una sola sezione: aggiungere data-force-field-on
+  //     al suo <canvas data-force-field> (nel generatore, per le pagine interne)
+  // SITO 4 (03/11/2026): acceso dappertutto; dove non serve lo nasconde il
+  // CSS della sezione (theme-ocean, theme-soft…)
+  var ENABLED_EVERYWHERE = true;
+
   // Avvio automatico: <canvas data-force-field> dentro il suo contenitore
   document.querySelectorAll('canvas[data-force-field]').forEach(function (canvas) {
+    if (!ENABLED_EVERYWHERE && !canvas.hasAttribute('data-force-field-on')) {
+      canvas.style.display = 'none';   // si vede solo il fondo della sezione
+      return;
+    }
     var host = canvas.closest('[data-force-field-host]') || canvas.parentElement;
     var options = {};
     try { options = JSON.parse(canvas.getAttribute('data-force-field') || '{}'); } catch (e) { /* opzioni di default */ }

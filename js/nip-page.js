@@ -147,9 +147,13 @@
     var vh = window.innerHeight;
 
     if (loop) {
-      // 0 quando il cerchio entra dal basso, 1 quando il suo centro è a metà schermo
+      // 0 quando la cima del cerchio è al 70% dello schermo (già ben visibile);
+      // si completa su un tratto di scroll circa doppio (Chiara: "troppo
+      // veloce"), cioè quando il cerchio è quasi tutto passato sopra
+      // (03/11/2026, Chiara: "parte troppo presto"; prima partiva appena il
+      // cerchio entrava dal basso)
       var r = loop.getBoundingClientRect();
-      var p = clamp((vh - r.top) / (vh * 0.5 + r.height * 0.5));
+      var p = clamp((vh * 0.7 - r.top) / (vh * 0.65 + r.height * 0.75));
       loop.style.setProperty('--loop-p', p.toFixed(3));
       steps.forEach(function (s, i) { s.classList.toggle('is-on', p >= i * 0.25 + 0.04); });
     }

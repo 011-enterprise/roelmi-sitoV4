@@ -1021,3 +1021,9 @@ a.btn:not(:has(svg)):hover::after,
 .market-pill--beaulixir { background-color: var(--line-beaulixir); }
 .market-pill--seidotech { background-color: var(--line-seidotech); }
 .market-pill--glitter { background-color: var(--line-glitter); }
+
+/* ® dentro un'etichetta (.eyebrow è un flex con spazio tra gli elementi):
+   attaccata alla parola prima, non staccata come un elemento a sé */
+.eyebrow > .reg {
+  margin-left: -0.5em;
+}

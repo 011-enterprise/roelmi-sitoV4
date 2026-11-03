@@ -766,3 +766,12 @@
   filter: blur(4px) saturate(1.5);
 }
 
+
+/* NIP della home (03/11/2026, Chiara): dietro il riquadro torna il Force
+   Field, ora con la trama "lattice" di SITO 3 (esagoni con un atomo a ogni
+   vertice, js/force-field.js), in Ocean sopra la forma azzurra sfocata.
+   theme-soft lo nascondeva: qui lo riaccendiamo. Decorativo, fermo con
+   Stop animation e reduced-motion */
+.nip-gradient .nip-field {
+  display: block;
+}

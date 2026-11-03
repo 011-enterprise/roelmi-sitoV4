@@ -1119,3 +1119,129 @@
 .theme-soft .np-statement.is-ready .accent .np-word.is-lit {
   color: var(--ocean);
 }
+
+/* ==========================================================================
+   Apertura su Ricepaper con il Force Field (03/11/2026, Chiara): fondo
+   chiaro al posto dell'Hard Grey e, sul fondo, il reticolo di esagoni in
+   Ocean (js/force-field.js, .section-field) che si accende vicino al
+   cursore. Il box con la texture e il titolo sul vetro scuro non cambiano.
+   Il percorso sta sul fondo chiaro: Hard Grey (17:1), focus Hard Grey
+   ========================================================================== */
+.np-hero.theme-light .np-breadcrumb li,
+.np-hero.theme-light .np-breadcrumb a {
+  color: var(--hard-grey);
+}
+
+.np-hero.theme-light .np-breadcrumb a:focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+
+/* ==========================================================================
+   "Sustainability in action": il RIQUADRO dietro la goccia si riempie del
+   colore del prodotto come un liquido, al passaggio del mouse (03/11/2026,
+   opzione 2, versione "box" chiesta da Chiara; prima era sulla goccia).
+   Uno strato (::before) nel colore della linea (.picto--line-*, base.css),
+   come vetro colorato, visto attraverso una maschera "liquido": sotto
+   pieno, sopra una superficie ondulata. In hover / focus da tastiera il
+   livello sale dal fondo alla cima in 1.8s (--np-liquid) e la superficie
+   ondeggia di lato (--np-wave); togliendo il mouse si svuota. La goccia
+   bianca resta sopra. Solo per i prodotti con un colore di linea.
+   Touch: già pieno (fermo). Stop animation e reduced-motion: niente salita
+   né onda, il colore compare subito in hover. Decorativo (aria-hidden).
+   Pittogramma bianco sul verde ≈ 2.1:1, sul marrone ≈ 2.8:1
+   ATTENZIONE: la variabile si chiama --np-liquid, NON --np-fill (che è
+   quella delle lettere dei pilastri: con lo stesso nome la loro animazione
+   si bloccava)
+   ========================================================================== */
+@property --np-liquid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --np-wave {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.np-card-media--fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  --np-liquid: 0%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12)),
+    color-mix(in srgb, var(--line-color) 90%, transparent);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-wave) var(--np-liquid) / 200% 300% repeat-x;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-wave) var(--np-liquid) / 200% 300% repeat-x;
+  transition: --np-liquid 1.8s cubic-bezier(0.45, 0, 0.25, 1);
+  animation: np-wave 2.6s linear infinite;
+  pointer-events: none;
+}
+
+.np-card-media--fill img.np-card-picto {
+  z-index: 1;
+}
+
+@keyframes np-wave {
+  from { --np-wave: 0%; }
+  to   { --np-wave: 100%; }
+}
+
+/* Maschera alta 3 volte il riquadro, superficie a un terzo: con --np-liquid
+   0% la superficie è sul fondo, con 52% è appena sopra il bordo in alto e
+   sotto resta tutto pieno (prima, alta il doppio, in fondo restava una
+   striscia vuota: si vedeva una linea) */
+.np-card:hover .np-card-media--fill::before,
+.np-card:focus-within .np-card-media--fill::before {
+  --np-liquid: 52%;
+}
+
+@media (hover: none) {
+  .np-card-media--fill::before {
+    --np-liquid: 52%;
+    animation: none;
+  }
+}
+
+.motion-paused .np-card-media--fill::before {
+  transition: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-card-media--fill::before {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Pilastri N·I·P (03/11/2026, Chiara): dietro i tre box il Force Field
+   "lattice" in Ocean, come nell'apertura. theme-soft lo nascondeva: qui lo
+   riaccendiamo. Sta sotto la grana e sotto i box; decorativo, fermo con
+   Stop animation e reduced-motion */
+.np-pillars {
+  isolation: isolate;
+}
+
+.np-pillars .section-field {
+  display: block;
+}
+
+/* Apertura su Ricepaper (03/11/2026): il box del titolo resta in vetro
+   SCURO, ma ora la sezione è chiara e i colori dei testi venivano dalla
+   sezione (etichetta Hard Grey, illeggibile sul vetro scuro). Il vetro
+   riprende le variabili del tema scuro: etichetta e testi Ricepaper (≥ 4.5:1
+   sul vetro scuro). Solo le variabili: .theme-dark ridarebbe al vetro il
+   fondo pieno */
+.np-hero.theme-light .np-head {
+  --bg: var(--hard-grey);
+  --fg: var(--ricepaper);
+  --fg-muted: var(--muted-on-dark);
+  --accent: var(--ocean-on-dark);
+  --rule: var(--line-on-dark);
+  color: var(--ricepaper);
+}
