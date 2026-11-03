@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/presence.css">
+  <link rel="stylesheet" href="css/nip.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/buttons.css">   <!-- sistema dei bottoni: per ultimo -->
@@ -220,7 +221,7 @@
     <!-- ==================================================================
          2 · LA STORIA (scuro) — famiglia e sede
          ================================================================== -->
-    <section class="ab-story section theme-ocean grain" aria-label="Our story">
+    <section class="ab-story section theme-light grain" aria-label="Our story">
       <div class="container ab-story-grid">
         <div class="ab-story-text">
           <p class="ab-lead" data-reveal>The name <strong>ROELMI</strong> is the combination of the names <strong>Rosella Malanchin</strong>, and the daughters <strong>Eleonora</strong> and <strong>Michela Santus</strong>. Through a play on letters and sounds, the name came to represent a strong sense of identity and the ambition to grow, expand and bring the Group’s vision to an international audience. <strong>HPC</strong> stands for <strong>Health and Personal Care</strong>, the two main areas in which we operate.</p>
@@ -235,7 +236,7 @@
     <!-- ==================================================================
          3 · WHAT WE DO EVERYDAY (chiaro)
          ================================================================== -->
-    <section class="ab-what section theme-soft grain" aria-labelledby="ab-what-title">
+    <section class="ab-what section theme-light grain" aria-labelledby="ab-what-title">
       <div class="container">
         <h2 class="ab-section-title" id="ab-what-title">
           <span class="eyebrow" data-reveal>Our work</span>
@@ -249,22 +250,61 @@
          3b · NIP® (scuro) — sezione a sé (in SITO 1 era un riquadro dentro
          What we do). Riquadro texture + vetro scuro come in home
          ================================================================== -->
-    <section class="ab-nip-sec section theme-soft grain" aria-labelledby="ab-nip-title" data-force-field-host>
+    <section class="ab-nip-sec nip section theme-soft grain" aria-labelledby="ab-nip-title" data-force-field-host>
+      <!-- Come la NIP della home: forma Cerulean sfocata sul fondo (03/11/2026) -->
+      <div class="page-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="abNipBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#abNipBlur)"/>
+        </svg>
+      </div>
       <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <!-- Riquadro come la NIP della home, con la stessa texture (texture-18) +
            vetro scuro con titolo, testo e bottone. Vetro scuro = texture libera -->
       <div class="container">
-        <div class="cta-box ab-nip-box theme-dark">
-          <div class="cta-box-bg" aria-hidden="true">
+        <!-- Stessa struttura del riquadro NIP della home (css/nip.css, js/nip.js):
+             texture, vetro chiaro con titolo e testo, bottone, tre numeri -->
+        <div class="nip-stage nip-stage--light">
+          <div class="nip-texture" aria-hidden="true">
             <img src="images/nip/texture-18.jpg" alt="" loading="lazy" decoding="async">
           </div>
-          <div class="cta-box-glass glass" data-reveal>
-            <h2 class="cta-box-title" id="ab-nip-title">
+
+          <div class="nip-copy glass" data-reveal>
+            <h2 class="nip-title" id="ab-nip-title">
               <span class="eyebrow">NIP<sup class="reg">®</sup></span>
-              <span class="ab-nip-word"><b>N</b>ature <b>i</b>s <b>P</b>eople</span>
+              <span>Nature is People</span>
             </h2>
-            <p class="cta-box-text">In the early 2000s, this approach led to the creation of <a href="#">NIP<sup class="reg">®</sup> (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
-            <div class="cta-box-actions"><a class="btn btn--solid" href="#">Discover NIP<sup class="reg">®</sup></a></div>
+            <p>In the early 2000s, this approach led to the creation of <a href="#">NIP<sup class="reg">®</sup> (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
+          </div>
+
+          <div class="nip-actions glass" data-reveal data-reveal-delay="0.1">
+            <a class="btn btn--solid" href="#">Discover NIP<sup class="reg">®</sup></a>
+          </div>
+
+          <div class="nip-stats">
+            <div class="nip-stat glass">
+              <span class="sr-only">78% Bio-based avg.</span>
+              <span aria-hidden="true">
+                <span class="stat-num"><span class="stat-value" data-count="78">78</span><span class="stat-unit">%</span></span>
+                <span class="stat-label">Bio-based avg.</span>
+              </span>
+            </div>
+            <div class="nip-stat glass">
+              <span class="sr-only">−34% CO₂ since 2020</span>
+              <span aria-hidden="true">
+                <span class="stat-num"><span class="stat-value" data-count="-34">−34</span><span class="stat-unit">%</span></span>
+                <span class="stat-label">CO₂ since 2020</span>
+              </span>
+            </div>
+            <div class="nip-stat glass">
+              <span class="sr-only">100% Reused process H₂O</span>
+              <span aria-hidden="true">
+                <span class="stat-num"><span class="stat-value" data-count="100">100</span><span class="stat-unit">%</span></span>
+                <span class="stat-label">Reused process H₂O</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -475,7 +515,7 @@
     <!-- ==================================================================
          7 · TOGETHER FOR A BETTER WORLD (scuro) — partner (segnaposto)
          ================================================================== -->
-    <section class="ab-partners section theme-ocean grain" aria-labelledby="ab-partners-title" data-force-field-host>
+    <section class="ab-partners section theme-light grain" aria-labelledby="ab-partners-title" data-force-field-host>
       <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <h2 class="ab-section-title" id="ab-partners-title">
@@ -520,7 +560,7 @@
          CytoFruit: riquadro con texture (quella dell'Ingredient Finder) e
          vetro scuro sopra
          ================================================================== -->
-    <section class="ab-close section theme-soft grain" aria-labelledby="ab-close-title">
+    <section class="ab-close section theme-light grain" aria-labelledby="ab-close-title">
       <div class="container">
         <aside class="cta-band" aria-labelledby="ab-close-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">
@@ -631,5 +671,7 @@
   <!-- presence.js: filtri, elenco, scheda della sede e onda dei pallini, come in home -->
   <script src="js/presence.js" defer></script>
   <script src="js/about.js" defer></script>
+  <script src="js/impact.js" defer></script>
+  <script src="js/nip.js" defer></script>
 </body>
 </html>

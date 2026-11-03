@@ -784,3 +784,57 @@
 .theme-soft .ab-statement.is-ready a:hover .ab-word.is-lit {
   color: var(--ocean);
 }
+
+/* ==========================================================================
+   About allineata al resto del sito (03/11/2026, Chiara: "adattala
+   graficamente, struttura invariata"). Niente più sezioni Ocean piene né
+   macchie pastello:
+   - storia, What we do, timeline, partner e chiusura su Ricepaper puro
+   - riquadro NIP come quello della home: forma Cerulean sfocata sul fondo,
+     texture + vetro CHIARO (.cta-box--light in base.css)
+   - force field spento in tutta la pagina (per ora solo nella pagina NIP)
+   Le regole scritte per il fondo Ocean usano i colori "su scuro": qui li
+   riportiamo a quelli su chiaro (Hard Grey 17:1, grigio 6.2:1, Ocean 4.69:1)
+   ========================================================================== */
+.ab-story.theme-light,
+.ab-timeline.theme-light,
+.ab-partners.theme-light {
+  --muted-on-dark: var(--muted);
+  --ocean-on-dark: var(--ocean);
+  --line-on-dark: var(--line);
+}
+
+.ab-story.theme-light .ab-lead,
+.ab-story.theme-light .ab-text a,
+.ab-timeline.theme-light .ab-tl-text,
+.ab-timeline.theme-light .ab-tl-motion,
+.ab-partners.theme-light .motion-toggle {
+  color: var(--hard-grey);
+}
+
+.ab-nip-sec {
+  background-image: none;
+}
+
+.ab-nip-sec .section-field,
+.ab-timeline .section-field,
+.ab-partners .section-field {
+  display: none;
+}
+
+/* La timeline ha il suo fondo scritto in .ab-timeline (Hard Grey, testo
+   Ricepaper): sul chiaro va riscritto qui */
+.ab-timeline.theme-light {
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+/* Timeline su OCEAN (03/11/2026, Chiara: "almeno una sezione in Ocean"):
+   la sezione più lunga e visiva della pagina fa da stacco tra Our approach
+   e Global Presence. Su Ocean tutto Ricepaper (4.69:1; le variabili "su
+   scuro" le ridefinisce .theme-ocean in base.css); la regola .ab-timeline
+   scriveva il fondo Hard Grey, qui va riscritto. Force field spento */
+.ab-timeline.theme-ocean {
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+}

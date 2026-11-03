@@ -1248,3 +1248,45 @@ a.btn:not(:has(svg)):hover::after,
     border-left: 0;
   }
 }
+
+/* Variante CHIARA del box con texture (03/11/2026): come il riquadro NIP
+   della home, texture + vetro CHIARO con testi Hard Grey (≥ 5.4:1 anche
+   sopra il punto più scuro della texture), bottone pieno Ocean, link Hard
+   Grey sottolineati. Markup: .cta-box.cta-box--light (senza .theme-dark) */
+.cta-box.cta-box--light .cta-box-glass {
+  --fg: var(--hard-grey);
+  --bg: var(--ricepaper);
+  --accent: var(--ocean);
+  --fg-muted: var(--muted);
+  --btn-bg: var(--ocean);
+  --btn-fg: var(--ricepaper);
+  --btn-hover-bg: var(--hard-grey);
+  --btn-hover-fg: var(--ricepaper);
+  color: var(--hard-grey);
+  background-color: var(--glass-light-bg);
+  background-image: var(--glass-light-sheen);
+  box-shadow: var(--glass-light-line);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .cta-box.cta-box--light .cta-box-glass {
+    background-color: rgba(247, 243, 235, 0.85);
+  }
+}
+
+.cta-box--light .cta-box-title,
+.cta-box--light .cta-box-title span,
+.cta-box--light .cta-box-text,
+.cta-box--light .cta-box-text a {
+  color: var(--hard-grey);
+}
+
+.cta-box--light :focus-visible {
+  outline-color: var(--hard-grey);
+}
+
+/* ® dentro un bottone (.btn è un flex con 0.6em tra gli elementi): attaccata
+   alla parola prima, come nel testo */
+.btn > .reg {
+  margin-left: -0.55em;
+}
