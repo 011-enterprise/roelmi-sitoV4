@@ -2294,9 +2294,9 @@ html:not(.js) .pd-charts-nav {
   animation: pg-pop 0.6s var(--ease-out) calc(0.9s + var(--i, 0) * 0.11s) both;
 }
 
-/* Clinical trials e Technical data sono tutte e due chiare: un solo spazio
-   tra le due, non doppio */
-.pd-clinical.theme-light + .pd-charts.theme-light {
+/* Clinical trials e la sezione chiara che segue (Technical data, o Technical
+   details quando il video non c'è): un solo spazio tra le due, non doppio */
+.pd-clinical.theme-light + :is(.pd-charts, .pd-tech).theme-light {
   padding-top: 0;
 }
 
