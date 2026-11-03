@@ -1051,3 +1051,200 @@ a.btn:not(:has(svg)):hover::after,
     display: none;
   }
 }
+
+/* ==========================================================================
+   Apertura delle pagine istituzionali (03/11/2026, modello unico: About ora,
+   poi le pagine future; Ingredient Finder e NIP hanno la stessa struttura
+   con le loro classi). Markup:
+     section.page-hero.section.theme-soft.grain
+       .page-grad-bg > svg > .page-grad-blob   (forma Cerulean sfocata)
+       .container > nav (percorso) + .page-stage
+         .page-stage-media (texture o video, aria-hidden)
+         button.motion-toggle.page-stage-motion (se qualcosa si muove)
+         .page-stage-glass.glass > h1.page-stage-title + p + ul (dati)
+   Accessibilità: il vetro è SCURO (0.68), quindi testi Ricepaper ≥ 4.5:1
+   anche sopra il punto più chiaro della foto; il percorso sta sul fondo
+   chiaro (Hard Grey, 9:1 sul Cerulean)
+   ========================================================================== */
+.page-hero {
+  padding-top: calc(var(--header-h) + 0.5rem);
+  background-image: none;   /* niente macchie pastello di theme-soft */
+}
+
+.page-grad-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-grad-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+.page-grad-blob {
+  fill: var(--cerulean);
+  opacity: 0.9;
+}
+
+.page-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  min-height: min(68vh, 640px);
+  margin-top: 0.75rem;
+  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  border-radius: var(--r-stage);
+}
+
+.page-stage-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--hard-grey);
+}
+
+.page-stage-media video,
+.page-stage-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stop animation in alto a destra, pillola di vetro scuro (come il Finder) */
+.page-stage-motion {
+  position: absolute;
+  top: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  right: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  padding-inline: 1rem;
+  border-radius: 999px;
+  background-color: var(--glass-dark-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-dark-line);
+  color: var(--ricepaper);
+}
+
+/* Vetro scuro: le variabili del tema scuro (la sezione è chiara) */
+.page-stage-glass {
+  --bg: var(--hard-grey);
+  --fg: var(--ricepaper);
+  --fg-muted: var(--muted-on-dark);
+  --accent: var(--ocean-on-dark);
+  --rule: var(--line-on-dark);
+  width: min(100%, 720px);
+  min-width: 0;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+  border-radius: var(--r-card);
+  color: var(--ricepaper);
+}
+
+.page-stage-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-section);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--ls-title);
+  color: var(--ricepaper);
+}
+
+.page-stage-title span:not(.eyebrow) {
+  display: block;
+  margin-top: 1rem;
+}
+
+.page-stage-lead {
+  max-width: 52ch;
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+/* Tre dati in riga, separati da linee sottili */
+.page-stage-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+.page-stage-facts li {
+  display: grid;
+  gap: 0.2rem;
+  padding-inline: 1.25rem;
+  border-left: 1px solid var(--line-on-dark);
+}
+
+.page-stage-facts li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.page-fact-k {
+  font-size: var(--fs-small);
+  color: var(--muted-on-dark);   /* 7.1:1 sul vetro scuro */
+}
+
+.page-fact-v {
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-stage-motion {
+    display: none;
+  }
+}
+
+/* Telefono: come il Finder, cornice uguale su tutti i lati e Stop animation
+   sotto il riquadro, discreto; i dati uno sotto l'altro */
+@media (max-width: 599.98px) {
+  .page-stage {
+    overflow: visible;
+    min-height: 0;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    margin-bottom: 2.75rem;
+    border-radius: var(--r-card);
+  }
+
+  .page-stage-media {
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .page-stage-glass {
+    padding: 1.1rem;
+    border-radius: var(--r-inner);
+  }
+
+  .page-stage-motion {
+    top: calc(100% + 0.25rem);
+    right: 0;
+    padding-inline: 0.25rem;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--hard-grey);
+  }
+
+  .page-stage-facts {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .page-stage-facts li {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

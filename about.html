@@ -166,8 +166,20 @@
          1 · APERTURA (chiaro) — titolo, frase, tre fatti dell'azienda e video nel riquadro.
          Niente video né nomi (richiesta del cliente, 26/10/2026)
          ================================================================== -->
-    <section class="ab-hero theme-light grain" aria-labelledby="ab-title">
-      <div class="container ab-hero-inner">
+    <!-- SITO 4 (03/11/2026): apertura come le altre pagine istituzionali
+         (Ingredient Finder, NIP): gradiente Cerulean sul fondo, grande riquadro
+         con il video e, sopra, il vetro scuro con titolo, frase e tre dati.
+         Stili comuni .page-hero in base.css -->
+    <section class="page-hero section theme-soft grain" aria-labelledby="ab-title">
+      <div class="page-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="abHeroBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#abHeroBlur)"/>
+        </svg>
+      </div>
+      <div class="container">
         <nav class="ab-breadcrumb" aria-label="Breadcrumb">
           <ol>
             <li><a href="index.html">Home</a></li>
@@ -175,35 +187,31 @@
           </ol>
         </nav>
 
-        <div class="ab-hero-grid">
-          <div class="ab-hero-text">
-            <h1 class="ab-title" id="ab-title">
+        <div class="page-stage">
+          <!-- Video decorativo a tutto riquadro (hero-home-mobile di SITO 2, in loop) -->
+          <div class="page-stage-media" aria-hidden="true">
+            <video class="ab-video" muted loop playsinline preload="metadata" poster="video/hero-home-poster-mobile.jpg" data-src="video/hero-home-mobile.mp4"></video>
+          </div>
+
+          <!-- Il video si ripete senza fine: Stop animation in alto a destra -->
+          <button class="motion-toggle page-stage-motion" type="button" aria-pressed="false" data-motion-toggle>
+            <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+            <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+            <span data-motion-label>Stop animation</span>
+          </button>
+
+          <div class="page-stage-glass glass">
+            <h1 class="page-stage-title" id="ab-title">
               <span class="eyebrow">About us</span>
               <span>The story behind a name</span>
             </h1>
-
-            <!-- Prima frase del testo del prototipo (il seguito è nella sezione sotto) -->
-            <p class="ab-hero-lead">We are a family-owned company with an international business.</p>
-
-            <!-- Tre fatti già presenti nella pagina (timeline, sedi) -->
-            <ul class="ab-facts">
-              <li><span class="ab-fact-k">Since</span> <span class="ab-fact-v">2000</span></li>
-              <li><span class="ab-fact-k">Headquarters</span> <span class="ab-fact-v">Origgio, near Milan</span></li>
-              <li><span class="ab-fact-k">Offices</span> <span class="ab-fact-v">France, USA, China, South Korea</span></li>
+            <p class="page-stage-lead">We are a family-owned company with an international business.</p>
+            <!-- Tre dati già presenti nella pagina (timeline, sedi) -->
+            <ul class="page-stage-facts">
+              <li><span class="page-fact-k">Since</span> <span class="page-fact-v">2000</span></li>
+              <li><span class="page-fact-k">Headquarters</span> <span class="page-fact-v">Origgio, near Milan</span></li>
+              <li><span class="page-fact-k">Offices</span> <span class="page-fact-v">France, USA, China, South Korea</span></li>
             </ul>
-          </div>
-
-          <!-- Video decorativo nel riquadro (hero-home-mobile di SITO 2, in loop), senza testo sopra.
-               Si ripete senza fine: il suo Stop animation sta nell'angolo -->
-          <div class="ab-hero-media">
-            <figure class="ab-hero-frame" aria-hidden="true">
-              <video class="ab-video" muted loop playsinline preload="metadata" poster="video/hero-home-poster-mobile.jpg" data-src="video/hero-home-mobile.mp4"></video>
-            </figure>
-            <button class="motion-toggle ab-motion" type="button" aria-pressed="false" data-motion-toggle>
-              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
-              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
-              <span data-motion-label>Stop animation</span>
-            </button>
           </div>
         </div>
       </div>
