@@ -893,7 +893,7 @@
 }
 
 .fx-grad-blob {
-  fill: #93BEE6;
+  fill: var(--cerulean);
   opacity: 0.9;
 }
 

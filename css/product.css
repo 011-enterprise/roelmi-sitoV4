@@ -1536,7 +1536,7 @@ html:not(.js) .pd-charts-nav {
   background-image:
     radial-gradient(70% 60% at 18% 12%, rgba(247, 243, 235, 0.75), transparent 62%),
     radial-gradient(80% 70% at 92% 96%, color-mix(in srgb, var(--picto-color) 62%, var(--hard-grey)), transparent 70%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(247, 243, 235, 0.35);
 }
 
 /* Macchie di colore: si spostano al contrario del mouse */
@@ -1817,7 +1817,7 @@ html:not(.js) .pd-charts-nav {
    sfuma nel Ricepaper sopra e sotto, senza la goccia. Tema .theme-soft per
    l'accento Hard Grey, senza le sue macchie pastello. Tornano le regole
    chiare dell'apertura (riquadro nel colore del mercato, testi Hard Grey).
-   Accessibilità: sul punto più azzurro (#93BEE6 al 90%) Hard Grey resta
+   Accessibilità: sul punto più azzurro (Cerulean al 90%) Hard Grey resta
    ≥ 9.5:1; il grigio secondario lì sarebbe 3.7:1, quindi anche il
    breadcrumb è Hard Grey. Bottoni: pieno Ocean + Ricepaper (4.70:1),
    contorno Hard Grey
@@ -1846,7 +1846,7 @@ html:not(.js) .pd-charts-nav {
 }
 
 .pd-grad-blob {
-  fill: #93BEE6;
+  fill: var(--cerulean);
   opacity: 0.9;
 }
 
@@ -1863,12 +1863,12 @@ html:not(.js) .pd-charts-nav {
    contorno e la sua ombra, si stacca. Decorativo (aria-hidden) */
 .pd-gradient .picto-frame {
   background-color: rgba(247, 243, 235, 0.38);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.2));
+  background-image: linear-gradient(135deg, rgba(247, 243, 235, 0.5), rgba(247, 243, 235, 0.08) 50%, rgba(247, 243, 235, 0.2));
   -webkit-backdrop-filter: blur(18px) saturate(1.2);
   backdrop-filter: blur(18px) saturate(1.2);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(247, 243, 235, 0.75),
+    inset 0 1px 0 rgba(247, 243, 235, 0.9),
     0 16px 36px rgba(25, 25, 25, 0.08);
 }
 
@@ -1879,7 +1879,7 @@ html:not(.js) .pd-charts-nav {
 }
 
 .pd-gradient .picto-blob {
-  background-color: #93BEE6;
+  background-color: var(--cerulean);
   opacity: 0.8;
 }
 
@@ -1944,7 +1944,7 @@ html:not(.js) .pd-charts-nav {
 }
 
 .pd-grad-drop svg path {
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  filter: drop-shadow(0 0 6px rgba(247, 243, 235, 0.6));
 }
 
 .pd-grad-drop-lens {
@@ -2102,7 +2102,7 @@ html:not(.js) .pd-charts-nav {
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px rgba(247, 243, 235, 0.35),
     0 30px 60px rgba(25, 25, 25, 0.12);
 }
 

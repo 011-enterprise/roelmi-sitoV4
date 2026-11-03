@@ -284,7 +284,7 @@
   --bg: var(--ricepaper);
   --accent: var(--ocean);
   /* Sul vetro chiaro la goccia torna azzurra anche se la sezione è Ocean */
-  --logo-blue: #469CC3;
+  --logo-blue: #009EC7;
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {

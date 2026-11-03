@@ -416,7 +416,7 @@
 }
 
 .ft-gradient .ft-blob path {
-  fill: #93BEE6;
+  fill: var(--cerulean);
   opacity: 0.9;
 }
 
@@ -438,7 +438,7 @@
 }
 
 .ft-gradient .ft-drop svg path {
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  filter: drop-shadow(0 0 6px rgba(247, 243, 235, 0.6));
 }
 
 .ft-gradient .ft-drop-lens {

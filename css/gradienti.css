@@ -1,24 +1,26 @@
 /* ==========================================================================
-   Sfondi a gradiente della HOME (index.html). Nato come prova "home con
-   gradienti" (home-gradienti.html, 29/10/2026), diventata la home ufficiale
-   lo stesso giorno: il file di prova non esiste più. Caricato solo da index.html
-   Richiesta del cliente: sfondi come la slide della guida del brand —
-   Ricepaper con una grande forma azzurra sfumata, decentrata, e un filo di
-   vetro bianco che la attraversa.
+   Sfondi a gradiente della HOME (index.html, caricato solo lì)
+   Pulito il 03/11/2026: qui restano solo le regole in uso. Le prove fatte
+   in questi giorni (gocce grandi, riquadri piccoli, cerchi, macchie, vetro
+   bianco…) sono nella storia git, nelle versioni precedenti di questo file.
 
-   Our Portfolio: da Ocean a chiaro (.theme-light) con lo sfondo nuovo.
-   Accessibilità: sopra il punto più azzurro il testo Hard Grey resta ≥ 9:1;
-   il grigio secondario e l'Ocean lì non passerebbero, quindi in questa
-   sezione funzioni, didascalie e link sono Hard Grey; focus Hard Grey
+   Richiesta del cliente: sfondi come la slide della guida del brand —
+   Ricepaper con una grande forma sfocata nel Cerulean della palette.
+   Accessibilità: sopra il punto più colorato il testo Hard Grey resta
+   ≥ 8.9:1; il grigio secondario e l'Ocean lì non passerebbero, quindi in
+   Our Portfolio funzioni, didascalie, link e focus sono Hard Grey
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   Forma sfocata sul fondo (Our Portfolio e NIP): sotto la grana (-1), sfuma
+   nel Ricepaper sopra e sotto così la sezione si fonde con quelle vicine
+   -------------------------------------------------------------------------- */
 .pf-gradient {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-/* Sfondo: sotto la grana (-1) */
 .pf-bg {
   position: absolute;
   inset: 0;
@@ -31,62 +33,18 @@
   width: 100%;
   height: 100%;
   overflow: visible;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
 }
 
 .pf-blob {
-  fill: #93BEE6;
+  fill: var(--cerulean);
   opacity: 0.9;
 }
 
-/* Goccia di vetro opaco al lato (come i pittogrammi dei prodotti): stessa
-   sagoma della goccia dei pittogrammi, grande, decentrata a destra e un po'
-   tagliata dal bordo. Dietro, una lente che sfoca e satura la forma azzurra
-   (vetro smerigliato); sopra, vetro chiaro a gradiente, un riflesso lungo il
-   bordo sinistro e il contorno bianco. Il testo che ci passa sopra resta
-   Hard Grey: il vetro schiarisce, quindi il contrasto migliora soltanto */
-.pf-drop {
-  position: absolute;
-  top: 6%;
-  right: -7%;
-  width: clamp(320px, 38vw, 640px);
-  aspect-ratio: 520 / 760;
-  filter: drop-shadow(0 30px 60px rgba(25, 25, 25, 0.12));
-}
-
-.pf-drop svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.pf-drop-lens {
-  position: absolute;
-  inset: 0;
-  -webkit-backdrop-filter: blur(22px) saturate(1.3);
-  backdrop-filter: blur(22px) saturate(1.3);
-  -webkit-mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
-  mask: var(--pf-drop-mask) center / 100% 100% no-repeat;
-  --pf-drop-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760' preserveAspectRatio='none'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>");
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .pf-drop-lens {
-    display: none;
-  }
-}
-
-/* Telefono: goccia più piccola e più spostata, dietro l'ultima parte della riga */
-@media (max-width: 767.98px) {
-  .pf-drop {
-    top: 14%;
-    right: -22%;
-    width: 70vw;
-  }
-}
-
-/* Testi della sezione: prima erano chiari sull'Ocean */
+/* --------------------------------------------------------------------------
+   Our Portfolio: testi in Hard Grey sul fondo chiaro
+   -------------------------------------------------------------------------- */
 .pf-gradient .portfolio-title,
 .pf-gradient .product-card,
 .pf-gradient .product-function,
@@ -114,664 +72,62 @@
   }
 }
 
-/* Goccia, versione 2 (29/10/2026: "proprio come nella slide"): enorme e
-   quasi tutta fuori dalla sezione a destra. Il suo bordo sinistro scende
-   dall'angolo in alto a destra fino in basso, con la pancia verso l'80%
-   della larghezza; dentro, vetro smerigliato lattiginoso (sfocatura forte +
-   velo Ricepaper 0.42) sopra la forma azzurra. Niente riflesso né ombra */
-.pf-drop {
-  top: -45%;
-  right: auto;
-  left: 80%;
-  width: auto;
-  height: 160%;
-  filter: none;
-}
-
-.pf-drop-lens {
-  -webkit-backdrop-filter: blur(30px) saturate(1.15);
-  backdrop-filter: blur(30px) saturate(1.15);
-}
-
-.pf-drop svg path {
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-}
-
-@media (max-width: 767.98px) {
-  .pf-drop {
-    top: -40%;
-    left: 78%;
-    width: auto;
-    height: 150%;
-  }
-}
-
-/* Goccia, versione 3 (29/10/2026: "troppo grande"): la misura non dipende più
-   dall'altezza della sezione (lunga, con schede e Finder: la goccia diventava
-   enorme e il bordo quasi dritto) ma dallo schermo: alta circa come lo
-   schermo, con la punta poco sopra il titolo e la pancia accanto alle schede */
-.pf-drop {
-  top: 2%;
-  left: 80%;
-  height: min(92vh, 980px);
-}
-
-@media (max-width: 767.98px) {
-  .pf-drop {
-    top: 4%;
-    left: 76%;
-    height: min(70vh, 640px);
-  }
-}
-
-/* Goccia, versione 4 (29/10/2026): si vedeva la punta, come un triangolo.
-   Nella slide la punta è fuori dall'inquadratura: alziamo la goccia di poco
-   più di un terzo della sua altezza (la punta resta sopra la sezione,
-   tagliata) e la spostiamo un po' più a destra, così entra dall'angolo in
-   alto a destra solo il fianco curvo */
-.pf-drop {
-  --pf-drop-h: min(92vh, 980px);
-  top: calc(var(--pf-drop-h) * -0.38);
-  left: 83%;
-  height: var(--pf-drop-h);
-}
-
-@media (max-width: 767.98px) {
-  .pf-drop {
-    --pf-drop-h: min(70vh, 640px);
-    top: calc(var(--pf-drop-h) * -0.34);
-    left: 80%;
-  }
-}
-
-/* Goccia, versione 5 (29/10/2026, indicazione di Chiara): la goccia intera,
-   alta poco meno della sezione (90%) e centrata in altezza, tagliata a metà
-   dal bordo destro: si vede la sua metà sinistra, dalla punta al fondo */
-.pf-drop,
-.pf-gradient .pf-drop {
-  top: 5%;
-  right: 0;
-  left: auto;
-  height: 90%;
-  transform: translateX(50%);
-}
-
-@media (max-width: 767.98px) {
-  .pf-drop,
-  .pf-gradient .pf-drop {
-    top: 5%;
-    left: auto;
-    height: 90%;
-  }
-}
-
-/* Pittogrammi senza riquadro (prova del 29/10/2026): nella home di prova le
-   schede del Portfolio non hanno il fondo Ocean dietro il pittogramma; la
-   goccia di vetro sta direttamente sullo sfondo con la forma azzurra.
-   I contorni sono bianchi: un filo scuro sottile e un'ombra morbida li
-   fanno leggere anche dove dietro c'è il Ricepaper chiaro */
-.pf-gradient .picto-frame {
-  background: none;
-  box-shadow: none;
-}
-
-.pf-gradient .picto-img {
-  filter:
-    drop-shadow(0 0 0.6px rgba(25, 25, 25, 0.55))
-    drop-shadow(0 0 1px rgba(25, 25, 25, 0.25))
-    drop-shadow(0 16px 26px rgba(25, 25, 25, 0.16));
-}
-
 /* --------------------------------------------------------------------------
-   Pittogrammi, versione 2 della prova (29/10/2026): bianchi sul chiaro non si
-   vedevano. Ora:
-   - dietro ogni pittogramma una scheda di VETRO CHIARO smerigliato (lascia
-     intravedere la forma azzurra), bordo bianco luminoso
-   - il pittogramma in POSITIVO, color Ocean (filtro SVG #pfOcean, vedi
-     sotto): stesse trasparenze del disegno (dentro tenue, contorno pieno)
+   Schede prodotto (scelta di Chiara, 02/11/2026): riquadro VERTICALE 4/5 in
+   vetro attaccato a destra, nel colore della linea del prodotto
+   (.picto--line-*, base.css) o in Ocean se la linea non ha ancora un
+   colore; il pittogramma ORIGINALE (PNG così com'è) alto l'80% esce un po'
+   dal bordo sinistro, con solo un'ombra morbida. Uguali alle schede del
+   Finder e di Related products (picto.css). Decorativo (aria-hidden).
+   Bianco su vetro Ocean ≥ 3.4:1; sui colori delle linee < 3:1 (giallo 1.4,
+   verde 2.1, marrone 2.8): da verificare con AccessiWay
    -------------------------------------------------------------------------- */
-
-.pf-gradient .picto-frame {
-  background-color: rgba(247, 243, 235, 0.38);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.2));
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
-  backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 16px 36px rgba(25, 25, 25, 0.08);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .pf-gradient .picto-frame {
-    background-color: rgba(247, 243, 235, 0.7);
-  }
-}
-
-/* Pittogramma in Ocean: il filtro SVG #pfOcean (nella pagina) colora di Ocean
-   l'immagine bianca tenendo le sue trasparenze. (Una prima prova con
-   l'immagine usata come maschera non funzionava aprendo la pagina dal file:
-   il browser blocca le maschere da file locali) */
-.pf-gradient .picto-img {
-  opacity: 1;
-  filter:
-    url(#pfOcean)
-    drop-shadow(0 10px 18px rgba(66, 112, 158, 0.18));
-}
-
-/* --------------------------------------------------------------------------
-   Pittogrammi, versione 3 della prova (29/10/2026): colori invertiti.
-   Scheda di vetro OCEAN semitrasparente e smerigliato (si intravede lo sfondo
-   sfumato), pittogramma bianco come nell'originale, con un alone chiaro.
-   Il filtro #pfOcean resta nella pagina ma non è più usato
-   -------------------------------------------------------------------------- */
-
-.pf-gradient .picto-frame {
-  background-color: rgba(66, 112, 158, 0.62);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1));
-  -webkit-backdrop-filter: blur(18px) saturate(1.3);
-  backdrop-filter: blur(18px) saturate(1.3);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 16px 36px rgba(25, 25, 25, 0.1);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .pf-gradient .picto-frame {
-    background-color: rgba(66, 112, 158, 0.85);
-  }
-}
-
-.pf-gradient .picto-img {
-  filter:
-    drop-shadow(0 0 0.6px rgba(247, 243, 235, 0.7))
-    drop-shadow(0 0 24px rgba(247, 243, 235, 0.2))
-    drop-shadow(0 16px 24px rgba(25, 25, 25, 0.2));
-}
-
-/* Vetro delle schede al limite (29/10/2026, scelta di Chiara): Ocean al 58%.
-   Sopra la forma azzurra il pittogramma bianco è a 3:1 (il minimo per gli
-   elementi grafici); sopra il Ricepaper puro scende sotto, ma i pittogrammi
-   sono decorativi (aria-hidden: nome, funzione e mercato sono scritti sopra
-   la scheda), quindi la regola sul contrasto non si applica */
-.pf-gradient .picto-frame {
-  background-color: rgba(66, 112, 158, 0.58);
-}
-
-/* --------------------------------------------------------------------------
-   Pittogrammi, versione 4 della prova (29/10/2026): scheda di vetro CHIARO
-   smerigliato e pittogramma in positivo, color Ocean (filtro #pfOcean nella
-   pagina: la versione con la maschera non si vedeva in locale). Ocean sul
-   vetro chiaro: 3.6:1 sopra l'azzurro e 4.8:1 sopra il Ricepaper, sopra il
-   3:1 dei grafici ovunque
-   -------------------------------------------------------------------------- */
-
-.pf-gradient .picto-frame {
-  background-color: rgba(247, 243, 235, 0.38);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.2));
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
-  backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 16px 36px rgba(25, 25, 25, 0.08);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .pf-gradient .picto-frame {
-    background-color: rgba(247, 243, 235, 0.7);
-  }
-}
-
-.pf-gradient .picto-img {
-  filter:
-    url(#pfOcean)
-    drop-shadow(0 10px 18px rgba(66, 112, 158, 0.18));
-}
-
-/* Sopra e sotto la forma azzurra sfuma nel Ricepaper (29/10/2026): così la
-   sezione si fonde con quelle chiare sopra (Divisions) e sotto (Impact),
-   senza un bordo netto. Maschera a gradiente solo sulla forma azzurra (la
-   goccia di vetro resta com'è) */
-.pf-bg svg {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
-}
-
-/* La goccia PIENA al posto del simbolo del logo nelle gocce decorative ora
-   vale per tutto il sito: è in base.css (--drop-full) */
-
-/* --------------------------------------------------------------------------
-   NIP (29/10/2026): dietro il riquadro, lo stesso sfondo di Our Portfolio
-   (.pf-bg con la forma azzurra, sfuma nel Ricepaper sopra e sotto), senza la
-   goccia. Al posto delle macchie pastello di .theme-soft, che resta per
-   l'accento Hard Grey. Il riquadro con la texture e i vetri non cambia
-   -------------------------------------------------------------------------- */
-.nip-gradient {
-  overflow: hidden;
-  background-image: none;
-}
-
-/* --------------------------------------------------------------------------
-   Pittogrammi, versione definitiva (29/10/2026, scelta di Chiara tra tre
-   prove): pittogrammi BIANCHI originali (i PNG, non ricolorati) in un
-   riquadro di vetro OCEAN al 76% (sfocato, riflesso, bordo chiaro, ombra
-   morbida). Contrasto del bianco: ≥ 3.4:1 anche dove dietro c'è il
-   Ricepaper (elemento grafico, minimo 3:1; al 70% sarebbe 3:1 appena).
-   Il filtro #pfOcean resta nella pagina ma non si usa più
-   -------------------------------------------------------------------------- */
-.pf-gradient .picto-frame {
+.pf-gradient .picto--opt-portrait .picto-frame {
+  inset: 0 0 0 20%;
+  border-radius: var(--r-card);
   background-color: rgba(66, 112, 158, 0.76);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08));
+  background-image: linear-gradient(135deg, rgba(247, 243, 235, 0.18), rgba(247, 243, 235, 0.02) 50%, rgba(247, 243, 235, 0.08));
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 0 0 1px rgba(247, 243, 235, 0.35),
+    inset 0 1px 0 rgba(247, 243, 235, 0.45),
     0 16px 36px rgba(25, 25, 25, 0.12);
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .pf-gradient .picto-frame {
+  .pf-gradient .picto--opt-portrait .picto-frame {
     background-color: rgba(66, 112, 158, 0.9);
   }
 }
 
-.pf-gradient .picto-img {
-  filter:
-    drop-shadow(0 0 0.6px rgba(247, 243, 235, 0.7))
-    drop-shadow(0 0 28px rgba(247, 243, 235, 0.18))
-    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
-}
-
-/* Telefono (29/10/2026): la sezione in colonna è molto più alta, quindi al 90%
-   la goccia diventava enorme (la metà visibile copriva quasi tutto lo
-   schermo). Altezza al massimo il 90% della larghezza dello schermo: la metà
-   visibile resta circa un terzo dello schermo, sul bordo destro */
-@media (max-width: 767.98px) {
-  .pf-drop,
-  .pf-gradient .pf-drop {
-    height: min(90%, 90vw);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   PROVA (02/11/2026, richiesta del cliente): riquadro del pittogramma PIÙ
-   PICCOLO della goccia, solo sulla prima scheda (CytoFruit, classe
-   .picto--small-frame). Il riquadro di vetro Ocean si stringe e scende
-   (56% della larghezza, dal 26% al 92% dell'altezza); la goccia resta
-   grande (94% dell'altezza) e ne esce in alto con la punta e un po' ai
-   lati. Le parti bianche che escono stanno sul fondo chiaro: un filo scuro
-   sottile e un'ombra morbida le fanno leggere (decorativo, aria-hidden)
-   -------------------------------------------------------------------------- */
-.pf-gradient .picto--small-frame .picto-frame {
-  inset: 26% 22% 8% 22%;
-}
-
-.pf-gradient .picto--small-frame .picto-img {
-  inset: 3% 0 auto;
-  height: 94%;
-  filter:
-    drop-shadow(0 0 0.6px rgba(25, 25, 25, 0.45))
-    drop-shadow(0 0 1px rgba(25, 25, 25, 0.2))
-    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
-}
-
-/* --------------------------------------------------------------------------
-   PROVA (02/11/2026): tre modi per un fondo "più piccolo della goccia"
-   tenendo la goccia BIANCA, uno per scheda (CytoFruit resta con la prova
-   del riquadro piccolo):
-   - HopE (.picto--opt-circle): cerchio di vetro Ocean dietro la pancia
-   - HyaPearl (.picto--opt-tip): riquadro largo come prima ma più basso,
-     esce solo la punta
-   - ColorGLAM (.picto--opt-blob): macchia Ocean sfocata, senza bordi
-   Dove la goccia esce dal colore: filo Ocean sottile (non più scuro) e
-   ombra azzurra morbida. Decorativo (aria-hidden)
-   -------------------------------------------------------------------------- */
-.pf-gradient :is(.picto--opt-circle, .picto--opt-tip, .picto--opt-blob) .picto-img {
-  filter:
-    drop-shadow(0 0 0.6px #42709E)
-    drop-shadow(0 0 0.4px #42709E)
-    drop-shadow(0 16px 24px rgba(66, 112, 158, 0.25));
-}
-
-/* Cerchio */
-.pf-gradient .picto--opt-circle .picto-frame {
-  inset: auto;
-  top: 38%;
-  left: 19%;
-  width: 62%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-}
-
-/* Riquadro più basso: esce la punta */
-.pf-gradient .picto--opt-tip .picto-frame {
-  inset: 24% 0 0;
-}
-
-/* Macchia sfocata */
-.pf-gradient .picto--opt-blob .picto-frame {
-  inset: 18% 6% 0;
-  border-radius: 50%;
-  background-color: transparent;
-  background-image: radial-gradient(closest-side, rgba(66, 112, 158, 0.92), rgba(66, 112, 158, 0.78) 55%, rgba(66, 112, 158, 0) 100%);
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  box-shadow: none;
-  filter: blur(6px);
-}
-
-/* PROVA (02/11/2026): la macchia sfocata di ColorGLAM nel colore del suo
-   mercato, come l'etichetta (Personal Care = Antique, Nutraceutical =
-   Olive: --picto-color di picto.css). Il bianco sull'Antique non arriva al
-   3:1: a leggere la goccia è il filo Ocean (≈ 2.9:1 sull'Antique) —
-   decorativo, aria-hidden, ma da tenere presente */
-.pf-gradient .picto--opt-blob .picto-frame {
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--picto-color) 96%, transparent),
-    color-mix(in srgb, var(--picto-color) 82%, transparent) 55%,
-    color-mix(in srgb, var(--picto-color) 0%, transparent) 100%
-  );
-}
-
-/* PROVA (02/11/2026, Chiara: "in glass, non bianca"): su ColorGLAM la
-   goccia torna di VETRO, cioè il PNG bianco semitrasparente originale (si
-   vede l'Antique attraverso), con un bordo chiaro sottile, un alone
-   chiaro e un'ombra calda morbida; niente filo Ocean. Il filtro #pfWhite
-   resta nella pagina ma non si usa. Decorativo (aria-hidden) */
-.pf-gradient .picto--opt-blob .picto-img {
-  filter:
-    drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.9))
-    drop-shadow(0 0 18px rgba(255, 255, 255, 0.35))
-    drop-shadow(0 14px 24px rgba(120, 70, 50, 0.2));
-}
-
-/* PROVA (02/11/2026, Chiara: "continua a mettere il bianco, la vorrei in
-   glass"): il PNG ha già un riempimento bianco, quindi da solo sembra
-   latte. Qui la goccia diventa vetro vero:
-   - il PNG più trasparente (opacità 0.6): resta il disegno, sparisce il
-     velo bianco; niente alone chiaro, solo il filo bianco sul bordo
-   - dietro, una lente a forma di goccia (::after della .picto, stessa
-     scatola del pittogramma) che sfoca e satura la macchia Antique: si vede
-     il colore attraverso, smerigliato
-   Decorativo (aria-hidden) */
-.pf-gradient .picto--opt-blob .picto-img {
-  opacity: 0.6;
-  filter:
-    drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 12px 20px rgba(120, 70, 50, 0.16));
-}
-
-.pf-gradient .picto--opt-blob::after {
-  content: "";
-  position: absolute;
-  inset: 9% 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(10px) saturate(1.4);
-  backdrop-filter: blur(10px) saturate(1.4);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
-}
-
-/* PROVA (02/11/2026): macchia sotto la goccia di ColorGLAM più intensa:
-   piena fino a due terzi del raggio, colore più saturo e un po' più
-   profondo (Antique con l'8% di Hard Grey), sfocatura più leggera */
-.pf-gradient .picto--opt-blob .picto-frame {
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--picto-color) 92%, var(--hard-grey)),
-    color-mix(in srgb, var(--picto-color) 94%, var(--hard-grey)) 65%,
-    color-mix(in srgb, var(--picto-color) 0%, transparent) 100%
-  );
-  filter: blur(4px) saturate(1.5);
-}
-
-/* --------------------------------------------------------------------------
-   PROVA (02/11/2026, Chiara): tutte e quattro le forme con il trattamento
-   della quarta, tutte in ANTIQUE (anche HopE, che sarebbe Olive):
-   - fondo a gradiente Antique (centro più profondo e saturo, bordi più
-     chiari) al posto del vetro Ocean; le forme restano le loro (box
-     piccolo, cerchio, box più basso, macchia)
-   - goccia in vetro: PNG al 60% con il filo bianco + lente a goccia dietro
-   Contrasto del bianco sull'Antique < 3:1 (vedi nota 72), decorativo
-   -------------------------------------------------------------------------- */
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip, .picto--opt-blob) {
-  --picto-color: var(--antique);
-}
-
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
-  background-color: var(--antique);
-  background-image: radial-gradient(
-    closest-side at 50% 60%,
-    color-mix(in srgb, var(--antique) 90%, var(--hard-grey)),
-    var(--antique) 70%,
-    color-mix(in srgb, var(--antique) 70%, var(--ricepaper)) 100%
-  );
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
+.pf-gradient .picto--opt-portrait[class*="picto--line-"] .picto-frame {
+  background-color: color-mix(in srgb, var(--line-color) 88%, transparent);
+  background-image: linear-gradient(135deg, rgba(247, 243, 235, 0.28), rgba(247, 243, 235, 0.04) 50%, rgba(247, 243, 235, 0.12));
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
-    0 16px 36px rgba(120, 70, 50, 0.14);
-  filter: saturate(1.4);
-}
-
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-img {
-  opacity: 0.6;
-  filter:
-    drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 12px 20px rgba(120, 70, 50, 0.16));
-}
-
-/* Lente a goccia dietro il pittogramma (come la quarta) */
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip)::after {
-  content: "";
-  position: absolute;
-  inset: 9% 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(10px) saturate(1.4);
-  backdrop-filter: blur(10px) saturate(1.4);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 760'><path d='M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z'/></svg>") center / contain no-repeat;
-}
-
-/* Nel box piccolo la goccia è più grande (3% → 97%): lente uguale */
-.pf-gradient .picto--small-frame::after {
-  inset: 3% 0;
-}
-
-/* PROVA (02/11/2026, Chiara: "come gradienti", sembravano piene): dentro le
-   tre forme con i bordi l'Antique è una sfumatura come nella quarta: pieno e
-   profondo al centro, dietro la pancia della goccia, e sempre più
-   trasparente verso i bordi, dove si vede il fondo azzurro sfocato (vetro).
-   La forma resta leggibile dal filo chiaro sul contorno */
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
-  background-color: rgba(247, 243, 235, 0.12);
-  background-image: radial-gradient(
-    closest-side at 50% 62%,
-    color-mix(in srgb, var(--antique) 92%, var(--hard-grey)),
-    color-mix(in srgb, var(--antique) 75%, transparent) 55%,
-    color-mix(in srgb, var(--antique) 10%, transparent) 100%
-  );
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
-  backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
-    0 16px 36px rgba(120, 70, 50, 0.1);
-  filter: saturate(1.4);
-}
-
-/* PROVA (02/11/2026, Chiara: "il gradiente con la stessa forma del box"):
-   la forma resta quella del box (box piccolo, cerchio, box più basso) e si
-   riempie TUTTA di sfumatura Antique, più chiara in alto e più profonda in
-   basso, con i bordi sfocati come la macchia della quarta. Niente filo né
-   vetro: è una forma di colore morbida */
-.pf-gradient :is(.picto--small-frame, .picto--opt-circle, .picto--opt-tip) .picto-frame {
-  background-color: var(--antique);
-  background-image: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--antique) 70%, var(--ricepaper)) 0%,
-    var(--antique) 45%,
-    color-mix(in srgb, var(--antique) 90%, var(--hard-grey)) 100%
-  );
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  box-shadow: none;
-  filter: blur(8px) saturate(1.4);
-}
-
-/* --------------------------------------------------------------------------
-   PROVE PER IL CLIENTE, giro 2 (02/11/2026, Chiara). Our Portfolio:
-   1. CytoFruit (.picto--small-frame): stessa forma e stessa goccia di
-      vetro, ma il box torna di VETRO OCEAN (non più gradiente Antique)
-   2. HopE (.picto--opt-rect): il box iniziale, rettangolo intero in vetro
-      Ocean, con il pittogramma bianco originale più piccolo dentro
-   3. HyaPearl (.picto--opt-portrait): rettangolo 4/5 in vetro Ocean a
-      destra; il pittogramma bianco esce un po' dal bordo sinistro (meno
-      che nell'apertura di CytoFruit)
-   4. ColorGLAM (.picto--opt-blob): invariata (macchia Antique)
-   Bianco su vetro Ocean ≥ 3.4:1; dove la goccia esce sul chiaro la
-   stacca un filo Ocean sottile. Decorativo (aria-hidden)
-   -------------------------------------------------------------------------- */
-.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-portrait) .picto-frame {
-  background-color: rgba(66, 112, 158, 0.76);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.08));
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
-  backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 16px 36px rgba(25, 25, 25, 0.12);
-  filter: none;
-}
-
-/* 2 · rettangolo intero, goccia più piccola e centrata */
-.pf-gradient .picto--opt-rect .picto-frame {
-  inset: 0;
-  border-radius: var(--r-card);
-}
-
-.pf-gradient .picto--opt-rect .picto-img {
-  inset: 20% 0 auto;
-  height: 60%;
-  opacity: 1;
-  filter:
-    drop-shadow(0 0 0.6px rgba(247, 243, 235, 0.7))
-    drop-shadow(0 0 28px rgba(247, 243, 235, 0.18))
-    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.22));
-}
-
-/* 3 · rettangolo 4/5 a destra, goccia che esce a sinistra */
-.pf-gradient .picto--opt-portrait .picto-frame {
-  inset: 0 0 0 20%;
-  border-radius: var(--r-card);
+    inset 0 0 0 1px rgba(247, 243, 235, 0.5),
+    inset 0 1px 0 rgba(247, 243, 235, 0.6),
+    0 16px 36px rgba(25, 25, 25, 0.1);
 }
 
 .pf-gradient .picto--opt-portrait .picto-img {
-  inset: 12% auto auto 9%;
-  width: auto;
-  height: 78%;
-  opacity: 1;
-  filter:
-    drop-shadow(0 0 0.6px #42709E)
-    drop-shadow(0 0 0.4px #42709E)
-    drop-shadow(0 0 22px rgba(247, 243, 235, 0.2))
-    drop-shadow(0 18px 26px rgba(25, 25, 25, 0.2));
-}
-
-/* Prova 2 (HopE), pittogramma più grande possibile ma bilanciato
-   (02/11/2026): alto l'80% del box, con lo stesso margine sopra e sotto
-   (10%) e centrato in larghezza */
-.pf-gradient .picto--opt-rect .picto-img {
-  inset: 10% 0 auto;
-  height: 80%;
-}
-
-/* --------------------------------------------------------------------------
-   Prove Our Portfolio, giro 2 — pittogrammi uguali (02/11/2026, Chiara):
-   in tutte e quattro le schede il pittogramma ha la STESSA misura (80%
-   dell'altezza della scheda, 10% sopra) ed è il PNG ORIGINALE, così com'è
-   (vetro bianco semitrasparente): niente trasparenza aggiunta, niente lente
-   dietro, niente filo; solo un'ombra morbida per staccarlo dal fondo.
-   Cambiano solo forma e colore del fondo, così il confronto è onesto
-   -------------------------------------------------------------------------- */
-.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-portrait, .picto--opt-blob) .picto-img {
   top: 10%;
+  right: auto;
   bottom: auto;
+  left: 9%;
+  width: auto;
   height: 80%;
   opacity: 1;
   filter: drop-shadow(0 16px 24px rgba(25, 25, 25, 0.18));
 }
 
-/* Tre su quattro centrati; nella 3 la goccia resta spostata a sinistra */
-.pf-gradient :is(.picto--small-frame, .picto--opt-rect, .picto--opt-blob) .picto-img {
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-.pf-gradient .picto--opt-portrait .picto-img {
-  left: 9%;
-  right: auto;
-  width: auto;
-}
-
-/* Niente lente dietro la goccia */
-.pf-gradient :is(.picto--small-frame, .picto--opt-blob)::after {
-  content: none;
-}
-
 /* --------------------------------------------------------------------------
-   PROVA COLORI DELLE LINEE (02/11/2026): in Our Portfolio una sola forma
-   per tutte e quattro le schede (rettangolo intero, pittogramma originale
-   all'80%); CytoFruit resta in vetro Ocean, le altre tre hanno il fondo nel
-   colore della loro linea (base.css), sempre come vetro: colore al 88% +
-   riflesso chiaro + bordo bianco + sfocatura
+   NIP: dietro il riquadro la stessa forma sfocata, senza le macchie pastello
+   di .theme-soft (che resta per l'accento Hard Grey). Il Force Field qui
+   resta spento (03/11/2026, Chiara: per ora solo nella pagina NIP); il
+   canvas .nip-field è nascosto da .theme-soft
    -------------------------------------------------------------------------- */
-.pf-gradient [class*="picto--line-"] .picto-frame {
-  background-color: color-mix(in srgb, var(--line-color) 88%, transparent);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12));
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 16px 36px rgba(25, 25, 25, 0.1);
-}
-
-/* (classi .picto--line-* spostate in base.css: valgono in tutte le pagine) */
-
-/* --------------------------------------------------------------------------
-   PROVE PER IL CLIENTE con i prodotti nuovi (02/11/2026): tornano le quattro
-   forme, una per scheda, ognuna con il colore della sua linea:
-   1 CytoFruit · box piccolo (vetro Ocean, non ha colore di linea)
-   2 Beaulixir · rettangolo intero (giallo)
-   3 SelectSIEVE Glitter · rettangolo 4/5 con la goccia che esce (marrone)
-   4 SeidoTech Lux · macchia sfumata (verde)
-   Pittogramma originale all'80% in tutte (regola "pittogrammi uguali")
-   -------------------------------------------------------------------------- */
-.pf-gradient .picto--opt-blob[class*="picto--line-"] .picto-frame {
-  background-color: transparent;
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--line-color) 92%, var(--hard-grey)),
-    color-mix(in srgb, var(--line-color) 94%, var(--hard-grey)) 65%,
-    color-mix(in srgb, var(--line-color) 0%, transparent) 100%
-  );
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  box-shadow: none;
-  filter: blur(4px) saturate(1.5);
-}
-
-
-/* NIP della home (03/11/2026, Chiara): dietro il riquadro torna il Force
-   Field, ora con la trama "lattice" di SITO 3 (esagoni con un atomo a ogni
-   vertice, js/force-field.js), in Ocean sopra la forma azzurra sfocata.
-   theme-soft lo nascondeva: qui lo riaccendiamo. Decorativo, fermo con
-   Stop animation e reduced-motion */
-.nip-gradient .nip-field {
-  display: block;
+.nip-gradient {
+  overflow: hidden;
+  background-image: none;
 }

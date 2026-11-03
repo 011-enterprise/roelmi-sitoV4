@@ -27,7 +27,7 @@
 
   /* Colore del logo (goccia e HPC): l'unico colore in cui può comparire la goccia,
      oltre a bianco su nero e nero su bianco (regola del brand, 28/10/2026) */
-  --logo-blue: #469CC3;
+  --logo-blue: #009EC7;
 
   /* Simbolo della goccia del logo (ricalcato dall'immagine mandata da Chiara il
      28/10/2026): è la goccia da usare come elemento decorativo (etichette,
@@ -86,12 +86,12 @@
   --glass-blur: blur(24px) saturate(1.6);
   /* Scuro 0.68: anche sopra il bianco il fondo resta ≈ #6B6B6B → Ricepaper ≥ 4.5:1 */
   --glass-dark-bg: rgba(25, 25, 25, 0.68);
-  --glass-dark-sheen: linear-gradient(135deg, rgba(247, 243, 235, 0.06) 0%, rgba(247, 243, 235, 0) 45%, rgba(0, 0, 0, 0.1) 100%);
+  --glass-dark-sheen: linear-gradient(135deg, rgba(247, 243, 235, 0.06) 0%, rgba(247, 243, 235, 0) 45%, rgba(25, 25, 25, 0.1) 100%);
   --glass-dark-line: inset 0 0 0 1px rgba(247, 243, 235, 0.16);
   /* Chiaro 0.50: anche sopra il nero il fondo resta ≈ #8E8C88 → Hard Grey ≥ 5.4:1 */
   --glass-light-bg: rgba(247, 243, 235, 0.5);
-  --glass-light-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.06) 55%, rgba(255, 255, 255, 0.12) 100%);
-  --glass-light-line: inset 0 0 0 1px rgba(255, 255, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  --glass-light-sheen: linear-gradient(135deg, rgba(247, 243, 235, 0.35) 0%, rgba(247, 243, 235, 0.06) 55%, rgba(247, 243, 235, 0.12) 100%);
+  --glass-light-line: inset 0 0 0 1px rgba(247, 243, 235, 0.45), inset 0 1px 0 rgba(247, 243, 235, 0.55);
 
   /* Spazi */
   --gutter: clamp(1.25rem, 0.6rem + 2.8vw, 3.5rem);

@@ -34,7 +34,7 @@
 .site-header.is-menu-open {
   --glass-bg: var(--glass-light-bg);
   --glass-line: rgba(25, 25, 25, 0.1);
-  --glass-sheen: rgba(255, 255, 255, 0.2);
+  --glass-sheen: rgba(247, 243, 235, 0.2);
   --pill-fg: var(--hard-grey);
   --pill-focus: var(--ocean);
   --cta-bg: var(--hard-grey);
@@ -81,7 +81,7 @@
     45deg,
     var(--glass-sheen) 0%,
     rgba(247, 243, 235, 0) 45%,
-    rgba(0, 0, 0, 0.12) 100%
+    rgba(25, 25, 25, 0.12) 100%
   );
   /* Saturazione alta: il vetro prende il colore di ciò che c'è sotto */
   -webkit-backdrop-filter: var(--glass-blur);

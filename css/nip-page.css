@@ -1079,12 +1079,12 @@
 .np-pillar-glass {
   background-color: rgba(247, 243, 235, 0.42);
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.22) 100%);
+    linear-gradient(135deg, rgba(247, 243, 235, 0.55) 0%, rgba(247, 243, 235, 0.08) 45%, rgba(247, 243, 235, 0.22) 100%);
   -webkit-backdrop-filter: blur(6px) saturate(1.5);
   backdrop-filter: blur(6px) saturate(1.5);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(247, 243, 235, 0.7),
+    inset 0 1px 0 rgba(247, 243, 235, 0.9),
     0 12px 30px rgba(25, 25, 25, 0.08);
 }
 
@@ -1173,7 +1173,7 @@
   z-index: 0;
   --np-liquid: 0%;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12)),
+    linear-gradient(135deg, rgba(247, 243, 235, 0.28), rgba(247, 243, 235, 0.04) 50%, rgba(247, 243, 235, 0.12)),
     color-mix(in srgb, var(--line-color) 90%, transparent);
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-wave) var(--np-liquid) / 200% 300% repeat-x;
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-wave) var(--np-liquid) / 200% 300% repeat-x;
