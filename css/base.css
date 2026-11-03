@@ -1027,3 +1027,27 @@ a.btn:not(:has(svg)):hover::after,
 .eyebrow > .reg {
   margin-left: -0.5em;
 }
+
+/* Stop animation accanto a un'animazione che si muove da sola, sotto il suo
+   riquadro, a destra (03/11/2026, Chiara: ogni animazione deve poter essere
+   fermata e fatta ripartire in qualsiasi momento, WCAG 2.2.2). È lo stesso
+   interruttore di tutto il sito (motion.js): fermarne uno li ferma tutti e
+   tutti i bottoni dicono "Play animation". Su fondo chiaro: Hard Grey 17:1,
+   area di tocco 44px; con reduced-motion è già tutto fermo e non serve */
+.motion-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.motion-controls .motion-toggle {
+  grid-column: auto;
+  justify-self: auto;
+  color: var(--hard-grey);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-controls {
+    display: none;
+  }
+}
