@@ -2343,3 +2343,75 @@ html:not(.js) .pd-charts-nav {
   display: inline;
   margin: 0;
 }
+
+/* ==========================================================================
+   Related products su Ocean, come "Sustainability in action" della pagina
+   NIP (04/11/2026, Chiara). Le schede sono il componente comune di
+   css/action-cards.css; qui solo le differenze: tre colonne (tre prodotti),
+   niente descrizione, sotto il nome l'etichetta colorata della linea / del
+   mercato (testo Hard Grey sul suo colore, come in home e nel Finder), e
+   il link al Finder accanto al titolo
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .pd-related-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pd-related .np-card-pills {
+  margin-top: 0.75rem;
+  padding-inline: 0.25rem;
+}
+
+
+/* Link "All ingredients →" accanto al titolo (04/11/2026, Chiara: niente
+   bottone grande sotto le schede). Stile dei link-CTA delle schede
+   (15px, 600, freccia → che scorre in hover), Ricepaper su Ocean 4.69:1,
+   sottolineato in hover; area di tocco 44px. Su telefono va sotto il titolo */
+.pd-related-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.pd-related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  color: var(--fg);
+  text-underline-offset: 4px;
+}
+
+.pd-related-link::after {
+  content: "";
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.pd-related-link:hover {
+  text-decoration: underline;
+}
+
+.pd-related-link:hover::after {
+  transform: translateX(3px);
+}
+
+.pd-related-link:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.motion-paused .pd-related-link::after {
+  transform: none;
+}

@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/picto.css">
   <link rel="stylesheet" href="css/finder.css">
+  <link rel="stylesheet" href="css/action-cards.css">   <!-- Related products: schede come Sustainability in action (NIP) -->
   <link rel="stylesheet" href="css/product.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/buttons.css">   <!-- sistema dei bottoni: per ultimo -->
@@ -424,91 +425,50 @@
     </section>
 
     <!-- ==================================================================
-         7 · RELATED PRODUCTS (chiaro) — stesse schede del Finder
+         7 · RELATED PRODUCTS (Ocean) — 04/11/2026 (Chiara): stesse schede e
+         stesse animazioni di "Sustainability in action" della pagina NIP
+         (css/action-cards.css): riquadro con il pittogramma, nome; senza
+         descrizione, sotto l etichetta colorata della linea / del mercato.
+         Con un colore di linea il riquadro si riempie come un liquido in hover
          ================================================================== -->
-    <section class="pd-related pd-gradient picto-glass section theme-light grain" aria-labelledby="pd-related-title">
-      <!-- Come Our Portfolio della home dei gradienti: forma azzurra sfocata che
-           sfuma nel Ricepaper sopra e sotto e goccia di vetro lattiginoso tagliata
-           a metà dal bordo destro -->
-      <div class="pd-grad-bg" aria-hidden="true">
-        <!-- Filtro che colora i pittogrammi bianchi di Ocean (#42709E) -->
-        <svg width="0" height="0" style="position:absolute" focusable="false">
-          <filter id="pictoOcean" color-interpolation-filters="sRGB">
-            <feColorMatrix type="matrix" values="0 0 0 0 0.259  0 0 0 0 0.439  0 0 0 0 0.62  0 0 0 1 0"/>
-          </filter>
-        </svg>
-        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <defs>
-            <filter id="pdRelatedBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
-          </defs>
-          <path class="pd-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#pdRelatedBlur)"/>
-        </svg>
-        <div class="pd-grad-drop">
-          <span class="pd-grad-drop-lens"></span>
-          <svg viewBox="0 0 520 760" preserveAspectRatio="none" focusable="false">
-            <path d="M241 4C214 60 4 318 4 490A237 237 0 0 0 478 490C478 318 268 60 241 4Z" fill="rgba(247,243,235,0.42)" stroke="#F7F3EB" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-          </svg>
-        </div>
-      </div>
+    <section class="pd-related section theme-ocean grain" aria-labelledby="pd-related-title">
       <div class="container">
-        <h2 class="pd-section-title" id="pd-related-title">
-          <span class="eyebrow" data-reveal>More ingredients</span>
-          <span data-reveal data-reveal-delay="0.1">Related products</span>
-        </h2>
-        <ul class="fx-grid pd-related-grid">
-          <li class="fx-card">
-            <article>
-              <h3 class="fx-card-name"><a class="fx-card-link" href="selectsieve-glitter.html">SelectSIEVE<sup class="reg">®</sup> Glitter</a></h3>
-              <p class="fx-card-function">Radiance that starts from within</p>
-              <p class="market-pills fx-card-markets"><span class="market-pill market-pill--glitter">Glitter</span></p>
-              <div class="fx-card-media fx-card-media--picto">
-                <!-- Pittogramma della forma fisica in vetro (css/picto.css), decorativo -->
-                <div class="picto picto--nutra picto--line-glitter" aria-hidden="true">
-                  <span class="picto-frame"><span class="picto-blob"></span></span>
-                  <img class="picto-img" src="images/pittogrammi/POLVERI.png" alt="" loading="lazy" decoding="async">
-                </div>
-                <div class="fx-card-glass">
-                  <p>Olive and licorice polyphenols that reduce dark spots for a brighter, more even complexion.</p>
-                </div>
+        <!-- Titolo a sinistra, link al Finder a destra sulla stessa riga
+             (04/11/2026, Chiara: niente bottone grande sotto le schede) -->
+        <div class="pd-related-head">
+          <h2 class="pd-section-title" id="pd-related-title">
+            <span class="eyebrow" data-reveal>More ingredients</span>
+            <span data-reveal data-reveal-delay="0.1">Related products</span>
+          </h2>
+          <a class="pd-related-link" href="ingredient-finder.html" data-reveal data-reveal-delay="0.1">All ingredients</a>
+        </div>
+        <ul class="np-cards pd-related-cards" data-reveal data-reveal-delay="0.15">
+          <li>
+            <article class="np-card">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-glitter" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/POLVERI.png" alt="" loading="lazy" decoding="async">
               </div>
+              <h3 class="np-card-name"><a class="np-card-link" href="selectsieve-glitter.html">SelectSIEVE<sup class="reg">®</sup> Glitter</a></h3>
+              <p class="market-pills np-card-pills"><span class="market-pill market-pill--glitter">Glitter</span></p>
             </article>
           </li>
-          <li class="fx-card">
-            <article>
-              <h3 class="fx-card-name"><a class="fx-card-link" href="cytofruit.html">CytoFruit<sup class="reg">®</sup></a></h3>
-              <p class="fx-card-function">Biologically active waters</p>
-              <p class="market-pills fx-card-markets"><span class="market-pill">Personal Care</span></p>
-              <div class="fx-card-media fx-card-media--picto">
-                <!-- Pittogramma della forma fisica in vetro (css/picto.css), decorativo -->
-                <div class="picto" aria-hidden="true">
-                  <span class="picto-frame"><span class="picto-blob"></span></span>
-                  <img class="picto-img" src="images/pittogrammi/LIQUIDI.png" alt="" loading="lazy" decoding="async">
-                </div>
-                <div class="fx-card-glass">
-                  <p>Fruit-derived active waters that replace demineralized water, with protective and cell-vitality benefits.</p>
-                </div>
+          <li>
+            <article class="np-card">
+              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/LIQUIDI.png" alt="" loading="lazy" decoding="async">
               </div>
+              <h3 class="np-card-name"><a class="np-card-link" href="cytofruit.html">CytoFruit<sup class="reg">®</sup></a></h3>
+              <p class="market-pills np-card-pills"><span class="market-pill">Personal Care</span></p>
             </article>
           </li>
-          <li class="fx-card">
-            <article>
-              <h3 class="fx-card-name"><a class="fx-card-link" href="seidotech-lux.html">SeidoTech<sup class="reg">®</sup> Lux</a></h3>
-              <p class="fx-card-function">Eye contour revitalization</p>
-              <p class="market-pills fx-card-markets"><span class="market-pill market-pill--seidotech">SeidoTech</span></p>
-              <div class="fx-card-media fx-card-media--picto">
-                <!-- Pittogramma della forma fisica in vetro (css/picto.css), decorativo -->
-                <div class="picto picto--line-seidotech" aria-hidden="true">
-                  <span class="picto-frame"><span class="picto-blob"></span></span>
-                  <img class="picto-img" src="images/pittogrammi/LIQUIDI-GEL.png" alt="" loading="lazy" decoding="async">
-                </div>
-                <div class="fx-card-glass">
-                  <p>A precision-fermented vine-leaf active for dark circles, eye bags and signs of fatigue.</p>
-                </div>
+          <li>
+            <article class="np-card">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-seidotech" aria-hidden="true">
+                <img class="np-card-picto" src="images/pittogrammi/LIQUIDI-GEL.png" alt="" loading="lazy" decoding="async">
               </div>
+              <h3 class="np-card-name"><a class="np-card-link" href="seidotech-lux.html">SeidoTech<sup class="reg">®</sup> Lux</a></h3>
+              <p class="market-pills np-card-pills"><span class="market-pill market-pill--seidotech">SeidoTech</span></p>
             </article>
-          </li>
-          <li class="pd-related-more">
-            <a class="btn btn--solid" href="ingredient-finder.html">All ingredients in the Ingredient Finder</a>
           </li>
         </ul>
       </div>
