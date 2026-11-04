@@ -850,3 +850,17 @@
     margin-inline: auto;
   }
 }
+
+/* Our Approach più lenta (04/11/2026, Chiara: "troppo veloce"). Oltre al
+   tratto di scroll più lungo (about.js), la linea Ocean segue lo scroll con
+   un leggero ritardo e i numeri si accendono più piano. Fermo con Stop
+   animation / reduced-motion (about.js mette subito tutto pieno) */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .ab-steps::after {
+    transition: width 0.9s var(--ease-out);
+  }
+
+  html:not(.motion-paused) .ab-step-num {
+    transition: color 1.2s var(--ease-out);
+  }
+}

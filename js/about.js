@@ -101,8 +101,9 @@
     if (motionOn()) {
       var r = steps.getBoundingClientRect();
       var vh = window.innerHeight;
-      // si riempie mentre le fasi salgono dall'80% al 35% dello schermo
-      p = clamp((vh * 0.8 - r.top) / (vh * 0.45));
+      // si riempie mentre le fasi salgono dal 90% al 10% dello schermo
+      // (04/11/2026, Chiara: "troppo veloce"; prima dall'80% al 35%)
+      p = clamp((vh * 0.9 - r.top) / (vh * 0.8));
     }
     steps.style.setProperty('--steps-p', p.toFixed(3));
     stepItems.forEach(function (it, i) {
