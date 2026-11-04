@@ -2512,3 +2512,21 @@ html:not(.js) .pd-charts-nav {
     border: 0;
   }
 }
+
+/* Telefono: spazi più stretti attorno al percorso (04/11/2026, Chiara).
+   Sopra: header + 0.5rem invece di header + ~1.9rem; tra percorso e nome
+   0.5rem invece di 1.25rem + 1.5rem. Il link resta alto 44px (la sua area
+   di tocco fa già da spazio) */
+@media (max-width: 599.98px) {
+  .pd-phero {
+    padding-top: calc(var(--header-h) + 0.5rem);
+  }
+
+  .pd-phero .pd-breadcrumb ol {
+    margin-bottom: 0;
+  }
+
+  .pd-phero-name {
+    margin-top: 0.5rem;
+  }
+}
