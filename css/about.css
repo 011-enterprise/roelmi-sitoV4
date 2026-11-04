@@ -838,3 +838,25 @@
   background-color: var(--ocean);
   color: var(--ricepaper);
 }
+
+/* Riquadro NIP più piccolo (04/11/2026, Chiara: "veramente gigantesco").
+   Qui è da solo in una sezione intera: meno alto della home (era
+   380–540px) e non più largo quanto tutto il contenitore, centrato.
+   Su telefono vale già l'altezza libera di nip.css */
+@media (min-width: 600px) {
+  .ab-nip-sec .nip-stage {
+    max-width: 68rem;
+    min-height: clamp(300px, 26vw, 400px);
+    margin-inline: auto;
+  }
+}
+
+/* Partner su OCEAN (04/11/2026, Chiara: "stava molto bene"): come la
+   timeline, tutto Ricepaper (titolo, segnaposto dei loghi, Stop animation:
+   4.69:1; le variabili "su scuro" le ridefinisce .theme-ocean in base.css).
+   Force field spento (regola sopra). Non è vicina alla timeline: in mezzo
+   c'è Global Presence */
+.ab-partners.theme-ocean {
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+}
