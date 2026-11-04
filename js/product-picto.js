@@ -28,6 +28,19 @@
   /* 1. Si forma (una volta) */
   if (motionOn() && picto.querySelector('.pg')) {
     picto.classList.add('is-forming');
+    // Parte solo quando il pittogramma è sullo schermo (04/11/2026: su
+    // telefono sta sotto il nome e l animazione finiva prima di vederla).
+    // Fino ad allora le animazioni restano ferme al primo fotogramma (CSS)
+    if ('IntersectionObserver' in window) {
+      picto.classList.add('is-waiting');
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          picto.classList.remove('is-waiting');
+          io.disconnect();
+        }
+      }, { threshold: 0.35 });
+      io.observe(picto);
+    }
   }
 
   /* 2. Profondità con il mouse */

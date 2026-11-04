@@ -2415,3 +2415,100 @@ html:not(.js) .pd-charts-nav {
 .motion-paused .pd-related-link::after {
   transform: none;
 }
+
+/* ==========================================================================
+   Apertura su telefono con l'immagine (04/11/2026, Chiara; supera la nota
+   67 che la nascondeva sotto i 600px): riquadro con la texture, goccia e
+   dati tornano visibili TRA il sottotitolo (funzione) e la descrizione.
+   La colonna del testo diventa "trasparente" (display: contents) così le sue
+   parti e il riquadro si mettono in fila con order; nel codice l'ordine non
+   cambia (percorso, nome, funzione, descrizione, bottoni, poi l'immagine
+   decorativa e i dati), quindi lo screen reader e il Tab restano logici
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .pd-phero-grid {
+    row-gap: 0;
+  }
+
+  .pd-phero-text {
+    display: contents;
+  }
+
+  .pd-phero-visual {
+    display: block;
+    order: 1;
+    margin: 1.75rem 0 1.5rem;
+  }
+
+  .pd-phero-text > .pd-intro,
+  .pd-phero-text > .pd-phero-actions {
+    order: 2;
+  }
+
+  /* Riquadro un po' più piccolo del tablet, centrato; la goccia esce meno a
+     sinistra, così resta dentro lo schermo */
+  .pd-gradient .pd-phero-visual .picto {
+    width: min(48vw, 200px);   /* 04/11/2026: prima min(68vw, 300px), "molto grossa" */
+    margin-inline: auto;
+  }
+
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg),
+  .pd-gradient .pd-phero-visual .picto-img {
+    left: -16%;
+    height: 72%;
+  }
+
+  .pd-hero-facts {
+    width: min(100%, 340px);
+  }
+
+  .pd-phero-text > .pd-intro {
+    margin-top: 0;
+  }
+}
+
+/* Animazione dell apertura: ferma al primo fotogramma finché il pittogramma
+   non è sullo schermo (.is-waiting da js/product-picto.js, 04/11/2026) */
+.picto.is-waiting,
+.picto.is-waiting * {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   Percorso su telefono in una riga (04/11/2026, Chiara: "su due righe,
+   troppo spazio"). Sotto i 600px:
+   - "Ingredient Finder" diventa "Finder" SOLO A VISTA: "Ingredient " è
+     nascosto come .sr-only, quindi lo screen reader legge sempre il nome
+     intero e il testo visibile è contenuto nel nome del link (WCAG 2.5.3)
+   - spazi più stretti tra le voci e i separatori
+   - ogni voce non si spezza (il "/" resta attaccato alla sua voce);
+     se un nome lungo non ci sta, va a capo l'ultima voce intera
+   Testo 14px, aree di tocco 44px e contrasti invariati
+   ========================================================================== */
+/* Il link è inline-flex: lo spazio dopo "Ingredient" si perderebbe */
+.pd-bc-long {
+  white-space: pre;
+}
+
+@media (max-width: 599.98px) {
+  .pd-breadcrumb ol {
+    gap: 0 0.3rem;
+  }
+
+  .pd-breadcrumb li {
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .pd-bc-long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
