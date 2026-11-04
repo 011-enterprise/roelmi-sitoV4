@@ -935,3 +935,14 @@
     width: 144px;
   }
 }
+
+/* ® nelle voci dei sottomenu (04/11/2026, Chiara: "sembra un puntino sporco").
+   Le voci sono flex con space-between (freccia a destra): la ® diventava un
+   elemento a sé e finiva staccata a metà riga. Qui resta attaccata alla
+   parola (margin-right: auto spinge solo la freccia a destra), alzata
+   all'altezza delle maiuscole */
+.subnav a > .reg {
+  margin-right: auto;
+  margin-left: 0.06em;
+  top: -0.5em;
+}
