@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/nip.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/buttons.css">   <!-- sistema dei bottoni: per ultimo -->
@@ -245,12 +244,13 @@
     </section>
 
     <!-- ==================================================================
-         3b · NIP® (scuro) — sezione a sé (in SITO 1 era un riquadro dentro
-         What we do). Riquadro texture + vetro scuro come in home
+         3b · NIP® — 04/11/2026 (Chiara): il box è la fascia comune .cta-band
+         (base.css), la stessa che chiude la pagina NIP, con la texture del NIP
+         (texture-18). Sul fondo la solita forma sfocata, in Olive (come l apertura della pagina NIP).
+         I tre numeri del NIP restano in home e nella pagina NIP
          ================================================================== -->
-    <section class="ab-nip-sec nip section theme-soft grain" aria-labelledby="ab-nip-title" data-force-field-host>
-      <!-- Come la NIP della home: forma Cerulean sfocata sul fondo (03/11/2026) -->
-      <div class="page-grad-bg" aria-hidden="true">
+    <section class="ab-nip-sec section theme-soft grain" aria-labelledby="ab-nip-title">
+      <div class="page-grad-bg page-grad-bg--olive" aria-hidden="true">
         <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
           <defs>
             <filter id="abNipBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
@@ -258,53 +258,21 @@
           <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#abNipBlur)"/>
         </svg>
       </div>
-      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
-      <!-- Riquadro come la NIP della home, con la stessa texture (texture-18) +
-           vetro scuro con titolo, testo e bottone. Vetro scuro = texture libera -->
       <div class="container">
-        <!-- Stessa struttura del riquadro NIP della home (css/nip.css, js/nip.js):
-             texture, vetro chiaro con titolo e testo, bottone, tre numeri -->
-        <div class="nip-stage nip-stage--light">
-          <div class="nip-texture" aria-hidden="true">
+        <aside class="cta-band" aria-labelledby="ab-nip-title" data-reveal>
+          <div class="cta-band-bg" aria-hidden="true">
             <img src="images/nip/texture-18.jpg" alt="" loading="lazy" decoding="async">
           </div>
-
-          <div class="nip-copy glass" data-reveal>
-            <h2 class="nip-title" id="ab-nip-title">
-              <span class="eyebrow">NIP<sup class="reg">®</sup></span>
-              <span>Nature is People</span>
-            </h2>
-            <p>In the early 2000s, this approach led to the creation of <a href="nip.html">NIP<sup class="reg">®</sup> (Nature is People)</a>. Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
-          </div>
-
-          <div class="nip-actions glass" data-reveal data-reveal-delay="0.1">
-            <a class="btn btn--solid" href="nip.html">Discover NIP<sup class="reg">®</sup></a>
-          </div>
-
-          <div class="nip-stats">
-            <div class="nip-stat glass">
-              <span class="sr-only">78% Bio-based avg.</span>
-              <span aria-hidden="true">
-                <span class="stat-num"><span class="stat-value" data-count="78">78</span><span class="stat-unit">%</span></span>
-                <span class="stat-label">Bio-based avg.</span>
-              </span>
+          <div class="cta-band-glass">
+            <div class="cta-band-copy">
+              <h2 class="cta-band-title" id="ab-nip-title">NIP<sup class="reg">®</sup> Nature is People</h2>
+              <p class="cta-band-text">In the early 2000s, this approach led to the creation of NIP<sup class="reg">®</sup> (Nature is People). Our intern program is dedicated to sustainability-driven good practices and <strong>the relationship between people and the Planet</strong>.</p>
             </div>
-            <div class="nip-stat glass">
-              <span class="sr-only">−34% CO₂ since 2020</span>
-              <span aria-hidden="true">
-                <span class="stat-num"><span class="stat-value" data-count="-34">−34</span><span class="stat-unit">%</span></span>
-                <span class="stat-label">CO₂ since 2020</span>
-              </span>
-            </div>
-            <div class="nip-stat glass">
-              <span class="sr-only">100% Reused process H₂O</span>
-              <span aria-hidden="true">
-                <span class="stat-num"><span class="stat-value" data-count="100">100</span><span class="stat-unit">%</span></span>
-                <span class="stat-label">Reused process H₂O</span>
-              </span>
+            <div class="cta-band-actions">
+              <a class="btn btn--solid" href="nip.html">Discover NIP<sup class="reg">®</sup></a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -580,7 +548,5 @@
   <script src="js/footer.js" defer></script>
   <script src="js/force-field.js" defer></script>
   <script src="js/about.js" defer></script>
-  <script src="js/impact.js" defer></script>
-  <script src="js/nip.js" defer></script>
 </body>
 </html>

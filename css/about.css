@@ -839,18 +839,6 @@
   color: var(--ricepaper);
 }
 
-/* Riquadro NIP più piccolo (04/11/2026, Chiara: "veramente gigantesco").
-   Qui è da solo in una sezione intera: meno alto della home (era
-   380–540px) e non più largo quanto tutto il contenitore, centrato.
-   Su telefono vale già l'altezza libera di nip.css */
-@media (min-width: 600px) {
-  .ab-nip-sec .nip-stage {
-    max-width: 68rem;
-    min-height: clamp(300px, 26vw, 400px);
-    margin-inline: auto;
-  }
-}
-
 /* Our Approach più lenta (04/11/2026, Chiara: "troppo veloce"). Oltre al
    tratto di scroll più lungo (about.js), la linea Ocean segue lo scroll con
    un leggero ritardo e i numeri si accendono più piano. Fermo con Stop
