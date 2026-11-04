@@ -1245,3 +1245,20 @@
   --rule: var(--line-on-dark);
   color: var(--ricepaper);
 }
+
+/* Intro, riga finale (04/11/2026, Chiara): linea, frase e bottone su tutta
+   la larghezza del contenitore, non più da tre quarti in avanti (prima
+   max-width 64rem + margin-left auto) */
+.np-intro-foot {
+  max-width: none;
+  margin-left: 0;
+}
+
+/* Apertura: la goccia accanto a ogni riga prende il colore della sua
+   lettera, come le tre gocce che si uniscono e i pilastri N·I·P
+   (04/11/2026, Chiara): Nature Olive, Innovation Cerulean, People Antique.
+   Eccezione alla regola "goccia solo nell'azzurro del logo", come le gocce
+   dell'animazione (nota 25). Sul vetro scuro tutti e tre ≥ 3:1 */
+.np-line::before {
+  background-color: var(--np-color, var(--logo-blue));
+}
