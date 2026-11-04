@@ -1290,3 +1290,9 @@ a.btn:not(:has(svg)):hover::after,
 .btn > .reg {
   margin-left: -0.55em;
 }
+
+/* Gradiente comune in Olive (04/11/2026, apertura della pagina NIP).
+   Sopra testi Hard Grey (9.2:1) */
+.page-grad-bg--olive .page-grad-blob {
+  fill: var(--olive);
+}

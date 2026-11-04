@@ -167,8 +167,18 @@
     <!-- SITO 4 (03/11/2026, Chiara): apertura su Ricepaper con il Force Field
          in Ocean sul fondo (prima Hard Grey); il box con la texture e il vetro
          scuro restano com'erano -->
-    <section class="np-hero section theme-light grain" aria-labelledby="np-title" data-force-field-host>
-      <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
+    <!-- 04/11/2026 (Chiara): tolto il Force Field dall apertura, resta solo dietro i pilastri -->
+    <section class="np-hero section theme-light grain" aria-labelledby="np-title">
+      <!-- 04/11/2026 (Chiara): dietro il box il gradiente comune del sito
+           (forma sfocata, .page-grad-bg in base.css), qui in Olive. Decorativo -->
+      <div class="page-grad-bg page-grad-bg--olive" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="npHeroBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#npHeroBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <nav class="np-breadcrumb" aria-label="Breadcrumb">
           <ol>
@@ -199,14 +209,6 @@
             </div>
           </div>
 
-        </div>
-        <!-- Stop animation per il reticolo sul fondo (stesso interruttore di tutto il sito) -->
-        <div class="motion-controls">
-          <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
-            <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
-            <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
-            <span data-motion-label>Stop animation</span>
-          </button>
         </div>
       </div>
     </section>

@@ -1262,3 +1262,11 @@
 .np-line::before {
   background-color: var(--np-color, var(--logo-blue));
 }
+
+/* Pilastri: le grandi N·I·P nell'altro font del brand, Chiron Hei HK
+   (04/11/2026, Chiara: a quella misura le terminazioni svasate di Iwona
+   sembravano grazie). Animazione, colori e contorno invariati */
+.np-pillar-mark,
+.np-pillar-letter {
+  font-family: var(--font-body);
+}
