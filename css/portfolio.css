@@ -557,3 +557,80 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+/* ==========================================================================
+   Telefono, versione 2 (04/11/2026, Chiara: il cliente vuole vedere le
+   descrizioni; supera la griglia 2×2 qui sopra). Riga che scorre di lato
+   con aggancio: una scheda intera e l'inizio della seguente. La descrizione
+   torna visibile SOTTO il riquadro del pittogramma, senza vetro, in Hard
+   Grey sul fondo chiaro della sezione (≥ 9.5:1 anche sulla forma Cerulean).
+   I link sono focalizzabili, quindi la riga si scorre anche con il Tab
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  .portfolio-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+
+  .product-name {
+    font-size: var(--fs-h5);
+  }
+
+  .product-media,
+  .product-media:has(> .picto) {
+    aspect-ratio: auto;
+  }
+
+  .product-desc,
+  .pf-gradient .product-media:has(> .picto) .product-desc {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 1rem 0 0;
+    padding: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--hard-grey);
+    opacity: 1;
+    transform: none;
+  }
+
+  .product-more,
+  .pf-gradient .product-more {
+    color: var(--hard-grey);
+  }
+}
+
+/* Telefono: schede più strette (04/11/2026, Chiara: pittogrammi troppo
+   grossi, ma il 78% dentro la scheda non era bello). Scheda larga il 62%
+   della riga, poco più di una colonna di Our Divisions (2 colonne): si vede
+   una scheda intera e buona parte della seguente; pittogramma a tutta
+   larghezza della scheda, allineato al testo */
+@media (max-width: 767.98px) {
+  .product-card {
+    flex-basis: 62%;
+  }
+}
