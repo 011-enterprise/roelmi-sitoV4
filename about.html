@@ -21,12 +21,10 @@
   <link rel="preload" as="font" type="font/woff2" href="fonts/iwona-medium-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/chironheihk-latin.woff2" crossorigin>
 
-  <!-- CSS (presence.css: mappa a puntini e punti delle sedi, come in home) -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/presence.css">
   <link rel="stylesheet" href="css/nip.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -225,7 +223,7 @@
       <div class="container ab-story-grid">
         <div class="ab-story-text">
           <p class="ab-lead" data-reveal>The name <strong>ROELMI</strong> is the combination of the names <strong>Rosella Malanchin</strong>, and the daughters <strong>Eleonora</strong> and <strong>Michela Santus</strong>. Through a play on letters and sounds, the name came to represent a strong sense of identity and the ambition to grow, expand and bring the Group’s vision to an international audience. <strong>HPC</strong> stands for <strong>Health and Personal Care</strong>, the two main areas in which we operate.</p>
-          <p class="ab-text" data-reveal>Our headquarters are located in Origgio, near Milan, with commercial offices in both Europe and outside the European Union, including <a href="#presence">France, the USA, China and South Korea</a>. Our goal is to continue expanding our international presence providing high quality ingredients.</p>
+          <p class="ab-text" data-reveal>Our headquarters are located in Origgio, near Milan, with commercial offices in both Europe and outside the European Union, including <a href="index.html#presence">France, the USA, China and South Korea</a>. Our goal is to continue expanding our international presence providing high quality ingredients.</p>
         </div>
         <figure class="ab-photo" data-reveal>
           <div class="ab-photo-placeholder">Foto di famiglia — da fornire</div>
@@ -426,96 +424,9 @@
     </section>
 
     <!-- ==================================================================
-         6 · GLOBAL PRESENCE (chiaro) — identica alla home, anche su telefono
-         (filtri, mappa, elenco a tendine, scheda della sede)
+         7 · TOGETHER FOR A BETTER WORLD (chiaro: dopo la timeline Ocean, 04/11/2026) — partner (segnaposto)
          ================================================================== -->
-    <section class="presence section theme-light grain" id="presence" aria-labelledby="presence-title">
-      <div class="container">
-        <h2 class="presence-title" id="presence-title">
-          <span class="eyebrow" data-reveal>Global Presence</span>
-          <span data-reveal data-reveal-delay="0.1">Where we are in the world</span>
-        </h2>
-
-        <div class="presence-filters" role="group" aria-label="Filter locations">
-          <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-pill" type="button" data-filter="site" aria-pressed="false"><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</button>
-          <button class="filter-pill" type="button" data-filter="branch" aria-pressed="false"><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</button>
-          <button class="filter-pill" type="button" data-filter="biotech" aria-pressed="false"><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</button>
-          <button class="filter-pill" type="button" data-filter="lab" aria-pressed="false"><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</button>
-          <button class="filter-pill" type="button" data-filter="production" aria-pressed="false"><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</button>
-        </div>
-        <p class="presence-status sr-only" aria-live="polite"></p>
-
-        <div class="presence-stage" data-reveal>
-          <!-- Mappa: decorativa, le stesse informazioni sono nell'elenco sotto -->
-          <div class="presence-map" aria-hidden="true">
-            <img src="images/presence/world-dots.svg" alt="" loading="lazy" decoding="async">
-            <span class="map-pin map-pin--multi" data-group="italy" data-types="site lab biotech production" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Italy</span></span>
-            <span class="map-pin cat--branch" data-group="paris" data-types="branch" style="left: 50.64%; top: 24.74%;"><span class="map-pin-hit"></span><span class="map-pin-label">Paris</span></span>
-            <span class="map-pin cat--site" data-group="la" data-types="site" style="left: 17.16%; top: 35.18%;"><span class="map-pin-hit"></span><span class="map-pin-label">RK Colors</span></span>
-            <span class="map-pin cat--branch" data-group="nj" data-types="branch" style="left: 29.42%; top: 30.35%;"><span class="map-pin-hit"></span><span class="map-pin-label">Saddle Brook</span></span>
-            <span class="map-pin cat--branch" data-group="hz" data-types="branch" style="left: 83.38%; top: 37.85%;"><span class="map-pin-hit"></span><span class="map-pin-label">Hangzhou</span></span>
-            <span class="map-pin cat--branch" data-group="kr" data-types="branch" style="left: 85.31%; top: 32.83%;"><span class="map-pin-hit"></span><span class="map-pin-label">Seongnam-si</span></span>
-          </div>
-
-          <!-- Scheda della sede (si apre dall'elenco o dalla mappa) -->
-          <div class="site-card" id="siteCard" role="dialog" aria-modal="false" aria-labelledby="siteCardTitle" hidden>
-            <button class="site-card-close" type="button" aria-label="Close">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
-            </button>
-            <p class="site-card-type"><span class="cat-dot" aria-hidden="true"></span><span class="site-card-type-text"></span></p>
-            <h3 class="site-card-title" id="siteCardTitle" tabindex="-1"></h3>
-            <p class="site-card-desc"></p>
-            <ul class="site-card-list"></ul>
-          </div>
-        </div>
-
-        <div class="presence-list">
-          <details class="presence-group" data-type="site">
-            <summary><h3><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Lainate</span><span class="site-sub">Production hub — Varese, Italy</span></button><p class="site-desc" hidden>Production plant dedicated to the development and manufacture of active ingredients for personal care.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Naples</span><span class="site-sub">Production hub — Campania, Italy</span></button><p class="site-desc" hidden>Production site in southern Italy, dedicated to processing naturally derived ingredients and marine bioactives.</p></li>
-              <li><button class="site-btn" type="button" data-group="la" aria-controls="siteCard" aria-expanded="false"><span class="site-name">RK Colors</span><span class="site-sub">Production hub — USA</span></button><p class="site-desc" hidden>US plant dedicated to the development and manufacture of functionalised pigments and active make-up ingredients.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="branch">
-            <summary><h3><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="paris" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Paris</span><span class="site-sub">Subsidiary — France</span></button><p class="site-desc" hidden>ROELMI HPC France SARL — 32, rue de l'Arcade, 75008 Paris, France.</p></li>
-              <li><button class="site-btn" type="button" data-group="nj" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Saddle Brook</span><span class="site-sub">Subsidiary — USA</span></button><p class="site-desc" hidden>ROELMI HPC USA, LLC — 250 Pehle Avenue, Suite 200, Saddle Brook, New Jersey 07663, USA.</p></li>
-              <li><button class="site-btn" type="button" data-group="hz" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Hangzhou</span><span class="site-sub">Subsidiary — China (Asia-Pacific)</span></button><p class="site-desc" hidden>Hangzhou ROELMI HPC Biotech Co., Ltd — Room 505, Building 4, No. 199 Shimin Street, Shangcheng District, Hangzhou, Zhejiang, China.</p></li>
-              <li><button class="site-btn" type="button" data-group="kr" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Seongnam-si</span><span class="site-sub">Subsidiary — South Korea</span></button><p class="site-desc" hidden>ROELMI HPC Korea Ltd. — 918 &amp; 919, 9F, 36 Hwangsaeul-ro 200beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, South Korea (13595).</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="biotech">
-            <summary><h3><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BIOTECH</span><span class="site-sub">Biotech R&amp;D — Italy</span></button><p class="site-desc" hidden>Hub dedicated to the research and development of biotech solutions, fermentation-derived ingredients and advanced probiotics. Via Roberto Lepetit 34, 21040 Gerenzano (VA), Italy.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="lab">
-            <summary><h3><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Solaro</span><span class="site-sub">Laboratory — Milan, Italy</span></button><p class="site-desc" hidden>Laboratory dedicated to the analysis and processing of active raw materials for the nutraceutical and food markets.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Origgio</span><span class="site-sub">Laboratory — Origgio (VA), Italy</span></button><p class="site-desc" hidden>ROELMI HPC — Via Celeste Milani 224, 21040 Origgio (VA), Italy.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="production">
-            <summary><h3><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Vortex SRL SB</span><span class="site-sub">Manufacturing — Piedmont, Italy</span></button><p class="site-desc" hidden>Vortex SRL SB — Manufacturing site in Piedmont, Italy.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Isuschem srl</span><span class="site-sub">Manufacturing — Caserta, Italy</span></button><p class="site-desc" hidden>Isuschem srl — Via Thomas Alva Edison, 81100 Caserta (CE), Italy.</p></li>
-            </ul>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================
-         7 · TOGETHER FOR A BETTER WORLD (Ocean, 04/11/2026) — partner (segnaposto)
-         ================================================================== -->
-    <section class="ab-partners section theme-ocean grain" aria-labelledby="ab-partners-title" data-force-field-host>
+    <section class="ab-partners section theme-light grain" aria-labelledby="ab-partners-title" data-force-field-host>
       <canvas class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
         <h2 class="ab-section-title" id="ab-partners-title">
@@ -668,8 +579,6 @@
   <script src="js/header.js" defer></script>
   <script src="js/footer.js" defer></script>
   <script src="js/force-field.js" defer></script>
-  <!-- presence.js: filtri, elenco, scheda della sede e onda dei pallini, come in home -->
-  <script src="js/presence.js" defer></script>
   <script src="js/about.js" defer></script>
   <script src="js/impact.js" defer></script>
   <script src="js/nip.js" defer></script>

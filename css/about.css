@@ -850,13 +850,3 @@
     margin-inline: auto;
   }
 }
-
-/* Partner su OCEAN (04/11/2026, Chiara: "stava molto bene"): come la
-   timeline, tutto Ricepaper (titolo, segnaposto dei loghi, Stop animation:
-   4.69:1; le variabili "su scuro" le ridefinisce .theme-ocean in base.css).
-   Force field spento (regola sopra). Non è vicina alla timeline: in mezzo
-   c'è Global Presence */
-.ab-partners.theme-ocean {
-  background-color: var(--ocean);
-  color: var(--ricepaper);
-}
