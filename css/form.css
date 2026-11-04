@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Moduli (comune: Contatti, Careers)
+   Etichetta sempre visibile sopra il campo, bordo Hard Grey, ≥ 44px, focus
+   Ocean; errori a parole sotto il campo (non solo col colore), riepilogo in
+   cima (Antique) e conferma (Olive). Logica in js/form.js
+   ========================================================================== */
+
+.fm-note {
+  margin-top: 0.75rem;
+  font-size: var(--fs-small);
+  color: var(--muted);   /* 6.2:1 */
+}
+
+/* --- Campi --------------------------------------------------------------- */
+
+.fm-form {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: var(--title-gap);
+}
+
+.fm-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.fm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.fm-label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+.fm-req {
+  color: var(--hard-grey);
+}
+
+.fm-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 1rem;
+  border: 1px solid var(--hard-grey);
+  border-radius: var(--r-inner);
+  background-color: transparent;
+  font-size: var(--fs-body);
+  color: var(--hard-grey);
+  transition: border-color var(--dur-ui) var(--ease-out);
+}
+
+.fm-input:hover {
+  border-color: var(--ocean);
+}
+
+.fm-input:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 2px;
+}
+
+/* Tendina: freccia disegnata (Hard Grey), spazio a destra */
+.fm-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 3.25l4 4 4-4' fill='none' stroke='%23191919' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.fm-textarea {
+  min-height: 9.5rem;
+  padding: 0.85rem 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* Errore: bordo più spesso + messaggio a parole (non solo il colore) */
+.fm-input[aria-invalid="true"] {
+  border-width: 2px;
+}
+
+.fm-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--hard-grey);
+}
+
+/* Segno "!" in un cerchio Antique (decorativo: il testo dice già l'errore) */
+.fm-error::before {
+  content: "!";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background-color: var(--antique);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fm-error[hidden] {
+  display: none;
+}
+
+/* --- Consensi ------------------------------------------------------------ */
+
+.fm-checks {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.fm-field--check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  row-gap: 0.35rem;
+  align-items: start;
+}
+
+/* Casella 22px dentro un'area di tocco di 44px (il testo è cliccabile) */
+.fm-check {
+  width: 22px;
+  height: 22px;
+  margin: 0.1rem 0 0;
+  accent-color: var(--ocean);
+  cursor: pointer;
+}
+
+.fm-field--check label {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--hard-grey);
+  cursor: pointer;
+}
+
+.fm-field--check label a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fm-field--check label a:hover {
+  color: var(--ocean);
+}
+
+.fm-field--check .fm-error {
+  grid-column: 2;
+}
+
+/* --- Invio --------------------------------------------------------------- */
+
+.fm-submit {
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+/* Riepilogo errori in cima al modulo e conferma d'invio */
+.fm-summary,
+.fm-status:not(:empty) {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--r-inner);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+.fm-summary {
+  background-color: var(--antique);   /* testo Hard Grey 10.4:1 */
+}
+
+.fm-summary[hidden] {
+  display: none;
+}
+
+.fm-status:not(:empty) {
+  background-color: var(--olive);     /* testo Hard Grey 9.2:1 */
+}
+
+
+/* --- Caricamento file (es. CV in PDF) ------------------------------------- */
+
+.fm-file {
+  padding: 0.35rem 0.35rem 0.35rem 0.5rem;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.fm-file::file-selector-button {
+  min-height: 36px;
+  margin-right: 0.85rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--hard-grey);
+  border-radius: 999px;
+  background-color: transparent;
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+  cursor: pointer;
+  transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out);
+}
+
+.fm-file:hover::file-selector-button {
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+.fm-hint {
+  font-size: var(--fs-small);
+  color: var(--muted);   /* 6.2:1 */
+}
+
+@media (max-width: 599.98px) {
+  .fm-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fm-submit {
+    justify-self: stretch;
+  }
+}

@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Contatti (testi della pagina attuale roelmihpc.com/contacts)
+   1 Modulo (chiaro): titolo, testo, modulo a sinistra · recapiti a destra su
+     texture + vetro scuro (componente comune .cta-box di base.css)
+   2 Global Presence: la sezione della home, identica (presence.css/.js)
+   Campi del modulo: css/form.css (comune con Careers)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1 · Modulo
+   -------------------------------------------------------------------------- */
+
+.ct-main {
+  position: relative;
+  isolation: isolate;
+  padding-top: calc(var(--header-h) + 0.5rem);
+  padding-bottom: var(--section-y);
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+.ct-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  font-size: var(--fs-small);
+}
+
+.ct-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ct-breadcrumb li + li::before {
+  content: "/";
+}
+
+.ct-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;   /* "Home" è più stretta di 44px */
+  min-height: 44px;
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ct-breadcrumb a:hover {
+  color: var(--ocean);
+}
+
+.ct-breadcrumb a[aria-current="page"] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Desktop: titolo e modulo a sinistra, recapiti a destra (per tutta l'altezza).
+   Telefono: titolo · recapiti · modulo, come nel codice */
+.ct-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas:
+    "head aside"
+    "form aside";
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  gap: 0 clamp(2rem, 1rem + 4vw, 5rem);
+  margin-top: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+.ct-head     { grid-area: head; }
+.ct-aside    { grid-area: aside; }
+.ct-form-col { grid-area: form; }
+
+.ct-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-section);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--ls-title);
+  color: var(--hard-grey);
+}
+
+.ct-title span:not(.eyebrow) {
+  display: block;
+  margin-top: 1.25rem;
+}
+
+.ct-intro {
+  max-width: 44ch;
+  margin-top: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+
+/* --- Recapiti: texture + vetro scuro, resta in vista mentre si compila --- */
+
+.ct-aside {
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+  align-items: end;
+  min-height: min(72vh, 680px);
+}
+
+.ct-info {
+  width: 100%;
+}
+
+.ct-info-h {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+  color: var(--ricepaper);
+}
+
+.ct-info-h + * {
+  margin-top: 0.4rem;
+}
+
+.ct-info-text + .ct-info-h {
+  margin-top: 1.25rem;
+}
+
+.ct-info-text,
+.ct-info-list {
+  color: var(--ricepaper);
+  line-height: 1.6;
+}
+
+/* Righe alte 44px (tocco), tutte uguali; "P:" e "F:" fuori dal link */
+.ct-info-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 44px;
+}
+
+.ct-info-list a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ct-info-list a:hover {
+  color: var(--cerulean);
+}
+
+.ct-info-k {
+  font-weight: 600;
+  margin-right: 0.35em;
+}
+
+/* --------------------------------------------------------------------------
+   2 · Global Presence: la sezione della home (presence.css), identica.
+   Qui le due sezioni sono chiare: una linea sottile le separa
+   -------------------------------------------------------------------------- */
+
+.ct-main + .presence {
+  border-top: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 899.98px) {
+  .ct-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "aside"
+      "form";
+    grid-template-rows: auto;
+    row-gap: var(--title-gap);
+  }
+
+  /* Su tablet e telefono i recapiti stanno tra il titolo e il modulo, non
+     più fissi; striscia di texture sopra il vetro più bassa */
+  .ct-aside {
+    position: relative;
+    top: auto;
+    min-height: 0;
+    padding-top: clamp(6rem, 22vw, 9rem);
+  }
+}
