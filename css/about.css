@@ -896,3 +896,21 @@
 .ab-story .ab-lead + .ab-lead {
   margin-top: clamp(1.25rem, 1rem + 1vw, 2rem);
 }
+
+/* Tipografia uniformata (06/11/2026, Chiara: "controlla i font di About").
+   Il paragrafo grande di What we do (.ab-statement) aveva un minimo di 24px
+   e nessuna misura per il telefono, mentre i due paragrafi della storia
+   (.ab-lead) e Who We Are in home scendono a 22px e a 20px su telefono:
+   nella stessa pagina si vedevano due grandezze diverse. Ora tutti uguali
+   (la sezione è su Ricepaper liscio: Ocean 4.69:1 anche sotto i 24px) */
+.ab-statement {
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+}
+
+@media (max-width: 599.98px) {
+  .ab-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}

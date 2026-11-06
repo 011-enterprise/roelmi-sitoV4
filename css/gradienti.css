@@ -131,3 +131,33 @@
   overflow: hidden;
   background-image: none;
 }
+
+/* --------------------------------------------------------------------------
+   PROVA (06/11/2026, Chiara): goccia DENTRO il riquadro, al centro. Il
+   riquadro resta uguale (verticale, attaccato a destra, inset 0 0 0 20%);
+   il pittogramma è centrato su di lui (centro = 60% della scheda) e un po'
+   più basso (70%), così non tocca i bordi. "translate" separato da
+   "transform", così l'ingrandimento in hover (scale 1.05) continua a
+   funzionare. Per tornare alla goccia che esce a sinistra: togliere
+   questo blocco
+   -------------------------------------------------------------------------- */
+/* Riquadro centrato nella scheda (06/11/2026, Chiara): stessa forma, 10%
+   di margine a destra e a sinistra invece che attaccato a destra */
+.pf-gradient .picto--opt-portrait .picto-frame {
+  inset: 0 10%;
+}
+
+.pf-gradient .picto--opt-portrait .picto-img {
+  top: 15%;
+  left: 50%;
+  height: 70%;
+  translate: -50% 0;
+}
+
+/* Descrizione in hover DENTRO il riquadro (desktop; su telefono sta sotto) */
+@media (min-width: 768px) {
+  .pf-gradient .product-media:has(> .picto--opt-portrait) .product-desc {
+    left: calc(10% + 0.75rem);
+    right: calc(10% + 0.75rem);
+  }
+}
