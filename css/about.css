@@ -852,3 +852,41 @@
     transition: color 1.2s var(--ease-out);
   }
 }
+
+/* ==========================================================================
+   Storia (sotto l'apertura) come Who We Are della home (06/11/2026, Chiara):
+   paragrafo in Iwona Medium, stessa misura e interlinea di .who-statement,
+   parole che si accendono con lo scroll (data-scroll-words, js/scroll-words.js:
+   grigio secondario → Hard Grey, nomi in Ocean 4.69:1 su Ricepaper liscio).
+   Lo screen reader legge sempre il testo intero; con Stop animation /
+   reduced-motion tutto acceso. Il secondo paragrafo resta testo normale
+   ========================================================================== */
+.ab-story .ab-lead {
+  max-width: 36ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.ab-story .ab-lead strong {
+  font-weight: 500;
+}
+
+.ab-story .ab-lead .accent {
+  color: var(--ocean);
+}
+
+.ab-story .ab-text {
+  margin-top: var(--title-gap);
+}
+
+@media (max-width: 599.98px) {
+  .ab-story .ab-lead {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
