@@ -141,15 +141,15 @@
    funzionare. Per tornare alla goccia che esce a sinistra: togliere
    questo blocco
    -------------------------------------------------------------------------- */
-/* Riquadro centrato nella scheda (06/11/2026, Chiara): stessa forma, 10%
-   di margine a destra e a sinistra invece che attaccato a destra */
+/* Riquadro allineato a sinistra con nome e funzione (06/11/2026, Chiara;
+   prima centrato con inset 0 10%): stessa forma, spazio vuoto a destra */
 .pf-gradient .picto--opt-portrait .picto-frame {
-  inset: 0 10%;
+  inset: 0 20% 0 0;
 }
 
 .pf-gradient .picto--opt-portrait .picto-img {
   top: 15%;
-  left: 50%;
+  left: 40%;   /* centro del riquadro */
   height: 70%;
   translate: -50% 0;
 }
@@ -157,7 +157,7 @@
 /* Descrizione in hover DENTRO il riquadro (desktop; su telefono sta sotto) */
 @media (min-width: 768px) {
   .pf-gradient .product-media:has(> .picto--opt-portrait) .product-desc {
-    left: calc(10% + 0.75rem);
-    right: calc(10% + 0.75rem);
+    left: 0.75rem;
+    right: calc(20% + 0.75rem);
   }
 }
