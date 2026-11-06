@@ -125,13 +125,30 @@
     cardDot.className = 'cat-dot' + (type ? ' cat--' + type : '');
   }
 
-  function showCard(from) {
-    opener = from || null;
-    card.hidden = false;
-    cardTitle.focus();
+  var stage = section.querySelector('.presence-stage');
+
+  function reducedMotion() {
+    return (window.RoelmiMotion && window.RoelmiMotion.isPaused()) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  function openSite(btn, from) {
+  // 06/11/2026 (Chiara): aprendo una sede dall elenco sotto la mappa la
+  // pagina torna SEMPRE su, con mappa e scheda in vista. Prima ci pensava
+  // solo focus(), che scorre soltanto se il titolo è fuori dallo schermo
+  // (e il minimo indispensabile): a volte la mappa restava fuori.
+  // scroll-padding-top di base.css tiene conto della barra in alto
+  function showCard(from, scrollUp) {
+    opener = from || null;
+    card.hidden = false;
+    if (scrollUp && stage) {
+      stage.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+      cardTitle.focus({ preventScroll: true });
+    } else {
+      cardTitle.focus();
+    }
+  }
+
+  function openSite(btn, from, scrollUp) {
     buttons.forEach(function (b) { b.setAttribute('aria-expanded', b === btn ? 'true' : 'false'); });
     var type = typeOf(btn);
     setDot(type);
@@ -140,7 +157,7 @@
     cardDesc.textContent = btn.parentNode.querySelector('.site-desc').textContent;
     cardList.textContent = '';
     highlightSite(btn);
-    showCard(from || btn);
+    showCard(from || btn, scrollUp);
   }
 
   // Punto con più sedi (Italia): elenco delle sedi visibili con il filtro
@@ -186,7 +203,7 @@
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       if (btn.getAttribute('aria-expanded') === 'true') closeCard(true);
-      else openSite(btn);
+      else openSite(btn, btn, true);
     });
   });
 
