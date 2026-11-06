@@ -213,7 +213,18 @@
     <!-- ==================================================================
          FILTRI + RISULTATI
          ================================================================== -->
-    <section class="fx-body picto-glass section theme-light grain" aria-label="Ingredients">
+    <section class="fx-body fx-body--grad picto-glass section theme-light grain" aria-label="Ingredients">
+      <!-- 06/11/2026 (Chiara): sotto filtri e schede il gradiente delle altre
+           sezioni (forma Cerulean sfocata), grande quanto tutta la sezione;
+           sfuma nel Ricepaper ai bordi (finder.css, .fx-body-bg). Decorativo -->
+      <div class="fx-body-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <filter id="fxBodyBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="70"/></filter>
+          </defs>
+          <rect x="140" y="90" width="1320" height="820" rx="260" filter="url(#fxBodyBlur)"/>
+        </svg>
+      </div>
       <!-- Filtro che colora i pittogrammi bianchi di Ocean (#42709E) tenendo le
            loro trasparenze: schede con il riquadro in vetro chiaro (picto.css) -->
       <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

@@ -1008,3 +1008,55 @@
 .fx-card-tags li {
   font-size: var(--fs-small);
 }
+
+/* ==========================================================================
+   Filtri e schede sul gradiente delle altre sezioni (06/11/2026, Chiara):
+   forma Cerulean sfocata grande quanto tutta la sezione, che sfuma nel
+   Ricepaper ai bordi (sopra e sotto con una maschera, ai lati con la
+   sfocatura): restano in Ricepaper solo i margini.
+   Contrasti sul punto più azzurro (Cerulean 0.9): Hard Grey ≥ 8.9:1; il
+   grigio secondario (3.7:1) e i testi / contorni di focus Ocean (≈ 2.4:1)
+   non passerebbero, quindi qui diventano Hard Grey. Le pillole scelte (Ocean
+   pieno + Ricepaper 4.69:1) e le schede non cambiano
+   ========================================================================== */
+.fx-body--grad {
+  isolation: isolate;
+}
+
+.fx-body-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fx-body-bg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.fx-body-bg rect {
+  fill: var(--cerulean);
+  opacity: 0.9;
+}
+
+.fx-body--grad {
+  --muted: var(--hard-grey);
+}
+
+.fx-body--grad .fx-card:hover .fx-card-name,
+.fx-body--grad .fx-card:focus-within .fx-card-name {
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fx-body--grad :focus-visible,
+.fx-body--grad .fx-card-link:focus-visible::after,
+.fx-body--grad .fx-pill input:focus-visible + span {
+  outline-color: var(--hard-grey);
+}
