@@ -181,6 +181,11 @@
       item.certifications.forEach(function (c) { tags.appendChild(el('li', '', c)); });
       glass.appendChild(tags);
     }
+    // "Discover more →" come in Our Portfolio (06/11/2026); solo a vista:
+    // il link vero è il nome
+    var more = el('span', 'fx-card-more', 'Discover more');
+    more.setAttribute('aria-hidden', 'true');
+    glass.appendChild(more);
     media.appendChild(glass);
     art.appendChild(media);
     li.appendChild(art);

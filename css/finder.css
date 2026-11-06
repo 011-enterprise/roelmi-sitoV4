@@ -1060,3 +1060,72 @@
 .fx-body--grad .fx-pill input:focus-visible + span {
   outline-color: var(--hard-grey);
 }
+
+/* ==========================================================================
+   Schede come Our Portfolio della home (06/11/2026, Chiara: "le nuove card
+   anche nel Finder"). Riquadro quadrato; dentro il riquadro verticale nel
+   colore della linea (o Ocean) allineato a sinistra con nome e funzione
+   (spazio vuoto a destra), pittogramma al centro del riquadro, descrizione
+   in hover DENTRO il riquadro e in fondo "Discover more →" (aria-hidden: il
+   link vero è il nome). Su touch la descrizione resta sotto, come prima
+   ========================================================================== */
+.fx-card-media--picto {
+  --picto-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;
+}
+
+.fx-card-media--picto .picto .picto-frame {
+  inset: 0 20% 0 0;
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.fx-card-media--picto .picto .picto-img {
+  inset: 15% auto auto 40%;
+  height: 70%;
+  translate: -50% 0;
+}
+
+@media (hover: hover) {
+  .fx-card-media--picto .fx-card-glass {
+    left: 0.75rem;
+    right: calc(20% + 0.75rem);
+  }
+}
+
+@media (hover: none) {
+  .fx-card-media--picto {
+    aspect-ratio: auto;
+  }
+}
+
+/* "Discover more →": come i link-CTA delle schede in home */
+.fx-card-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 0.75rem;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+.fx-card-more::after {
+  content: "";
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.fx-card:hover .fx-card-more::after {
+  transform: translateX(3px);
+}
+
+.motion-paused .fx-card-more::after {
+  transform: none;
+}
