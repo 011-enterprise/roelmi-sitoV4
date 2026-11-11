@@ -591,11 +591,29 @@
   opacity: 0.15;
 }
 
-.presence-map.is-focused .map-pin:not(.is-active)::after,
 .presence-map.is-focused .map-pin:not(.is-active) .map-pin-label {
   display: none;
 }
 
+.presence-map.is-focused .map-pin:not(.is-active)::after {
+  visibility: hidden;
+}
+
 .presence-map.is-focused .map-pin.is-active {
   z-index: 2;
+}
+
+/* Onda dei punti: SOLO 2 volte (5 secondi) e poi mai più (regola di Chiara,
+   28/10/2026; corretta l 11/11/2026). Nascondere l onda con display: none
+   (filtri, sede a fuoco) e poi rimostrarla faceva RIPARTIRE l animazione:
+   ora l onda si nasconde con visibility (non riparte) e, finita la prima
+   volta, js/presence.js mette .pulse-done sulla mappa e l onda non c è più */
+.map-pin.is-off::after {
+  display: block;
+  visibility: hidden;
+}
+
+.presence-map.pulse-done .map-pin::after {
+  animation: none;
+  opacity: 0;
 }

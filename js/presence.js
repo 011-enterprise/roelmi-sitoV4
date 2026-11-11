@@ -112,6 +112,13 @@
     pin.querySelector('.map-pin-label').textContent = text;
   }
 
+  // Onda dei punti: finite le 2 pulsazioni del primo punto, basta per sempre
+  if (map) {
+    map.addEventListener('animationend', function (e) {
+      if (e.animationName === 'pin-pulse') map.classList.add('pulse-done');
+    });
+  }
+
   function setFocus(on) {
     if (map) map.classList.toggle('is-focused', on);
   }
