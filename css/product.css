@@ -2530,3 +2530,34 @@ html:not(.js) .pd-charts-nav {
     margin-top: 0.5rem;
   }
 }
+
+/* Didascalia del grafico di Clinical trials (11/11/2026, dal cliente):
+   legenda degli asterischi in riga, separati da una linea sottile come
+   nella tabella del cliente ("* p<0.05 | ** p<0.01 | *** p<0.001").
+   Grigio secondario su Ricepaper 6.2:1, 14px */
+.pd-clinical-caption ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  margin-top: 0.75rem;
+  font-size: var(--fs-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.pd-clinical-caption li {
+  padding-inline: 0.75rem;
+  border-left: 1px solid var(--line);
+}
+
+.pd-clinical-caption li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+/* Didascalia allineata al grafico (11/11/2026, Chiara): la legenda del
+   grafico (Placebo / SelectSIEVE Glitter) è centrata nell'immagine, quindi
+   anche la didascalia è centrata sotto, sullo stesso asse */
+.pd-clinical-caption ul {
+  justify-content: center;
+}

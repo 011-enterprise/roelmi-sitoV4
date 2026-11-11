@@ -353,6 +353,15 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/glitter-dark-spots.svg" alt="Bar chart: dark spots surface, as area occupied by pores (%), at T0, T28 and T56 days, placebo versus SelectSIEVE Glitter 200 mg/day. With placebo the area stays around 30% (about 32%, 30% and 29%). With SelectSIEVE Glitter it decreases from about 37% at T0 to 31% at T28 and 27% at T56, a statistically significant reduction at T28 and T56." width="520" height="325" loading="lazy" decoding="async">
+            <!-- Legenda della significatività (didascalia del cliente). Gli asterischi
+                 sono nascosti allo screen reader, che legge "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>
