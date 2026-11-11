@@ -2581,3 +2581,32 @@ html:not(.js) .pd-charts-nav {
 .pd-phero.pd-line-glitter   { --pd-tint: var(--line-glitter); }
 .pd-phero.pd-line-beaulixir { --pd-tint: var(--line-beaulixir); }
 .pd-phero.pd-line-seidotech { --pd-tint: var(--line-seidotech); }
+
+/* ==========================================================================
+   Descrizione allineata a sinistra (11/11/2026, richiesta della cliente):
+   il paragrafo grande e il secondo paragrafo partono dal bordo sinistro,
+   sotto il titolo, invece di stare spostati a destra. Stile già uguale a
+   Who We Are della home; su telefono ora anche la misura è la stessa
+   (20px, interlinea 1.3; prima 22px)
+   ========================================================================== */
+.pd-statement,
+.pd-desc-more {
+  margin-left: 0;
+}
+
+@media (max-width: 599.98px) {
+  .pd-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
+
+/* Descrizione più larga (11/11/2026, Chiara: "troppo alta e tutta a
+   sinistra"): da 36 a 56 caratteri per riga, circa due terzi della pagina.
+   Con il testo a 32px righe da ~56 caratteri restano comode da leggere e il
+   blocco diventa basso e largo, senza il vuoto a destra. Su telefono
+   invariata (tutta la larghezza) */
+.pd-statement {
+  max-width: 56ch;
+}

@@ -372,3 +372,14 @@
 .ct-offices + .ct-close {
   padding-top: 0;
 }
+
+/* Descrizione allineata a sinistra come nelle pagine prodotto
+   (11/11/2026, richiesta della cliente) */
+.ct-statement {
+  margin-left: 0;
+}
+
+/* Più larga, come la descrizione del prodotto (11/11/2026) */
+.ct-statement {
+  max-width: 56ch;
+}
