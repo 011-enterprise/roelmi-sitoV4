@@ -87,6 +87,35 @@
      2. Elenco ↔ mappa (passaggio del mouse)
      ------------------------------------------------------------------------ */
 
+  // 11/11/2026 (Chiara): sede scelta → il suo punto resta acceso con
+  // l'etichetta "Città, Paese" (es. "Naples, Italy") e gli altri punti si
+  // spengono (.is-focused sulla mappa), finché la scheda resta aperta
+  var map = section.querySelector('.presence-map');
+  var selectedPin = null;
+  var selectedLabel = '';
+
+  // Paese dalla riga sotto il nome: "Production hub — Campania, Italy" → Italy
+  function countryOf(btn) {
+    var sub = btn.querySelector('.site-sub');
+    var part = (sub ? sub.textContent : '').split('—').pop().split(',').pop();
+    return part.replace(/\(.*?\)/g, '').trim();
+  }
+
+  function labelFor(btn) {
+    var name = btn.querySelector('.site-name').textContent;
+    var country = countryOf(btn);
+    return country && country !== name ? name + ', ' + country : name;
+  }
+
+  function markPin(pin, text) {
+    pin.classList.add('is-active');
+    pin.querySelector('.map-pin-label').textContent = text;
+  }
+
+  function setFocus(on) {
+    if (map) map.classList.toggle('is-focused', on);
+  }
+
   function clearHighlight() {
     pins.forEach(function (pin) {
       pin.classList.remove('is-active');
@@ -94,14 +123,15 @@
       label.textContent = label.getAttribute('data-default');
     });
     buttons.forEach(function (b) { b.classList.remove('is-linked'); });
+    // La sede scelta resta accesa anche quando il mouse o il focus vanno altrove
+    if (selectedPin) markPin(selectedPin, selectedLabel);
   }
 
   function highlightSite(btn) {
     clearHighlight();
     var pin = pinFor(btn.getAttribute('data-group'));
     if (!pin) return;
-    pin.classList.add('is-active');
-    pin.querySelector('.map-pin-label').textContent = btn.querySelector('.site-name').textContent;
+    markPin(pin, labelFor(btn));
     btn.classList.add('is-linked');
   }
 
@@ -156,6 +186,9 @@
     cardTitle.textContent = btn.querySelector('.site-name').textContent;
     cardDesc.textContent = btn.parentNode.querySelector('.site-desc').textContent;
     cardList.textContent = '';
+    selectedPin = pinFor(btn.getAttribute('data-group'));
+    selectedLabel = labelFor(btn);
+    setFocus(true);
     highlightSite(btn);
     showCard(from || btn, scrollUp);
   }
@@ -170,6 +203,10 @@
     if (list.length === 1) { openSite(list[0], list[0]); return; }
 
     buttons.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    selectedPin = pin;
+    selectedLabel = pin.querySelector('.map-pin-label').getAttribute('data-default');
+    setFocus(true);
+    clearHighlight();
     setDot('');
     cardType.textContent = list.length + ' locations';
     cardTitle.textContent = pin.querySelector('.map-pin-label').getAttribute('data-default');
@@ -195,6 +232,8 @@
     if (card.hidden) return;
     card.hidden = true;
     buttons.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    selectedPin = null;
+    setFocus(false);
     clearHighlight();
     if (returnFocus && opener) opener.focus();
     opener = null;

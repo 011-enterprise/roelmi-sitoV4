@@ -578,3 +578,24 @@
   background-color: var(--ocean);
   color: var(--ricepaper);
 }
+
+/* ==========================================================================
+   Sede scelta (11/11/2026, Chiara): con la scheda di una sede aperta la
+   mappa mette a fuoco il suo punto. Gli altri punti si spengono (come con
+   un filtro: 15%, senza onda né nome); il punto scelto resta pieno, un po'
+   più grande, con l'etichetta "Città, Paese" (es. "Naples, Italy",
+   js/presence.js). Chiudendo la scheda torna tutto acceso. La mappa è
+   decorativa (aria-hidden): le stesse informazioni sono nella scheda
+   ========================================================================== */
+.presence-map.is-focused .map-pin:not(.is-active)::before {
+  opacity: 0.15;
+}
+
+.presence-map.is-focused .map-pin:not(.is-active)::after,
+.presence-map.is-focused .map-pin:not(.is-active) .map-pin-label {
+  display: none;
+}
+
+.presence-map.is-focused .map-pin.is-active {
+  z-index: 2;
+}
