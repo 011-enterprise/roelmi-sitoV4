@@ -570,3 +570,129 @@
 .nip-stage:not(.nip-stage--light) :focus-visible {
   outline-color: var(--ricepaper);
 }
+
+/* ==========================================================================
+   Telefono, bottoni come il resto del riquadro (11/11/2026, la cliente: "i
+   bottoni centrati uno sotto l'altro sono diversi da tutto"). Tornano in un
+   pannello di vetro come i blocchi sopra (titolo, numeri) e come su desktop,
+   largo quanto il riquadro; dentro, i bottoni della misura normale,
+   allineati a sinistra uno accanto all'altro (vanno a capo da soli se non
+   ci stanno), come nelle altre pagine. Contorno senza fondo pieno: sta sul
+   vetro, non sulla texture
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .nip-stage .nip-actions.glass {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: stretch;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    padding: 0.9rem;
+    border-radius: var(--r-inner);
+    background-color: var(--glass-dark-bg);
+    background-image: var(--glass-dark-sheen);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-dark-line);
+  }
+
+  .nip-stage--light .nip-actions.glass {
+    background-color: var(--glass-light-bg);
+    background-image: var(--glass-light-sheen);
+    box-shadow: var(--glass-light-line);
+  }
+
+  .nip-actions .btn {
+    width: auto;
+    flex: 0 0 auto;
+    justify-content: center;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .nip-actions .btn--outline {
+    background-color: transparent;
+  }
+
+  .nip-actions .btn--outline:hover {
+    background-color: var(--fg);
+  }
+}
+
+/* Correzione (11/11/2026, Chiara: "sbilanciato"): sul telefono i due
+   bottoni non ci stanno affiancati e il secondo andava a capo più largo del
+   primo. Nel pannello di vetro ora stanno uno sotto l'altro e occupano
+   tutta la larghezza, come i blocchi sopra: due righe uguali, allineate
+   ai bordi del titolo e dei numeri */
+@media (max-width: 599.98px) {
+  .nip-stage .nip-actions.glass {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nip-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Telefono, versione 3 dei bottoni e vetri (11/11/2026, Chiara + cliente):
+   - TUTTI i vetri del box scuri, anche i tre numeri (prima vetro chiaro su
+     telefono): sulla foto scura i vetri chiari sembravano grigi
+   - bottoni come in Who We Are su telefono: niente pannello dietro, uno
+     accanto all'altro, allineati a sinistra. Le due scritte sono lunghe:
+     per farli stare affiancati su un telefono di 375px sono a 14px, con
+     meno margine interno e SENZA la freccia → (solo qui, solo sotto i
+     600px). Sotto i 340px circa il secondo va a capo da solo
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .nip-stage:not(.nip-stage--light) .nip-stat.glass {
+    background-color: var(--glass-dark-bg);
+    background-image: var(--glass-dark-sheen);
+    box-shadow: var(--glass-dark-line);
+  }
+
+  .nip-stage .nip-actions.glass {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .nip-actions .btn {
+    width: auto;
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding-inline: 1rem;
+    font-size: var(--fs-small);
+  }
+
+  .nip-actions a.btn::after {
+    display: none;
+  }
+
+  /* Contorno sulla foto: fondo del vetro scuro, così la scritta non sta mai
+     direttamente sulla texture */
+  .nip-actions .btn--outline {
+    background-color: var(--glass-dark-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+}
+
+/* Telefono, spazio sopra e sotto il box NIP (11/11/2026, Chiara: "troppo
+   largo"). Il box sta tra Our Impact e Global Presence, chiare tutte e due:
+   lo spazio della sezione NIP si sommava al loro e diventava doppio. Ora
+   sopra e sotto c'è un solo --section-y, come tra gli altri blocchi */
+@media (max-width: 599.98px) {
+  .nip.section {
+    padding-block: 0;
+  }
+}
