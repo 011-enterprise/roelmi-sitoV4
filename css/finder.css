@@ -1048,9 +1048,22 @@
   --muted: var(--hard-grey);
 }
 
+/* Nome sottolineato solo con il mouse sopra o con il focus da tastiera
+   (11/11/2026: su telefono il tocco lasciava la scheda in :hover /
+   :focus-within e alcuni nomi restavano sottolineati) */
 .fx-body--grad .fx-card:hover .fx-card-name,
 .fx-body--grad .fx-card:focus-within .fx-card-name {
   color: var(--hard-grey);
+}
+
+@media (hover: hover) {
+  .fx-body--grad .fx-card:hover .fx-card-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.fx-body--grad .fx-card:has(.fx-card-link:focus-visible) .fx-card-name {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
