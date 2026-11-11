@@ -1296,3 +1296,13 @@ a.btn:not(:has(svg)):hover::after,
 .page-grad-bg--olive .page-grad-blob {
   fill: var(--olive);
 }
+
+/* Riquadro dell'apertura con un'immagine chiara (11/11/2026, polveri bianche
+   in About e Contatti): il fondo di riserva Hard Grey di .page-stage-media
+   si vedeva come un filo scuro lungo gli angoli arrotondati (bordo
+   antialiasing dell'immagine sopra il fondo scuro). Con un'immagine il fondo
+   di riserva è Ricepaper, e la maschera degli angoli taglia anche il fondo */
+.page-stage-media:has(> img) {
+  background-color: var(--ricepaper);
+  border-radius: inherit;
+}

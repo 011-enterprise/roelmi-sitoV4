@@ -2561,3 +2561,23 @@ html:not(.js) .pd-charts-nav {
 .pd-clinical-caption ul {
   justify-content: center;
 }
+
+/* ==========================================================================
+   PROVA 11/11/2026 (Chiara): nel riquadro dell'apertura, dietro la goccia,
+   la polvere bianca in macro a onde (images/polveri/polvere-6.jpg) al posto
+   di texture-18. La polvere è bianca come la goccia: per non farla sparire
+   la polvere prende il colore della linea del prodotto in "moltiplica"
+   (CytoFruit, senza linea, Cerulean). Le pieghe della polvere restano,
+   tinte del colore del prodotto. Tutte e 4 le pagine, solo CSS.
+   Per tornare indietro: togliere questo blocco
+   ========================================================================== */
+.pd-gradient .pd-phero-visual .picto-frame {
+  background-color: var(--pd-tint, var(--cerulean));
+  background-image: url("../images/polveri/polvere-6.jpg");
+  background-position: 50% 50%;
+  background-blend-mode: multiply;
+}
+
+.pd-phero.pd-line-glitter   { --pd-tint: var(--line-glitter); }
+.pd-phero.pd-line-beaulixir { --pd-tint: var(--line-beaulixir); }
+.pd-phero.pd-line-seidotech { --pd-tint: var(--line-seidotech); }

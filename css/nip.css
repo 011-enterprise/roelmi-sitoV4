@@ -552,3 +552,21 @@
     padding-bottom: var(--nip-space);
   }
 }
+
+/* Vetro SCURO sull'immagine scura polvere-nip (11/11/2026, Chiara): tolta
+   .nip-stage--light in home. La sezione è theme-soft (variabili chiare),
+   quindi i vetri riprendono qui le variabili del tema scuro: etichetta,
+   testo, link e focus in Ricepaper (17:1 sul vetro scuro), CTA piena
+   Cerulean (buttons.css, .glass) */
+.nip-stage:not(.nip-stage--light) .glass {
+  --fg: var(--ricepaper);
+  --bg: var(--hard-grey);
+  --accent: var(--cerulean);
+  --fg-muted: var(--muted-on-dark);
+  --muted: var(--muted-on-dark);
+  color: var(--ricepaper);
+}
+
+.nip-stage:not(.nip-stage--light) :focus-visible {
+  outline-color: var(--ricepaper);
+}

@@ -176,3 +176,12 @@
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+
+/* Fascia con vetro scuro (.cta-band--dark, es. NIP di About sull'immagine
+   scura polvere-nip, 11/11/2026): bottone pieno come sugli altri vetri scuri */
+.cta-band--dark .cta-band-glass {
+  --btn-bg: var(--cerulean);
+  --btn-fg: var(--hard-grey);
+  --btn-hover-bg: var(--ricepaper);
+  --btn-hover-fg: var(--hard-grey);
+}
