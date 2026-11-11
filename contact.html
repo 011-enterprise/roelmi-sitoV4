@@ -21,12 +21,10 @@
   <link rel="preload" as="font" type="font/woff2" href="fonts/iwona-medium-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/chironheihk-latin.woff2" crossorigin>
 
-  <!-- CSS (presence.css: mappa a puntini e punti delle sedi, come in home) -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/presence.css">
   <link rel="stylesheet" href="css/form.css">
   <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -164,10 +162,20 @@
     <span id="top"></span>
 
     <!-- ==================================================================
-         1 · MODULO (chiaro) — a sinistra il modulo, a destra i recapiti su
-         texture + vetro scuro (come i box di NIP e del Finder)
+         1 · APERTURA — modello comune .page-hero (base.css), come About,
+         Finder e NIP (11/11/2026, Chiara: coerente con il resto del sito):
+         gradiente Cerulean sul fondo, riquadro con l immagine di Chiara (polvere
+         in macro), vetro scuro con titolo, frase del cliente e i recapiti
          ================================================================== -->
-    <section class="ct-main theme-light grain" aria-labelledby="ct-title">
+    <section class="page-hero ct-hero section theme-soft grain" aria-labelledby="ct-title">
+      <div class="page-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="ctHeroBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#ctHeroBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <nav class="ct-breadcrumb" aria-label="Breadcrumb">
           <ol>
@@ -176,56 +184,115 @@
           </ol>
         </nav>
 
-        <!-- Desktop: titolo e modulo a sinistra, recapiti a destra.
-             Telefono: titolo · recapiti · modulo (ordine del codice) -->
-        <div class="ct-grid">
-          <div class="ct-head">
-            <h1 class="ct-title" id="ct-title">
-              <span class="eyebrow">ROELMI HPC</span>
-              <span>Contact us</span>
-            </h1>
-            <p class="ct-intro">The contact form of this page can be used to contact all the sales teams of ROELMI HPC.</p>
+        <div class="page-stage">
+          <!-- Immagine decorativa a tutto riquadro (11/11/2026, scelta di Chiara al
+               posto del video: polvere bianca in macro, images/contact/texture-contact.jpg).
+               Ferma: niente Stop animation -->
+          <div class="page-stage-media" aria-hidden="true">
+            <img src="images/contact/texture-contact.jpg" alt="" decoding="async" fetchpriority="high">
           </div>
 
-          <!-- Recapiti: texture decorativa + vetro scuro (texture libera) -->
-          <aside class="ct-aside cta-box theme-dark" aria-label="Contact details">
-            <div class="cta-box-bg" aria-hidden="true">
-              <img src="images/who/texture-11.jpg" alt="" loading="lazy" decoding="async">
-            </div>
-            <div class="cta-box-glass glass ct-info">
-              <h2 class="ct-info-h">Where we are</h2>
-              <p class="ct-info-text">Via Celeste Milani, 24 / 26<br>21040 Origgio (VA)<br>Italy</p>
-              <h2 class="ct-info-h">Contact us</h2>
-              <ul class="ct-info-list">
-                <li><span class="ct-info-k">P:</span> <a href="tel:+390233510150">+39 02 3351 0150</a></li>
-                <li><span class="ct-info-k">F:</span> +39 02 3354 9210</li>
-                <li><a href="mailto:info@roelmihpc.com">info@roelmihpc.com</a></li>
-              </ul>
-            </div>
-          </aside>
+          <div class="page-stage-glass glass">
+            <h1 class="page-stage-title" id="ct-title">
+              <span class="eyebrow">Contacts</span>
+              <span>Let’s talk</span>
+            </h1>
+            <p class="page-stage-lead">The contact form of this page can be used to contact all the sales teams of ROELMI HPC.</p>
+            <ul class="page-stage-facts ct-facts">
+              <li><span class="page-fact-k">Phone</span> <a class="page-fact-v" href="tel:+390233510150">+39 02 3351 0150</a></li>
+              <li><span class="page-fact-k">Email</span> <a class="page-fact-v" href="mailto:info@roelmihpc.com">info@roelmihpc.com</a></li>
+              <li><span class="page-fact-k">Headquarters</span> <span class="page-fact-v">Origgio (VA), Italy</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="fm-form-col ct-form-col">
-            <p class="fm-note">Fields marked with <span aria-hidden="true">*</span><span class="sr-only">an asterisk</span> are mandatory.</p>
+    <!-- ==================================================================
+         2 · ACCOGLIENZA — a chi ci rivolgiamo, parole che si accendono con
+         lo scroll (scroll-words.js, come Who We Are). Testo NOSTRO, da far
+         approvare.
+         ================================================================== -->
+    <section class="ct-welcome section theme-light grain" aria-labelledby="ct-welcome-title">
+      <div class="container">
+        <!-- 11/11/2026 (Chiara): come la descrizione della pagina prodotto e Who
+             We Are in home: titolo di sezione (etichetta + titolo) e paragrafo
+             grande in Iwona con le parole che si accendono. Testo NOSTRO, da
+             far approvare al cliente -->
+        <h2 class="ct-section-title" id="ct-welcome-title">
+          <span class="eyebrow" data-reveal>Our sales teams</span>
+          <span data-reveal data-reveal-delay="0.1">We are here to help</span>
+        </h2>
+        <p class="ct-statement" data-scroll-words>Our sales teams support <strong class="accent">cosmetic and nutraceutical brands</strong> worldwide: from choosing the <strong class="accent">right active ingredient</strong> to <strong class="accent">samples, technical datasheets</strong> and <strong class="accent">regulatory documentation</strong>.</p>
+      </div>
+    </section>
 
-            <!-- Controllo dei campi in contact.js (senza JS valgono i controlli del
-                 browser). L'invio vero va collegato al server: per ora il modulo
-                 mostra solo la conferma -->
-            <form class="fm-form" id="contactForm" action="#" method="post" novalidate data-validate data-success="Thank you for your message. Our team will get back to you soon.">
-              <p class="fm-summary" role="alert" hidden></p>
+    <!-- ==================================================================
+         3 · MODULO — sul gradiente del sito; a sinistra titolo e note, a
+         destra il modulo in un pannello di vetro chiaro che entra dal basso.
+         Campi come Until: Name, Surname, Email, Company, Country, Market,
+         Message (+ argomento a pillole). L'invio vero non è collegato
+         ================================================================== -->
+    <section class="ct-form-sec section theme-light grain" id="form" aria-labelledby="ct-form-title">
+      <div class="page-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <filter id="ctFormBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="70"/></filter>
+          </defs>
+          <rect class="page-grad-blob" x="140" y="90" width="1320" height="820" rx="260" filter="url(#ctFormBlur)"/>
+        </svg>
+      </div>
+      <div class="container ct-form-grid">
+        <div class="ct-form-head">
+          <h2 class="ct-section-title" id="ct-form-title">
+            <span class="eyebrow">Write to us</span>
+            <span>Connect with our experts.</span>
+          </h2>
+          <p class="ct-form-intro">Tell us what you are looking for: your request will reach the right sales team.</p>
+          <p class="fm-note">Fields marked with <span aria-hidden="true">*</span><span class="sr-only">an asterisk</span> are mandatory.</p>
+        </div>
 
-              <div class="fm-row">
-                <div class="fm-field">
-                  <label class="fm-label" for="ctName">Name <span class="fm-req" aria-hidden="true">*</span></label>
-                  <input class="fm-input" id="ctName" name="name" type="text" autocomplete="name" required aria-describedby="ctName-err">
-                  <p class="fm-error" id="ctName-err" data-msg="Enter your name." hidden></p>
-                </div>
-                <div class="fm-field">
-                  <label class="fm-label" for="ctEmail">Email <span class="fm-req" aria-hidden="true">*</span></label>
-                  <input class="fm-input" id="ctEmail" name="email" type="email" autocomplete="email" required aria-describedby="ctEmail-err">
-                  <p class="fm-error" id="ctEmail-err" data-msg="Enter your email address." data-msg-format="Enter an email address like name@company.com." hidden></p>
-                </div>
+        <div class="ct-form-panel">
+          <form class="fm-form" id="contactForm" action="#" method="post" novalidate data-validate data-success="Message sent. Our team will get back to you soon.">
+            <p class="fm-summary" role="alert" hidden></p>
+
+            <fieldset class="ct-topics">
+              <legend class="fm-label">How can we help?</legend>
+              <div class="ct-topic-list">
+                <label class="ct-topic"><input type="radio" name="topic" value="General enquiry" checked><span>General enquiry</span></label>
+                <label class="ct-topic"><input type="radio" name="topic" value="Personal Care"><span>Personal Care</span></label>
+                <label class="ct-topic"><input type="radio" name="topic" value="Nutraceutical"><span>Nutraceutical</span></label>
+                <label class="ct-topic"><input type="radio" name="topic" value="Request a sample"><span>Request a sample</span></label>
+                <label class="ct-topic"><input type="radio" name="topic" value="Technical datasheet"><span>Technical datasheet</span></label>
               </div>
+            </fieldset>
 
+            <div class="fm-row">
+              <div class="fm-field">
+                <label class="fm-label" for="ctName">Name <span class="fm-req" aria-hidden="true">*</span></label>
+                <input class="fm-input" id="ctName" name="name" type="text" autocomplete="given-name" required aria-describedby="ctName-err">
+                <p class="fm-error" id="ctName-err" data-msg="Enter your name." hidden></p>
+              </div>
+              <div class="fm-field">
+                <label class="fm-label" for="ctSurname">Surname <span class="fm-req" aria-hidden="true">*</span></label>
+                <input class="fm-input" id="ctSurname" name="surname" type="text" autocomplete="family-name" required aria-describedby="ctSurname-err">
+                <p class="fm-error" id="ctSurname-err" data-msg="Enter your surname." hidden></p>
+              </div>
+            </div>
+
+            <div class="fm-row">
+              <div class="fm-field">
+                <label class="fm-label" for="ctEmail">Email <span class="fm-req" aria-hidden="true">*</span></label>
+                <input class="fm-input" id="ctEmail" name="email" type="email" autocomplete="email" required aria-describedby="ctEmail-err">
+                <p class="fm-error" id="ctEmail-err" data-msg="Enter your email address." data-msg-format="Enter an email address like name@company.com." hidden></p>
+              </div>
+              <div class="fm-field">
+                <label class="fm-label" for="ctCompany">Company</label>
+                <input class="fm-input" id="ctCompany" name="company" type="text" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="fm-row">
               <div class="fm-field">
                 <label class="fm-label" for="ctRegion">Region <span class="fm-req" aria-hidden="true">*</span></label>
                 <select class="fm-input fm-select" id="ctRegion" name="region" required aria-describedby="ctRegion-err">
@@ -237,118 +304,153 @@
                 </select>
                 <p class="fm-error" id="ctRegion-err" data-msg="Select your region." hidden></p>
               </div>
-
               <div class="fm-field">
-                <label class="fm-label" for="ctMessage">Message <span class="fm-req" aria-hidden="true">*</span></label>
-                <textarea class="fm-input fm-textarea" id="ctMessage" name="message" rows="6" required aria-describedby="ctMessage-err"></textarea>
-                <p class="fm-error" id="ctMessage-err" data-msg="Write your message." hidden></p>
+                <label class="fm-label" for="ctMarket">Market</label>
+                <select class="fm-input fm-select" id="ctMarket" name="market">
+                  <option value="">Select Market</option>
+                  <option value="Personal Care">Personal Care</option>
+                  <option value="Nutraceutical & Food">Nutraceutical & Food</option>
+                  <option value="Pharma">Pharma</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
+            </div>
 
-              <div class="fm-checks">
-                <div class="fm-field fm-field--check">
-                  <input class="fm-check" id="ctPrivacy" name="privacy" type="checkbox" value="1" required aria-describedby="ctPrivacy-err">
-                  <label for="ctPrivacy"><span class="fm-req" aria-hidden="true">*</span> I hereby consent to the processing of my personal data in accordance with the <a href="#">Privacy</a> and <a href="#">Cookie</a> Policy</label>
-                  <p class="fm-error" id="ctPrivacy-err" data-msg="Accept the Privacy and Cookie Policy to send the form." hidden></p>
-                </div>
-                <div class="fm-field fm-field--check">
-                  <input class="fm-check" id="ctMarketing" name="marketing" type="checkbox" value="1">
-                  <label for="ctMarketing">I authorize the processing of my personal data to be updated on new arrivals and for direct marketing purposes related to the services offered.</label>
-                </div>
+            <div class="fm-field">
+              <label class="fm-label" for="ctMessage">Message <span class="fm-req" aria-hidden="true">*</span></label>
+              <textarea class="fm-input fm-textarea" id="ctMessage" name="message" rows="6" required aria-describedby="ctMessage-err"></textarea>
+              <p class="fm-error" id="ctMessage-err" data-msg="Write your message." hidden></p>
+            </div>
+
+            <div class="fm-checks">
+              <div class="fm-field fm-field--check">
+                <input class="fm-check" id="ctPrivacy" name="privacy" type="checkbox" value="1" required aria-describedby="ctPrivacy-err">
+                <label for="ctPrivacy"><span class="fm-req" aria-hidden="true">*</span> I hereby consent to the processing of my personal data in accordance with the <a href="#">Privacy</a> and <a href="#">Cookie</a> Policy</label>
+                <p class="fm-error" id="ctPrivacy-err" data-msg="Accept the Privacy and Cookie Policy to send the form." hidden></p>
               </div>
+              <div class="fm-field fm-field--check">
+                <input class="fm-check" id="ctMarketing" name="marketing" type="checkbox" value="1">
+                <label for="ctMarketing">I authorize the processing of my personal data to be updated on new arrivals and for direct marketing purposes related to the services offered.</label>
+              </div>
+            </div>
 
-              <button class="btn btn--solid fm-submit" type="submit">Submit</button>
-              <p class="fm-status" role="status" aria-live="polite"></p>
-            </form>
-          </div>
-
+            <button class="btn btn--solid fm-submit" type="submit">Send message</button>
+            <p class="fm-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
 
     <!-- ==================================================================
-         2 · GLOBAL PRESENCE (chiaro) — identica alla home, anche su telefono
-         (filtri, mappa, elenco a tendine, scheda della sede)
+         4 · SEDI — elenco con l'ora locale di ogni ufficio
          ================================================================== -->
-    <section class="presence section theme-light grain" id="presence" aria-labelledby="presence-title">
+    <section class="ct-offices section theme-light grain" aria-labelledby="ct-offices-title">
       <div class="container">
-        <h2 class="presence-title" id="presence-title">
-          <span class="eyebrow" data-reveal>Global Presence</span>
-          <span data-reveal data-reveal-delay="0.1">Where we are in the world</span>
+        <h2 class="ct-section-title" id="ct-offices-title">
+          <span class="eyebrow">Our offices</span>
+          <span>Where to find us</span>
         </h2>
+        <!-- Elenco delle sedi con l ora locale dal vivo (js/contact.js, Intl).
+             Senza JS l ora resta nascosta. L ora non viene annunciata a ogni
+             cambio (niente aria-live): si legge quando si arriva sulla riga -->
+        <ul class="ct-office-list">
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Origgio</h3>
+              <p class="ct-office-country">Italy</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">ROELMI HPC</p>
+              <p class="ct-office-type">Headquarters</p>
+            </div>
+            <address class="ct-office-address">Via Celeste Milani, 24 / 26<br>21040 Origgio (VA)</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Origgio: </span><time data-tz="Europe/Rome"></time></p>
+          </li>
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Gerenzano</h3>
+              <p class="ct-office-country">Italy</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">ROELMI BIOTECH</p>
+              <p class="ct-office-type">Biotech R&amp;D</p>
+            </div>
+            <address class="ct-office-address">Via Roberto Lepetit 34<br>21040 Gerenzano (VA)</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Gerenzano: </span><time data-tz="Europe/Rome"></time></p>
+          </li>
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Paris</h3>
+              <p class="ct-office-country">France</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">ROELMI HPC France SARL</p>
+              <p class="ct-office-type">Subsidiary</p>
+            </div>
+            <address class="ct-office-address">32, rue de l'Arcade<br>75008 Paris</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Paris: </span><time data-tz="Europe/Paris"></time></p>
+          </li>
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Saddle Brook</h3>
+              <p class="ct-office-country">USA</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">ROELMI HPC USA, LLC</p>
+              <p class="ct-office-type">Subsidiary</p>
+            </div>
+            <address class="ct-office-address">250 Pehle Avenue, Suite 200<br>Saddle Brook, New Jersey 07663</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Saddle Brook: </span><time data-tz="America/New_York"></time></p>
+          </li>
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Hangzhou</h3>
+              <p class="ct-office-country">China</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">Hangzhou ROELMI HPC Biotech Co., Ltd</p>
+              <p class="ct-office-type">Subsidiary</p>
+            </div>
+            <address class="ct-office-address">Room 505, Building 4, No. 199 Shimin Street<br>Shangcheng District, Hangzhou, Zhejiang</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Hangzhou: </span><time data-tz="Asia/Shanghai"></time></p>
+          </li>
+          <li class="ct-office">
+            <div class="ct-office-place">
+              <h3 class="ct-office-city">Seongnam-si</h3>
+              <p class="ct-office-country">South Korea</p>
+            </div>
+            <div class="ct-office-who">
+              <p class="ct-office-name">ROELMI HPC Korea Ltd.</p>
+              <p class="ct-office-type">Subsidiary</p>
+            </div>
+            <address class="ct-office-address">918 &amp; 919, 9F, 36 Hwangsaeul-ro 200beon-gil<br>Bundang-gu, Seongnam-si, Gyeonggi-do 13595</address>
+            <p class="ct-office-time" hidden><span class="sr-only">Local time in Seongnam-si: </span><time data-tz="Asia/Seoul"></time></p>
+          </li>
+        </ul>
 
-        <div class="presence-filters" role="group" aria-label="Filter locations">
-          <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-pill" type="button" data-filter="site" aria-pressed="false"><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</button>
-          <button class="filter-pill" type="button" data-filter="branch" aria-pressed="false"><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</button>
-          <button class="filter-pill" type="button" data-filter="biotech" aria-pressed="false"><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</button>
-          <button class="filter-pill" type="button" data-filter="lab" aria-pressed="false"><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</button>
-          <button class="filter-pill" type="button" data-filter="production" aria-pressed="false"><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</button>
-        </div>
-        <p class="presence-status sr-only" aria-live="polite"></p>
+      </div>
+    </section>
 
-        <div class="presence-stage" data-reveal>
-          <!-- Mappa: decorativa, le stesse informazioni sono nell'elenco sotto -->
-          <div class="presence-map" aria-hidden="true">
-            <img src="images/presence/world-dots.svg" alt="" loading="lazy" decoding="async">
-            <span class="map-pin map-pin--multi" data-group="italy" data-types="site lab biotech production" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Italy</span></span>
-            <span class="map-pin cat--branch" data-group="paris" data-types="branch" style="left: 50.64%; top: 24.74%;"><span class="map-pin-hit"></span><span class="map-pin-label">Paris</span></span>
-            <span class="map-pin cat--site" data-group="la" data-types="site" style="left: 17.16%; top: 35.18%;"><span class="map-pin-hit"></span><span class="map-pin-label">RK Colors</span></span>
-            <span class="map-pin cat--branch" data-group="nj" data-types="branch" style="left: 29.42%; top: 30.35%;"><span class="map-pin-hit"></span><span class="map-pin-label">Saddle Brook</span></span>
-            <span class="map-pin cat--branch" data-group="hz" data-types="branch" style="left: 83.38%; top: 37.85%;"><span class="map-pin-hit"></span><span class="map-pin-label">Hangzhou</span></span>
-            <span class="map-pin cat--branch" data-group="kr" data-types="branch" style="left: 85.31%; top: 32.83%;"><span class="map-pin-hit"></span><span class="map-pin-label">Seongnam-si</span></span>
+    <!-- ==================================================================
+         5 · CHIUSURA — fascia comune .cta-band (base.css), come tutte le
+         pagine (11/11/2026)
+         ================================================================== -->
+    <section class="ct-close section theme-light grain" aria-labelledby="ct-close-title">
+      <div class="container">
+        <aside class="cta-band" aria-labelledby="ct-close-title" data-reveal>
+          <div class="cta-band-bg" aria-hidden="true">
+            <img src="images/product/texture-16.jpg" alt="" loading="lazy" decoding="async">
           </div>
-
-          <!-- Scheda della sede (si apre dall'elenco o dalla mappa) -->
-          <div class="site-card" id="siteCard" role="dialog" aria-modal="false" aria-labelledby="siteCardTitle" hidden>
-            <button class="site-card-close" type="button" aria-label="Close">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
-            </button>
-            <p class="site-card-type"><span class="cat-dot" aria-hidden="true"></span><span class="site-card-type-text"></span></p>
-            <h3 class="site-card-title" id="siteCardTitle" tabindex="-1"></h3>
-            <p class="site-card-desc"></p>
-            <ul class="site-card-list"></ul>
+          <div class="cta-band-glass">
+            <div class="cta-band-copy">
+              <h2 class="cta-band-title" id="ct-close-title">Looking for a specific ingredient?</h2>
+              <p class="cta-band-text">Explore our portfolio in the Ingredient Finder.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn--solid" href="ingredient-finder.html">Open Ingredient Finder</a>
+            </div>
           </div>
-        </div>
-
-        <div class="presence-list">
-          <details class="presence-group" data-type="site">
-            <summary><h3><span class="cat-dot cat--site" aria-hidden="true"></span>Production hubs</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Lainate</span><span class="site-sub">Production hub — Varese, Italy</span></button><p class="site-desc" hidden>Production plant dedicated to the development and manufacture of active ingredients for personal care.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Naples</span><span class="site-sub">Production hub — Campania, Italy</span></button><p class="site-desc" hidden>Production site in southern Italy, dedicated to processing naturally derived ingredients and marine bioactives.</p></li>
-              <li><button class="site-btn" type="button" data-group="la" aria-controls="siteCard" aria-expanded="false"><span class="site-name">RK Colors</span><span class="site-sub">Production hub — USA</span></button><p class="site-desc" hidden>US plant dedicated to the development and manufacture of functionalised pigments and active make-up ingredients.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="branch">
-            <summary><h3><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="paris" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Paris</span><span class="site-sub">Subsidiary — France</span></button><p class="site-desc" hidden>ROELMI HPC France SARL — 32, rue de l'Arcade, 75008 Paris, France.</p></li>
-              <li><button class="site-btn" type="button" data-group="nj" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Saddle Brook</span><span class="site-sub">Subsidiary — USA</span></button><p class="site-desc" hidden>ROELMI HPC USA, LLC — 250 Pehle Avenue, Suite 200, Saddle Brook, New Jersey 07663, USA.</p></li>
-              <li><button class="site-btn" type="button" data-group="hz" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Hangzhou</span><span class="site-sub">Subsidiary — China (Asia-Pacific)</span></button><p class="site-desc" hidden>Hangzhou ROELMI HPC Biotech Co., Ltd — Room 505, Building 4, No. 199 Shimin Street, Shangcheng District, Hangzhou, Zhejiang, China.</p></li>
-              <li><button class="site-btn" type="button" data-group="kr" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Seongnam-si</span><span class="site-sub">Subsidiary — South Korea</span></button><p class="site-desc" hidden>ROELMI HPC Korea Ltd. — 918 &amp; 919, 9F, 36 Hwangsaeul-ro 200beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, South Korea (13595).</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="biotech">
-            <summary><h3><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BIOTECH</span><span class="site-sub">Biotech R&amp;D — Italy</span></button><p class="site-desc" hidden>Hub dedicated to the research and development of biotech solutions, fermentation-derived ingredients and advanced probiotics. Via Roberto Lepetit 34, 21040 Gerenzano (VA), Italy.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="lab">
-            <summary><h3><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Solaro</span><span class="site-sub">Laboratory — Milan, Italy</span></button><p class="site-desc" hidden>Laboratory dedicated to the analysis and processing of active raw materials for the nutraceutical and food markets.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Origgio</span><span class="site-sub">Laboratory — Origgio (VA), Italy</span></button><p class="site-desc" hidden>ROELMI HPC — Via Celeste Milani 224, 21040 Origgio (VA), Italy.</p></li>
-            </ul>
-          </details>
-          <details class="presence-group" data-type="production">
-            <summary><h3><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</h3></summary>
-            <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Vortex SRL SB</span><span class="site-sub">Manufacturing — Piedmont, Italy</span></button><p class="site-desc" hidden>Vortex SRL SB — Manufacturing site in Piedmont, Italy.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Isuschem srl</span><span class="site-sub">Manufacturing — Caserta, Italy</span></button><p class="site-desc" hidden>Isuschem srl — Via Thomas Alva Edison, 81100 Caserta (CE), Italy.</p></li>
-            </ul>
-          </details>
-        </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -440,9 +542,8 @@
   <script src="js/reveal.js" defer></script>
   <script src="js/header.js" defer></script>
   <script src="js/footer.js" defer></script>
-  <script src="js/force-field.js" defer></script>
-  <!-- presence.js: filtri, elenco, scheda della sede e onda dei pallini, come in home -->
-  <script src="js/presence.js" defer></script>
   <script src="js/form.js" defer></script>
+  <script src="js/scroll-words.js" defer></script>
+  <script src="js/contact.js" defer></script>
 </body>
 </html>

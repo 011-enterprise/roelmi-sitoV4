@@ -1,23 +1,19 @@
 /* ==========================================================================
-   Contatti (testi della pagina attuale roelmihpc.com/contacts)
-   1 Modulo (chiaro): titolo, testo, modulo a sinistra · recapiti a destra su
-     texture + vetro scuro (componente comune .cta-box di base.css)
-   2 Global Presence: la sezione della home, identica (presence.css/.js)
-   Campi del modulo: css/form.css (comune con Careers)
+   Contatti — versione 3 (10/11/2026, Chiara: ispirata alla pagina Contact
+   di Until Labs, "la versione 2 era troppo statica").
+   1 Apertura: modello comune .page-hero (come About, Finder, NIP) con il
+     video nel riquadro e i recapiti nel vetro scuro (11/11/2026)
+   2 Descrizione come la pagina prodotto: titolo di sezione + paragrafo
+     grande che si accende con lo scroll
+   3 Modulo "Connect with our experts." sul gradiente, pannello di vetro
+   4 Sedi: elenco con l'ora locale di ogni ufficio
+   5 Chiusura: fascia comune .cta-band
+   Campi del modulo: css/form.css (comune con Careers), logica js/form.js
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1 · Modulo
+   Percorso (come About)
    -------------------------------------------------------------------------- */
-
-.ct-main {
-  position: relative;
-  isolation: isolate;
-  padding-top: calc(var(--header-h) + 0.5rem);
-  padding-bottom: var(--section-y);
-  background-color: var(--ricepaper);
-  color: var(--hard-grey);
-}
 
 .ct-breadcrumb ol {
   display: flex;
@@ -34,6 +30,7 @@
 
 .ct-breadcrumb li + li::before {
   content: "/";
+  content: "/" / "";   /* separatore solo visivo: lo screen reader non legge "slash" */
 }
 
 .ct-breadcrumb a {
@@ -47,34 +44,80 @@
   text-underline-offset: 3px;
 }
 
-.ct-breadcrumb a:hover {
-  color: var(--ocean);
-}
-
 .ct-breadcrumb a[aria-current="page"] {
   text-decoration: none;
   font-weight: 600;
 }
 
-/* Desktop: titolo e modulo a sinistra, recapiti a destra (per tutta l'altezza).
-   Telefono: titolo · recapiti · modulo, come nel codice */
-.ct-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  grid-template-areas:
-    "head aside"
-    "form aside";
-  grid-template-rows: auto 1fr;
-  align-items: start;
-  gap: 0 clamp(2rem, 1rem + 4vw, 5rem);
-  margin-top: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+.ct-breadcrumb a:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
 }
 
-.ct-head     { grid-area: head; }
-.ct-aside    { grid-area: aside; }
-.ct-form-col { grid-area: form; }
+/* --------------------------------------------------------------------------
+   1 · Apertura: modello comune .page-hero (base.css). Qui solo i recapiti,
+   che sono link sul vetro scuro (Ricepaper 17:1, sottolineati)
+   -------------------------------------------------------------------------- */
 
-.ct-title {
+.ct-facts a.page-fact-v {
+  color: var(--ricepaper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ct-facts a.page-fact-v:hover {
+  text-decoration-thickness: 2px;
+}
+
+.ct-facts a.page-fact-v:focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   2 · Descrizione come la pagina prodotto (Iwona, parole che si
+   accendono: grigio secondario → Hard Grey, accenti Ocean 4.69:1 su
+   Ricepaper liscio)
+   -------------------------------------------------------------------------- */
+
+/* Descrizione come la pagina prodotto (.pd-statement) e Who We Are
+   (11/11/2026, Chiara): sotto il titolo di sezione, spostata a destra,
+   Iwona Medium 22–32px, interlinea 1.2, max 36ch, parole chiave solo
+   colorate in Ocean (4.69:1 su Ricepaper); telefono 20px */
+.ct-statement {
+  max-width: 36ch;
+  margin-top: var(--title-gap);
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.ct-statement strong {
+  font-weight: 500;
+}
+
+.ct-statement .accent {
+  color: var(--ocean);
+}
+
+@media (max-width: 599.98px) {
+  .ct-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Titoli di sezione (come le altre pagine)
+   -------------------------------------------------------------------------- */
+
+.ct-section-title {
   font-family: var(--font-display);
   font-size: var(--fs-section);
   font-weight: 500;
@@ -83,107 +126,249 @@
   color: var(--hard-grey);
 }
 
-.ct-title span:not(.eyebrow) {
+.ct-section-title span:not(.eyebrow) {
   display: block;
-  margin-top: 1.25rem;
-}
-
-.ct-intro {
-  max-width: 44ch;
-  margin-top: clamp(1rem, 0.75rem + 1vw, 1.75rem);
-  font-size: var(--fs-lead);
-  font-weight: 300;
-  line-height: 1.5;
-}
-
-
-/* --- Recapiti: texture + vetro scuro, resta in vista mentre si compila --- */
-
-.ct-aside {
-  position: sticky;
-  top: calc(var(--header-h) + 1rem);
-  align-items: end;
-  min-height: min(72vh, 680px);
-}
-
-.ct-info {
-  width: 100%;
-}
-
-.ct-info-h {
-  font-family: var(--font-display);
-  font-size: var(--fs-lead);
-  font-weight: 500;
-  letter-spacing: var(--ls-tight);
-  color: var(--ricepaper);
-}
-
-.ct-info-h + * {
-  margin-top: 0.4rem;
-}
-
-.ct-info-text + .ct-info-h {
-  margin-top: 1.25rem;
-}
-
-.ct-info-text,
-.ct-info-list {
-  color: var(--ricepaper);
-  line-height: 1.6;
-}
-
-/* Righe alte 44px (tocco), tutte uguali; "P:" e "F:" fuori dal link */
-.ct-info-list li {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  min-height: 44px;
-}
-
-.ct-info-list a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.ct-info-list a:hover {
-  color: var(--cerulean);
-}
-
-.ct-info-k {
-  font-weight: 600;
-  margin-right: 0.35em;
+  margin-top: 1rem;
 }
 
 /* --------------------------------------------------------------------------
-   2 · Global Presence: la sezione della home (presence.css), identica.
-   Qui le due sezioni sono chiare: una linea sottile le separa
+   2 · Modulo sul gradiente. La forma sfocata (.page-grad-bg, base.css) qui
+   è un rettangolo grande quanto la sezione: restano Ricepaper solo i
+   margini. Testi Hard Grey (≥ 8.9:1 sul Cerulean); il grigio secondario
+   qui sarebbe 3.7:1, quindi diventa Hard Grey
    -------------------------------------------------------------------------- */
 
-.ct-main + .presence {
+.ct-form-sec {
+  --muted: var(--hard-grey);
+  background-image: none;
+}
+
+.ct-form-sec .page-grad-bg svg {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.ct-form-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+}
+
+.ct-form-intro {
+  max-width: 40ch;
+  margin-top: var(--title-gap);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+/* Pannello di vetro chiaro, più pieno del vetro comune (0.72): sopra il
+   punto più azzurro Hard Grey ≥ 12:1, Ocean (focus, hover) ≥ 3.5:1 */
+.ct-form-panel {
+  padding: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+  border-radius: var(--r-card);
+  background-color: rgba(247, 243, 235, 0.72);
+  background-image: var(--glass-light-sheen);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-light-line), 0 24px 48px rgba(25, 25, 25, 0.08);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .ct-form-panel {
+    background-color: rgba(247, 243, 235, 0.9);
+  }
+}
+
+.ct-form-panel .fm-form {
+  margin-top: 0;
+}
+
+/* Argomento: pillole a scelta singola (radio). Stesso aspetto delle pillole
+   di scelta del sito: contorno Hard Grey, hover velo 6%, scelta Ocean pieno
+   con testo Ricepaper (4.69:1). Il radio resta vero (frecce della tastiera,
+   screen reader), nascosto solo a vista; focus visibile sulla pillola */
+.ct-topics {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.ct-topics legend {
+  padding: 0;
+  margin-bottom: 0.65rem;
+}
+
+.ct-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ct-topic {
+  position: relative;
+}
+
+.ct-topic input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.ct-topic span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--hard-grey);
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--hard-grey);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) var(--ease-out);
+}
+
+.ct-topic input:hover + span {
+  background-color: rgba(25, 25, 25, 0.06);
+}
+
+.ct-topic input:checked + span {
+  border-color: var(--ocean);
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+}
+
+.ct-topic input:focus-visible + span {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4 · Sedi: elenco tipografico (non schede). Una riga per ufficio, divisa
+   da una linea sottile: città grande in Iwona e paese, società e ruolo,
+   indirizzo, ora locale dal vivo (js/contact.js). Testi Hard Grey e grigio
+   secondario su Ricepaper (6.2:1)
+   -------------------------------------------------------------------------- */
+
+.ct-office-list {
+  margin-top: var(--title-gap);
   border-top: 1px solid var(--line);
+}
+
+.ct-office {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.2fr) 5.5rem;
+  align-items: baseline;
+  gap: 0.5rem clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  padding-block: clamp(1.1rem, 0.8rem + 1vw, 1.75rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.ct-office-city {
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.ct-office-country,
+.ct-office-type {
+  margin-top: 0.3rem;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.ct-office-name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+.ct-office-address {
+  font-size: var(--fs-body);
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+/* Ora locale: cifre della stessa larghezza, così non "ballano" al cambio */
+.ct-office-time {
+  justify-self: end;
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  color: var(--ocean);   /* testo grande: 4.69:1 su Ricepaper */
 }
 
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 
-@media (max-width: 899.98px) {
-  .ct-grid {
+@media (max-width: 1023.98px) {
+  .ct-form-grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "head"
-      "aside"
-      "form";
-    grid-template-rows: auto;
-    row-gap: var(--title-gap);
   }
 
-  /* Su tablet e telefono i recapiti stanno tra il titolo e il modulo, non
-     più fissi; striscia di texture sopra il vetro più bassa */
-  .ct-aside {
-    position: relative;
-    top: auto;
-    min-height: 0;
-    padding-top: clamp(6rem, 22vw, 9rem);
+  .ct-office {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   }
+
+  .ct-office-address {
+    grid-column: 2;
+  }
+
+  .ct-office-time {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .ct-office {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .ct-office-who,
+  .ct-office-address {
+    grid-column: 1 / -1;
+  }
+
+  .ct-office-time {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ct-section-title {
+    font-size: 2rem;
+  }
+
+  .ct-form-panel {
+    padding: 1.1rem;
+  }
+}
+
+/* ==========================================================================
+   Spazi (11/11/2026, Chiara: "troppo spazio sopra e sotto la descrizione").
+   Due sezioni chiare di fila sommavano i loro spazi (fondo dell'una + cima
+   dell'altra = due volte --section-y). Ora tra due sezioni c'è un solo
+   spazio --section-y, come tra i blocchi delle altre pagine
+   ========================================================================== */
+.ct-welcome {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ct-offices + .ct-close {
+  padding-top: 0;
 }
