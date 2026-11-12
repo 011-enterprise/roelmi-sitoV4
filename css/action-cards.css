@@ -230,8 +230,36 @@
   --np-liquid: 52%;
 }
 
+/* Telefono e tablet (niente hover), 12/11/2026: senza JS il riquadro è già
+   pieno e fermo; con JS parte vuoto e si riempie quando la SCHEDA entra
+   nello schermo (.is-filled sulla scheda da js/action-cards.js). Più lento
+   che con il mouse: salita 3.2s, l onda scorre una volta (4s), le schede
+   che entrano insieme partono a 0.35s l una dall altra (--d). Poi resta
+   pieno e fermo. Con Stop animation / reduced-motion: pieno subito */
 @media (hover: none) {
   .np-card-media--fill::before {
+    --np-liquid: 52%;
+    animation: none;
+  }
+
+  .js .np-card:not(.is-filled) .np-card-media--fill::before {
+    --np-liquid: 0%;
+  }
+
+  .js .np-card.is-filled .np-card-media--fill::before {
+    transition-duration: 3.2s;
+    transition-delay: var(--d, 0s);
+    animation: np-wave 4s linear var(--d, 0s) 1;
+  }
+
+  .motion-paused .np-card .np-card-media--fill::before {
+    --np-liquid: 52%;
+    animation: none;
+  }
+}
+
+@media (hover: none) and (prefers-reduced-motion: reduce) {
+  .js .np-card .np-card-media--fill::before {
     --np-liquid: 52%;
     animation: none;
   }
