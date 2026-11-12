@@ -1142,3 +1142,78 @@
 .motion-paused .fx-card-more::after {
   transform: none;
 }
+
+/* ==========================================================================
+   Schede del Finder: il riquadro colorato si riempie come un liquido quando
+   la scheda entra nello schermo, come Our Portfolio in home (12/11/2026,
+   Chiara). Su desktop e telefono (non dipende dal mouse); le schede che
+   entrano insieme partono una dopo l'altra; a ogni filtro le schede nuove
+   si riempiono di nuovo (js/action-cards.js, MutationObserver). A riposo
+   il riquadro è appena tinto (25%); poi resta pieno. Senza JS, Stop
+   animation, reduced-motion: pieno subito
+   ========================================================================== */
+@property --fx-liquid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --fx-wave {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.fx-card-media--picto .picto {
+  --fx-fill: rgba(66, 112, 158, 0.76);
+}
+
+.fx-card-media--picto .picto[class*="picto--line-"] {
+  --fx-fill: color-mix(in srgb, var(--line-color) 88%, transparent);
+}
+
+.fx-card-media--picto .picto .picto-frame,
+.fx-card-media--picto .picto[class*="picto--line-"] .picto-frame {
+  background-color: color-mix(in srgb, var(--fx-fill) 25%, transparent);
+}
+
+.fx-card-media--picto .picto .picto-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  --fx-liquid: 52%;
+  background:
+    linear-gradient(135deg, rgba(247, 243, 235, 0.24), rgba(247, 243, 235, 0.03) 50%, rgba(247, 243, 235, 0.1)),
+    var(--fx-fill);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--fx-wave) var(--fx-liquid) / 200% 300% repeat-x;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--fx-wave) var(--fx-liquid) / 200% 300% repeat-x;
+  transition: --fx-liquid 3.2s cubic-bezier(0.45, 0, 0.25, 1);
+  pointer-events: none;
+}
+
+@keyframes fx-wave {
+  from { --fx-wave: 0%; }
+  to   { --fx-wave: 100%; }
+}
+
+.js .fx-card:not(.is-filled) .fx-card-media--picto .picto-frame::before {
+  --fx-liquid: 0%;
+}
+
+.js .fx-card.is-filled .fx-card-media--picto .picto-frame::before {
+  transition-delay: var(--d, 0s);
+  animation: fx-wave 4s linear var(--d, 0s) 1;
+}
+
+.motion-paused .fx-card-media--picto .picto-frame::before {
+  transition: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-card-media--picto .picto-frame::before {
+    transition: none;
+    animation: none;
+  }
+}
