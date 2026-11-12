@@ -1306,3 +1306,9 @@ a.btn:not(:has(svg)):hover::after,
   background-color: var(--ricepaper);
   border-radius: inherit;
 }
+
+/* Gradiente comune in Antique (12/11/2026, apertura della divisione
+   Personal Care). Sopra testi Hard Grey (10.4:1) */
+.page-grad-bg--antique .page-grad-blob {
+  fill: var(--antique);
+}

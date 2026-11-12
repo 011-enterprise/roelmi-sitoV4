@@ -1,0 +1,322 @@
+/* ==========================================================================
+   Pagine delle divisioni: personal-care.html, nutraceutical.html
+   (12/11/2026, generatore ../SITO 4 - strumenti/genera-divisioni.js).
+   Solo pezzi già usati nel sito:
+   1 apertura .page-hero (base.css) con il gradiente del mercato
+   2 descrizione come la pagina prodotto (.pd-statement)
+   3 tecnologie Biotech & Nature: immagine e testo affiancati, alternati
+   4 ingredienti: schede di css/action-cards.css su Ocean (come Related)
+   5 chiusura .cta-band (base.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Percorso (come About e Contatti)
+   -------------------------------------------------------------------------- */
+.dv-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  font-size: var(--fs-small);
+}
+
+.dv-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dv-breadcrumb li + li::before {
+  content: "/";
+  content: "/" / "";   /* separatore solo visivo: lo screen reader non legge "slash" */
+}
+
+.dv-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dv-breadcrumb a[aria-current="page"] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dv-breadcrumb a:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
+}
+
+/* Bottone nel vetro scuro dell'apertura */
+.dv-hero-actions {
+  margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Titoli di sezione (come le altre pagine)
+   -------------------------------------------------------------------------- */
+.dv-section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-section);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--ls-title);
+  color: var(--fg);
+}
+
+.dv-section-title span:not(.eyebrow) {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   2 · Descrizione come la pagina prodotto (.pd-statement): Iwona Medium,
+   allineata a sinistra, 56 caratteri per riga, parole che si accendono;
+   parole chiave Ocean 4.69:1 su Ricepaper. Un solo spazio dopo l'apertura
+   -------------------------------------------------------------------------- */
+.dv-desc {
+  padding-top: 0;
+}
+
+.dv-statement {
+  max-width: 56ch;
+  margin-top: var(--title-gap);
+  font-family: var(--font-display);
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.dv-statement strong {
+  font-weight: 500;
+}
+
+.dv-statement .accent {
+  color: var(--ocean);
+}
+
+/* --------------------------------------------------------------------------
+   3 · Tecnologie: immagine e testo affiancati, il secondo al contrario.
+   Due sezioni chiare di fila: un solo spazio
+   -------------------------------------------------------------------------- */
+.dv-desc + .dv-tech-sec {
+  padding-top: 0;
+}
+
+/* Desktop (da 900px): due colonne. A sinistra la colonna dell immagine
+   resta ferma (sticky, sotto la barra in alto) mentre a destra scorrono i
+   due testi; ogni testo è alto almeno quanto lo schermo, così l immagine
+   resta il tempo di leggerlo. Quando Nature arriva a metà schermo
+   l immagine passa da Biotech a Nature con una dissolvenza (js/division.js,
+   .is-active). Con Stop animation / reduced-motion il cambio è istantaneo.
+   Le immagini piccole dentro ogni testo si vedono solo su telefono/tablet */
+.dv-techs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 1rem + 4vw, 5rem);
+  margin-top: var(--title-gap);
+}
+
+.dv-tech-sticky {
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+}
+
+.dv-tech-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: calc(100vh - var(--header-h) - 3rem);
+  overflow: hidden;
+  border-radius: var(--r-stage);
+  background-color: var(--line);
+}
+
+.dv-tech-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 1.6s var(--ease-out);
+}
+
+.dv-tech-frame img.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-paused .dv-tech-frame img {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dv-tech-frame img {
+    transition: none;
+    transform: none;
+  }
+}
+
+.dv-tech-texts {
+  display: grid;
+}
+
+.dv-tech {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: min(80vh, 720px);
+}
+
+.dv-tech + .dv-tech {
+  border-top: 1px solid var(--line);
+}
+
+/* Immagine del singolo testo: solo su telefono e tablet */
+.dv-tech-media {
+  display: none;
+  margin: 0 0 1.25rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background-color: var(--line);
+}
+
+.dv-tech-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dv-tech-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: var(--ls-title);
+  color: var(--hard-grey);
+}
+
+.dv-tech-body p {
+  max-width: 60ch;
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+.dv-tech-body strong {
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4 · Ingredienti su Ocean: titolo a sinistra, link al Finder a destra
+   (come Related products). Ricepaper su Ocean 4.69:1
+   -------------------------------------------------------------------------- */
+.dv-ingr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.dv-ingr-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  color: var(--fg);
+  text-underline-offset: 4px;
+}
+
+.dv-ingr-link::after {
+  content: "";
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.dv-ingr-link:hover {
+  text-decoration: underline;
+}
+
+.dv-ingr-link:hover::after {
+  transform: translateX(3px);
+}
+
+.dv-ingr-link:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.motion-paused .dv-ingr-link::after {
+  transform: none;
+}
+
+.dv-ingr .np-card-text {
+  margin-top: 0.35rem;
+  font-size: var(--fs-small);
+}
+
+.dv-ingr .np-card-pills {
+  margin-top: 0.75rem;
+  padding-inline: 0.25rem;
+}
+
+/* La chiusura dopo la sezione Ocean: spazio normale */
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 899.98px) {
+  .dv-techs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dv-tech-sticky {
+    display: none;
+  }
+
+  .dv-tech-media {
+    display: block;
+  }
+
+  .dv-tech {
+    min-height: 0;
+    padding-block: 1.5rem;
+  }
+
+  .dv-tech:first-child {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .dv-section-title {
+    font-size: 2rem;
+  }
+
+  .dv-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
