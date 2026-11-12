@@ -12,15 +12,26 @@
 (function () {
   'use strict';
 
-  var cards = document.querySelectorAll('.np-cards .np-card');
+  // Telefono e tablet: schede NIP / Related + Our Portfolio.
+  // Desktop: solo Our Portfolio (12/11/2026, si riempie all entrata anche
+  // lì); NIP / Related su desktop restano con l hover
+  var touch = window.matchMedia('(hover: none)').matches;
+  var cards = document.querySelectorAll(touch
+    ? '.np-cards .np-card, .pf-gradient .product-card'
+    : '.pf-gradient .product-card');
   if (!cards.length) return;
 
-  // Desktop: resta l hover, niente da fare
-  if (!window.matchMedia('(hover: none)').matches) return;
-
-  if (!('IntersectionObserver' in window)) {
+  function fillAll() {
     Array.prototype.forEach.call(cards, function (c) { c.classList.add('is-filled'); });
-    return;
+  }
+
+  // Stop animation o movimento ridotto: tutte piene subito (il CSS toglie
+  // la transizione), anche se lo Stop arriva dopo
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    (window.RoelmiMotion && window.RoelmiMotion.isPaused());
+  if (still || !('IntersectionObserver' in window)) { fillAll(); return; }
+  if (window.RoelmiMotion) {
+    window.RoelmiMotion.onChange(function (paused) { if (paused) fillAll(); });
   }
 
   var io = new IntersectionObserver(function (entries) {

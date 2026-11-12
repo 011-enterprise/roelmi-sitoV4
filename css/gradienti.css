@@ -161,3 +161,96 @@
     right: calc(20% + 0.75rem);
   }
 }
+
+/* ==========================================================================
+   PROVA 12/11/2026 (Chiara): il riquadro delle schede si riempie come un
+   liquido, come Related products e "Sustainability in action".
+   - A riposo il riquadro è lo stesso vetro ma appena tinto (25% del colore
+     della linea, Ocean per CytoFruit); il colore pieno è uno strato ::before
+     con la maschera "liquido" (superficie ondulata) che sale dal basso
+   - Desktop, telefono e tablet: si riempie quando la scheda entra nello
+     schermo, poi resta pieno (non dipende dal mouse: accessibilità)
+   - Riempimento: .is-filled da js/action-cards.js, lentamente (3.2s, onda una volta),
+     poi resta pieno e fermo
+   - Senza JS su telefono, Stop animation, reduced-motion: niente movimento
+   Decorativo. Per tornare al riquadro pieno: togliere questo blocco
+   ========================================================================== */
+@property --pf-liquid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --pf-wave {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.pf-gradient .picto--opt-portrait {
+  --pf-fill: rgba(66, 112, 158, 0.76);
+}
+
+.pf-gradient .picto--opt-portrait[class*="picto--line-"] {
+  --pf-fill: color-mix(in srgb, var(--line-color) 88%, transparent);
+}
+
+.pf-gradient .picto--opt-portrait .picto-frame,
+.pf-gradient .picto--opt-portrait[class*="picto--line-"] .picto-frame {
+  background-color: color-mix(in srgb, var(--pf-fill) 25%, transparent);
+}
+
+.pf-gradient .picto--opt-portrait .picto-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  --pf-liquid: 0%;
+  background:
+    linear-gradient(135deg, rgba(247, 243, 235, 0.24), rgba(247, 243, 235, 0.03) 50%, rgba(247, 243, 235, 0.1)),
+    var(--pf-fill);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--pf-wave) var(--pf-liquid) / 200% 300% repeat-x;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--pf-wave) var(--pf-liquid) / 200% 300% repeat-x;
+  transition: --pf-liquid 1.8s cubic-bezier(0.45, 0, 0.25, 1);
+  pointer-events: none;
+}
+
+@keyframes pf-wave {
+  from { --pf-wave: 0%; }
+  to   { --pf-wave: 100%; }
+}
+
+/* Desktop e telefono (12/11/2026, Chiara: "da desktop quando si arriva
+   nella sezione, e si riempiono tutte", per l accessibilità: il colore
+   pieno non deve dipendere dal mouse). Senza JS pieno; con JS vuoto finché
+   la scheda non entra nello schermo, poi si riempie (3.2s, onda una volta,
+   schede che entrano insieme a 0.35s l una dall altra) e resta pieno */
+.pf-gradient .picto--opt-portrait .picto-frame::before {
+  --pf-liquid: 52%;
+}
+
+.js .pf-gradient .product-card:not(.is-filled) .picto-frame::before {
+  --pf-liquid: 0%;
+}
+
+.js .pf-gradient .product-card.is-filled .picto-frame::before {
+  transition-duration: 3.2s;
+  transition-delay: var(--d, 0s);
+  animation: pf-wave 4s linear var(--d, 0s) 1;
+}
+
+.motion-paused .pf-gradient .picto-frame::before {
+  transition: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-gradient .picto-frame::before {
+    transition: none;
+    animation: none;
+  }
+
+  .js .pf-gradient .product-card .picto-frame::before {
+    --pf-liquid: 52%;
+  }
+}
