@@ -320,3 +320,38 @@
     line-height: 1.3;
   }
 }
+
+/* ==========================================================================
+   Aperture con la goccia del logo incisa nella polvere (13/11/2026, Chiara):
+   la goccia sta a destra nell'immagine, il vetro scuro a sinistra.
+   - Personal Care (polvere-logo4, rosa Antique): la goccia sta a metà
+     altezza e ci sta anche con l'immagine a tutto riquadro (cover),
+     inquadratura agganciata a destra
+   - Nutraceutical (polvere-logo3, azzurra): la goccia è alta quasi quanto
+     l'immagine; come in About l'immagine resta intera (contain) agganciata
+     a destra e il resto del riquadro continua con il suo azzurro (Cerulean
+     della palette), con il bordo sinistro dell'immagine sfumato
+   Telefono: cover per tutte e due
+   ========================================================================== */
+.page-stage-media img.dv-hero-img--pc {
+  object-position: 85% 50%;
+}
+
+@media (min-width: 900px) {
+  .page-stage-media:has(> .dv-hero-img--nutra) {
+    background-color: color-mix(in srgb, var(--cerulean) 90%, var(--ricepaper));
+  }
+
+  .page-stage-media img.dv-hero-img--nutra {
+    object-fit: contain;
+    object-position: 100% 50%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%);
+    mask-image: linear-gradient(to right, transparent 0, #000 22%);
+  }
+}
+
+@media (max-width: 899.98px) {
+  .page-stage-media img.dv-hero-img--nutra {
+    object-position: 85% 50%;
+  }
+}

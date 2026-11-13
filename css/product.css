@@ -2663,3 +2663,23 @@ html:not(.js) .pd-charts-nav {
 .pd-detail-title {
   font-size: var(--fs-body);
 }
+
+/* ==========================================================================
+   Fascia finale "Interested in …?" nel colore del prodotto (13/11/2026,
+   Chiara: "non va bene che sia Ocean"). Come il riquadro dell'apertura: una
+   polvere bianca (polvere-3, dune) tinta in "moltiplica" con il colore della
+   linea del prodotto (--pd-tint: marrone Glitter, giallo Beaulixir, verde
+   SeidoTech; CytoFruit, senza linea, Cerulean come la sua apertura).
+   Il vetro chiaro con testo Hard Grey resta uguale (≥ 7:1 anche sul marrone)
+   ========================================================================== */
+.pd-contact.pd-line-glitter   { --pd-tint: var(--line-glitter); }
+.pd-contact.pd-line-beaulixir { --pd-tint: var(--line-beaulixir); }
+.pd-contact.pd-line-seidotech { --pd-tint: var(--line-seidotech); }
+
+.pd-contact .cta-band-bg {
+  background-color: var(--pd-tint, var(--cerulean));
+}
+
+.pd-contact .cta-band-bg img {
+  mix-blend-mode: multiply;
+}

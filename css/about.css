@@ -921,3 +921,33 @@
   max-width: 56ch;
   margin-left: 0;
 }
+
+/* Apertura con polvere-about (13/11/2026): la goccia del logo incisa sta nel
+   terzo destro dell'immagine; l'inquadratura resta agganciata a destra e un
+   po' in alto, così la goccia non finisce mai sotto il vetro (a sinistra) */
+.page-stage-media img.ab-hero-img {
+  object-position: 85% 35%;
+}
+
+/* polvere-logo2 (13/11/2026, Chiara: "ridimensionala", il riquadro resta
+   uguale). Il riquadro è molto più largo che alto: con "cover" l immagine
+   16:9 veniva ingrandita e la goccia tagliata. Ora l immagine è intera
+   (contain), alta quanto il riquadro e agganciata a destra; a sinistra il
+   riquadro continua con il blu della polvere (fondo a sfumatura fatto con
+   Ocean e Cerulean della palette) e il bordo sinistro dell immagine sfuma
+   dentro, così non si vede lo stacco. Telefono: come prima (cover) */
+@media (min-width: 900px) {
+  .page-stage-media:has(> .ab-hero-img) {
+    background:
+      linear-gradient(to bottom,
+        color-mix(in srgb, var(--cerulean) 45%, var(--ocean)),
+        color-mix(in srgb, var(--cerulean) 25%, var(--ocean)));
+  }
+
+  .page-stage-media img.ab-hero-img {
+    object-fit: contain;
+    object-position: 100% 50%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%);
+    mask-image: linear-gradient(to right, transparent 0, #000 22%);
+  }
+}
