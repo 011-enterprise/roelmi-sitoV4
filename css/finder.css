@@ -1217,3 +1217,13 @@
     animation: none;
   }
 }
+
+/* Niente etichette delle certificazioni nel vetro che compare al passaggio
+   del mouse (13/11/2026, Chiara): su desktop restano descrizione e
+   "Discover more". Le certificazioni restano nei filtri e nella pagina
+   prodotto; su tablet touch le schede restano come prima */
+@media (hover: hover) {
+  .fx-card-tags {
+    display: none;
+  }
+}

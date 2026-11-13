@@ -2683,3 +2683,194 @@ html:not(.js) .pd-charts-nav {
 .pd-contact .cta-band-bg img {
   mix-blend-mode: multiply;
 }
+
+/* ==========================================================================
+   Apertura del prodotto, spazi e responsive rivisti (13/11/2026, Chiara:
+   "non è responsive, spazi scorretti"). Correzioni:
+   1. Desktop: la goccia esce a sinistra del riquadro di un terzo della sua
+      larghezza; con il riquadro largo quanto tutta la colonna, tra 900 e
+      ~1300px finiva sopra il testo. Ora il riquadro è largo al massimo il
+      78% della colonna ed è agganciato a destra: la goccia resta sempre
+      dentro la colonna dell'immagine
+   2. Un solo spazio tra apertura e descrizione (prima due --section-y)
+   3. Tablet (600–899px): tra testo e immagine c'era lo spazio della griglia
+      PIÙ il margine dell'immagine (circa il doppio): ora solo uno, uguale
+      sopra e sotto; riquadro e dati centrati
+   4. Telefono: spazi uguali sopra e sotto l'immagine
+   ========================================================================== */
+.pd-gradient .pd-phero-visual .picto {
+  width: min(78%, 58vh);
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.pd-phero + .pd-desc {
+  padding-top: 0;
+}
+
+@media (max-width: 899.98px) {
+  .pd-phero-grid {
+    row-gap: clamp(1.75rem, 1rem + 3vw, 2.5rem);
+  }
+
+  .pd-phero-visual {
+    margin: 0;
+  }
+
+  .pd-gradient .pd-phero-visual .picto {
+    width: min(62vw, 340px);
+    margin-inline: auto;
+  }
+
+  .pd-hero-facts {
+    margin: 1rem auto 0;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .pd-phero-grid {
+    row-gap: 0;
+  }
+
+  .pd-phero-visual {
+    margin: 1.5rem 0;
+  }
+
+  .pd-gradient .pd-phero-visual .picto {
+    width: min(48vw, 200px);
+  }
+}
+
+/* Goccia e dati più piccoli (13/11/2026, Chiara: il vetro dei dati si
+   sovrapponeva alla goccia; i dati restano SUL riquadro, in basso a destra).
+   Desktop: goccia alta il 60% del riquadro (prima 80%) e meno fuori a
+   sinistra (-22%, prima -34%); vetro dei dati più stretto e testo più
+   piccolo (12px valori e etichette), così stanno uno accanto all altra.
+   Tablet e telefono restano come prima (dati sotto il riquadro) */
+@media (min-width: 900px) {
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg),
+  .pd-gradient .pd-phero-visual .picto-img {
+    left: -22%;
+    bottom: 26%;
+    height: 60%;
+  }
+
+  .pd-hero-facts {
+    right: 4%;
+    bottom: 4%;
+    width: min(52%, 260px);
+    gap: 0.6rem;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .pd-hero-facts dd {
+    font-size: var(--fs-label);
+  }
+}
+
+/* Riquadro di nuovo grande come prima (13/11/2026, Chiara: "più grande,
+   composizione come prima"): largo quanto la colonna (al massimo 58% dello
+   schermo in altezza), centrato. Goccia una via di mezzo tra prima e la
+   versione piccola (alta 72%, fuori a sinistra del 26%) e dati in basso a
+   destra un po' più larghi, così la goccia sta in alto a sinistra e i dati
+   nell'angolo opposto senza coprirsi */
+@media (min-width: 900px) {
+  .pd-gradient .pd-phero-visual .picto {
+    width: min(100%, 58vh);
+    margin-inline: auto;
+  }
+
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg),
+  .pd-gradient .pd-phero-visual .picto-img {
+    left: -26%;
+    bottom: 22%;
+    height: 72%;
+  }
+
+  .pd-hero-facts {
+    width: min(56%, 300px);
+  }
+}
+
+/* Check su più schermi (13/11/2026, Chiara). Desktop (da 900px):
+   1. Il vetro dei dati si posizionava rispetto a tutta la colonna, non al
+      riquadro: quando il riquadro è più stretto della colonna (schermi
+      larghi, 58% dell'altezza) il vetro usciva a destra del riquadro.
+      Ora la colonna è larga quanto il riquadro, centrata: i dati restano
+      sempre nell'angolo del riquadro
+   2. Schermi bassi (portatili ~600-700px di altezza): il riquadro non
+      scende sotto 400px, così goccia e dati non si coprono
+   3. 900-1279px: lo spazio tra le colonne è piccolo e la goccia, fuori a
+      sinistra del 26%, finiva sopra il testo; qui esce del 14% */
+@media (min-width: 900px) {
+  .pd-gradient .pd-phero-visual {
+    width: min(100%, max(58vh, 400px));
+    justify-self: center;
+  }
+
+  .pd-gradient .pd-phero-visual .picto {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1279.98px) {
+  .pd-gradient .pd-phero-visual :is(.pg-lens, .pg),
+  .pd-gradient .pd-phero-visual .picto-img {
+    left: -14%;
+  }
+
+  .pd-hero-facts {
+    width: min(62%, 300px);
+  }
+}
+
+/* Key benefits con la polvere a pennellate (13/11/2026, Chiara:
+   "una polvere che non abbiamo ancora usato"; provate polvere-2, 1 e 4, ora la 5): images/polveri/polvere-5.jpg
+   al posto di texture-17. Come nella chiusura, la polvere bianca prende il
+   colore della linea in "moltiplica" (CytoFruit, senza linea, Cerulean); i
+   vetri scuri e il testo Ricepaper sopra restano come prima. Immagine dai
+   dati del prodotto (benefitsTexture in prodotti/*.js) */
+.pd-benefits.pd-line-glitter   { --pd-tint: var(--line-glitter); }
+.pd-benefits.pd-line-beaulixir { --pd-tint: var(--line-beaulixir); }
+.pd-benefits.pd-line-seidotech { --pd-tint: var(--line-seidotech); }
+
+.pd-benefits-stage .pd-bg {
+  background-color: var(--pd-tint, var(--cerulean));
+}
+
+.pd-benefits-stage .pd-bg img {
+  mix-blend-mode: multiply;
+}
+
+/* Key benefits, controllo (13/11/2026, Chiara):
+   1. I ritardi a scalare dell'entrata (0.12/0.24/0.36s su translate e
+      opacity) restavano anche dopo: il 2°, 3° e 4° vetro si sollevavano in
+      ritardo al fuoco e al mouse. Finita l'entrata (.is-done, JS) via
+   2. Numero scuro in hover solo con il mouse: su touch il :hover resta dopo
+      il tocco e metteva un cerchio Hard Grey sul vetro scuro (quasi
+      invisibile), senza il riempimento colorato che c'è su desktop
+   3. Tre benefici (Beaulixir) su tablet e telefono (due colonne): il terzo
+      vetro prende tutta la riga, niente buco a destra */
+.pd-benefits-stage.is-done .pd-benefit {
+  transition-delay: 0s !important;
+}
+
+@media (hover: none) {
+  .pd-benefit:hover .pd-benefit-n {
+    border-color: rgba(247, 243, 235, 0.55);
+    background-color: transparent;
+    color: var(--ricepaper);
+  }
+
+  .pd-benefit.is-focus:hover .pd-benefit-n {
+    border-color: var(--ricepaper);
+    background-color: var(--ricepaper);
+    color: var(--hard-grey);
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .pd-benefit-list > li:nth-child(3):last-child {
+    grid-column: 1 / -1;
+  }
+}

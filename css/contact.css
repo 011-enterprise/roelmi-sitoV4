@@ -383,3 +383,116 @@
 .ct-statement {
   max-width: 56ch;
 }
+
+/* Meno bianco intorno al modulo (13/11/2026, Chiara: "troppi spazi
+   bianchi"). Il colore del modulo partiva tardi e finiva presto: la forma
+   sfocata stava al 9% dal bordo e in più c'era la sfumatura del 12% sopra
+   e sotto, così prima e dopo il modulo si vedevano circa 150-200px di
+   bianco oltre allo spazio della sezione. Ora la forma arriva al 2% dal
+   bordo (svg in contact.html e nel generatore) e la sfumatura è del 5%:
+   il colore occupa quasi tutta la sezione e tra le parti resta un solo
+   spazio --section-y */
+.ct-form-sec .page-grad-bg svg {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+}
+
+/* ==========================================================================
+   Descrizione dentro il modulo (13/11/2026, Chiara, opzione A: "troppi
+   spazi" nella descrizione, vuota a destra, e sotto il titolo del modulo,
+   vuoto a sinistra per tutta l'altezza del modulo). La sezione a parte è
+   tolta: a sinistra titolo, paragrafo grande in Iwona, introduzione e nota;
+   a destra il modulo. Da 1024px la colonna di sinistra resta ferma sotto la
+   barra mentre il modulo scorre. Sul fondo azzurro le parole chiave sono
+   Hard Grey in grassetto (Hard Grey ≥ 8.9:1; l'Ocean qui sarebbe ~2.6:1)
+   ========================================================================== */
+.ct-form-head .ct-statement {
+  max-width: 30ch;
+  margin-top: var(--title-gap);
+  font-size: clamp(1.25rem, 0.95rem + 0.75vw, 1.75rem);
+}
+
+.ct-form-head .ct-statement strong {
+  font-weight: 700;
+}
+
+.ct-form-head .ct-form-intro {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .ct-form-head {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+  }
+}
+
+@media (max-width: 599.98px) {
+  .ct-form-head .ct-statement {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+}
+
+/* ==========================================================================
+   Titolo e modulo allineati in alto, testi come nel resto del sito
+   (13/11/2026, Chiara). Supera in parte il blocco sopra:
+   - niente colonna ferma: con lo sticky il titolo scendeva sotto il bordo
+     del modulo durante lo scroll; ora titolo e pannello partono alla
+     stessa altezza
+   - la descrizione è identica alle altre (.pd-statement, .dv-statement):
+     Iwona Medium 22-32px, interlinea 1.2, parole che si accendono, parole
+     chiave in Ocean senza grassetto. Per avere il contrasto il colore del
+     modulo resta solo dietro il pannello: a sinistra la colonna del testo
+     sta sul Ricepaper (Ocean 4.69:1, grigio secondario 6.2:1). Sotto 1024px
+     (testo sopra, modulo sotto) il colore parte sotto il testo
+   ========================================================================== */
+.ct-form-head {
+  --muted: #5C5A55;
+}
+
+.ct-form-head .ct-statement {
+  max-width: 30ch;
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+  line-height: 1.2;
+}
+
+.ct-form-head .ct-statement strong {
+  font-weight: 500;
+}
+
+.ct-form-head .ct-statement .accent {
+  color: var(--ocean);
+}
+
+@media (min-width: 1024px) {
+  .ct-form-head {
+    position: static;
+  }
+
+  .ct-form-sec .page-grad-bg svg {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0, transparent 36%, #000 50%),
+      linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0, transparent 36%, #000 50%),
+      linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+    mask-composite: intersect;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .ct-form-sec .page-grad-bg svg {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 30%, #000 40%, #000 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 30%, #000 40%, #000 95%, transparent 100%);
+  }
+}
+
+@media (max-width: 599.98px) {
+  .ct-form-head .ct-statement {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}

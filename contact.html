@@ -209,26 +209,9 @@
     </section>
 
     <!-- ==================================================================
-         2 · ACCOGLIENZA — a chi ci rivolgiamo, parole che si accendono con
-         lo scroll (scroll-words.js, come Who We Are). Testo NOSTRO, da far
-         approvare.
-         ================================================================== -->
-    <section class="ct-welcome section theme-light grain" aria-labelledby="ct-welcome-title">
-      <div class="container">
-        <!-- 11/11/2026 (Chiara): come la descrizione della pagina prodotto e Who
-             We Are in home: titolo di sezione (etichetta + titolo) e paragrafo
-             grande in Iwona con le parole che si accendono. Testo NOSTRO, da
-             far approvare al cliente -->
-        <h2 class="ct-section-title" id="ct-welcome-title">
-          <span class="eyebrow" data-reveal>Our sales teams</span>
-          <span data-reveal data-reveal-delay="0.1">We are here to help</span>
-        </h2>
-        <p class="ct-statement" data-scroll-words>Our sales teams support <strong class="accent">cosmetic and nutraceutical brands</strong> worldwide: from choosing the <strong class="accent">right active ingredient</strong> to <strong class="accent">samples, technical datasheets</strong> and <strong class="accent">regulatory documentation</strong>.</p>
-      </div>
-    </section>
-
-    <!-- ==================================================================
-         3 · MODULO — sul gradiente del sito; a sinistra titolo e note, a
+         2 · MODULO — sul gradiente del sito; a sinistra titolo, descrizione
+         dei team commerciali e note (13/11/2026, Chiara: prima la
+         descrizione era una sezione a parte e lasciava troppo vuoto), a
          destra il modulo in un pannello di vetro chiaro che entra dal basso.
          Campi come Until: Name, Surname, Email, Company, Country, Market,
          Message (+ argomento a pillole). L'invio vero non è collegato
@@ -239,15 +222,20 @@
           <defs>
             <filter id="ctFormBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="70"/></filter>
           </defs>
-          <rect class="page-grad-blob" x="140" y="90" width="1320" height="820" rx="260" filter="url(#ctFormBlur)"/>
+          <rect class="page-grad-blob" x="140" y="20" width="1320" height="960" rx="260" filter="url(#ctFormBlur)"/>
         </svg>
       </div>
       <div class="container ct-form-grid">
         <div class="ct-form-head">
           <h2 class="ct-section-title" id="ct-form-title">
             <span class="eyebrow">Write to us</span>
-            <span>Connect with our experts.</span>
+            <span>Connect with our experts</span>
           </h2>
+          <!-- Testo NOSTRO, da far approvare al cliente. Come tutte le
+               descrizioni del sito: Iwona Medium, parole che si accendono con
+               lo scroll, parole chiave Ocean (qui sta sul Ricepaper: il colore
+               del modulo è solo a destra) -->
+          <p class="ct-statement" data-scroll-words>Our sales teams support <strong class="accent">cosmetic and nutraceutical brands</strong> worldwide: from choosing the <strong class="accent">right active ingredient</strong> to <strong class="accent">samples, technical datasheets</strong> and <strong class="accent">regulatory documentation</strong>.</p>
           <p class="ct-form-intro">Tell us what you are looking for: your request will reach the right sales team.</p>
           <p class="fm-note">Fields marked with <span aria-hidden="true">*</span><span class="sr-only">an asterisk</span> are mandatory.</p>
         </div>
@@ -342,7 +330,7 @@
     </section>
 
     <!-- ==================================================================
-         4 · SEDI — elenco con l'ora locale di ogni ufficio
+         3 · SEDI — elenco con l'ora locale di ogni ufficio
          ================================================================== -->
     <section class="ct-offices section theme-light grain" aria-labelledby="ct-offices-title">
       <div class="container">
@@ -432,7 +420,7 @@
     </section>
 
     <!-- ==================================================================
-         5 · CHIUSURA — fascia comune .cta-band (base.css), come tutte le
+         4 · CHIUSURA — fascia comune .cta-band (base.css), come tutte le
          pagine (11/11/2026)
          ================================================================== -->
     <section class="ct-close section theme-light grain" aria-labelledby="ct-close-title">

@@ -16,6 +16,7 @@
   var stage = document.querySelector('[data-benefits]');
   if (!stage) return;
   var items = Array.prototype.slice.call(stage.querySelectorAll('.pd-benefit'));
+  var list = stage.querySelector('.pd-benefit-list');
   var hoverMq = window.matchMedia('(hover: hover) and (pointer: fine)');
   var ticking = false;
 
@@ -24,17 +25,25 @@
   }
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
-  /* 1. Entrata */
+  /* 1. Entrata. Parte quando il riquadro supera di poco il fondo dello
+     schermo (soglia 0 + margine): con una soglia in percentuale un riquadro
+     molto più alto dello schermo (telefono) poteva non arrivarci mai e i
+     vetri restavano invisibili. Finita l'entrata (.is-done) i ritardi a
+     scalare non servono più: fuoco e mouse rispondono subito su ogni vetro */
+  function entered() {
+    stage.classList.add('is-in');
+    window.setTimeout(function () { stage.classList.add('is-done'); }, 1300);
+  }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       if (entries[entries.length - 1].isIntersecting) {
-        stage.classList.add('is-in');
+        entered();
         io.disconnect();
       }
-    }, { threshold: 0.25 });
+    }, { threshold: 0, rootMargin: '0px 0px -15% 0px' });
     io.observe(stage);
   } else {
-    stage.classList.add('is-in');
+    entered();
   }
 
   /* 2. Fuoco con lo scroll */
@@ -46,8 +55,12 @@
     }
     var r = stage.getBoundingClientRect();
     var vh = window.innerHeight;
-    // 0 quando il riquadro è appena tutto entrato, 1 quando sta per uscire in alto
-    var p = clamp((vh * 0.85 - r.top) / Math.max(r.height, 1));
+    // Il fuoco segue l'elenco dei vetri, non tutto il riquadro (13/11/2026,
+    // Chiara: arrivando sulla sezione il fuoco era già sull'ultimo, perché
+    // contava dall'ingresso del titolo in fondo allo schermo). Ora: 0 quando
+    // la cima dei vetri è all'85% dello schermo, 1 quando sale al 25%
+    var lr = list ? list.getBoundingClientRect() : r;
+    var p = clamp((vh * 0.85 - lr.top) / Math.max(vh * 0.6, 1));
     var visible = r.top < vh && r.bottom > 0;
     var idx = Math.min(items.length - 1, Math.floor(p * items.length));
     items.forEach(function (it, i) { it.classList.toggle('is-focus', visible && p > 0 && i === idx); });
