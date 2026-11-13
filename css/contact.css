@@ -496,3 +496,141 @@
     line-height: 1.3;
   }
 }
+
+/* ==========================================================================
+   Telefono e tablet (13/11/2026, Chiara: "non mi sembra ottimizzata da
+   mobile"). Tra l'apertura e il modulo c'erano tre spazi di fila:
+   - sotto il riquadro 2.75rem riservati allo Stop animation, che qui non
+     c'è (immagine ferma)
+   - il fondo dell'apertura (--section-y)
+   - la cima del modulo (--section-y)
+   Ora solo uno. Su desktop resta tutto come approvato
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .ct-hero .page-stage {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .ct-hero + .ct-form-sec {
+    padding-top: 0;
+  }
+}
+
+/* Telefono: più polvere visibile sopra il vetro (13/11/2026, Chiara: prima
+   solo una striscia di 2.5rem). Il riquadro lascia libera una fascia alta
+   circa metà della sua larghezza (min 9rem, max 14rem) */
+@media (max-width: 599.98px) {
+  .ct-hero .page-stage {
+    padding-top: clamp(9rem, 45vw, 14rem);
+  }
+}
+
+/* ==========================================================================
+   Telefono, pagina più corta (13/11/2026, Chiara: "la pagina è
+   lunghissima"). Stessi contenuti, meno altezza (circa 600px in meno):
+   - apertura: fascia di polvere un po' più bassa (min 7rem)
+   - argomenti: le 5 pillole in una riga che scorre di lato (prima 3 righe);
+     sono radio veri: con le frecce della tastiera la scelta scorre e resta
+     visibile. La pillola tagliata a destra fa capire che la riga continua
+   - Name e Surname affiancati (sono corti); gli altri campi restano interi
+   - messaggio: area di testo più bassa (si allunga scrivendo, resize)
+   - sedi: a tendina (blocco sotto)
+   ========================================================================== */
+@media (max-width: 599.98px) {
+  .ct-hero .page-stage {
+    padding-top: clamp(7rem, 32vw, 14rem);
+  }
+
+  .ct-topic-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -1.1rem;
+    padding: 4px 1.1rem 6px;
+    scroll-padding-inline: 1.1rem;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .ct-topic-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ct-topic {
+    flex: none;
+  }
+
+  .ct-topic span {
+    white-space: nowrap;
+  }
+
+  .ct-form-panel .fm-row:has(#ctName) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .ct-form-panel .fm-textarea {
+    min-height: 7rem;
+  }
+}
+
+/* Sedi a tendina sul telefono (13/11/2026, Chiara): js/contact.js mette
+   nella città un bottone che apre società e indirizzo. Riga chiusa: città
+   + freccia, paese sotto, ora a destra. Freccia come i gruppi a tendina
+   della pagina prodotto (Technical details) */
+@media (max-width: 599.98px) {
+  .ct-office {
+    padding-block: 0.6rem 0.9rem;
+  }
+
+  .ct-office-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .ct-office-toggle::after {
+    content: "";
+    flex: none;
+    width: 9px;
+    height: 9px;
+    margin-top: -0.25rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform var(--dur-ui) var(--ease-out);
+  }
+
+  .ct-office-toggle[aria-expanded="true"]::after {
+    margin-top: 0.25rem;
+    transform: rotate(-135deg);
+  }
+
+  .ct-office-toggle:focus-visible {
+    outline: 2px solid var(--hard-grey);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .ct-office-place .ct-office-country {
+    margin-top: 0;
+  }
+
+  .ct-office.is-open .ct-office-who {
+    margin-top: 0.4rem;
+  }
+}
+
+.motion-paused .ct-office-toggle::after {
+  transition: none;
+}
