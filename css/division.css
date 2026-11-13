@@ -355,3 +355,28 @@
     object-position: 85% 50%;
   }
 }
+
+/* ==========================================================================
+   Aperture con la polvere del colore della divisione, senza logo
+   (13/11/2026, Chiara). Supera il blocco sopra (polvere-logo3/4):
+   - Personal Care: polvere-10, rosa Antique (resta .dv-hero-img--pc)
+   - Nutraceutical: polvere-13, Olive a strati; i bordi delle onde sono a
+     destra, quindi l'inquadratura resta agganciata a destra
+   La chiusura, che prima aveva queste due polveri, ora usa come le pagine
+   prodotto la polvere bianca polvere-3 tinta del colore della divisione in
+   "moltiplica" (.dv-close--antique / --olive dal generatore)
+   ========================================================================== */
+.page-stage-media img.dv-hero-img--nutra-olive {
+  object-position: 75% 50%;
+}
+
+.dv-close--antique { --dv-tint: var(--antique); }
+.dv-close--olive   { --dv-tint: var(--olive); }
+
+.dv-close .cta-band-bg {
+  background-color: var(--dv-tint, var(--cerulean));
+}
+
+.dv-close .cta-band-bg img {
+  mix-blend-mode: multiply;
+}
