@@ -2874,3 +2874,42 @@ html:not(.js) .pd-charts-nav {
     grid-column: 1 / -1;
   }
 }
+
+/* ==========================================================================
+   Clinical trials con più grafici (16/11/2026, grafici del cliente): le voci
+   (dose, disegno, risultati) restano in riga sopra, come senza grafico; sotto
+   i grafici in griglia, due per riga (tre quando sono tre e c'è spazio), uno
+   per riga su telefono. Ogni grafico ha la sua didascalia centrata sotto.
+   La nota di metodo (protocollo dello studio) va sopra la legenda, in grigio
+   secondario (6.2:1 sul Ricepaper)
+   ========================================================================== */
+.pd-clinical-body.has-charts .pd-clinical-figs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: clamp(2rem, 1rem + 3vw, 4rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
+
+@media (min-width: 1280px) {
+  .pd-clinical-figs:has(> .pd-clinical-fig:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pd-clinical-figs .pd-clinical-fig {
+  margin: 0;
+}
+
+.pd-clinical-note {
+  margin-top: 0.75rem;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.pd-clinical-caption > .pd-placeholder {
+  margin-top: 0.75rem;
+  text-align: center;
+}

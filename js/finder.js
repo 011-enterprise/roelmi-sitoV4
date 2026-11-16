@@ -127,7 +127,12 @@
     link.href = item.link || '#';
     name.appendChild(link);
     art.appendChild(name);
-    art.appendChild(el('p', 'fx-card-function', item.function));
+    // La riga della funzione c'è sempre, anche vuota (prodotti in bozza,
+    // 16/11/2026): la scheda sta su 4 righe condivise (subgrid, finder.css);
+    // senza, mercato e riquadro scalano di una riga e l'etichetta si allunga
+    var fn = el('p', 'fx-card-function', item.function || '');
+    if (!item.function) fn.setAttribute('aria-hidden', 'true');
+    art.appendChild(fn);
 
     // Etichetta del mercato: Personal Care = Antique, Nutraceutical = Olive
     var pills = el('p', 'market-pills fx-card-markets');
@@ -172,7 +177,7 @@
     }
 
     var glass = el('div', 'fx-card-glass');
-    glass.appendChild(el('p', '', item.description));
+    if (item.description) glass.appendChild(el('p', '', item.description));
     // Sotto la descrizione solo le certificazioni (mercato, tecnologia e tipo
     // non si ripetono: il mercato è già nell'etichetta sopra l'immagine)
     if (asList(item.certifications).length) {
