@@ -31,7 +31,7 @@
       }
 
       .cls-3, .cls-4 {
-        stroke: #009EC7;
+        stroke: #42709E;
       }
 
       .cls-3, .cls-5 {
@@ -43,7 +43,7 @@
       }
 
       .cls-6 {
-        stroke: #575756;
+        stroke: #5C5A55;
         stroke-linejoin: round;
       }
     </style>
