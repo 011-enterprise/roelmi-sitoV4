@@ -518,15 +518,6 @@
   }
 }
 
-/* Telefono: più polvere visibile sopra il vetro (13/11/2026, Chiara: prima
-   solo una striscia di 2.5rem). Il riquadro lascia libera una fascia alta
-   circa metà della sua larghezza (min 9rem, max 14rem) */
-@media (max-width: 599.98px) {
-  .ct-hero .page-stage {
-    padding-top: clamp(9rem, 45vw, 14rem);
-  }
-}
-
 /* ==========================================================================
    Telefono, pagina più corta (13/11/2026, Chiara: "la pagina è
    lunghissima"). Stessi contenuti, meno altezza (circa 600px in meno):
@@ -539,9 +530,9 @@
    - sedi: a tendina (blocco sotto)
    ========================================================================== */
 @media (max-width: 599.98px) {
-  .ct-hero .page-stage {
-    padding-top: clamp(7rem, 32vw, 14rem);
-  }
+  /* Fascia di polvere più alta sopra il vetro: TOLTA il 16/11/2026 (Chiara,
+     Figma): l apertura su telefono è uguale ad About, riquadro con la
+     cornice di polvere comune di .page-stage */
 
   .ct-topic-list {
     flex-wrap: nowrap;
