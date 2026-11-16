@@ -423,7 +423,17 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/CeraFluid%20-%20Skin%20elasticity.svg" alt="Bar chart: skin elasticity score at T0 and after 60 minutes, placebo cream versus 1% and 2% CeraFluid. The placebo goes from about 0.22 to 0.23. 1% CeraFluid rises by 7.8% and 2% CeraFluid by 14.2%, to about 0.23 and 0.24, both statistically significant." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001 vs T0</li>
+                <li><span aria-hidden="true">°</span><span class="sr-only">One circle:</span> p &lt; 0.05 vs 1% CeraFluid<sup class="reg">®</sup></li>
+                <li><span aria-hidden="true">°°</span><span class="sr-only">Two circles:</span> p &lt; 0.01 vs placebo</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>

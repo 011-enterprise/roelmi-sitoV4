@@ -423,7 +423,15 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/Equibiotics%20LRh%20-%20Intimate%20pH.svg" alt="Bar chart: intimate pH at T0 and T28 days with Equibiotics LRh. The pH falls from 5.7 to 4.9, a statistically significant 14% reduction." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>

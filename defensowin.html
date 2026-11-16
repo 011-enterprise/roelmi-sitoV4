@@ -423,7 +423,15 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/DefensoWin%20-%20Skin%20sebumetry.svg" alt="Bar chart: skin sebum level at T0, T28 and T56 days, benchmark versus 1% DefensoWin. The benchmark goes from about 201 to 181 and 161. DefensoWin goes from about 186 to 168 at T28 (−8.5%) and 152 at T56 (−17.7%); the reductions are statistically significant." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>

@@ -423,7 +423,15 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/G2%20Light%20-%20Dark%20spots%20staining.svg" alt="Bar chart: dark spot staining measured as ITA° angle at T0, T30 and T60 days, placebo versus 0.5% and 1% G2 Light (a higher ITA° means lighter skin). The placebo stays at about 18. With 0.5% G2 Light ITA° rises from about 18 to 23 and 24.5, staining reduced by 29.4% and 45.8%; with 1% it rises from about 15 to 21 and 23, staining reduced by 38.9% and 59.2%. All results are statistically significant." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>

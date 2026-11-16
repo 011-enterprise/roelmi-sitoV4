@@ -423,7 +423,16 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/SynerSHIELD%20Sun%20-%20Skin%20temperature.svg" alt="Line chart: skin temperature (°C) over 24 hours, placebo versus 1% SynerSHIELD Sun. Both start at about 31.9 °C. The placebo peaks at about 33.9 °C and SynerSHIELD Sun at about 33.4 °C; afterwards SynerSHIELD Sun stays about 0.6 °C lower, ending at about 32.1 °C versus 32.8 °C after 23 hours." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <p class="pd-clinical-note">In vivo study on 20 female volunteers. Skin discomfort induced by UV exposure (sunbath). Product evaluated versus placebo and negative control at basal state before exposure, and 1, 4 and 24 hours after stress and a single application of the cream. Skin temperature measured with an electronic infrared thermometer (Thermofocus).</p>
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>

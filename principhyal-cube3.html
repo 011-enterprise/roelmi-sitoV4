@@ -423,7 +423,16 @@
           <!-- Grafico dello studio (SVG del cliente) con descrizione per lo screen reader -->
           <figure class="pd-clinical-fig" data-reveal data-reveal-delay="0.1">
             <img src="images/product/charts/COSMETICI%20-%20grafici/PrincipHYAL%20Cube3%20-%20Wrinkle%20depth.svg" alt="Bar chart: wrinkle depth (µm) at T0, after 30 minutes and at T14, placebo versus 0.5% PrincipHYAL Cube3. The placebo goes from about 378 to 370 and 368. PrincipHYAL Cube3 goes from about 400 to 351 after 30 minutes (−11.7%) and 359 at T14 (−9.7%), both statistically significant." width="520" height="325" loading="lazy" decoding="async">
-            <figcaption class="pd-clinical-caption"><p class="pd-placeholder" lang="it">Didascalia da fornire</p></figcaption>
+            <!-- Legenda della significatività (didascalia del cliente). I simboli
+                 sono nascosti allo screen reader, che legge per esempio "One asterisk: p < 0.05" -->
+            <figcaption class="pd-clinical-caption">
+              <p class="pd-clinical-note">One of several parameters assessed in this study.</p>
+              <ul>
+                <li><span aria-hidden="true">*</span><span class="sr-only">One asterisk:</span> p &lt; 0.05</li>
+                <li><span aria-hidden="true">**</span><span class="sr-only">Two asterisks:</span> p &lt; 0.01</li>
+                <li><span aria-hidden="true">***</span><span class="sr-only">Three asterisks:</span> p &lt; 0.001</li>
+              </ul>
+            </figcaption>
           </figure>
         </div>
       </div>
