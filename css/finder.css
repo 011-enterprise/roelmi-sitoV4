@@ -1227,3 +1227,14 @@
     display: none;
   }
 }
+
+/* Prodotti multicolor (18/11/2026, specifiche della cliente: ColorGLAM®,
+   ColorEST, "sfumatura a punti" di quattro colori): il liquido che riempie
+   il riquadro è il gradiente dei quattro colori (--line-grad, da finder.js);
+   a riposo il riquadro è tinto col primo colore come gli altri */
+.fx-card-media--picto .picto.picto--grad .picto-frame::before {
+  background:
+    linear-gradient(135deg, rgba(247, 243, 235, 0.24), rgba(247, 243, 235, 0.03) 50%, rgba(247, 243, 235, 0.1)),
+    var(--line-grad);
+  opacity: 0.88;
+}

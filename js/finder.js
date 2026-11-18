@@ -165,6 +165,11 @@
       if (item.hex) {
         visual.classList.add('picto--line-custom');
         visual.style.setProperty('--line-color', item.hex);
+        // Multicolor (ColorGLAM, ColorEST): il riquadro si riempie col gradiente
+        if (item.grad) {
+          visual.classList.add('picto--grad');
+          visual.style.setProperty('--line-grad', item.grad);
+        }
       } else if (item.color) visual.classList.add('picto--line-' + item.color);
       visual.setAttribute('aria-hidden', 'true');
       var frame = el('span', 'picto-frame');
