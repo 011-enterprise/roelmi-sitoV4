@@ -1135,3 +1135,79 @@
     --np-letter-liquid: 52%;
   }
 }
+
+/* ==========================================================================
+   Pilastri N·I·P, versione 2 del liquido (18/11/2026, Chiara: "l animazione
+   non si vede": col mouse partiva solo in hover, insieme al vetro del testo).
+   Ora come Our Portfolio e Ingredient Finder:
+   - si riempie anche il BOX, non solo la lettera: strato ::before nel colore
+     del pilastro schiarito (55% + Ricepaper, così la lettera più scura si
+     legge sopra), con la stessa maschera "liquido" a onda; la lettera si
+     riempie insieme
+   - parte quando il box entra nello schermo, su tutti i dispositivi
+     (.is-filled da js/nip-page.js, soglia 0.45): 3.2s, onda una volta, i tre
+     box a 0.35s l uno dall altro, poi restano pieni e fermi (< 5s: niente
+     Stop animation in più)
+   - senza JS, con Stop animation e reduced-motion: pieni subito, fermi
+   - il vetro con titolo e testo resta in hover / focus come prima (Hard Grey
+     sul vetro sopra il pastello ≥ 8:1)
+   Supera la versione al passaggio del mouse (nota 180)
+   ========================================================================== */
+.np-pillar {
+  --d: 0s;
+}
+
+.np-pillar:nth-child(2) { --d: 0.35s; }
+.np-pillar:nth-child(3) { --d: 0.7s; }
+
+.np-pillar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  --np-letter-liquid: 52%;
+  background:
+    linear-gradient(135deg, rgba(247, 243, 235, 0.35), rgba(247, 243, 235, 0) 50%, rgba(247, 243, 235, 0.15)),
+    color-mix(in srgb, var(--np-color) 55%, var(--ricepaper));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-letter-wave) var(--np-letter-liquid) / 200% 300% repeat-x;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-letter-wave) var(--np-letter-liquid) / 200% 300% repeat-x;
+  transition: --np-letter-liquid 3.2s cubic-bezier(0.45, 0, 0.25, 1) var(--d);
+  pointer-events: none;
+}
+
+/* Stato di base (senza JS): box e lettera pieni, fermi */
+.np-pillar-letter::after {
+  --np-letter-liquid: 52%;
+  transition: --np-letter-liquid 3.2s cubic-bezier(0.45, 0, 0.25, 1) var(--d);
+  animation: none;
+}
+
+/* Con JS: vuoti finché il box non entra nello schermo (anche in hover) */
+.js .np-pillar:not(.is-filled)::before,
+.js .np-pillar:not(.is-filled) .np-pillar-letter::after {
+  --np-letter-liquid: 0%;
+}
+
+.js .np-pillar.is-filled::before,
+.js .np-pillar.is-filled .np-pillar-letter::after {
+  --np-letter-liquid: 52%;
+  animation: np-letter-wave 4s linear var(--d) 1;
+}
+
+/* Fermi: pieni subito, niente salita né onda */
+.motion-paused .np-pillar::before,
+.motion-paused .np-pillar .np-pillar-letter::after {
+  --np-letter-liquid: 52% !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-pillar::before,
+  .js .np-pillar .np-pillar-letter::after,
+  .js .np-pillar::before {
+    --np-letter-liquid: 52% !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
