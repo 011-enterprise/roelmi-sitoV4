@@ -2913,3 +2913,109 @@ html:not(.js) .pd-charts-nav {
   margin-top: 0.75rem;
   text-align: center;
 }
+
+/* Logo della tecnologia sotto la descrizione (18/11/2026, linea
+   ExceptionHYAL®: HA Tech 2.0®). Allineato a sinistra come il testo,
+   alto circa come due righe di titolo; i colori sono quelli del marchio */
+.pd-badge {
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.pd-badge img {
+  display: block;
+  width: auto;
+  height: clamp(4rem, 3rem + 3vw, 6.5rem);
+}
+
+/* Logo della tecnologia, versione 2 (18/11/2026, Chiara: sotto il testo "non
+   è equilibrato"; scelta l opzione 1 della critica di design). Supera le
+   regole .pd-badge qui sopra:
+   - da 900px: due colonne, a sinistra titolo e descrizione, a destra il logo
+     allineato all inizio del paragrafo (il titolo resta su tutta la riga);
+     riempie il vuoto a destra senza allungare la sezione
+   - sopra il logo l etichetta "Technology" con una linea sottile, come le
+     voci di Clinical trials (grigio secondario 6.2:1 sul Ricepaper)
+   - sotto 900px: sotto il testo, largo al massimo 14rem */
+.pd-badge {
+  max-width: 14rem;
+  margin-top: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--hard-grey);
+}
+
+.pd-badge-label {
+  margin: 0 0 1rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pd-badge img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 900px) {
+  .pd-desc--badge > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(12rem, 8rem + 7vw, 17rem);
+    column-gap: clamp(2.5rem, 1rem + 5vw, 7rem);
+    align-items: start;
+  }
+
+  .pd-desc--badge > .container > * {
+    grid-column: 1;
+  }
+
+  .pd-desc--badge .pd-section-title {
+    grid-column: 1 / -1;
+  }
+
+  .pd-desc--badge > .container > .pd-badge {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    max-width: none;
+    margin-top: var(--title-gap);
+  }
+}
+
+/* Logo della tecnologia, versione 3 (18/11/2026, Chiara: nell angolo a
+   destra "non si vede bene", staccato dal testo). Supera la colonna sotto
+   il titolo della versione 2:
+   - il logo sta in un riquadro (bordo sottile, angoli --r-card, ombra
+     morbida, fondo Ricepaper), con l etichetta "Technology" in alto: più peso e
+     una forma chiara, come le schede del sito
+   - da 900px il riquadro accompagna tutto il blocco titolo + descrizione,
+     centrato in verticale accanto a esso; il titolo va a capo nella colonna
+     di sinistra invece di passare sopra il riquadro
+   - sotto 900px: riquadro sotto il testo, largo al massimo 16rem */
+.pd-badge {
+  max-width: 16rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background-color: var(--ricepaper);
+  box-shadow: 0 18px 40px rgba(25, 25, 25, 0.06);
+}
+
+.pd-badge-label {
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .pd-desc--badge > .container {
+    grid-template-columns: minmax(0, 1fr) clamp(15rem, 10rem + 9vw, 21rem);
+    column-gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+  }
+
+  .pd-desc--badge .pd-section-title {
+    grid-column: 1;
+  }
+
+  .pd-desc--badge > .container > .pd-badge {
+    grid-row: 1 / span 3;
+    align-self: center;
+    margin-top: 0;
+  }
+}
