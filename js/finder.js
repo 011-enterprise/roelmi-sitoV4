@@ -138,7 +138,14 @@
     var pills = el('p', 'market-pills fx-card-markets');
     // Prodotti con un colore di linea: l'etichetta è la linea, nel suo colore
     var LINES = { beaulixir: 'Beaulixir', seidotech: 'SeidoTech', glitter: 'Glitter' };
-    if (item.color && LINES[item.color]) {
+    // 18/11/2026: colore del PRODOTTO dalle specifiche della cliente (hex,
+    // pillBg/pillFg già calcolati per il contrasto, lineLabel = linea)
+    if (item.hex && item.lineLabel) {
+      var pill = el('span', 'market-pill market-pill--line', item.lineLabel);
+      pill.style.backgroundColor = item.pillBg;
+      pill.style.color = item.pillFg;
+      pills.appendChild(pill);
+    } else if (item.color && LINES[item.color]) {
       pills.appendChild(el('span', 'market-pill market-pill--' + item.color, LINES[item.color]));
     } else {
       asList(item.market).forEach(function (m) {
@@ -155,7 +162,10 @@
       media.classList.add('fx-card-media--picto');
       var visual = el('div', 'picto' + (asList(item.market)[0] === 'Nutraceutical' ? ' picto--nutra' : ''));
       // Colore della linea di prodotto (base.css), se il cliente l'ha dato
-      if (item.color) visual.classList.add('picto--line-' + item.color);
+      if (item.hex) {
+        visual.classList.add('picto--line-custom');
+        visual.style.setProperty('--line-color', item.hex);
+      } else if (item.color) visual.classList.add('picto--line-' + item.color);
       visual.setAttribute('aria-hidden', 'true');
       var frame = el('span', 'picto-frame');
       frame.appendChild(el('span', 'picto-blob'));

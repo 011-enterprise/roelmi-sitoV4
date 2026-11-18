@@ -3035,7 +3035,9 @@ html:not(.js) .pd-charts-nav {
    Tutto decorativo (aria-hidden); il vetro dei dati resta sopra, invariato
    ========================================================================== */
 .pd-gradient .pd-phero-visual .picto--photo .picto-frame {
-  position: relative;
+  /* Niente position: relative (18/11, correzione): il riquadro è già
+     position: absolute + inset 0 (picto.css); con relative diventava alto
+     zero e la foto spariva */
   background-color: var(--hard-grey);
   background-size: cover;
   background-position: 50% 50%;
@@ -3053,4 +3055,14 @@ html:not(.js) .pd-charts-nav {
 
 .pd-gradient .pd-phero-visual .picto--photo :is(.pg, .picto-img) {
   filter: drop-shadow(0 18px 30px rgba(25, 25, 25, 0.32));
+}
+
+/* Colore del PRODOTTO (18/11/2026, specifiche della cliente: un colore per
+   prodotto). Il generatore mette .pd-color e style="--pd-tint: …" sulle
+   sezioni apertura, Key benefits e fascia finale: vale al posto dei colori
+   di linea qui sopra. Nell apertura e nella fascia finale il colore è già
+   schiarito (strumenti/colori.js, soft) perché il testo Hard Grey sopra
+   resti ≥ 6.4:1; in Key benefits pieno (sopra ci sono i vetri scuri) */
+.pd-phero.pd-color .pd-grad-blob {
+  fill: var(--pd-tint);
 }
