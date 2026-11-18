@@ -3019,3 +3019,38 @@ html:not(.js) .pd-charts-nav {
     margin-top: 0;
   }
 }
+
+/* ==========================================================================
+   Apertura del prodotto con la FOTO DELL INGREDIENTE (18/11/2026, immagini
+   della cliente in images/product/ingredienti/, 4:5 come il riquadro).
+   Il generatore mette la foto sul riquadro (style) e la classe
+   .picto--photo quando il file esiste; le altre pagine restano con la
+   polvere tinta. La goccia resta davanti (Chiara: è la cosa bella
+   dell apertura). Per non farla sparire sulle foto chiare (polveri bianche,
+   creme, sabbie):
+   - la foto NON è tinta né in moltiplica: colori veri del cliente
+   - un velo Hard Grey morbido nella parte sinistra del riquadro, dove la
+     goccia lo attraversa (al massimo 30%, sfuma a zero verso destra)
+   - ombra della goccia più marcata (Hard Grey 32% invece di 18%)
+   Tutto decorativo (aria-hidden); il vetro dei dati resta sopra, invariato
+   ========================================================================== */
+.pd-gradient .pd-phero-visual .picto--photo .picto-frame {
+  position: relative;
+  background-color: var(--hard-grey);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: normal;
+}
+
+.pd-gradient .pd-phero-visual .picto--photo .picto-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 75% 65% at 8% 50%, rgba(25, 25, 25, 0.3), rgba(25, 25, 25, 0.12) 55%, rgba(25, 25, 25, 0) 80%);
+  pointer-events: none;
+}
+
+.pd-gradient .pd-phero-visual .picto--photo :is(.pg, .picto-img) {
+  filter: drop-shadow(0 18px 30px rgba(25, 25, 25, 0.32));
+}
