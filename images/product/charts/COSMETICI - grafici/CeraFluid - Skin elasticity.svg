@@ -7,7 +7,7 @@
       }
 
       .cls-1, .cls-4 {
-        fill: #42709E;
+        fill: #009cc4;
       }
 
       .cls-5 {
@@ -18,15 +18,15 @@
       }
 
       .cls-2, .cls-6 {
-        fill: #A8A49B;
+        fill: #bfbfbf;
       }
 
       .cls-7 {
-        fill: #F7F3EB;
+        fill: #fff;
       }
 
       .cls-3, .cls-8 {
-        fill: #191919;
+        fill: #42709e;
       }
 
       .cls-9 {

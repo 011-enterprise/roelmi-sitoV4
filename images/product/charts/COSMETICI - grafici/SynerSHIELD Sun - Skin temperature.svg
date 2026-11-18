@@ -13,11 +13,11 @@
       }
 
       .cls-1, .cls-4 {
-        stroke: #A8A49B;
+        stroke: #bfbfbf;
       }
 
       .cls-2, .cls-3 {
-        stroke: #42709E;
+        stroke: #009cc4;
       }
 
       .cls-2, .cls-4 {

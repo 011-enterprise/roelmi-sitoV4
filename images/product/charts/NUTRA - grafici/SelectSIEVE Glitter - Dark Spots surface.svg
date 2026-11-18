@@ -8,7 +8,7 @@
       }
 
       .st0, .st2 {
-        fill: #42709E;
+        fill: #009cc4;
       }
 
       .st3 {
@@ -19,11 +19,11 @@
       }
 
       .st1, .st4 {
-        fill: #A8A49B;
+        fill: #bfbfbf;
       }
 
       .st5 {
-        fill: #F7F3EB;
+        fill: #fff;
       }
 
       .st6 {

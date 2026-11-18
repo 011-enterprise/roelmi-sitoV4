@@ -13,7 +13,7 @@
       }
 
       .cls-4 {
-        fill: #A8A49B;
+        fill: #bfbfbf;
       }
 
       .cls-5 {
@@ -21,11 +21,11 @@
       }
 
       .cls-6 {
-        fill: #42709E;
+        fill: #009cc4;
       }
 
       .cls-2 {
-        stroke: #A8A49B;
+        stroke: #bfbfbf;
       }
 
       .cls-2, .cls-3 {
@@ -33,7 +33,7 @@
       }
 
       .cls-3 {
-        stroke: #42709E;
+        stroke: #009cc4;
       }
     </style>
   </defs>
