@@ -317,8 +317,11 @@
                 <p class="fm-error" id="ctPrivacy-err" data-msg="Accept the Privacy and Cookie Policy to send the form." hidden></p>
               </div>
               <div class="fm-field fm-field--check">
-                <input class="fm-check" id="ctMarketing" name="marketing" type="checkbox" value="1">
+                <input class="fm-check" id="ctMarketing" name="marketing" type="checkbox" value="1" aria-describedby="ctMarketing-note">
                 <label for="ctMarketing">I authorize the processing of my personal data to be updated on new arrivals and for direct marketing purposes related to the services offered.</label>
+                <!-- 18/11/2026, testo della cliente: nota sul pixel di tracciamento
+                     delle email, letta dallo screen reader insieme alla casella -->
+                <p class="fm-hint ct-pixel-note" id="ctMarketing-note">Our emails use a tracking pixel to measure open rates: you can disable this at any time via ‘Manage preferences’ at the bottom of each email.</p>
               </div>
             </div>
 

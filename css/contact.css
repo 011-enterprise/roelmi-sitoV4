@@ -625,3 +625,12 @@
 .motion-paused .ct-office-toggle::after {
   transition: none;
 }
+
+/* Nota sul pixel di tracciamento delle email (18/11/2026, testo della
+   cliente): sotto il consenso marketing, allineata al testo della casella,
+   14px nel grigio del modulo (Hard Grey sul Cerulean) */
+.ct-pixel-note {
+  grid-column: 2;
+  margin: 0;
+  line-height: 1.5;
+}

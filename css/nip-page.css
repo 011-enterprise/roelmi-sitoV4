@@ -1030,3 +1030,108 @@
 .np-pillar-letter {
   font-family: var(--font-body);
 }
+
+/* ==========================================================================
+   Lettere N·I·P che si riempiono come un liquido (18/11/2026, richiesta della
+   cliente: "la stessa animazione degli ingredienti", per legare la pagina
+   alle altre). Stesso effetto delle schede di action-cards.css: uno strato
+   pieno del colore del pilastro, visto attraverso una maschera "liquido" con
+   la superficie a onda.
+   - La lettera resta un contorno sottile; sopra c è una copia piena
+     (::after con il testo di data-letter, dal generatore)
+   - Mouse: a riposo vuota; in hover / focus da tastiera sul box il livello
+     sale in 1.8s e la superficie ondeggia (finché il mouse resta sopra:
+     parte dall utente, non serve Stop animation); togliendo il mouse si svuota
+   - Touch: si riempie una volta quando il box entra nello schermo (.is-filled
+     da js/nip-page.js, già esistente), 3.2s, onda una volta, poi resta piena;
+     senza JS piena
+   - Stop animation / reduced-motion: niente salita né onda (piena subito su
+     touch, piena all istante in hover col mouse)
+   Sostituisce il riempimento dritto dal basso (--np-fill), che resta nel
+   file ma non si vede più (background-image tolto). Decorativo (aria-hidden)
+   ========================================================================== */
+@property --np-letter-liquid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --np-letter-wave {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.np-pillar-letter {
+  position: relative;
+  background-image: none;
+}
+
+.np-pillar-letter::after {
+  content: attr(data-letter);
+  position: absolute;
+  inset: 0;
+  padding-bottom: 0.08em;
+  color: var(--np-ink);
+  -webkit-text-stroke: 0;
+  --np-letter-liquid: 0%;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-letter-wave) var(--np-letter-liquid) / 200% 300% repeat-x;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' preserveAspectRatio='none'><path d='M0 100 Q25 93 50 100 T100 100 T150 100 T200 100 V300 H0Z'/></svg>") var(--np-letter-wave) var(--np-letter-liquid) / 200% 300% repeat-x;
+  transition: --np-letter-liquid 1.8s cubic-bezier(0.45, 0, 0.25, 1);
+  animation: np-letter-wave 2.6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes np-letter-wave {
+  from { --np-letter-wave: 0%; }
+  to   { --np-letter-wave: 100%; }
+}
+
+/* Mouse: si riempie al passaggio o con il focus da tastiera */
+.np-pillar:hover .np-pillar-letter::after,
+.np-pillar:focus-visible .np-pillar-letter::after {
+  --np-letter-liquid: 52%;
+}
+
+/* Touch: piena; con JS si riempie quando il box entra nello schermo */
+@media (hover: none) {
+  .np-pillar-letter::after {
+    --np-letter-liquid: 52%;
+    animation: none;
+  }
+
+  .js .np-pillar:not(.is-filled) .np-pillar-letter::after {
+    --np-letter-liquid: 0%;
+  }
+
+  .js .np-pillar.is-filled .np-pillar-letter::after {
+    transition-duration: 3.2s;
+    transition-delay: var(--d, 0s);
+    animation: np-letter-wave 4s linear var(--d, 0s) 1;
+  }
+
+  .np-pillar:nth-child(2) { --d: 0.35s; }
+  .np-pillar:nth-child(3) { --d: 0.7s; }
+
+  .motion-paused .np-pillar .np-pillar-letter::after {
+    --np-letter-liquid: 52%;
+  }
+}
+
+.motion-paused .np-pillar-letter::after {
+  transition: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-pillar-letter::after {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (hover: none) and (prefers-reduced-motion: reduce) {
+  .js .np-pillar .np-pillar-letter::after {
+    --np-letter-liquid: 52%;
+  }
+}
