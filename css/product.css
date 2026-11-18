@@ -3066,3 +3066,46 @@ html:not(.js) .pd-charts-nav {
 .pd-phero.pd-color .pd-grad-blob {
   fill: var(--pd-tint);
 }
+
+/* ==========================================================================
+   Clinical trials a STUDI (18/11/2026, testi della cliente): ogni studio è
+   una riga con le sue voci a sinistra e il suo grafico a destra (stessa
+   disposizione .has-chart di prima), sotto 900px il grafico va sotto.
+   Dal secondo studio una linea sottile sopra e un titolo h3 ("Study 2 ·
+   …"). Nota finale (es. OptiChol, mercato italiano) in piccolo, grigio
+   secondario 6.2:1
+   ========================================================================== */
+.pd-study--next {
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  padding-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.pd-study-title {
+  margin-top: var(--title-gap);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.pd-study--next .pd-study-title {
+  margin-top: 0;
+}
+
+.pd-study-title + .pd-clinical-body {
+  margin-top: 1.5rem;
+}
+
+.pd-study .pd-clinical-body:not(.has-chart) .pd-clinical-list {
+  margin-top: 1.5rem;
+}
+
+.pd-clinical-foot {
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  max-width: 72ch;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--muted);
+}
