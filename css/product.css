@@ -3163,3 +3163,10 @@ html:not(.js) .pd-charts-nav {
     font-size: var(--fs-small);
   }
 }
+
+/* Meno spazio tra Descrizione e Key benefits (19/11/2026, Chiara): le due
+   sezioni sommavano due --section-y (fino a ~144px di vuoto). Tolto il
+   padding sotto la descrizione: resta solo quello sopra Key benefits */
+.pd-desc:has(+ .pd-benefits) {
+  padding-bottom: 0;
+}
