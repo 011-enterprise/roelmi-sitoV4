@@ -1238,3 +1238,15 @@
     var(--line-grad);
   opacity: 0.88;
 }
+
+/* Schede di prodotti senza pagina (19/11/2026): il nome non è un link
+   (span), quindi niente mano, niente sottolineatura in hover e niente
+   "Discover more"; la scheda resta leggibile e filtrabile */
+.fx-card-link--none {
+  cursor: default;
+}
+
+.fx-card:hover .fx-card-link--none,
+.fx-card-link--none:hover {
+  text-decoration: none;
+}

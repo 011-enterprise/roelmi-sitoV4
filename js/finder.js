@@ -122,9 +122,12 @@
     var art = el('article');
 
     var name = el('h3', 'fx-card-name');
-    var link = el('a', 'fx-card-link');
+    // Prodotti senza pagina (19/11/2026, WCAG 2.4.4): il nome è testo, non un
+    // link che non porta da nessuna parte; niente "Discover more" (più sotto)
+    var hasPage = !!item.link && item.link !== '#';
+    var link = el(hasPage ? 'a' : 'span', 'fx-card-link' + (hasPage ? '' : ' fx-card-link--none'));
     regName(link, item.name);
-    link.href = item.link || '#';
+    if (hasPage) link.href = item.link;
     name.appendChild(link);
     art.appendChild(name);
     // La riga della funzione c'è sempre, anche vuota (prodotti in bozza,
@@ -203,9 +206,11 @@
     }
     // "Discover more →" come in Our Portfolio (06/11/2026); solo a vista:
     // il link vero è il nome
-    var more = el('span', 'fx-card-more', 'Discover more');
-    more.setAttribute('aria-hidden', 'true');
-    glass.appendChild(more);
+    if (hasPage) {
+      var more = el('span', 'fx-card-more', 'Discover more');
+      more.setAttribute('aria-hidden', 'true');
+      glass.appendChild(more);
+    }
     media.appendChild(glass);
     art.appendChild(media);
     li.appendChild(art);

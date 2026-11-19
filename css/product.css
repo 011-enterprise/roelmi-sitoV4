@@ -3140,3 +3140,16 @@ html:not(.js) .pd-charts-nav {
     width: min(64%, 320px);
   }
 }
+
+/* Link nel testo dell apertura (19/11/2026, WCAG 1.4.1: es. SynBalance nella
+   presentazione di EquiBiotics®): le regole di base tolgono colore e
+   sottolineatura ai link, qui va riconosciuto anche senza colore */
+.pd-intro a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.pd-intro a:hover {
+  text-decoration-thickness: 2px;
+}
