@@ -1250,3 +1250,61 @@
 .fx-card-link--none:hover {
   text-decoration: none;
 }
+
+/* Telefono: "Load more" sotto le prime 8 schede (19/11/2026, js/finder.js).
+   Conteggio, barra di avanzamento decorativa (il numero è nel testo) e
+   bottone a tutta larghezza. Da 600px il blocco resta nascosto */
+.fx-more {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.fx-more[hidden] {
+  display: none;
+}
+
+.fx-more-count {
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.fx-more-bar {
+  display: block;
+  width: min(100%, 12rem);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.fx-more-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s var(--ease-out, ease-out);
+}
+
+.fx-more-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* La prima scheda nuova riceve il focus dopo "Load more" */
+.fx-grid > li:focus {
+  outline: none;
+}
+
+.fx-grid > li:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--r-card);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-more-fill {
+    transition: none;
+  }
+}

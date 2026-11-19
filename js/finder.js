@@ -225,6 +225,53 @@
     return n + (n === 1 ? ' ingredient' : ' ingredients');
   }
 
+  /* Telefono (19/11/2026, Chiara): 8 schede alla volta, poi "Load more" con
+     il conteggio ("Showing 8 of 48 ingredients"). Le schede oltre il limite
+     sono hidden (fuori da tastiera e screen reader). Dopo "Load more" il
+     focus va alla prima scheda nuova. Da 600px si vedono tutte */
+  var PAGE = 8;
+  var shown = PAGE;
+  var phoneMq = window.matchMedia('(max-width: 599.98px)');
+  var more = document.createElement('div');
+  more.className = 'fx-more';
+  more.hidden = true;
+  var moreText = el('p', 'fx-more-count', '');
+  var moreBar = el('span', 'fx-more-bar');
+  moreBar.setAttribute('aria-hidden', 'true');
+  var moreFill = el('span', 'fx-more-fill');
+  moreBar.appendChild(moreFill);
+  var moreBtn = el('button', 'btn btn--outline fx-more-btn', 'Load more');
+  moreBtn.type = 'button';
+  more.appendChild(moreText);
+  more.appendChild(moreBar);
+  more.appendChild(moreBtn);
+  grid.parentNode.insertBefore(more, grid.nextSibling);
+
+  function paginate() {
+    var items = grid.children;
+    var total = items.length;
+    var limit = phoneMq.matches ? Math.min(shown, total) : total;
+    for (var i = 0; i < total; i++) items[i].hidden = i >= limit;
+    more.hidden = limit >= total;
+    if (!more.hidden) {
+      moreText.textContent = 'Showing ' + limit + ' of ' + plural(total);
+      moreFill.style.width = (limit / total * 100) + '%';
+    }
+  }
+
+  moreBtn.addEventListener('click', function () {
+    var first = shown;
+    shown += PAGE;
+    paginate();
+    var next = grid.children[first];
+    if (next) {
+      next.setAttribute('tabindex', '-1');
+      next.focus();
+    }
+  });
+
+  phoneMq.addEventListener('change', paginate);
+
   function render(fromUser) {
     var sel = selected();
     var list = DATA.filter(function (it) { return matches(it, sel, query); });
@@ -232,6 +279,8 @@
 
     grid.textContent = '';
     list.forEach(function (it) { grid.appendChild(card(it)); });
+    shown = PAGE;
+    paginate();
 
     countEl.textContent = filtering ? list.length + ' of ' + plural(DATA.length) : plural(DATA.length);
     empty.hidden = list.length > 0;
