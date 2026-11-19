@@ -3109,3 +3109,34 @@ html:not(.js) .pd-charts-nav {
   line-height: 1.5;
   color: var(--muted);
 }
+
+/* ==========================================================================
+   Dati veloci dell apertura IN RIGHE (19/11/2026, revisione dopo i testi
+   della cliente: "Delivery forms" fino a 75 caratteri, "Applications" fino
+   a 50). In colonne affiancate dentro ~300px ogni valore diventava una torre
+   di 6–8 righe che copriva foto e goccia. Ora un dato per riga, etichetta
+   sopra e valore sotto, linea sottile tra i dati: ogni valore sta su 1–2
+   righe. Vale su desktop (riquadro sulla foto) e su tablet/telefono (sotto)
+   ========================================================================== */
+.pd-hero-facts {
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.pd-hero-facts > div + div {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(25, 25, 25, 0.14);
+}
+
+.pd-hero-facts dd {
+  margin-top: 0.1rem;
+}
+
+@media (min-width: 900px) {
+  .pd-hero-facts {
+    width: min(64%, 320px);
+  }
+}
