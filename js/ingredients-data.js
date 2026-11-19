@@ -356,26 +356,6 @@ window.ROELMI_INGREDIENTS = [
     link: 'exceptionhyal-jump.html'
   },
   {
-    id: 18,
-    name: 'BeautySYN® Slim',
-    hex: '#F2B42A',
-    pillBg: '#F2B42A',
-    pillFg: '#191919',
-    lineLabel: 'BeautySYN',
-    form: 'liquid',
-    line: 'BeautySYN',
-    function: 'Slow release for long-lasting slimming',
-    market: ['Personal Care'],
-    technology: [],
-    type: 'Active',
-    category: '',
-    benefits: ['Skin slimming'],
-    certifications: [],
-    description: 'BeautySYN® Slim is a high-performance cosmetic active ingredient developed for reshaping and slimming activity. This synergy of three bioactive molecules based on Capsicum, Caffeine and Ruscus extracts ensures slow, controlled and prolonged release.',
-    texture: 'images/portfolio/texture-1.jpg',
-    link: 'beautysyn-slim.html'
-  },
-  {
     id: 19,
     name: 'CeraFluid®',
     hex: '#DDDDDD',
@@ -514,26 +494,6 @@ window.ROELMI_INGREDIENTS = [
     description: 'The PrincipHYAL® line is the result of a fine-tuning process (HA Tech 2.0) that produces hyaluronic acid across a full-spectrum, proprietary range of molecular weights, each tailored for specific applications. PrincipHYAL® Signal-10 is a hyaluronic acid with a very low molecular weight spectrum that acts as a long-term healthy aging active ingredient.',
     texture: 'images/portfolio/texture-1.jpg',
     link: 'principhyal-signal-10.html'
-  },
-  {
-    id: 26,
-    name: 'SynerSHIELD™ Sun',
-    hex: '#FFB600',
-    pillBg: '#FFB600',
-    pillFg: '#191919',
-    lineLabel: 'SynerSHIELD',
-    form: 'liquid',
-    line: 'SynerSHIELD',
-    function: 'Comforting soother',
-    market: ['Personal Care'],
-    technology: [],
-    type: 'Active',
-    category: '',
-    benefits: ['Protection'],
-    certifications: [],
-    description: 'SynerSHIELD™ Sun is a cosmetic active ingredient with a soothing action of vegetal origin, based on the synergy between the extract of Pleurotus ostreatus and Lolium perenne flowers, specifically designed for after-sun treatment with the aim of generating relief and restoring the skin after exposure.',
-    texture: 'images/portfolio/texture-1.jpg',
-    link: 'synershield-sun.html'
   },
   // 18/11/2026: cosmetici attivi con i testi del cliente (pagine nuove)
   {
