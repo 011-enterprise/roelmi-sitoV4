@@ -3153,3 +3153,13 @@ html:not(.js) .pd-charts-nav {
 .pd-intro a:hover {
   text-decoration-thickness: 2px;
 }
+
+/* Dati dell apertura, valori a 14px anche su desktop (19/11/2026, Chiara:
+   "molto piccoli"). Supera i 12px della regola del 13/11, nata quando il
+   vetro stava accanto alla goccia; ora i dati sono in righe e c è spazio.
+   Etichette invariate (12px, 600) */
+@media (min-width: 900px) {
+  .pd-hero-facts dd {
+    font-size: var(--fs-small);
+  }
+}
