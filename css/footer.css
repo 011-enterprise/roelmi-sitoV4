@@ -629,3 +629,76 @@
     padding-inline: 0;
   }
 }
+
+/* WeChat (20/11/2026, QR della cliente): quarto cerchio dei social, è un
+   bottone (non un link) che apre sopra di sé un riquadro con il QR code.
+   Stesso aspetto dei cerchi .ft-gradient .ft-social a */
+.ft-wechat {
+  position: relative;
+}
+
+.ft-wechat-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--hard-grey);
+  border-radius: 50%;
+  background: none;
+  color: var(--hard-grey);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.ft-wechat-btn:hover,
+.ft-wechat-btn[aria-expanded="true"] {
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+.ft-wechat-btn:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 3px;
+}
+
+.ft-wechat-panel {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.75rem);
+  z-index: 5;
+  width: 13rem;
+  padding: 0.9rem 0.9rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  background: var(--ricepaper);
+  box-shadow: 0 18px 40px rgba(25, 25, 25, 0.16);
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.ft-wechat-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.ft-wechat-panel p {
+  margin: 0.6rem 0 0;
+  font-size: var(--fs-small);
+  line-height: 1.35;
+  color: var(--hard-grey);
+}
+
+/* Telefono: il cerchio è il quarto a sinistra, il riquadro parte dal suo
+   bordo sinistro così non esce dallo schermo */
+@media (max-width: 699.98px) {
+  .ft-wechat-panel {
+    left: auto;
+    right: -0.5rem;
+    transform: none;
+  }
+}

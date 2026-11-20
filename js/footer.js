@@ -57,3 +57,32 @@
   else mq.addListener(apply);
   apply();
 })();
+
+/* WeChat nel footer (20/11/2026): il bottone apre e chiude il riquadro con il
+   QR code (aria-expanded). Si chiude con Esc (il focus torna al bottone),
+   cliccando fuori o portando il focus altrove */
+(function () {
+  var btn = document.querySelector('.ft-wechat-btn');
+  var panel = document.getElementById('ftWechat');
+  if (!btn || !panel) return;
+  var box = btn.parentNode;
+
+  function set(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.hidden = !open;
+  }
+
+  btn.addEventListener('click', function () { set(panel.hidden); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !panel.hidden) { set(false); btn.focus(); }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!panel.hidden && !box.contains(e.target)) set(false);
+  });
+
+  box.addEventListener('focusout', function (e) {
+    if (e.relatedTarget && !box.contains(e.relatedTarget)) set(false);
+  });
+})();
