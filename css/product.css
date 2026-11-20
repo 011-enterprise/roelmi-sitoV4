@@ -3248,3 +3248,36 @@ html:not(.js) .pd-charts-nav {
 @media (prefers-reduced-motion: reduce) {
   .pd-study-toggle-icon { transition: none; }
 }
+
+/* Logo HA Tech sotto 900px senza riquadro (20/11/2026, Chiara: "box brutto"
+   su telefono). Una riga a tutta larghezza come le voci di Clinical trials:
+   linea sottile sopra e sotto, "Technology" a sinistra, logo a destra alto
+   ~3.5rem. Da 900px resta il riquadro accanto alla descrizione */
+@media (max-width: 899.98px) {
+  .pd-desc--badge .pd-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: none;
+    margin-top: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
+    padding: 1rem 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .pd-desc--badge .pd-badge-label {
+    margin: 0;
+  }
+
+  .pd-desc--badge .pd-badge img {
+    width: auto;
+    height: 3.5rem;
+    max-width: 60%;
+    object-fit: contain;
+  }
+}
