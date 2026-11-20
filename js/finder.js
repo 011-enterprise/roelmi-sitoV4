@@ -228,10 +228,11 @@
   /* Telefono (19/11/2026, Chiara): 8 schede alla volta, poi "Load more" con
      il conteggio ("Showing 8 of 48 ingredients"). Le schede oltre il limite
      sono hidden (fuori da tastiera e screen reader). Dopo "Load more" il
-     focus va alla prima scheda nuova. Da 600px si vedono tutte */
-  var PAGE = 8;
-  var shown = PAGE;
+     focus va alla prima scheda nuova. */
+  /* 20/11/2026 (Chiara): anche su desktop, 12 schede alla volta (3–4 righe) */
   var phoneMq = window.matchMedia('(max-width: 599.98px)');
+  function pageSize() { return phoneMq.matches ? 8 : 12; }
+  var shown = pageSize();
   var more = document.createElement('div');
   more.className = 'fx-more';
   more.hidden = true;
@@ -250,7 +251,7 @@
   function paginate() {
     var items = grid.children;
     var total = items.length;
-    var limit = phoneMq.matches ? Math.min(shown, total) : total;
+    var limit = Math.min(shown, total);
     for (var i = 0; i < total; i++) items[i].hidden = i >= limit;
     more.hidden = limit >= total;
     if (!more.hidden) {
@@ -261,7 +262,7 @@
 
   moreBtn.addEventListener('click', function () {
     var first = shown;
-    shown += PAGE;
+    shown += pageSize();
     paginate();
     var next = grid.children[first];
     if (next) {
@@ -270,7 +271,7 @@
     }
   });
 
-  phoneMq.addEventListener('change', paginate);
+  phoneMq.addEventListener('change', function () { shown = Math.max(shown, pageSize()); paginate(); });
 
   function render(fromUser) {
     var sel = selected();
@@ -279,7 +280,7 @@
 
     grid.textContent = '';
     list.forEach(function (it) { grid.appendChild(card(it)); });
-    shown = PAGE;
+    shown = pageSize();
     paginate();
 
     countEl.textContent = filtering ? list.length + ' of ' + plural(DATA.length) : plural(DATA.length);

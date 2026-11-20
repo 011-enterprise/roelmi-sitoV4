@@ -1308,3 +1308,11 @@
     transition: none;
   }
 }
+
+/* "Load more" anche su desktop (20/11/2026): 12 schede alla volta; il bottone
+   è a tutta larghezza solo su telefono, altrove della sua misura */
+@media (min-width: 600px) {
+  .fx-more-btn {
+    width: auto;
+  }
+}
