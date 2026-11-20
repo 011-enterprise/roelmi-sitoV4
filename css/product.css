@@ -3170,3 +3170,81 @@ html:not(.js) .pd-charts-nav {
 .pd-desc:has(+ .pd-benefits) {
   padding-bottom: 0;
 }
+
+/* Telefono: studi clinici richiudibili (20/11/2026, js/product-collapse.js).
+   Il bottone sta dentro l h3 e ne prende lo stile, con la stessa freccia
+   dei gruppi di Technical details. Solo quando lo script l ha creato */
+.pd-study-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 56px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pd-study-toggle-icon {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin-right: 0.4rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-30%) rotate(45deg);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.pd-study-toggle[aria-expanded="true"] .pd-study-toggle-icon {
+  transform: translateY(20%) rotate(-135deg);
+}
+
+.pd-study-toggle:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (hover: hover) {
+  .pd-study-toggle:hover { color: var(--ocean); }
+}
+
+@media (max-width: 767.98px) {
+  /* righe compatte: niente spazio grande tra uno studio e l altro, solo la linea */
+  .pd-study:has(.pd-study-toggle) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .pd-study:has(.pd-study-toggle):first-of-type {
+    margin-top: var(--title-gap);
+  }
+
+  .pd-study:has(.pd-study-toggle):last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pd-study:has(.pd-study-toggle) .pd-study-title {
+    margin-top: 0;
+  }
+
+  .pd-study.is-open .pd-clinical-body {
+    padding-bottom: 1.5rem;
+  }
+
+  .pd-study-title:has(.pd-study-toggle) + .pd-clinical-body {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-study-toggle-icon { transition: none; }
+}
