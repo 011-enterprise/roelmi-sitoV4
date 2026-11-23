@@ -946,3 +946,10 @@
   margin-left: 0.06em;
   top: -0.5em;
 }
+
+/* ® di NIP nel sottomenu ancora staccata (23/11/2026, Chiara): nel menu a
+   tendina la voce è flex con gap 1rem, e il gap si metteva anche tra "NIP"
+   e la ®. Il margine negativo annulla il gap solo per la ® */
+.site-header:not(.is-panel-mode) .subnav a > .reg {
+  margin-left: calc(0.06em - 1rem);
+}

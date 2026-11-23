@@ -1211,3 +1211,40 @@
     animation: none !important;
   }
 }
+
+/* Pilastri con il testo SEMPRE visibile (23/11/2026, revisione per
+   AccessiWay): su tutti i dispositivi l iniziale sta in alto e sotto il
+   vetro con titolo e testo, come prima solo su touch. I box non sono più
+   fermate del Tab (tolto tabindex nel generatore): niente stato di focus.
+   Il liquido nel box e nella lettera resta (all entrata) */
+.np-pillar {
+  place-items: start stretch;
+  grid-template-rows: auto 1fr;
+  min-height: 0;
+}
+
+.np-pillar-mark {
+  grid-area: 1 / 1;
+  justify-self: center;
+  padding-block: clamp(1rem, 0.5rem + 1.5vw, 1.75rem);
+}
+
+.np-pillar-glass,
+.np-pillar:hover .np-pillar-glass {
+  grid-area: 2 / 1;
+  opacity: 1;
+  translate: none;
+}
+
+.np-pillar:hover .np-pillar-mark {
+  transform: none;
+}
+
+/* Telefono: lettere grandi la metà, così i tre pilastri non occupano tre
+   schermate */
+@media (max-width: 599.98px) {
+  .np-pillar-mark {
+    font-size: clamp(5.5rem, 3.5rem + 10vw, 7rem);
+    padding-block: 0.75rem;
+  }
+}
