@@ -913,7 +913,12 @@
   }
 }
 
-/* Box finali più vicini tra loro (23/11, Chiara): 8–12px invece di 12–24px */
-.dv-boxes-list {
-  gap: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+/* Our lines e i tre box come un unica griglia (23/11, Chiara): tra le due
+   righe lo stesso spazio che c è tra le schede di una riga (12–24px) */
+.dv-lines:has(+ .dv-boxes) {
+  padding-bottom: 0;
+}
+
+.dv-lines + .dv-boxes {
+  padding-top: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
 }
