@@ -25,7 +25,53 @@
     });
   }
 
-  var DATA = window.ROELMI_INGREDIENTS || [];
+  /* Ordine delle schede (23/11/2026, richiesta della cliente nella call di
+     venerdì): non divise per mercato ma alternate, una cosmetica e una
+     nutraceutica, in ordine casuale dentro ciascun gruppo; finiti i nutra, i
+     cosmetici restanti in ordine casuale. Il caso viene da un "seme" salvato
+     per la visita (sessionStorage): tornando indietro o filtrando l'ordine
+     resta lo stesso, a una nuova visita cambia. Senza sessionStorage: un
+     ordine nuovo a ogni caricamento */
+  function seededRandom(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function visitSeed() {
+    var seed;
+    try { seed = parseInt(sessionStorage.getItem('roelmi-finder-seed'), 10); } catch (e) {}
+    if (!seed) {
+      seed = Math.floor(Math.random() * 2147483646) + 1;
+      try { sessionStorage.setItem('roelmi-finder-seed', String(seed)); } catch (e) {}
+    }
+    return seed;
+  }
+
+  function mixedOrder(items) {
+    var rand = seededRandom(visitSeed());
+    var shuffle = function (a) {
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(rand() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    };
+    var isNutra = function (it) { return (it.market || []).indexOf('Nutraceutical') !== -1; };
+    var nutra = shuffle(items.filter(isNutra));
+    var care = shuffle(items.filter(function (it) { return !isNutra(it); }));
+    var out = [];
+    while (care.length || nutra.length) {
+      if (care.length) out.push(care.shift());
+      if (nutra.length) out.push(nutra.shift());
+    }
+    return out;
+  }
+
+  var DATA = mixedOrder(window.ROELMI_INGREDIENTS || []);
   var form = document.getElementById('fxForm');
   var grid = document.getElementById('fxGrid');
   var countEl = document.getElementById('fxCount');
