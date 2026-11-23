@@ -380,3 +380,440 @@
 .dv-close .cta-band-bg img {
   mix-blend-mode: multiply;
 }
+
+/* ==========================================================================
+   PERSONAL CARE con i testi nuovi del cliente (23/11/2026, genera-divisioni.js
+   → v2Sections). Solo personal-care.html; Nutraceutical resta com'era.
+   Contrasti: Hard Grey su Ricepaper 16:1, Ocean (parole chiave) 4.69:1,
+   Ricepaper su Ocean 4.70:1, Hard Grey su Cerulean/Olive/Antique 8.9–10.4:1
+   ========================================================================== */
+
+/* 2 · Tagline: senza parole che si accendono; il link resta sottolineato */
+.dv-statement--static a {
+  color: var(--ocean);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+
+.dv-statement--static a:hover {
+  color: var(--hard-grey);
+}
+
+/* 3 · How we work: texture a sinistra, testo a destra */
+.dv-desc + .dv-how {
+  padding-top: 0;
+}
+
+.dv-how-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 4.5rem);
+  align-items: center;
+}
+
+.dv-how-media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.dv-how-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dv-how-text {
+  max-width: 60ch;
+  margin-top: var(--title-gap);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+.dv-how-text strong {
+  font-weight: 600;
+}
+
+/* 4 · Portfolio su Ocean */
+.dv-port-text {
+  max-width: 56ch;
+  margin-top: 1.25rem;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+}
+
+.dv-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+  margin-block: var(--title-gap);
+}
+
+.dv-filter-label {
+  margin-bottom: 0.6rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.dv-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dv-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--ricepaper);
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ricepaper);
+  text-decoration: none;
+  transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out);
+}
+
+.dv-chip:hover {
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+.dv-chip:focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 3px;
+}
+
+.dv-port-all {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.dv-rd {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  max-width: 68ch;
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.dv-rd a:not(.btn) {
+  color: var(--ricepaper);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.dv-rd a:not(.btn):hover {
+  text-decoration-thickness: 2px;
+}
+
+.dv-rd a:not(.btn):focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.dv-rd strong {
+  font-weight: 600;
+}
+
+.dv-rd .btn {
+  margin-top: 0.5rem;
+}
+
+/* 6 · Our lines: tre schede */
+.dv-lines-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  margin-top: var(--title-gap);
+}
+
+.dv-line {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background-color: rgba(247, 243, 235, 0.6);
+  color: var(--hard-grey);
+  line-height: 1.6;
+}
+
+/* Etichetta come l'eyebrow (Iwona, maiuscole originali, niente spaziatura) */
+.dv-line-key {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.dv-line-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+}
+
+.dv-line-link {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* 7 · Tre box colorati */
+.dv-lines + .dv-boxes {
+  padding-top: 0;
+}
+
+.dv-boxes-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+}
+
+.dv-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.75rem);
+  border-radius: var(--r-card);
+}
+
+.dv-box-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+}
+
+.dv-box-text {
+  line-height: 1.6;
+}
+
+.dv-box-link {
+  margin-top: auto;
+}
+
+/* Tablet e telefono: una colonna */
+@media (max-width: 899.98px) {
+  .dv-how-grid,
+  .dv-lines-list,
+  .dv-boxes-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dv-how-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .dv-filters {
+    gap: 1rem;
+  }
+}
+
+/* How we work: polvere bianca tinta nel colore del mercato in "moltiplica",
+   come le fasce di chiusura (23/11/2026, Chiara: Personal Care = Antique) */
+.dv-how-media--antique { background-color: var(--antique); }
+.dv-how-media--olive   { background-color: var(--olive); }
+
+.dv-how-media[class*="dv-how-media--"] img {
+  mix-blend-mode: multiply;
+}
+
+/* Portfolio, blocco finale (23/11/2026, Chiara: "poco equilibrato" e due
+   bottoni uguali): due colonne a tutta larghezza. A sinistra "We believe…"
+   come paragrafo d'apertura (Iwona, misura statement), a destra il
+   paragrafo R&D con i link. Sotto un solo bottone, centrato */
+.dv-rd {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 4.5rem);
+  align-items: start;
+  max-width: none;
+}
+
+.dv-rd-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.38rem, 0.98rem + 1.02vw, 2.02rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+}
+
+.dv-rd-quote strong {
+  font-weight: 500;
+}
+
+.dv-rd-text {
+  max-width: 62ch;
+}
+
+.dv-rd + .dv-port-all {
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+@media (max-width: 899.98px) {
+  .dv-rd {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 599.98px) {
+  .dv-rd-quote {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
+
+/* Ordine (23/11, Chiara): colonne uguali, testo di destra fino al bordo,
+   bottone allineato a sinistra come i testi. La prima riga del paragrafo
+   parte all'altezza della prima riga della citazione */
+.dv-rd {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dv-rd-text {
+  max-width: none;
+  padding-top: 0.35rem;
+}
+
+.dv-rd + .dv-port-all {
+  justify-content: flex-start;
+}
+
+@media (max-width: 899.98px) {
+  .dv-rd {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dv-rd-text {
+    padding-top: 0;
+  }
+}
+
+/* 23/11 (Chiara: "troppo spazio"): Formulation e Our lines sono due sezioni
+   chiare di fila, un solo spazio tra le due */
+.dv-form + .dv-lines {
+  padding-top: 0;
+}
+
+/* Our lines: etichetta sempre alta due righe su desktop, così i nomi delle
+   tre linee partono alla stessa altezza (SeidoTech va a capo) */
+@media (min-width: 900px) {
+  .dv-line-key {
+    min-height: 2.7em;
+  }
+}
+
+/* ==========================================================================
+   Our lines, hover (23/11/2026, Chiara: "polvere nel colore della linea").
+   Mouse sopra o fuoco da tastiera dentro la scheda: dietro il testo compare
+   in dissolvenza una polvere bianca tinta nel colore della linea (lo stesso
+   delle etichette del Finder) in "moltiplica", sotto un velo Ricepaper 0.65.
+   Contrasto Hard Grey sul punto più scuro (SeidoTech #774419 nelle ombre
+   della polvere): ~6.8:1. La scheda si solleva di 6px solo con il
+   movimento attivo; su touch nessun effetto (resta la scheda chiara).
+   EMotion giallo + polvere-6 (onde) · EquiBiotics grigio + polvere-5
+   (pennellate) · SeidoTech marrone + polvere-12 (venature)
+   ========================================================================== */
+.dv-line {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    translate 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    border-color 0.5s var(--ease-out);
+}
+
+.dv-line > :not(.dv-line-bg) {
+  position: relative;
+}
+
+.dv-line-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--line-color, var(--antique));
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.dv-line-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  transform: scale(1.08);
+  transition: transform 1.2s var(--ease-out);
+}
+
+/* Velo chiaro: il testo resta leggibile sopra ogni colore */
+.dv-line-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(247, 243, 235, 0.65);
+}
+
+@media (hover: hover) {
+  .dv-line:hover .dv-line-bg {
+    opacity: 1;
+  }
+
+  .dv-line:hover .dv-line-bg img {
+    transform: scale(1);
+  }
+
+  .dv-line:hover {
+    border-color: transparent;
+    box-shadow: 0 18px 36px rgba(25, 25, 25, 0.14);
+    translate: 0 -6px;
+  }
+}
+
+/* Tastiera: stesso effetto quando il link della scheda ha il fuoco */
+.dv-line:focus-within .dv-line-bg {
+  opacity: 1;
+}
+
+.dv-line:focus-within .dv-line-bg img {
+  transform: scale(1);
+}
+
+.dv-line:focus-within {
+  border-color: transparent;
+  box-shadow: 0 18px 36px rgba(25, 25, 25, 0.14);
+}
+
+/* Fermo (Stop animation / reduced-motion): solo la dissolvenza, niente
+   sollevamento né zoom */
+.motion-paused .dv-line,
+.motion-paused .dv-line-bg img {
+  translate: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dv-line,
+  .dv-line-bg img {
+    translate: none !important;
+    transform: none !important;
+    transition: opacity 0.3s linear;
+  }
+}
