@@ -277,3 +277,25 @@
   }
 }
 
+
+/* Scheda con due prodotti (NIP, EMotion® Glow and SKin, 23/11/2026): due
+   link nel titolo, quindi niente link su tutta la scheda; sottolineati per
+   distinguerli, contorno di fuoco sul link stesso */
+.np-card-link--inline {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.np-card-link--inline::after {
+  content: none;
+}
+
+.np-card-link--inline:hover {
+  text-decoration-thickness: 2px;
+}
+
+.np-card-link--inline:focus-visible {
+  outline: 2px solid var(--ocean-on-dark);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
