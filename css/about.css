@@ -951,3 +951,219 @@
     mask-image: linear-gradient(to right, transparent 0, #000 22%);
   }
 }
+
+/* ==========================================================================
+   Our philosophy (24/11/2026, mail al cliente: Philosophy confluisce in
+   About). Dopo What we do (due sezioni chiare di fila: un solo spazio),
+   prima della fascia NIP. Introduzione nel testo normale su due colonne,
+   Vision come .ab-statement (Iwona, parole chiave Ocean 4.69:1), valori in
+   griglia con la goccia del logo come segno. Solo token del sito
+   ========================================================================== */
+.ab-what + .ab-philo {
+  padding-top: 0;
+}
+
+.ab-philo-intro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem clamp(1.5rem, 1rem + 3vw, 4rem);
+  margin-top: var(--title-gap);
+  max-width: 72rem;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+.ab-philo-intro strong {
+  font-weight: 600;
+}
+
+.ab-philo-block {
+  margin-top: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+}
+
+/* Etichetta piccola sopra Vision e Our values (come i titoli di blocco) */
+.ab-philo-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+.ab-philo-block .ab-statement {
+  margin-top: 1rem;
+}
+
+.ab-values-intro {
+  max-width: 60ch;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  color: var(--hard-grey);
+}
+
+.ab-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.ab-values li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: clamp(1rem, 0.8rem + 0.8vw, 1.6rem) 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+  color: var(--hard-grey);
+}
+
+/* Goccia del logo (decorativa, sempre nel suo azzurro) */
+.ab-values li::before {
+  content: "";
+  flex: none;
+  width: 0.55em;
+  height: 0.8em;
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+}
+
+@media (max-width: 899.98px) {
+  .ab-philo-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ab-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .ab-values li {
+    font-size: var(--fs-h4);
+  }
+}
+
+/* Our philosophy, versione A (24/11/2026, Chiara: "meno scritte"): niente
+   introduzione né etichette visibili (titoli Vision / Our values solo per lo
+   screen reader). La Vision è un paragrafo d'apertura con le parole che si
+   accendono (scroll-words.js, accenti Ocean); i sei valori sono una riga di
+   parole grandi in Iwona separate dalla goccia del logo, senza griglia né
+   linee; al passaggio del mouse la parola diventa Ocean (4.69:1) */
+.ab-vision {
+  margin-top: var(--title-gap);
+}
+
+.ab-values--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem clamp(1rem, 0.6rem + 1.5vw, 2rem);
+  margin-top: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+  border-top: 0;
+}
+
+.ab-values--row li {
+  padding: 0;
+  border-bottom: 0;
+  font-size: var(--fs-box);
+  line-height: 1.1;
+  letter-spacing: var(--ls-title);
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+/* La goccia fa da separatore: solo tra una parola e l'altra */
+.ab-values--row li::before {
+  display: none;
+}
+
+.ab-values--row li + li::before {
+  display: block;
+  width: 0.4em;
+  height: 0.58em;
+  margin-right: clamp(0.4rem, 0.2rem + 0.8vw, 1.4rem);
+}
+
+.ab-values--row li {
+  gap: 0;
+}
+
+@media (hover: hover) {
+  .ab-values--row li:hover {
+    color: var(--ocean);
+  }
+}
+
+@media (max-width: 899.98px) {
+  .ab-values--row {
+    display: flex;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .ab-values--row li {
+    font-size: var(--fs-large);
+  }
+}
+
+/* Valori che entrano una alla volta (24/11/2026, Chiara): quando la riga
+   entra nello schermo (reveal.js mette .is-in) ogni parola sale da una
+   maschera (li con overflow nascosto) con 0.18s di ritardo dalla precedente
+   e la goccia compare prima della parola. ~1.8s in tutto, una volta sola:
+   niente Stop animation (WCAG 2.2.2 vale oltre i 5s). Senza JS, con Stop
+   animation e con reduced-motion: tutto visibile e fermo */
+@media (prefers-reduced-motion: no-preference) {
+  /* La riga non fa l'entrata comune (sale e sfuma): si muovono le parole */
+  .js .ab-values--row[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ab-values--row li {
+    overflow: hidden;
+    padding-bottom: 0.12em;      /* le lettere con la coda (y, g) non si tagliano */
+    margin-bottom: -0.12em;
+  }
+
+  .js .ab-values--row .ab-value {
+    display: inline-block;
+    transform: translate3d(0, 110%, 0);
+    transition: transform 0.9s var(--ease-out);
+  }
+
+  .js .ab-values--row li::before {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  }
+
+  .js .ab-values--row.is-in .ab-value {
+    transform: none;
+  }
+
+  .js .ab-values--row.is-in li::before {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ab-values--row li:nth-child(2) .ab-value, .ab-values--row li:nth-child(2)::before { transition-delay: 0.18s; }
+  .ab-values--row li:nth-child(3) .ab-value, .ab-values--row li:nth-child(3)::before { transition-delay: 0.36s; }
+  .ab-values--row li:nth-child(4) .ab-value, .ab-values--row li:nth-child(4)::before { transition-delay: 0.54s; }
+  .ab-values--row li:nth-child(5) .ab-value, .ab-values--row li:nth-child(5)::before { transition-delay: 0.72s; }
+  .ab-values--row li:nth-child(6) .ab-value, .ab-values--row li:nth-child(6)::before { transition-delay: 0.9s; }
+}
+
+.motion-paused .ab-values--row .ab-value,
+.motion-paused .ab-values--row li::before {
+  transform: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
