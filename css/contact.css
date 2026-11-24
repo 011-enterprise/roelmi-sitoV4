@@ -634,3 +634,28 @@
   margin: 0;
   line-height: 1.5;
 }
+
+/* Nota sul pixel spostata nella colonna di sinistra, sotto "Fields marked
+   with * are mandatory" (25/11/2026, cliente: sotto il consenso marketing
+   sembrava legata a quella casella). Stesso stile della nota dei campi */
+.fm-note.ct-pixel-note {
+  grid-column: auto;
+  margin-top: 0.5rem;
+}
+
+/* Regola fissa degli spazi (nota 245): modulo e sedi sono due sezioni
+   chiare di fila, un solo spazio (25/11/2026, Chiara: "troppo spazio") */
+.ct-form-sec + .ct-offices {
+  padding-top: 0;
+}
+
+/* Apertura e modulo: anche su desktop un solo spazio (regola fissa) */
+.ct-hero + .ct-form-sec {
+  padding-top: 0;
+}
+
+/* Ora in am/pm sempre su una riga (25/11/2026: "1:06 PM" andava a capo) */
+.ct-office-time,
+.ct-office-time time {
+  white-space: nowrap;
+}

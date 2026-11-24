@@ -17,8 +17,11 @@
     var now = new Date();
     times.forEach(function (t) {
       try {
-        var hm = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: t.getAttribute('data-tz') }).format(now);
-        t.textContent = hm;
+        var tz = t.getAttribute('data-tz');
+        // 25/11/2026 (cliente): ora visibile in am/pm ("9:05 AM"); l attributo
+        // datetime resta nel formato valido 24 ore ("09:05")
+        var hm = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: tz }).format(now);
+        t.textContent = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: tz }).format(now);
         t.setAttribute('datetime', hm);
         t.parentNode.hidden = false;
       } catch (e) { /* fuso non supportato: resta nascosta */ }
