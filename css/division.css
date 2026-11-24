@@ -1092,3 +1092,15 @@
     font-size: var(--fs-small);
   }
 }
+
+/* Righe che scorrono di lato (filtri, Our lines): niente barra di
+   scorrimento visibile (24/11/2026, come il Blog) */
+.dv-filters,
+.dv-lines-list {
+  scrollbar-width: none;
+}
+
+.dv-filters::-webkit-scrollbar,
+.dv-lines-list::-webkit-scrollbar {
+  display: none;
+}

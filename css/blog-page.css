@@ -407,3 +407,152 @@
 .bp-hero .bp-latest {
   margin-top: var(--section-y);
 }
+
+/* ==========================================================================
+   Blog su telefono (24/11/2026, Chiara): le schede una per riga erano alte
+   ~450px (6 schede = quasi tre schermate). Sotto 600px nell'elenco le
+   schede diventano righe compatte: miniatura quadrata a sinistra,
+   categoria · data e titolo a destra; frase e "Read more" nascoste (tutta la
+   scheda resta il link del titolo). Pillole delle categorie piccole come in
+   Personal Care (36px, area di tocco 44px). L'articolo in evidenza e le
+   schede "More news" degli articoli non cambiano
+   ========================================================================== */
+@media (max-width: 899.98px) {
+  .bp-filter {
+    position: relative;
+    min-height: 36px;
+    padding: 0.3rem 0.85rem;
+  }
+
+  .bp-filter::after {
+    content: "";
+    position: absolute;
+    inset: -4px 0;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .bp-filters {
+    gap: 0.4rem;
+    padding-block: 5px;
+  }
+
+  .bp-list .blog-grid {
+    gap: 0.6rem;
+  }
+
+  .bp-list .post {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    grid-template-areas:
+      "thumb meta"
+      "thumb title";
+    align-content: center;
+    column-gap: 0.9rem;
+    row-gap: 0.35rem;
+    padding: 0.6rem;
+  }
+
+  .bp-list .post-thumb {
+    grid-area: thumb;
+    aspect-ratio: 1;
+    align-self: center;
+  }
+
+  .bp-list .post-cat {
+    grid-area: meta;
+    align-self: end;
+    margin-top: 0;
+    padding-inline: 0;
+    font-size: var(--fs-small);
+  }
+
+  .bp-list .post-title {
+    grid-area: title;
+    align-self: start;
+    margin-top: 0;
+    padding-inline: 0;
+    font-size: var(--fs-h5);
+    line-height: 1.25;
+  }
+
+  .bp-list .post-text,
+  .bp-list .post-more {
+    display: none;
+  }
+
+  .bp-list .press-tag {
+    min-height: 1.5rem;
+    padding: 0 0.55rem;
+  }
+}
+
+/* Ricerca su telefono (24/11/2026, screenshot di Chiara): sotto 480px la
+   regola comune (base.css) mandava il bottone sotto, a tutta larghezza, e il
+   campo usciva dallo schermo a destra. Come nel Finder: bottone Search
+   DENTRO la pillola, sulla stessa riga; il campo prende lo spazio che resta */
+.bp-search {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .bp-search {
+    width: auto;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .bp-search.pill-field {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.3rem 0.3rem 1.1rem;
+    border: 1px solid var(--fg);
+  }
+
+  .bp-search.pill-field:focus-within {
+    outline: 2px solid var(--fg);
+    outline-offset: 3px;
+  }
+
+  .bp-search .pill-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .bp-search .pill-input:focus-visible {
+    outline: none;
+  }
+
+  .bp-search .pill-submit {
+    flex: none;
+    padding-inline: 1.1rem;
+  }
+}
+
+/* Righe che scorrono di lato (categorie): niente barra di scorrimento
+   visibile, che sul telefono disegnava una riga sotto le pillole. Si capisce
+   che scorre perché l'ultima pillola è tagliata */
+.bp-filters {
+  scrollbar-width: none;
+}
+
+.bp-filters::-webkit-scrollbar {
+  display: none;
+}
+
+/* Larghezza della pagina (24/11/2026, Chiara: nel blog, finestra stretta, la
+   pagina risultava più larga della finestra e la pillola del menu usciva a
+   destra). Le righe che scorrono di lato arrivano al bordo con margini
+   negativi: qualunque cosa sbordi in orizzontale viene tagliata dalla
+   sezione (clip: niente barra di scorrimento, non blocca sticky) */
+.bp-hero,
+.bp-list,
+.ar-hero,
+.ar-body,
+.ar-more {
+  overflow-x: clip;
+}
