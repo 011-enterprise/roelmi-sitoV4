@@ -3361,3 +3361,98 @@ html:not(.js) .pd-charts-nav {
     background-image: none;
   }
 }
+
+/* ==========================================================================
+   Clinical trials, più grafici in uno studio = CAROSELLO (25/11/2026, la
+   cliente; js/clinical-carousel.js). Il grafico attivo nella colonna destra
+   dello studio (come con un grafico solo), sotto frecce rotonde (.pd-arrow,
+   come Technical data) e contatore "1 / 3". I grafici stanno tutti nella
+   stessa cella della griglia: l'altezza è quella del più alto, niente salti.
+   Cambio con dissolvenza (istantaneo con Stop animation / reduced-motion).
+   Senza JS (niente .is-ready): grafici uno sotto l'altro, frecce nascoste
+   ========================================================================== */
+.pd-carousel {
+  min-width: 0;
+}
+
+.pd-carousel-nav {
+  display: none;
+}
+
+.pd-carousel.is-ready .pd-carousel-track {
+  display: grid;
+  touch-action: pan-y;
+}
+
+.pd-carousel.is-ready .pd-carousel-slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s var(--ease-out), visibility 0s linear 0.45s;
+}
+
+.pd-carousel.is-ready .pd-carousel-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s var(--ease-out), visibility 0s;
+}
+
+.pd-carousel.is-ready .pd-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pd-carousel-count {
+  min-width: 3.5em;
+  text-align: center;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--hard-grey);
+}
+
+.motion-paused .pd-carousel-slide {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-carousel-slide {
+    transition: none !important;
+  }
+}
+
+/* Senza JS: grafici in colonna con un po' di spazio */
+.pd-carousel:not(.is-ready) .pd-carousel-slide + .pd-carousel-slide {
+  margin-top: 2.5rem;
+}
+
+/* Carosello degli STUDI (25/11/2026, la cliente; Rainbow, Zen, Apple,
+   Blossom, Jump, Wink, Star): una slide per studio (titolo, voci,
+   grafico), frecce e contatore sotto. Le slide occupano la stessa cella:
+   l'altezza è quella dello studio più alto. Niente linea sopra gli studi */
+.pd-carousel--studies {
+  margin-top: var(--title-gap);
+}
+
+.pd-carousel--studies .pd-study-title {
+  margin-top: 0;
+}
+
+.pd-carousel--studies.is-ready .pd-carousel-nav {
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.pd-carousel.is-ready > .pd-carousel-track > .pd-carousel-slide {
+  grid-area: 1 / 1;
+}
+
+/* Senza JS gli studi restano uno sotto l'altro con la linea di prima */
+.pd-carousel--studies:not(.is-ready) .pd-study + .pd-study {
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  padding-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}

@@ -398,7 +398,9 @@
         <!-- Uno studio per riga (18/11/2026, testi della cliente): a sinistra dose,
              disegno e risultati, a destra il suo grafico. Con più studi ognuno ha
              il suo titolo (h3) -->
-        <div class="pd-study">
+        <div class="pd-carousel pd-carousel--studies" data-carousel data-carousel-label="Study" role="region" aria-roledescription="carousel" aria-label="Clinical studies">
+          <div class="pd-carousel-track" id="pd-studies">
+        <div class="pd-study pd-carousel-slide" aria-roledescription="slide" aria-label="1 of 3">
           <h3 class="pd-study-title" data-reveal>Study 1</h3>
           <div class="pd-clinical-body has-chart">
             <dl class="pd-clinical-list" data-reveal>
@@ -420,7 +422,7 @@
           </figure>
           </div>
         </div>
-        <div class="pd-study pd-study--next">
+        <div class="pd-study pd-carousel-slide" aria-roledescription="slide" aria-label="2 of 3">
           <h3 class="pd-study-title" data-reveal>Study 2 · In&amp;Out</h3>
           <div class="pd-clinical-body has-chart">
             <dl class="pd-clinical-list" data-reveal>
@@ -432,7 +434,7 @@
           </figure>
           </div>
         </div>
-        <div class="pd-study pd-study--next">
+        <div class="pd-study pd-carousel-slide" aria-roledescription="slide" aria-label="3 of 3">
           <h3 class="pd-study-title" data-reveal>Study 3 · In&amp;Out</h3>
           <div class="pd-clinical-body has-chart">
             <dl class="pd-clinical-list" data-reveal>
@@ -456,6 +458,18 @@
             </figcaption>
           </figure>
           </div>
+        </div>
+          </div>
+          <div class="pd-carousel-nav">
+            <button class="pd-arrow" type="button" data-dir="-1" aria-label="Previous study" aria-controls="pd-studies">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <p class="pd-carousel-count" aria-hidden="true"><span data-carousel-current>1</span> / 3</p>
+            <button class="pd-arrow" type="button" data-dir="1" aria-label="Next study" aria-controls="pd-studies">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          <p class="sr-only" aria-live="polite" data-carousel-status></p>
         </div>
       </div>
     </section>
@@ -529,7 +543,7 @@
             </div>
             <div class="cta-band-actions">
               <a class="btn btn--solid" href="contact.html">Contact us</a>
-              <a class="btn btn--outline" href="#">Formulation Area</a>
+              <a class="btn btn--outline" href="#">Symphony</a>   <!-- 25/11/2026 (cliente): nutra = Symphony, Formulation Area solo per i cosmetici -->
             </div>
           </div>
         </aside>
@@ -635,6 +649,7 @@
   <script src="js/product-picto.js" defer></script>
   <script src="js/force-field.js" defer></script>
   <script src="js/product-charts.js" defer></script>
+  <script src="js/clinical-carousel.js" defer></script>   <!-- caroselli dei grafici degli studi -->
   <script src="js/product-benefits.js" defer></script>
   <script src="js/product-collapse.js" defer></script>   <!-- telefono: studi richiudibili, Technical details chiusi -->
   <script src="js/scroll-words.js" defer></script>

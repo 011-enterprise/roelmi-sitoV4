@@ -6,7 +6,8 @@
    Da 768px in su (e senza JavaScript) tutto resta aperto come prima. */
 (function () {
   var mq = window.matchMedia('(max-width: 767.98px)');
-  var studies = Array.prototype.slice.call(document.querySelectorAll('.pd-clinical .pd-study'));
+  // 25/11/2026: gli studi in carosello non diventano tendine
+  var studies = Array.prototype.slice.call(document.querySelectorAll('.pd-clinical .pd-study:not(.pd-carousel-slide)'));
   var built = false;
 
   function build() {
