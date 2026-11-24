@@ -696,3 +696,28 @@
     padding-block: 0;
   }
 }
+
+/* Testo ridotto per il telefono (25/11/2026, testo della cliente): da 600px
+   si vede il testo lungo, sotto 600px solo quello corto (display: none
+   sull'altro, così lo screen reader ne legge sempre uno solo). Supera il
+   testo nascosto solo a vista della versione compatta (nota 87) */
+.nip-text-short {
+  display: none;
+}
+
+@media (max-width: 599.98px) {
+  .nip-copy p.nip-text-long {
+    display: none;
+  }
+
+  .nip-copy p.nip-text-short {
+    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0.75rem 0 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}

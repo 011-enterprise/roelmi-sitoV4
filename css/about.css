@@ -1210,3 +1210,49 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Storia: secondo paragrafo (sedi) nel font del testo (25/11/2026, richiesta
+   della cliente; supera la nota del 06/11 che lo voleva grande come il
+   primo). Il primo resta la frase d'apertura in Iwona con le parole che si
+   accendono; il secondo è testo informativo: Chiron Hei HK, --fs-lead,
+   interlinea 1.6, Hard Grey; i luoghi restano Ocean (4.69:1, AA anche per
+   il testo normale), senza grassetto */
+.ab-story .ab-lead.ab-lead--text {
+  max-width: 56ch;
+  margin-top: 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--hard-grey);
+}
+
+.ab-story .ab-lead.ab-lead--text strong {
+  font-weight: 400;
+}
+
+.ab-story .ab-lead.ab-lead--text .accent {
+  color: var(--ocean);
+}
+
+@media (max-width: 599.98px) {
+  .ab-story .ab-lead.ab-lead--text {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Secondo paragrafo un po' più grande (25/11/2026, Chiara: la cliente voleva
+   solo un font diverso, non un testo più piccolo): --fs-h4 (20–24px) invece
+   di --fs-lead, interlinea 1.5; 18px su telefono */
+.ab-story .ab-lead.ab-lead--text {
+  max-width: 46ch;
+  font-size: var(--fs-h4);
+  line-height: 1.5;
+}
+
+@media (max-width: 599.98px) {
+  .ab-story .ab-lead.ab-lead--text {
+    font-size: 1.125rem;
+  }
+}
