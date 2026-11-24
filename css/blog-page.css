@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Pagina Blog (blog.html, 24/11/2026, generatore genera-blog.js).
+   Base SITO 3 adattata: solo token e componenti del sito.
+   1 apertura .page-hero (base.css) · 2 ultimo articolo in evidenza (chiaro)
+   3 tutte le news su Ocean con le schede del Blog della home (blog.css),
+     ricerca, categorie, "Load more" (js/blog-page.js) · 4 Newsletter
+   Contrasti: Hard Grey su Ricepaper 16:1, grigio secondario 6.2:1, Ocean
+   (badge pieno con testo Ricepaper) 4.69:1, Ricepaper su Ocean 4.70:1
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1 · Apertura: percorso (come divisioni, About, Contatti)
+   -------------------------------------------------------------------------- */
+.bp-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  font-size: var(--fs-small);
+}
+
+.bp-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bp-breadcrumb li + li::before {
+  content: "/";
+  content: "/" / "";   /* separatore solo visivo */
+}
+
+.bp-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--hard-grey);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bp-breadcrumb a[aria-current="page"] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bp-breadcrumb a:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
+}
+
+/* Polvere dell apertura (polvere-12): inquadratura */
+.bp-hero-img {
+  object-position: 60% 50%;
+}
+
+/* --------------------------------------------------------------------------
+   2 · In evidenza: foto grande a sinistra, testo a destra
+   -------------------------------------------------------------------------- */
+.page-hero + .bp-latest {
+  padding-top: 0;
+}
+
+.bp-featured {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 1rem + 2.5vw, 3.5rem);
+  align-items: center;
+  color: var(--hard-grey);
+}
+
+.bp-featured-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.bp-featured-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.bp-featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.bp-featured-meta time {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.bp-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+  font-size: var(--fs-label);
+  font-weight: 700;
+}
+
+.bp-featured-title {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+}
+
+.bp-featured-link {
+  color: inherit;
+}
+
+/* Tutta la scheda è cliccabile tramite il link del titolo */
+.bp-featured-link::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: 2;
+  border-radius: var(--r-card);
+}
+
+.bp-featured-text {
+  max-width: 46ch;
+  margin-top: 0.9rem;
+  line-height: 1.6;
+}
+
+/* "Read more" come i link-CTA del sito: testo + freccia */
+.bp-featured-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 1.25rem;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+}
+
+.bp-featured-more::after {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .bp-featured:hover .bp-featured-media img {
+    transform: scale(1.04);
+  }
+
+  .bp-featured:hover .bp-featured-link {
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .bp-featured:hover .bp-featured-more::after {
+    transform: translateX(3px);
+  }
+}
+
+.bp-featured-link:focus-visible {
+  outline: none;
+}
+
+.bp-featured-link:focus-visible::after {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 4px;
+}
+
+.motion-paused .bp-featured-media img,
+.motion-paused .bp-featured-more::after {
+  transform: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3 · Tutte le news su Ocean
+   -------------------------------------------------------------------------- */
+.bp-section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-section);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--ls-title);
+}
+
+.bp-section-title span:not(.eyebrow) {
+  display: block;
+  margin-top: 1rem;
+}
+
+.bp-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: var(--title-gap);
+}
+
+.bp-search {
+  flex: 0 1 24rem;
+  min-width: 0;
+}
+
+.bp-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Pillole di scelta (forma comune) in Ricepaper sull'Ocean */
+.bp-filter {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.theme-ocean .bp-filter {
+  border: 1px solid var(--ricepaper);
+  color: var(--ricepaper);
+}
+
+.theme-ocean .bp-filter:hover {
+  background-color: rgba(247, 243, 235, 0.12);
+}
+
+.theme-ocean .bp-filter[aria-pressed="true"] {
+  border-color: var(--ricepaper);
+  background-color: var(--ricepaper);
+  color: var(--ocean);
+}
+
+.theme-ocean .bp-filter:focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 3px;
+}
+
+.bp-status {
+  margin-top: 1.5rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.bp-grid {
+  margin-top: 1rem;
+}
+
+/* Categoria e data nella stessa riga della scheda */
+.bp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.bp-meta time {
+  font-weight: 400;
+}
+
+.post[hidden] {
+  display: none;
+}
+
+.bp-empty {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.bp-empty[hidden] {
+  display: none;
+}
+
+.bp-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.bp-more[hidden] {
+  display: none;
+}
+
+/* Senza JS: tutte le schede, niente filtri né "Load more" */
+.no-js .bp-tools,
+.no-js .bp-status,
+.no-js .bp-more-wrap {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023.98px) {
+  .bp-list .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899.98px) {
+  .bp-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bp-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bp-search {
+    flex-basis: auto;
+  }
+}
+
+/* Telefono: nell'elenco le schede vanno in colonna (in home invece la riga
+   del Blog scorre di lato) */
+@media (max-width: 699.98px) {
+  .bp-list .blog-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .bp-list .blog-grid > .post {
+    flex: none;
+    width: auto;
+  }
+
+  /* Categorie in una riga che scorre di lato */
+  .bp-filters {
+    flex-wrap: nowrap;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.25rem;
+    overflow-x: auto;
+  }
+
+  .bp-filter {
+    flex: none;
+  }
+}
