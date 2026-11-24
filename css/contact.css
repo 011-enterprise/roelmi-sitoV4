@@ -264,7 +264,7 @@
 
 .ct-office {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.2fr) 5.5rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.2fr) auto;   /* 25/11: auto, l ora in am/pm su una riga è più larga */
   align-items: baseline;
   gap: 0.5rem clamp(1rem, 0.5rem + 2vw, 2.5rem);
   padding-block: clamp(1.1rem, 0.8rem + 1vw, 1.75rem);
