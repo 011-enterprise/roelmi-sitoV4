@@ -922,3 +922,173 @@
 .dv-lines + .dv-boxes {
   padding-top: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
 }
+
+/* ==========================================================================
+   Personal Care su telefono e tablet (24/11/2026, Chiara: "troppi spazi, non
+   equilibrati"). Tra le sezioni lo spazio era già uno solo: si stringe
+   DENTRO le sezioni, con gli spazi comuni del sito
+   ========================================================================== */
+@media (max-width: 899.98px) {
+  /* How we work: immagine più bassa, meno spazio tra immagine e testo */
+  .dv-how-grid {
+    gap: 1.25rem;
+  }
+
+  .dv-how-media {
+    aspect-ratio: 2 / 1;
+  }
+
+  .dv-how-text {
+    margin-top: 1.25rem;
+  }
+
+  /* Sezione blu: blocco finale più vicino alle schede */
+  .dv-rd {
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+  }
+
+  .dv-rd + .dv-port-all {
+    margin-top: 1.75rem;
+  }
+
+  /* Tre box: niente altezza minima, fascia di polvere più bassa */
+  .dv-box {
+    min-height: 0;
+    padding-top: clamp(4rem, 3rem + 6vw, 6rem);
+  }
+}
+
+@media (max-width: 599.98px) {
+  /* Filtri rapidi: ogni gruppo è una riga che scorre di lato (come le
+     categorie del Blog), invece di 5–6 righe di pillole */
+  .dv-filters {
+    display: grid;
+    gap: 1rem;
+    margin-block: 1.75rem;
+  }
+
+  .dv-filter-label {
+    margin-bottom: 0.4rem;
+  }
+
+  .dv-filter-list {
+    flex-wrap: nowrap;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.25rem;
+    overflow-x: auto;
+  }
+
+  .dv-filter-list li {
+    flex: none;
+  }
+
+  .dv-port-text {
+    margin-top: 1rem;
+  }
+
+  .dv-port .np-cards {
+    margin-top: 0;
+  }
+}
+
+/* Filtri rapidi più piccoli e su una riga (24/11/2026, Chiara, screenshot:
+   "molto più piccoli, forse sulla stessa riga"). Supera i filtri a righe
+   separate della regola sopra.
+   - Sotto 900px pillole alte 36px (testo 14px); l'area di tocco resta 44px
+     con un margine invisibile (::after) sopra e sotto
+   - Sotto 600px tutti e tre i gruppi in UNA riga che scorre di lato:
+     etichetta + pillole, una lineetta sottile tra un gruppo e l'altro */
+@media (max-width: 899.98px) {
+  .dv-chip {
+    position: relative;
+    min-height: 36px;
+    padding: 0.3rem 0.85rem;
+  }
+
+  .dv-chip::after {
+    content: "";
+    position: absolute;
+    inset: -4px 0;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .dv-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+    margin-block: 1.5rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 5px var(--gutter);
+    overflow-x: auto;
+  }
+
+  .dv-filter {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dv-filter + .dv-filter {
+    padding-left: 1rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .dv-filter-label {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .dv-filter-list {
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+/* Our lines su tablet e telefono: riga che scorre di lato con aggancio
+   (24/11/2026, Chiara), come le schede prodotto e il Blog; prima le tre
+   schede erano una sotto l'altra. Tablet ~2 schede visibili, telefono una
+   scheda all'80% (si vede l'inizio della seguente). I link nelle schede
+   sono focalizzabili, quindi la riga scorre anche con il Tab */
+@media (max-width: 899.98px) {
+  .dv-lines-list {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+  }
+
+  .dv-lines-list > li {
+    flex: 0 0 46%;
+    scroll-snap-align: start;
+  }
+
+  .dv-line {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .dv-lines-list > li {
+    flex-basis: 80%;
+  }
+
+  .dv-line-name {
+    font-size: var(--fs-h4);
+  }
+
+  .dv-line p {
+    font-size: var(--fs-small);
+  }
+}
