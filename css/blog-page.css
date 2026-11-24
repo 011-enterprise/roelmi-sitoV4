@@ -362,3 +362,26 @@
     flex: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Etichetta "Press" (24/11/2026): articoli usciti su una testata, con il
+   testo completo nel PDF. Cerulean come il riquadro "Published in"
+   dell'articolo (Hard Grey sopra 8.9:1). Sulle schede, nell'articolo in
+   evidenza e nell'apertura dell'articolo (con la testata)
+   -------------------------------------------------------------------------- */
+.press-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  background-color: var(--cerulean);
+  color: var(--hard-grey);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bp-meta .press-tag {
+  margin-right: 0.15rem;
+}

@@ -1,0 +1,360 @@
+/* ==========================================================================
+   Pagina articolo del blog (news-*.html, 24/11/2026, genera-articolo.js).
+   Solo token e componenti del sito.
+   1 apertura chiara · 2 testo in una colonna di lettura · riquadro "Published
+   in" per gli articoli usciti su una testata · 3 More news su Ocean (schede
+   di blog.css) · 4 Newsletter
+   Contrasti: Hard Grey su Ricepaper 16:1, grigio secondario 6.2:1, link e
+   categoria Ocean 4.69:1, Ricepaper su Ocean 4.70:1
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1 · Apertura
+   -------------------------------------------------------------------------- */
+.ar-hero {
+  padding-top: calc(var(--header-h) + 0.5rem);   /* come .page-hero */
+}
+
+/* Ultima voce del percorso (titolo dell'articolo): tagliata solo a vista */
+.ar-bc-current {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.ar-bc-current a {
+  display: block;
+  max-width: min(42ch, 100%);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 44px;
+}
+
+.ar-head {
+  max-width: 52rem;
+  margin-top: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.ar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  font-size: var(--fs-small);
+}
+
+.ar-cat {
+  font-weight: 700;
+  color: var(--ocean);
+}
+
+.ar-meta time {
+  color: var(--muted);
+}
+
+.ar-title {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: var(--ls-title);
+  color: var(--hard-grey);
+  text-wrap: balance;
+}
+
+.ar-lead {
+  max-width: 60ch;
+  margin-top: 1.25rem;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--hard-grey);
+}
+
+.ar-media {
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border-radius: var(--r-stage);
+}
+
+.ar-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   2 · Testo: colonna di lettura
+   -------------------------------------------------------------------------- */
+.ar-hero + .ar-body {
+  padding-top: 0;
+}
+
+.ar-col > * {
+  max-width: 68ch;
+}
+
+.ar-col {
+  color: var(--hard-grey);
+  line-height: 1.7;
+}
+
+.ar-col > p + p,
+.ar-col > ul + p,
+.ar-col > p + ul {
+  margin-top: 1.1rem;
+}
+
+.ar-col strong {
+  font-weight: 600;
+}
+
+/* Link nel testo: Ocean sottolineato */
+.ar-col p a,
+.ar-col li a,
+.ar-quote figcaption a {
+  color: var(--ocean);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ar-col p a:hover,
+.ar-col li a:hover,
+.ar-quote figcaption a:hover {
+  color: var(--hard-grey);
+}
+
+.ar-col a:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Sottotitoli */
+.ar-col h2 {
+  margin-top: clamp(2.25rem, 1.75rem + 1.5vw, 3.25rem);
+  margin-bottom: 0.9rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+}
+
+/* Elenchi: la goccia del sito come punto (come Technical details) */
+.ar-col ul {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.ar-col ul li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.ar-col ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.45em;
+  width: 0.65rem;
+  height: 0.95rem;
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+}
+
+/* Citazioni: Iwona come i paragrafi d'apertura, linea Ocean a sinistra */
+.ar-quote {
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  padding-left: clamp(1.25rem, 1rem + 1vw, 2rem);
+  border-left: 3px solid var(--ocean);
+}
+
+.ar-quote + .ar-quote {
+  margin-top: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
+}
+
+.ar-quote blockquote p {
+  font-family: var(--font-display);
+  font-size: var(--fs-statement);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: var(--ls-tight);
+}
+
+.ar-quote blockquote p::before { content: "“"; }
+.ar-quote blockquote p::after  { content: "”"; }
+
+.ar-quote figcaption {
+  margin-top: 0.9rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Articolo uscito su una testata: fonte + bottone al PDF */
+.ar-press {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  border-radius: var(--r-card);
+  background-color: var(--cerulean);
+  color: var(--hard-grey);
+}
+
+.ar-press-label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.ar-press-source {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ar-press .btn {
+  margin-top: 0.75rem;
+}
+
+/* Torna all'elenco */
+.ar-back {
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.ar-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  color: var(--hard-grey);
+}
+
+/* Freccia verso sinistra: la stessa del sito, girata */
+.ar-back-link::before {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transform: scaleX(-1);
+}
+
+.ar-back-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ar-back-link:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3 · More news (Ocean)
+   -------------------------------------------------------------------------- */
+.ar-more-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.ar-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.ar-more-link::after {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.ar-more-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ar-more-link:hover::after {
+  transform: translateX(3px);
+}
+
+.ar-more-link:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.motion-paused .ar-more-link::after {
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 899.98px) {
+  .ar-media {
+    aspect-ratio: 16 / 10;
+    border-radius: var(--r-card);
+  }
+}
+
+@media (max-width: 599.98px) {
+  /* Percorso: solo Home / Blog (il titolo è subito sotto) */
+  .ar-bc-current {
+    display: none;
+  }
+
+  .ar-lead {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Articolo Press: bottone al PDF già nell'apertura, sotto il sommario */
+.ar-hero-cta {
+  margin-top: 1.5rem;
+}
+
+/* Colonna centrata (24/11/2026, Chiara: "il testo allineato a sinistra non
+   passa, sono tradizionalisti"): apertura e testo in una colonna di lettura
+   al centro della pagina, larga quanto il testo (68ch); la foto resta larga.
+   Dentro la colonna il testo resta allineato a sinistra (più leggibile).
+   Il percorso resta allineato al bordo, come nelle altre pagine */
+.ar-head {
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.ar-col > * {
+  margin-inline: auto;
+}
+
+.ar-col > .ar-quote,
+.ar-col > .ar-press,
+.ar-col > .ar-back {
+  width: 100%;
+}
