@@ -372,3 +372,13 @@
 .ar-press .btn:focus-visible {
   outline-color: var(--hard-grey);
 }
+
+/* Foto dell'articolo più piccola (25/11/2026, Chiara: "troppo grossa
+   rispetto all'articolo"): larga quanto la colonna del testo (68ch),
+   centrata, 16:9, angoli delle schede */
+.ar-media {
+  max-width: 68ch;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-card);
+}
