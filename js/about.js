@@ -121,7 +121,10 @@
 
   function measureTimeline() {
     if (!tl || !track) return;
-    if (!motionOn()) {
+    // 24/11/2026 (Chiara, spazi su telefono): la timeline si blocca e scorre
+    // con lo scroll solo da 900px. Su tablet e telefono le schede scorrono di
+    // lato con il dito (overflow-x + aggancio), senza schermata ferma vuota
+    if (!motionOn() || !window.matchMedia('(min-width: 900px)').matches) {
       tl.classList.remove('is-pinned');
       tl.style.height = '';
       tl.style.removeProperty('--tl-x');

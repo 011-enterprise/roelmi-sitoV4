@@ -1167,3 +1167,46 @@
   opacity: 1 !important;
   transition: none !important;
 }
+
+/* ==========================================================================
+   Spazi su tablet e telefono (24/11/2026, Chiara: "gli spazi non vanno
+   bene"). Sezioni chiare di fila: un solo spazio (--section-y) invece di
+   due. La timeline sotto 900px non si blocca più (js/about.js): scorre di
+   lato, quindi niente schermata alta con vuoto sopra e sotto
+   ========================================================================== */
+@media (max-width: 899.98px) {
+  .page-hero + .ab-story,
+  .ab-story + .ab-what,
+  .ab-philo + .ab-nip-sec,
+  .ab-nip-sec + .ab-approach,
+  .ab-partners + .ab-close {
+    padding-top: 0;
+  }
+}
+
+/* Valori riequilibrati (24/11/2026, "non è equilibrata"): andando a capo
+   alcune righe iniziavano con la goccia e altre no, l'ultima parola restava
+   sola. Ora la goccia sta davanti a OGNI parola (segno di elenco, non
+   separatore); da 900px riga che va a capo, sotto 900px due colonne
+   allineate, sotto 400px una colonna */
+.ab-values--row li::before,
+.ab-values--row li + li::before {
+  display: block;
+  width: 0.4em;
+  height: 0.58em;
+  margin-right: 0.45em;
+}
+
+@media (max-width: 899.98px) {
+  .ab-values--row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .ab-values--row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

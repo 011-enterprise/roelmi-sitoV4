@@ -1312,3 +1312,12 @@ a.btn:not(:has(svg)):hover::after,
 .page-grad-bg--antique .page-grad-blob {
   fill: var(--antique);
 }
+
+/* Telefono (24/11/2026): il margine sotto il riquadro dell'apertura serve
+   solo per il bottone Stop animation; senza bottone (About, Blog) niente
+   margine, altrimenti si somma allo spazio della sezione */
+@media (max-width: 599.98px) {
+  .page-stage:not(:has(.page-stage-motion)) {
+    margin-bottom: 0;
+  }
+}
