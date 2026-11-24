@@ -112,4 +112,8 @@
   });
 
   render();
+  // 24/11/2026: la riga di stato diventa "live" solo dopo il primo calcolo,
+  // così lo screen reader non la annuncia all'apertura della pagina ma solo
+  // quando si filtra, si cerca o si caricano altre news
+  status.setAttribute('aria-live', 'polite');
 })();

@@ -385,3 +385,16 @@
 .bp-meta .press-tag {
   margin-right: 0.15rem;
 }
+
+/* News principale sul gradiente dell'apertura (24/11/2026, Chiara): forma
+   Cerulean sfocata (.page-grad-bg, base.css) dietro la sezione, sfuma sopra
+   e sotto. Sul blu il grigio secondario della data farebbe ~3.7:1: qui la
+   data è Hard Grey (9:1 sul Cerulean); titolo e testo sono già Hard Grey,
+   etichetta "Latest" Ricepaper su Ocean 4.69:1 */
+.bp-latest {
+  isolation: isolate;
+}
+
+.bp-latest .bp-featured-meta time {
+  color: var(--hard-grey);
+}

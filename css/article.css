@@ -358,3 +358,17 @@
 .ar-col > .ar-back {
   width: 100%;
 }
+
+/* Accessibilità (24/11/2026): sul Cerulean il bottone Ocean aveva il bordo
+   a 2.6:1 (sotto il 3:1 dei componenti). Bottone Hard Grey con testo
+   Ricepaper (8.9:1 sul Cerulean); in hover Ricepaper con testo Hard Grey */
+.ar-press .btn--solid {
+  --btn-bg: var(--hard-grey);
+  --btn-fg: var(--ricepaper);
+  --btn-hover-bg: var(--ricepaper);
+  --btn-hover-fg: var(--hard-grey);
+}
+
+.ar-press .btn:focus-visible {
+  outline-color: var(--hard-grey);
+}

@@ -205,6 +205,15 @@
          sua area copre tutta la scheda
          ================================================================== -->
     <section class="bp-latest section theme-light grain" aria-labelledby="bp-latest-title">
+      <!-- 24/11/2026 (Chiara): stesso gradiente dell apertura dietro la news principale -->
+      <div class="page-grad-bg bp-latest-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="bpLatestBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#bpLatestBlur)"/>
+        </svg>
+      </div>
       <div class="container">
         <h2 class="sr-only" id="bp-latest-title">Latest news</h2>
         <article class="bp-featured" aria-labelledby="bp-featured-title">
@@ -249,7 +258,7 @@
           </div>
         </div>
 
-        <p class="bp-status" id="bpStatus" aria-live="polite">11 news</p>
+        <p class="bp-status" id="bpStatus">11 news</p>
 
         <div class="blog-grid bp-grid" id="bpGrid">
           <article class="post" data-cat="about-us">
