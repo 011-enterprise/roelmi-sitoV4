@@ -398,3 +398,12 @@
 .bp-latest .bp-featured-meta time {
   color: var(--hard-grey);
 }
+
+/* Un solo gradiente (24/11/2026, Chiara: "così non va bene", erano due
+   forme staccate con una fascia chiara in mezzo): la news principale ora sta
+   DENTRO l'apertura (.page-hero), sotto il riquadro, e la forma Cerulean
+   dell'apertura sta dietro a tutte e due. Spazio tra riquadro e news =
+   --section-y. La regola .page-hero + .bp-latest non serve più */
+.bp-hero .bp-latest {
+  margin-top: var(--section-y);
+}
