@@ -953,3 +953,14 @@
 .site-header:not(.is-panel-mode) .subnav a > .reg {
   margin-left: calc(0.06em - 1rem);
 }
+
+/* Tendina del menu: ogni voce su una riga (25/11/2026, Chiara: "Membership
+   and Activities" andava a capo). La tendina si allarga quanto la voce più
+   lunga, sempre almeno 248px */
+.site-header:not(.is-panel-mode) .subnav {
+  width: max-content;
+}
+
+.site-header:not(.is-panel-mode) .subnav a {
+  white-space: nowrap;
+}

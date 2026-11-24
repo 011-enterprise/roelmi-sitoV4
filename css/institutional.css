@@ -292,3 +292,124 @@
 .in-card--color .in-card-bg img {
   mix-blend-mode: normal;
 }
+
+/* ==========================================================================
+   Sigillo in alto a destra della scheda (25/11/2026, idea del capo di
+   Chiara: il logo di ogni certificazione). Finché la cliente non manda i
+   loghi ufficiali: sigillo provvisorio nostro, cerchio Ricepaper con filo
+   sottile, la goccia del logo e la sigla (ISO, GMP, HALAL…). Con il logo
+   (.in-seal--logo) il cerchio contiene l'immagine. Decorativo (aria-hidden):
+   il nome è nel titolo. Il titolo lascia spazio a destra
+   ========================================================================== */
+.in-card {
+  --seal: clamp(3.5rem, 3rem + 1vw, 4.25rem);
+}
+
+.in-seal {
+  position: absolute;
+  top: clamp(1rem, 0.8rem + 0.6vw, 1.5rem);
+  right: clamp(1rem, 0.8rem + 0.6vw, 1.5rem);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.15rem;
+  width: var(--seal);
+  height: var(--seal);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background-color: var(--ricepaper);
+  box-shadow: 0 4px 12px rgba(25, 25, 25, 0.06);
+}
+
+.in-seal-drop {
+  width: 0.55rem;
+  height: 0.8rem;
+  background-color: var(--logo-blue);
+  -webkit-mask: var(--drop-full) center / contain no-repeat;
+  mask: var(--drop-full) center / contain no-repeat;
+}
+
+.in-seal-text {
+  max-width: calc(var(--seal) - 0.75rem);
+  overflow: hidden;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: var(--ls-caps);
+  line-height: 1;
+  color: var(--hard-grey);
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.in-seal--logo img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+/* Il titolo non va sotto il sigillo */
+.in-card-title {
+  padding-right: calc(var(--seal) + 0.5rem);
+}
+
+/* .in-card > :not(.in-card-bg) mette position: relative ai figli della
+   scheda: il sigillo deve restare assoluto in alto a destra */
+.in-card > .in-seal {
+  position: absolute;
+}
+
+/* Sigillo nella riga del titolo, non sovrapposto (25/11/2026, screenshot di
+   Chiara: la descrizione finiva sotto il cerchio). La scheda diventa una
+   griglia: titolo a sinistra e sigillo a destra nella prima riga, testo e
+   link sotto a tutta larghezza */
+.in-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title seal"
+    "text  text"
+    "links links";
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  column-gap: 1rem;
+}
+
+.in-card > .in-seal {
+  position: relative;
+  top: auto;
+  right: auto;
+  grid-area: seal;
+}
+
+.in-card-title {
+  grid-area: title;
+  align-self: center;
+  padding-right: 0;
+}
+
+.in-card-text {
+  grid-area: text;
+}
+
+.in-card-links {
+  grid-area: links;
+  align-self: end;
+}
+
+/* Sigillo SEGNAPOSTO (25/11/2026, Chiara: "che si capisca che è il logo
+   placeholder"): cerchio tratteggiato come i segnaposto dei loghi partner in
+   About, "Logo" in piccolo sopra la sigla. Sparisce quando arriva il logo */
+.in-seal--placeholder {
+  border: 1px dashed rgba(25, 25, 25, 0.35);
+  background-color: rgba(247, 243, 235, 0.7);
+  box-shadow: none;
+}
+
+.in-seal-ph {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+}
