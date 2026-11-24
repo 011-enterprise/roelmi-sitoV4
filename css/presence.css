@@ -617,3 +617,39 @@
   animation: none;
   opacity: 0;
 }
+
+/* Sito esterno della sede nella scheda (25/11/2026, cliente: "le pagine
+   esterne sarebbe carino linkarle"): link-CTA Ricepaper sul vetro scuro
+   della scheda, freccia in diagonale (si apre altrove) */
+.site-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ricepaper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-card-link[hidden] {
+  display: none;
+}
+
+.site-card-link::after {
+  content: "";
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: var(--arrow-right) center / contain no-repeat;
+  mask: var(--arrow-right) center / contain no-repeat;
+  transform: rotate(-45deg);
+}
+
+.site-card-link:focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

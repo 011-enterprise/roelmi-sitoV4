@@ -26,6 +26,13 @@
   var cardDot = card.querySelector('.site-card-type .cat-dot');
   var cardDesc = card.querySelector('.site-card-desc');
   var cardList = card.querySelector('.site-card-list');
+  // 25/11/2026: sito esterno della sede (data-url sul li), link sotto la descrizione
+  var cardLink = document.createElement('a');
+  cardLink.className = 'site-card-link';
+  cardLink.target = '_blank';
+  cardLink.rel = 'noopener';
+  cardLink.hidden = true;
+  cardList.parentNode.insertBefore(cardLink, cardList);
   var cardClose = card.querySelector('.site-card-close');
   var opener = null;
   var filter = 'all';
@@ -192,6 +199,12 @@
     cardType.textContent = typeLabel(type);
     cardTitle.textContent = btn.querySelector('.site-name').textContent;
     cardDesc.textContent = btn.parentNode.querySelector('.site-desc').textContent;
+    var url = btn.parentNode.getAttribute('data-url');
+    cardLink.hidden = !url;
+    if (url) {
+      cardLink.href = url;
+      cardLink.innerHTML = 'Visit website<span class="sr-only"> of ' + btn.querySelector('.site-name').textContent + ' (opens in a new tab)</span>';
+    }
     cardList.textContent = '';
     selectedPin = pinFor(btn.getAttribute('data-group'));
     selectedLabel = labelFor(btn);
@@ -218,6 +231,7 @@
     cardType.textContent = list.length + ' locations';
     cardTitle.textContent = pin.querySelector('.map-pin-label').getAttribute('data-default');
     cardDesc.textContent = '';
+    cardLink.hidden = true;
     cardList.textContent = '';
     list.forEach(function (b) {
       var li = document.createElement('li');
