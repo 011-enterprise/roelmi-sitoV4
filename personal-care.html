@@ -341,7 +341,7 @@
       <div class="container">
         <aside class="cta-band" aria-labelledby="dv-form-title" data-reveal>
           <div class="cta-band-bg" aria-hidden="true">
-            <img src="images/polveri/polvere-3.jpg" alt="" loading="lazy" decoding="async">
+            <img src="images/polveri/polvere-5.jpg" alt="" loading="lazy" decoding="async">
           </div>
           <div class="cta-band-glass">
             <div class="cta-band-copy">
@@ -404,14 +404,29 @@
     <!-- ==================================================================
          7 · TRE BOX — Innovation Hub (pagina da fare), NIP, Contatti
          ================================================================== -->
-    <section class="dv-boxes section theme-light grain" aria-label="More from ROELMI HPC">
+    <!-- 24/11/2026 (cliente: i box sotto Our lines sembravano parte delle linee;
+         opzione C di Chiara): Innovation Hub e NIP in una sezione a parte con
+         un suo titolo (NOSTRA proposta), Contatti come fascia finale comune -->
+    <section class="dv-more section theme-soft grain" aria-labelledby="dv-more-title">
+      <div class="page-grad-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <filter id="dvMoreBlur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="80"/></filter>
+          </defs>
+          <path class="page-grad-blob" d="M560 250C800 110 1190 80 1390 200C1560 300 1540 560 1430 730C1300 910 980 970 760 905C560 850 430 720 440 560C450 430 420 330 560 250Z" filter="url(#dvMoreBlur)"/>
+        </svg>
+      </div>
       <div class="container">
-        <ul class="dv-boxes-list">
+        <h2 class="dv-section-title" id="dv-more-title">
+          <span class="eyebrow" data-reveal>Discover more</span>
+          <span data-reveal data-reveal-delay="0.1">Beyond our ingredients</span>
+        </h2>
+        <ul class="dv-boxes-list dv-boxes-list--2">
           <li>
             <article class="dv-box theme-cerulean" aria-labelledby="dv-box-0">
               <div class="dv-box-bg" aria-hidden="true"><img src="images/polveri/polvere-11.jpg" alt="" loading="lazy" decoding="async"></div>
               <div class="dv-box-glass">
-                <h2 class="dv-box-title" id="dv-box-0">Innovation Hub</h2>
+                <h3 class="dv-box-title" id="dv-box-0">Innovation Hub</h3>
                 <p class="dv-box-text">One partner, from concept to finished product.</p>
                 <a class="dv-ingr-link dv-box-link" href="#">Discover Innovation Hub</a>
               </div>
@@ -421,23 +436,33 @@
             <article class="dv-box theme-olive" aria-labelledby="dv-box-1">
               <div class="dv-box-bg" aria-hidden="true"><img src="images/polveri/polvere-nip.jpg" alt="" loading="lazy" decoding="async"></div>
               <div class="dv-box-glass">
-                <h2 class="dv-box-title" id="dv-box-1">What if innovation started with people and respect for nature?</h2>
+                <h3 class="dv-box-title" id="dv-box-1">What if innovation started with people and respect for nature?</h3>
                 <p class="dv-box-text">Combining science, sustainability and wellbeing for a better future.</p>
                 <a class="dv-ingr-link dv-box-link" href="nip.html">Discover NIP</a>
               </div>
             </article>
           </li>
-          <li>
-            <article class="dv-box theme-antique dv-box--tint" aria-labelledby="dv-box-2">
-              <div class="dv-box-bg" aria-hidden="true"><img src="images/polveri/polvere-5.jpg" alt="" loading="lazy" decoding="async"></div>
-              <div class="dv-box-glass">
-                <h2 class="dv-box-title" id="dv-box-2">Meet our cosmetic team</h2>
-                <p class="dv-box-text">Have a question or an idea to share?</p>
-                <a class="dv-ingr-link dv-box-link" href="contact.html">We would love to hear from you.</a>
-              </div>
-            </article>
-          </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Chiusura: fascia comune .cta-band, testi del cliente (Box Contatti) -->
+    <section class="dv-close dv-close--antique section theme-light grain" aria-labelledby="dv-close-title">
+      <div class="container">
+        <aside class="cta-band" aria-labelledby="dv-close-title" data-reveal>
+          <div class="cta-band-bg" aria-hidden="true">
+            <img src="images/polveri/polvere-3.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="cta-band-glass">
+            <div class="cta-band-copy">
+              <h2 class="cta-band-title" id="dv-close-title">Meet our cosmetic team</h2>
+              <p class="cta-band-text">Have a question or an idea to share?</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn--solid" href="contact.html">We would love to hear from you</a>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </main>

@@ -1104,3 +1104,41 @@
 .dv-lines-list::-webkit-scrollbar {
   display: none;
 }
+
+/* ==========================================================================
+   Personal Care, fondo pagina (24/11/2026, la cliente: i box sotto Our lines
+   sembravano parte delle linee; opzione C di Chiara):
+   - Our lines torna una sezione a sé (spazio normale sotto)
+   - "Discover more / Beyond our ingredients" (titolo NOSTRO, da approvare):
+     sezione con il gradiente Cerulean delle aperture, due box polvere +
+     vetro (Innovation Hub, NIP), due colonne, una sotto 900px
+   - Contatti = fascia finale comune .cta-band, come nelle altre pagine
+   Le regole .dv-lines + .dv-boxes non valgono più (la sezione si chiama
+   .dv-more)
+   ========================================================================== */
+.dv-more {
+  isolation: isolate;
+  background-image: none;   /* niente macchie pastello di theme-soft */
+}
+
+.dv-boxes-list--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--title-gap);
+}
+
+@media (max-width: 899.98px) {
+  .dv-boxes-list--2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Gradiente e chiusura chiara di fila: un solo spazio */
+.dv-more + .dv-close {
+  padding-top: 0;
+}
+
+/* Our lines → Discover more: un solo spazio (24/11/2026, Chiara: "troppo
+   spazio"); la separazione la danno il titolo e il gradiente */
+.dv-lines + .dv-more {
+  padding-top: 0;
+}
