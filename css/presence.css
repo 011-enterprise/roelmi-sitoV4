@@ -653,3 +653,15 @@
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* Cina (25/11/2026): Hangzhou (filiale) + Shanghai (YSBiotech, manufacturing)
+   in un punto multiplo, due spicchi; con il filtro prende il suo colore */
+.map-pin--multi[data-group="cn"]::before {
+  background: conic-gradient(
+    var(--cat-branch) 0 50%,
+    var(--cat-production) 50% 100%
+  );
+}
+
+.map-pin--multi[data-show="branch"]::before { background: var(--cat-branch); }
+.map-pin--multi[data-group="cn"][data-show="production"]::before { background: var(--cat-production); }
