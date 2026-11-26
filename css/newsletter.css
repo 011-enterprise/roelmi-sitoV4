@@ -337,3 +337,15 @@
   background-color: var(--ocean);
   color: var(--ricepaper);
 }
+
+/* 26/11/2026 (cliente): due consensi come nei Contatti + nota sul pixel */
+.nl-error + .nl-consent {
+  margin-top: 0.75rem;
+}
+
+.nl-note {
+  margin-top: 1rem;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--hard-grey);   /* sul vetro chiaro sopra la texture: niente grigio secondario */
+}

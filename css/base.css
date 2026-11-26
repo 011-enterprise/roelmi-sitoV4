@@ -1169,6 +1169,32 @@ a.btn:not(:has(svg)):hover::after,
   line-height: 1.6;
 }
 
+/* Vetro CHIARO dell'apertura (26/11/2026, prova per la cliente su
+   Certifications; riutilizzabile su tutte le aperture .page-stage):
+   Ricepaper 0.72 + sfocatura, testi Hard Grey ≥ 8:1 anche sopra il punto
+   più scuro della foto. Serve una foto con colore (sul bianco sparisce) */
+.page-stage-glass.page-stage-glass--light {
+  --bg: var(--ricepaper);
+  --fg: var(--hard-grey);
+  --fg-muted: var(--muted);
+  --accent: var(--ocean);
+  --rule: var(--line);
+  color: var(--hard-grey);
+  background-color: rgba(247, 243, 235, 0.72);
+  background-image: var(--glass-light-sheen);
+  box-shadow: var(--glass-light-line);
+}
+
+.page-stage-glass--light .page-stage-title {
+  color: var(--hard-grey);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .page-stage-glass.page-stage-glass--light {
+    background-color: rgba(247, 243, 235, 0.92);
+  }
+}
+
 /* Tre dati in riga, separati da linee sottili */
 .page-stage-facts {
   display: flex;

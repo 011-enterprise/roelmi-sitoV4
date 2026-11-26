@@ -49,7 +49,7 @@
 
   function checkConsent() {
     var ok = consent.checked;
-    setError('consent', consent, ok ? '' : 'Please accept the Privacy Policy to subscribe.');
+    setError('consent', consent, ok ? '' : 'Accept the Privacy and Cookie Policy to subscribe.');
     return ok;
   }
 

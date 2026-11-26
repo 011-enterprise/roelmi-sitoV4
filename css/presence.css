@@ -665,3 +665,33 @@
 
 .map-pin--multi[data-show="branch"]::before { background: var(--cat-branch); }
 .map-pin--multi[data-group="cn"][data-show="production"]::before { background: var(--cat-production); }
+
+/* ==========================================================================
+   26/11/2026 (cliente, mail del 25/11): tre pallini separati con i colori di
+   marchio delle società del gruppo (eccezione alla palette: colori di
+   marchio). Il nome è sempre scritto accanto: il colore non è l unica
+   informazione
+   ========================================================================== */
+.presence {
+  --cat-biotech: #9577C1;      /* ROELMI BIOTECH */
+  --cat-botanicals: #099078;   /* ROELMI BOTANICALS */
+  --cat-synbalance: #B0116E;   /* SynBalance */
+}
+
+.cat--botanicals { --cat: var(--cat-botanicals); }
+.cat--synbalance { --cat: var(--cat-synbalance); }
+
+/* Italia: 6 categorie → 6 spicchi */
+.map-pin--multi[data-group="italy"]:not([data-show])::before {
+  background: conic-gradient(
+    var(--cat-site) 0 16.66%,
+    var(--cat-biotech) 16.66% 33.33%,
+    var(--cat-botanicals) 33.33% 50%,
+    var(--cat-synbalance) 50% 66.66%,
+    var(--cat-lab) 66.66% 83.33%,
+    var(--cat-production) 83.33% 100%
+  );
+}
+
+.map-pin--multi[data-show="botanicals"]::before { background: var(--cat-botanicals); }
+.map-pin--multi[data-show="synbalance"]::before { background: var(--cat-synbalance); }

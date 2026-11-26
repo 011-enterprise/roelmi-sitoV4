@@ -136,7 +136,7 @@
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="ingredient-finder.html">Ingredient Finder</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Formulation Area</a></li>
+          <li class="nav-item"><a class="nav-link" href="formulation-area.html">Formulation Area</a></li>
           <!-- 23/11/2026: Subsidiaries voce principale prima di Blog (richiesta della cliente, prova; prima nel sottomenu Company) -->
           <li class="nav-item"><a class="nav-link" href="#">Subsidiaries</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -282,8 +282,13 @@
                 <p class="nl-error" id="nlTopicErr"></p>
               </fieldset>
 
-              <label class="nl-consent"><input type="checkbox" name="consent" id="nlConsent" required aria-describedby="nlConsentErr"><span class="nl-box" aria-hidden="true"></span><span>I agree to receive the newsletter and have read the <a href="#">Privacy Policy</a>.</span></label>
+              <!-- 26/11/2026 (cliente): stessi consensi del modulo Contatti
+                   (privacy obbligatoria, marketing facoltativo) e stessa nota
+                   sul pixel di tracciamento -->
+              <label class="nl-consent"><input type="checkbox" name="consent" id="nlConsent" required aria-describedby="nlConsentErr"><span class="nl-box" aria-hidden="true"></span><span>I hereby consent to the processing of my personal data in accordance with the <a href="#">Privacy</a> and <a href="#">Cookie</a> Policy</span></label>
               <p class="nl-error" id="nlConsentErr"></p>
+              <label class="nl-consent"><input type="checkbox" name="marketing" id="nlMarketing"><span class="nl-box" aria-hidden="true"></span><span>I authorize the processing of my personal data to be updated on new arrivals and for direct marketing purposes related to the services offered.</span></label>
+              <p class="nl-note">Our emails use a tracking pixel to measure open rates: you can disable this at any time via ‘Manage preferences’ at the bottom of each email.</p>
 
               <p class="nl-status" id="nlStatus" role="status"></p>
             </form>

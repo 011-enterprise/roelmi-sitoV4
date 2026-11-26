@@ -155,7 +155,7 @@
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="ingredient-finder.html">Ingredient Finder</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Formulation Area</a></li>
+          <li class="nav-item"><a class="nav-link" href="formulation-area.html">Formulation Area</a></li>
           <!-- 23/11/2026: Subsidiaries voce principale prima di Blog (richiesta della cliente, prova; prima nel sottomenu Company) -->
           <li class="nav-item"><a class="nav-link" href="#">Subsidiaries</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -573,7 +573,9 @@
           <button class="filter-pill" type="button" data-filter="all" aria-pressed="true">All</button>
           <button class="filter-pill" type="button" data-filter="site" aria-pressed="false"><span class="cat-dot cat--site" aria-hidden="true"></span>Headquarter</button>
           <button class="filter-pill" type="button" data-filter="branch" aria-pressed="false"><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</button>
-          <button class="filter-pill" type="button" data-filter="biotech" aria-pressed="false"><span class="cat-dot cat--biotech" aria-hidden="true"></span>Biotech</button>
+          <button class="filter-pill" type="button" data-filter="biotech" aria-pressed="false"><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</button>
+          <button class="filter-pill" type="button" data-filter="botanicals" aria-pressed="false"><span class="cat-dot cat--botanicals" aria-hidden="true"></span>ROELMI BOTANICALS</button>
+          <button class="filter-pill" type="button" data-filter="synbalance" aria-pressed="false"><span class="cat-dot cat--synbalance" aria-hidden="true"></span>SynBalance</button>
           <button class="filter-pill" type="button" data-filter="lab" aria-pressed="false"><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</button>
           <button class="filter-pill" type="button" data-filter="production" aria-pressed="false"><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</button>
         </div>
@@ -583,7 +585,7 @@
           <!-- Mappa: decorativa, le stesse informazioni sono nell'elenco sotto -->
           <div class="presence-map" aria-hidden="true">
             <img src="images/presence/world-dots.svg" alt="" loading="lazy" decoding="async">
-            <span class="map-pin map-pin--multi" data-group="italy" data-types="site lab biotech production" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Italy</span></span>
+            <span class="map-pin map-pin--multi" data-group="italy" data-types="site biotech botanicals synbalance lab production" style="left: 53%; top: 28.5%;"><span class="map-pin-hit"></span><span class="map-pin-label">Italy</span></span>
             <span class="map-pin cat--branch" data-group="paris" data-types="branch" style="left: 50.64%; top: 24.74%;"><span class="map-pin-hit"></span><span class="map-pin-label">Paris</span></span>
             <span class="map-pin cat--production" data-group="la" data-types="production" style="left: 17.16%; top: 35.18%;"><span class="map-pin-hit"></span><span class="map-pin-label">RK Pigments</span></span>
             <span class="map-pin cat--branch" data-group="nj" data-types="branch" style="left: 29.42%; top: 30.35%;"><span class="map-pin-hit"></span><span class="map-pin-label">Saddle Brook</span></span>
@@ -604,7 +606,11 @@
           </div>
         </div>
 
-        <!-- 25/11/2026 (cliente): nuove categorie. Headquarter Origgio; Labs
+        <!-- 26/11/2026 (cliente, mail del 25/11): ROELMI BIOTECH, ROELMI
+             BOTANICALS e SynBalance tre categorie con il loro colore di marchio;
+             descrizioni nuove di Labs e delle tre società; SOLO città/provincia,
+             niente indirizzo completo (anche per le sedi estere: scelta nostra).
+             25/11/2026 (cliente): nuove categorie. Headquarter Origgio; Labs
              Solaro, Lainate, Tortona; Manufacturing Isuschem, Vortex, RK Pigments
              (+ YSBiotech: luogo da chiedere); Biotech ROELMI BIOTECH + Synbalance;
              Subsidiaries invariate. Tolta la categoria Production hubs (Naples:
@@ -614,40 +620,51 @@
           <details class="presence-group" data-type="site">
             <summary><h3><span class="cat-dot cat--site" aria-hidden="true"></span>Headquarter</h3></summary>
             <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Origgio</span><span class="site-sub">Headquarter — Origgio (VA), Italy</span></button><p class="site-desc" hidden>ROELMI HPC headquarters — Via Celeste Milani 224, 21040 Origgio (VA), Italy.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Origgio</span><span class="site-sub">Headquarter — Origgio (VA), Italy</span></button><p class="site-desc" hidden>ROELMI HPC headquarters — Origgio (VA), Italy.</p></li>
             </ul>
           </details>
           <details class="presence-group" data-type="branch">
             <summary><h3><span class="cat-dot cat--branch" aria-hidden="true"></span>Subsidiaries</h3></summary>
             <ul>
-              <li><button class="site-btn" type="button" data-group="paris" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Paris</span><span class="site-sub">Subsidiary — France</span></button><p class="site-desc" hidden>ROELMI HPC France SARL — 32, rue de l'Arcade, 75008 Paris, France.</p></li>
-              <li><button class="site-btn" type="button" data-group="nj" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Saddle Brook</span><span class="site-sub">Subsidiary — USA</span></button><p class="site-desc" hidden>ROELMI HPC USA, LLC — 250 Pehle Avenue, Suite 200, Saddle Brook, New Jersey 07663, USA.</p></li>
-              <li><button class="site-btn" type="button" data-group="cn" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Hangzhou</span><span class="site-sub">Subsidiary — China (Asia-Pacific)</span></button><p class="site-desc" hidden>Hangzhou ROELMI HPC Biotech Co., Ltd — Room 505, Building 4, No. 199 Shimin Street, Shangcheng District, Hangzhou, Zhejiang, China.</p></li>
-              <li><button class="site-btn" type="button" data-group="kr" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Seongnam-si</span><span class="site-sub">Subsidiary — South Korea</span></button><p class="site-desc" hidden>ROELMI HPC Korea Ltd. — 918 &amp; 919, 9F, 36 Hwangsaeul-ro 200beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, South Korea (13595).</p></li>
+              <li><button class="site-btn" type="button" data-group="paris" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Paris</span><span class="site-sub">Subsidiary — France</span></button><p class="site-desc" hidden>ROELMI HPC France SARL — Paris, France.</p></li>
+              <li><button class="site-btn" type="button" data-group="nj" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Saddle Brook</span><span class="site-sub">Subsidiary — USA</span></button><p class="site-desc" hidden>ROELMI HPC USA, LLC — Saddle Brook, New Jersey, USA.</p></li>
+              <li><button class="site-btn" type="button" data-group="cn" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Hangzhou</span><span class="site-sub">Subsidiary — China (Asia-Pacific)</span></button><p class="site-desc" hidden>Hangzhou ROELMI HPC Biotech Co., Ltd — Hangzhou, Zhejiang, China.</p></li>
+              <li><button class="site-btn" type="button" data-group="kr" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Seongnam-si</span><span class="site-sub">Subsidiary — South Korea</span></button><p class="site-desc" hidden>ROELMI HPC Korea Ltd. — Seongnam-si, Gyeonggi-do, South Korea.</p></li>
             </ul>
           </details>
           <details class="presence-group" data-type="biotech">
-            <summary><h3><span class="cat-dot cat--biotech" aria-hidden="true"></span>Biotech</h3></summary>
+            <summary><h3><span class="cat-dot cat--biotech" aria-hidden="true"></span>ROELMI BIOTECH</h3></summary>
             <ul>
-              <li data-url="https://roelmibiotech.com/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BIOTECH</span><span class="site-sub">Biotech R&amp;D — Italy</span></button><p class="site-desc" hidden>Hub dedicated to the research and development of biotech solutions, fermentation-derived ingredients and advanced probiotics. Via Roberto Lepetit 34, 21040 Gerenzano (VA), Italy.</p></li>
-              <li data-url="https://www.synbalance.care/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Synbalance</span><span class="site-sub">Biotech — Italy</span></button><p class="site-desc" hidden>Sister company of ROELMI HPC dedicated to probiotic and postbiotic research.</p></li>
+              <li data-url="https://roelmibiotech.com/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BIOTECH</span><span class="site-sub">R&amp;D hub — Gerenzano (VA), Italy</span></button><p class="site-desc" hidden>R&amp;D hub for biotech solutions, fermented ingredients, and advanced probiotics.</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="botanicals">
+            <summary><h3><span class="cat-dot cat--botanicals" aria-hidden="true"></span>ROELMI BOTANICALS</h3></summary>
+            <ul>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">ROELMI BOTANICALS</span><span class="site-sub">Botanical hub — Lainate (MI), Italy</span></button><p class="site-desc" hidden>Hub dedicated to sustainable extraction and development of upcycled, high-value botanical ingredients.</p></li>
+            </ul>
+          </details>
+          <details class="presence-group" data-type="synbalance">
+            <summary><h3><span class="cat-dot cat--synbalance" aria-hidden="true"></span>SynBalance</h3></summary>
+            <ul>
+              <li data-url="https://www.synbalance.care/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">SynBalance</span><span class="site-sub">Spin-off — Origgio (VA), Italy</span></button><p class="site-desc" hidden>A spin-off of ROELMI HPC, specialising in the development and production of probiotics and solutions for the microbiota.</p></li>
             </ul>
           </details>
           <details class="presence-group" data-type="lab">
             <summary><h3><span class="cat-dot cat--lab" aria-hidden="true"></span>Labs</h3></summary>
             <ul>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Solaro</span><span class="site-sub">Laboratory — Milan, Italy</span></button><p class="site-desc" hidden>Laboratory dedicated to the analysis and processing of active raw materials for the nutraceutical and food markets.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Lainate</span><span class="site-sub">Laboratory — Milan, Italy</span></button><p class="site-desc" hidden>Laboratory in Lainate (MI), Italy.</p></li>
-              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Tortona</span><span class="site-sub">Laboratory — Piedmont, Italy</span></button><p class="site-desc" hidden>Laboratory in Tortona (AL), Italy.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Lainate</span><span class="site-sub">Laboratory — Lainate (MI), Italy</span></button><p class="site-desc" hidden>A cosmetics laboratory specialising in the research, development and formulation of innovative skincare and beauty products.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Solaro</span><span class="site-sub">Laboratory — Solaro (MI), Italy</span></button><p class="site-desc" hidden>A nutraceutical laboratory specialising in the research, development and formulation of innovative food supplements.</p></li>
+              <li><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Tortona</span><span class="site-sub">Laboratory — Tortona (AL), Italy</span></button><p class="site-desc" hidden>A laboratory specialising in in vitro testing to assess the safety, efficacy and tolerability of ingredients.</p></li>
             </ul>
           </details>
           <details class="presence-group" data-type="production">
             <summary><h3><span class="cat-dot cat--production" aria-hidden="true"></span>Manufacturing</h3></summary>
             <ul>
-              <li data-url="https://www.isuschem.it/en/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Isuschem</span><span class="site-sub">Manufacturing — Caserta, Italy</span></button><p class="site-desc" hidden>Isuschem srl — Via Thomas Alva Edison, 81100 Caserta (CE), Italy.</p></li>
+              <li data-url="https://www.isuschem.it/en/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Isuschem</span><span class="site-sub">Manufacturing — Caserta (CE), Italy</span></button><p class="site-desc" hidden>Isuschem srl — Caserta (CE), Italy.</p></li>
               <li data-url="https://www.vortex-srl.it/"><button class="site-btn" type="button" data-group="italy" aria-controls="siteCard" aria-expanded="false"><span class="site-name">Vortex</span><span class="site-sub">Manufacturing — Piedmont, Italy</span></button><p class="site-desc" hidden>Vortex SRL SB — Manufacturing site in Piedmont, Italy.</p></li>
               <li data-url="https://rkpigments.com/"><button class="site-btn" type="button" data-group="la" aria-controls="siteCard" aria-expanded="false"><span class="site-name">RK Pigments</span><span class="site-sub">Manufacturing — USA</span></button><p class="site-desc" hidden>US plant dedicated to the development and manufacture of functionalised pigments and active make-up ingredients.</p></li>
-              <li data-url="https://ysbiotech-global.com/"><button class="site-btn" type="button" data-group="cn" aria-controls="siteCard" aria-expanded="false"><span class="site-name">YSBiotech</span><span class="site-sub">Manufacturing — Shanghai, China</span></button><p class="site-desc" hidden>Shanghai Yusong Biotechnology Co., Ltd. — Building C, No. 255 Guiqiao Road, Pudong New Area, Shanghai, China.</p></li>
+              <li data-url="https://ysbiotech-global.com/"><button class="site-btn" type="button" data-group="cn" aria-controls="siteCard" aria-expanded="false"><span class="site-name">YSBiotech</span><span class="site-sub">Manufacturing — Shanghai, China</span></button><p class="site-desc" hidden>Shanghai Yusong Biotechnology Co., Ltd. — Shanghai, China.</p></li>
             </ul>
           </details>
         </div>
@@ -734,8 +751,13 @@
                 <p class="nl-error" id="nlTopicErr"></p>
               </fieldset>
 
-              <label class="nl-consent"><input type="checkbox" name="consent" id="nlConsent" required aria-describedby="nlConsentErr"><span class="nl-box" aria-hidden="true"></span><span>I agree to receive the newsletter and have read the <a href="#">Privacy Policy</a>.</span></label>
+              <!-- 26/11/2026 (cliente): stessi consensi del modulo Contatti
+                   (privacy obbligatoria, marketing facoltativo) e stessa nota
+                   sul pixel di tracciamento -->
+              <label class="nl-consent"><input type="checkbox" name="consent" id="nlConsent" required aria-describedby="nlConsentErr"><span class="nl-box" aria-hidden="true"></span><span>I hereby consent to the processing of my personal data in accordance with the <a href="#">Privacy</a> and <a href="#">Cookie</a> Policy</span></label>
               <p class="nl-error" id="nlConsentErr"></p>
+              <label class="nl-consent"><input type="checkbox" name="marketing" id="nlMarketing"><span class="nl-box" aria-hidden="true"></span><span>I authorize the processing of my personal data to be updated on new arrivals and for direct marketing purposes related to the services offered.</span></label>
+              <p class="nl-note">Our emails use a tracking pixel to measure open rates: you can disable this at any time via ‘Manage preferences’ at the bottom of each email.</p>
 
               <p class="nl-status" id="nlStatus" role="status"></p>
             </form>

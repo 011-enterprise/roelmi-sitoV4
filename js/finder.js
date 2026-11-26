@@ -71,7 +71,13 @@
     return out;
   }
 
-  var DATA = mixedOrder(window.ROELMI_INGREDIENTS || []);
+  /* Stesso modello per la Formulation Area (25/11/2026): se la pagina
+     definisce window.ROELMI_FINDER (js/formulas-data.js) valgono i suoi dati,
+     i suoi campi dei filtri e le sue parole; schede uguali, contenuti diversi.
+     Senza configurazione: il catalogo degli ingredienti, come prima */
+  var CFG = window.ROELMI_FINDER || null;
+  var DATA = CFG ? CFG.data : mixedOrder(window.ROELMI_INGREDIENTS || []);
+  var NOUN = CFG && CFG.noun ? CFG.noun : ['ingredient', 'ingredients'];
   var form = document.getElementById('fxForm');
   var grid = document.getElementById('fxGrid');
   var countEl = document.getElementById('fxCount');
@@ -90,7 +96,7 @@
   var mobileMq = window.matchMedia('(max-width: 899.98px)');
 
   // Gruppo del filtro → campo del dato
-  var FIELDS = {
+  var FIELDS = CFG && CFG.fields ? CFG.fields : {
     line: 'line', market: 'market', tech: 'technology', type: 'type',
     category: 'category', benefit: 'benefits', cert: 'certifications'
   };
@@ -136,7 +142,7 @@
       if (!hit) return false;
     }
     if (q) {
-      var text = [item.name, item.line, item.function, item.description]
+      var text = [item.name, item.line, item.function, item.description, item.search]
         .concat(asList(item.benefits), asList(item.market)).join(' ').toLowerCase();
       if (text.indexOf(q.toLowerCase()) === -1) return false;
     }
@@ -179,7 +185,8 @@
     // La riga della funzione c'è sempre, anche vuota (prodotti in bozza,
     // 16/11/2026): la scheda sta su 4 righe condivise (subgrid, finder.css);
     // senza, mercato e riquadro scalano di una riga e l'etichetta si allunga
-    var fn = el('p', 'fx-card-function', item.function || '');
+    var fn = el('p', 'fx-card-function');
+    regName(fn, item.function || '');   // ® in apice (formule: nomi degli ingredienti)
     if (!item.function) fn.setAttribute('aria-hidden', 'true');
     art.appendChild(fn);
 
@@ -201,6 +208,8 @@
         pills.appendChild(el('span', 'market-pill' + (m === 'Nutraceutical' ? ' market-pill--nutra' : ''), m));
       });
     }
+    // Seconda etichetta, chiara (formule: il tipo di formula, 25/11/2026)
+    if (item.extraPill) pills.appendChild(el('span', 'market-pill market-pill--outline', item.extraPill));
     art.appendChild(pills);
 
     var media = el('div', 'fx-card-media');
@@ -232,6 +241,8 @@
       visual.appendChild(pimg);
       media.appendChild(visual);
     } else {
+      // Foto (formule: foto del formato, decorativa: il tipo è già scritto)
+      media.classList.add('fx-card-media--photo');
       var img = el('img');
       img.src = item.texture;
       img.alt = '';
@@ -246,7 +257,7 @@
     // non si ripetono: il mercato è già nell'etichetta sopra l'immagine)
     if (asList(item.certifications).length) {
       var tags = el('ul', 'fx-card-tags');
-      tags.setAttribute('aria-label', 'Certifications');
+      tags.setAttribute('aria-label', item.tagsLabel || 'Certifications');
       item.certifications.forEach(function (c) { tags.appendChild(el('li', '', c)); });
       glass.appendChild(tags);
     }
@@ -268,7 +279,7 @@
      ------------------------------------------------------------------------ */
 
   function plural(n) {
-    return n + (n === 1 ? ' ingredient' : ' ingredients');
+    return n + ' ' + (n === 1 ? NOUN[0] : NOUN[1]);
   }
 
   /* Telefono (19/11/2026, Chiara): 8 schede alla volta, poi "Load more" con

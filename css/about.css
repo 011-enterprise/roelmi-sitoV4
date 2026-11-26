@@ -1256,3 +1256,49 @@
     font-size: 1.125rem;
   }
 }
+
+/* ==========================================================================
+   26/11/2026 (mail della cliente del 25/11): niente foto di famiglia,
+   niente Our philosophy, niente fasi In vitro / In vivo / Clinical;
+   Membership e Partnership come due fasce di loghi distinte.
+   (Le regole .ab-philo-*, .ab-steps, .ab-photo* sopra non servono più)
+   ========================================================================== */
+
+/* La storia senza foto: il testo su una colonna larga quanto si legge bene */
+.ab-story-grid--text {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ab-story-grid--text .ab-story-text {
+  max-width: 62rem;
+}
+
+/* Titoli dei due gruppi di loghi */
+.ab-logos-title {
+  margin-top: var(--title-gap);
+  font-family: var(--font-display);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: var(--ls-title);
+}
+
+.ab-logos-title + * {
+  margin-top: 0;
+}
+
+.ab-partners .ab-logos-title ~ .ab-partners-band,
+.ab-partners .container + .ab-partners-band {
+  margin-top: 1.25rem;
+}
+
+/* Spazi (regola fissa nota 245): sezioni chiare di fila = un solo spazio,
+   su TUTTI gli schermi (prima solo sotto 900px). What we do ora è seguita
+   dalla fascia NIP */
+.page-hero + .ab-story,
+.ab-story + .ab-what,
+.ab-what + .ab-nip-sec,
+.ab-nip-sec + .ab-approach,
+.ab-partners + .ab-close {
+  padding-top: 0;
+}

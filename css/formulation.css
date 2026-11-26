@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Formula singola (25/11/2026) — pagina formula-*.html fatta con il MODELLO
+   PAGINA PRODOTTO (genera-pagina-prodotto.js formula:<slug>, product.css):
+   qui solo le parti in più del download del PDF
+   - righe di stato sotto i bottoni dell apertura ("Downloading as …")
+   - modulo nel <dialog> (campi di form.css)
+   In fondo: la foto nella scheda delle formule dell elenco (modello Ingredient Finder)
+   ========================================================================== */
+
+.pd-download-status {
+  flex-basis: 100%;
+  font-size: var(--fs-small);
+  color: var(--hard-grey);
+}
+
+.pd-download-status:empty {
+  display: none;
+}
+
+.pd-forget {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ocean);   /* 4.69:1 */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pd-forget:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Modulo per il download (<dialog>)
+   -------------------------------------------------------------------------- */
+
+.fo-dialog {
+  width: min(100% - 2rem, 680px);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-stage);
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+  box-shadow: 0 30px 80px -30px rgba(25, 25, 25, 0.6);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.fo-dialog::backdrop {
+  background-color: rgba(25, 25, 25, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.fo-dialog-inner {
+  position: relative;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+}
+
+.fo-dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--hard-grey);
+  cursor: pointer;
+}
+
+.fo-dialog-close svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.fo-dialog-close:hover {
+  background-color: rgba(25, 25, 25, 0.08);
+}
+
+.fo-dialog-close:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 2px;
+}
+
+.fo-dialog-title {
+  padding-right: 3rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-box);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: var(--ls-title);
+}
+
+.fo-dialog-intro {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+.fo-dialog .fm-form {
+  margin-top: 1.5rem;
+}
+
+
+/* ==========================================================================
+   Formulation Area (elenco, MODELLO INGREDIENT FINDER) — la scheda è quella
+   del Finder; nel riquadro, al posto del pittogramma, la FOTO del formato
+   della formula (crema, gel, stick…; genera-formulation-area.js). Riquadro
+   quadrato come le schede del Finder
+   ========================================================================== */
+
+.fx-card-media--photo {
+  aspect-ratio: 1 / 1;
+}
+
+@media (hover: none) {
+  .fx-card-media--photo > img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Riga sotto il nome = ingredienti della formula: al massimo due righe */
+.fx-card:has(.fx-card-media--photo) .fx-card-function {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Seconda etichetta della scheda (tipo di formula): contorno Hard Grey, fondo
+   chiaro; va a capo se il tipo è lungo ("Face Colour Cosmetics - Foundation") */
+.market-pill--outline {
+  background-color: var(--ricepaper);
+  box-shadow: inset 0 0 0 1px var(--hard-grey);
+  white-space: normal;
+  padding-block: 0.2rem;
+}

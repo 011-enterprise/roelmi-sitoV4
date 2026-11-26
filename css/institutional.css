@@ -7,9 +7,10 @@
    4.69:1
    ========================================================================== */
 
-/* Polvere dell'apertura */
+/* Foto dell'apertura: sabbia blu (portfolio/texture-6, 26/11/2026, sotto il
+   vetro chiaro .page-stage-glass--light) */
 .in-hero-img {
-  object-position: 50% 60%;
+  object-position: 50% 50%;
 }
 
 /* Titoli di sezione (come gli altri del sito) */
@@ -412,4 +413,15 @@
   letter-spacing: var(--ls-caps);
   text-transform: uppercase;
   color: var(--muted);
+}
+
+/* ==========================================================================
+   26/11/2026 (cliente, mail del 25/11): niente immagine in hover. Mouse o
+   fuoco: la scheda si colora con il colore della palette del suo gruppo
+   (ISO Cerulean, prodotti Antique) sotto un velo Ricepaper leggero; testo
+   e link Hard Grey (≥ 8:1). Sigillo: il nostro (goccia + sigla), la
+   cliente non ha i loghi delle certificazioni
+   ========================================================================== */
+.in-card-bg::after {
+  background-color: rgba(247, 243, 235, 0.45);
 }

@@ -187,6 +187,15 @@
   }
 }
 
+/* Uno o due benefici (formule della Formulation Area, 25/11/2026): due
+   colonne, niente pannelli stretti con il vuoto a destra */
+@media (min-width: 1024px) {
+  .pd-benefit-list:has(> li:nth-child(2):last-child),
+  .pd-benefit-list:has(> li:only-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .pd-benefit {
   padding: clamp(1.1rem, 1rem + 0.6vw, 1.75rem);
   border-radius: var(--r-card);

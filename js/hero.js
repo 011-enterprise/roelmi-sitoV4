@@ -23,6 +23,15 @@
 
   hero.style.setProperty('--hero-steps', N);
 
+  // Punto del video in cui parte ogni frase (0–1). Facoltativo: con
+  // data-video-at su una frase il video resta più a lungo su quel momento;
+  // senza, ogni frase prende la stessa parte di video (i / N), come prima
+  var videoAt = steps.map(function (step, i) {
+    var v = parseFloat(step.getAttribute('data-video-at'));
+    return isFinite(v) ? v : i / N;
+  });
+  videoAt.push(1);
+
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function easeInOut(v) { return v < 0.5 ? 2 * v * v : 1 - Math.pow(-2 * v + 2, 2) / 2; }
   function easeOut(v) { return 1 - Math.pow(1 - v, 3); }
@@ -83,6 +92,34 @@
     if (Math.abs(video.currentTime - t) > 0.03) {
       try { video.currentTime = t; } catch (e) { /* non ancora pronto */ }
     }
+  }
+
+  /* Inseguimento morbido (facoltativo, data-video-smooth sulla hero):
+     lo scroll decide il punto d'arrivo, il video lo raggiunge con un po'
+     d'inerzia (~0.5s) invece di saltare a ogni scatto della rotellina.
+     Con Stop animation / reduced-motion il video non si muove comunque */
+  var SMOOTH = hero.hasAttribute('data-video-smooth');
+  var TAU = parseFloat(hero.getAttribute('data-video-smooth')) || 0.14;
+  var shownT = null, targetT = 0, smoothRaf = 0, lastTs = 0;
+
+  function smoothStep(ts) {
+    var dt = lastTs ? Math.min(0.1, (ts - lastTs) / 1000) : 0.016;
+    lastTs = ts;
+    shownT += (targetT - shownT) * (1 - Math.exp(-dt / TAU));
+    if (Math.abs(targetT - shownT) < 1 / 48) shownT = targetT;
+    seek(shownT);
+    if (shownT !== targetT) {
+      smoothRaf = requestAnimationFrame(smoothStep);
+    } else {
+      smoothRaf = 0;
+      lastTs = 0;
+    }
+  }
+
+  function seekTo(t) {
+    if (!SMOOTH || shownT === null) { shownT = t; targetT = t; seek(t); return; }
+    targetT = t;
+    if (!smoothRaf) smoothRaf = requestAnimationFrame(smoothStep);
   }
 
   if (video) {
@@ -185,7 +222,8 @@
     if (video) {
       var z = animated ? 1 + (ZOOM - 1) * easeInOut(p) : 1;
       video.style.transform = z > 1.0001 ? 'scale(' + z.toFixed(4) + ')' : '';
-      if (animated && isFinite(video.duration)) seek(p * Math.max(0, video.duration - 0.05));
+      var vp = videoAt[s] + (videoAt[s + 1] - videoAt[s]) * clamp(pos - s);
+      if (animated && isFinite(video.duration)) seekTo(vp * Math.max(0, video.duration - 0.05));
     }
   }
 

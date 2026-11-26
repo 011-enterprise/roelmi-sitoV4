@@ -1142,3 +1142,11 @@
 .dv-lines + .dv-more {
   padding-top: 0;
 }
+
+/* 26/11/2026 (cliente): Our lines SOPRA la fascia Formulation Area.
+   Ordine: portfolio (Ocean) · Our lines · Formulation · Discover more ·
+   Contatti. Sezioni chiare di fila: un solo spazio (nota 245) */
+.dv-lines + .dv-form,
+.dv-form + .dv-more {
+  padding-top: 0;
+}

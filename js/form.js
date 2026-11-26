@@ -93,6 +93,8 @@
         summary.hidden = true;
         summary.textContent = '';
       }
+      // Modulo valido: chi lo usa può reagire (es. Formulation Area: download)
+      form.dispatchEvent(new CustomEvent('fm:success'));
       // Qui andrà l'invio al server
       form.reset();
       if (status) status.textContent = form.getAttribute('data-success') || 'Thank you.';
