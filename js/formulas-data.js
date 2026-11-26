@@ -28,7 +28,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Cube3"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.SK.26.19HPC EquiBiotics® LRh PrincipHYAL® Cube3"
  },
  {
@@ -51,7 +51,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.SK.26.18HPC EquiBiotics® LRh CytoFruit® Line"
  },
  {
@@ -78,7 +78,7 @@ window.ROELMI_FINDER = {
    "EquiBiotics® LA"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.BA.26.20HPC EMotion® SKin EMotion® Silky Celus-Bi® Feel EquiBiotics® LA"
  },
  {
@@ -107,7 +107,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.BA.26.21HPC EquiBiotics® LA EMotion® SKin EMotion® Air Olifeel® Pearls CeraFluid®"
  },
  {
@@ -138,7 +138,7 @@ window.ROELMI_FINDER = {
    "EquiBiotics® LA"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.BA.26.22HPC EMotion® Air EMotion® SKin Olifeel® Pearls Abwax® Rice CeraFluid® EquiBiotics® LA"
  },
  {
@@ -163,7 +163,7 @@ window.ROELMI_FINDER = {
    "EMotion® Glow"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.SK.22.99.13HPC CeraFluid® CytoFruit® Line EMotion® Glow"
  },
  {
@@ -192,7 +192,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.26.17HPC CeraFluid® EMotion® Air Abwax® Rice Abwax® Rhus Wax EMotion® SKin"
  },
  {
@@ -221,7 +221,7 @@ window.ROELMI_FINDER = {
    "SeidoTech® Lux"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.26.28HPC EMotion® Silky EMotion® SKin EMotion® Light PrincipHYAL® Signal-10 SeidoTech® Lux"
  },
  {
@@ -254,7 +254,7 @@ window.ROELMI_FINDER = {
    "Nipseal®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.26.27HPC EquiBiotics® LA PrincipHYAL® Signal-10 EMotion® Air EMotion® Light ColorGLAM® VeLLvet Nipseal®"
  },
  {
@@ -285,7 +285,7 @@ window.ROELMI_FINDER = {
    "Nipseal®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.25.38.1HPC Abwax® Rhus Wax EMotion® SKin CeraFluid® EMotion® Air ColorEST Nipseal®"
  },
  {
@@ -314,7 +314,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Signal-10"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.37.1HPC Idrawax® Revo ColorEST EMotion® Light CytoFruit® Line PrincipHYAL® Signal-10"
  },
  {
@@ -337,7 +337,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.SK.26.16HPC PrincipHYAL® Cube3 CytoFruit® Line"
  },
  {
@@ -360,7 +360,7 @@ window.ROELMI_FINDER = {
    "SeidoTech® Lux"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.26.29HPC PrincipHYAL® Cube3 SeidoTech® Lux"
  },
  {
@@ -387,7 +387,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.26.04HPC PrincipHYAL® Aurora EMotion® Air EMotion® Silky CeraFluid®"
  },
  {
@@ -410,7 +410,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.26.09HPC EquiBiotics® LA CytoFruit® Line"
  },
  {
@@ -435,7 +435,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Cube3"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.25.40.1HPC SeidoTech® Lux Olifeel® Pearls PrincipHYAL® Cube3"
  },
  {
@@ -466,7 +466,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.26.10HPC SeidoTech® Lux EMotion® SKin EMotion® Silky EMotion® Light PrincipHYAL® Signal-10 Celus-Bi® Feel"
  },
  {
@@ -491,7 +491,7 @@ window.ROELMI_FINDER = {
    "CrystAl®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.26.11HPC DefensoWin® EquiBiotics® LA CrystAl®"
  },
  {
@@ -512,7 +512,7 @@ window.ROELMI_FINDER = {
    "SeidoTech® Capillys"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.26.14HPC SeidoTech® Capillys"
  },
  {
@@ -533,7 +533,7 @@ window.ROELMI_FINDER = {
    "SeidoTech® Capillys"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.HA.26.15HPC SeidoTech® Capillys"
  },
  {
@@ -564,7 +564,7 @@ window.ROELMI_FINDER = {
    "Nipseal®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.26.12HPC Olifeel® Pearls EMotion® Air EMotion® Light ColorGLAM® VeLLvet Nipseal®"
  },
  {
@@ -591,7 +591,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.64.1HPC Abwax® Revowax ColorEST EMotion® SKin VeLLvet"
  },
  {
@@ -622,7 +622,7 @@ window.ROELMI_FINDER = {
    "Nipseal®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.25.62.2HPC EMotion® Air Abwax® Rice ColorEST CrystAl® VeLLvet Nipseal®"
  },
  {
@@ -653,7 +653,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.26.13HPC ColorGLAM® VeLLvet Nipseal® EMotion® Air EMotion® Light EMotion® SKin"
  },
  {
@@ -684,7 +684,7 @@ window.ROELMI_FINDER = {
    "Abwax® Revowax"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.63HPC Idrawax® Revo EMotion® Light Abwax® Revowax"
  },
  {
@@ -720,7 +720,7 @@ window.ROELMI_FINDER = {
    "CrystAl®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.63HPC EMotion® Air Abwax® Rice VeLLvet Nipseal® CrystAl®"
  },
  {
@@ -752,7 +752,7 @@ window.ROELMI_FINDER = {
    "Abwax® Revowax"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.64HPC VeLLvet EMotion® SKin Abwax® Revowax"
  },
  {
@@ -785,7 +785,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.21.70.1HPC EMotion® SKin EMotion® Olifeel® Pearls BeauSens® PG4"
  },
  {
@@ -818,7 +818,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Aurora"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.25.40HPC SeidoTech® Lux PrincipHYAL® Aurora"
  },
  {
@@ -858,7 +858,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.25.19HPC Idrawax® Revo PrincipHYAL® Signal-10 EMotion® Air EMotion® SKin CeraFluid®"
  },
  {
@@ -897,7 +897,7 @@ window.ROELMI_FINDER = {
    "Nipseal®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.25.38HPC EMotion® SKin CeraFluid® Abwax® Rhus Wax EMotion® Air Nipseal®"
  },
  {
@@ -929,7 +929,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.25.31.1 EMotion® Light EMotion® SKin Abwax® Rice Celus-Bi® Feel"
  },
  {
@@ -968,7 +968,7 @@ window.ROELMI_FINDER = {
    "Idrawax® Revo"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.25.37HPC EMotion® Light CytoFruit® Line Olifeel® Pearls PrincipHYAL® Signal-10 Idrawax® Revo"
  },
  {
@@ -1003,7 +1003,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.25.43HPC Abwax® Revomul DefensoWin® EquiBiotics® LA EMotion® SKin BeauSens® PG4"
  },
  {
@@ -1036,7 +1036,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.25.42HPC Abwax® Revomul PrincipHYAL® Aurora EMotion® Light CeraFluid®"
  },
  {
@@ -1075,7 +1075,7 @@ window.ROELMI_FINDER = {
    "SeidoTech® Lux"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.25.41HPC Abwax® Revomul EMotion® Silky SeidoTech® Lux"
  },
  {
@@ -1110,7 +1110,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.63HPC SeidoTech® Lux Olifeel® Pearls VeLLvet CytoFruit® Line"
  },
  {
@@ -1143,7 +1143,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.62HPC SeidoTech® Lux EMotion® Air EMotion® SKin"
  },
  {
@@ -1185,7 +1185,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.61HPC EMotion® Air EMotion® SKin EMotion® Light CeraFluid® PhytoSerene Idrawax® Revo CytoFruit® Line"
  },
  {
@@ -1219,7 +1219,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.24.15HPC CytoFruit® Line EquiBiotics® LA BeauSens® PG4"
  },
  {
@@ -1251,7 +1251,7 @@ window.ROELMI_FINDER = {
    "EMotion® Light"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.SU.24.16HPC EMotion® Air EMotion® Glow EMotion® Light"
  },
  {
@@ -1294,7 +1294,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SU.24.17HPC CytoFruit® Line PrincipHYAL® Aurora DefensoWin® EMotion® Light EMotion® Air Olifeel® Pearls VeLLvet"
  },
  {
@@ -1336,7 +1336,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SU.24.14HPC CytoFruit® Line EMotion® Silky EMotion® SKin EMotion® Air Olifeel® Pearls CeraFluid®"
  },
  {
@@ -1376,7 +1376,7 @@ window.ROELMI_FINDER = {
    "PhytoSerene"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.70HPC EMotion® Glow EMotion® Air EMotion® Light Olifeel® Pearls CeraFluid® PhytoSerene"
  },
  {
@@ -1413,7 +1413,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.68HPC CytoFruit® Line Olifeel® Pearls EMotion® Light EMotion® SKin CeraFluid®"
  },
  {
@@ -1450,7 +1450,7 @@ window.ROELMI_FINDER = {
    "BeautySYN® Slim"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.69HPC PrincipHYAL® Aurora EMotion® Air EMotion® Silky EMotion® SKin BeautySYN® Slim"
  },
  {
@@ -1485,7 +1485,7 @@ window.ROELMI_FINDER = {
    "Ener-GY plus"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.67HPC PrincipHYAL® Signal-10 EMotion® Air EMotion® Light Ener-GY plus"
  },
  {
@@ -1519,7 +1519,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.12HPC EquiBiotics® LRh EMotion® Air EMotion® Light CytoFruit® Line"
  },
  {
@@ -1559,7 +1559,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.24.13HPC EquiBiotics® LA PrincipHYAL® Signal-10 Olifeel® E-NAT W/O EMotion® Air EMotion® Light VeLLvet"
  },
  {
@@ -1594,7 +1594,7 @@ window.ROELMI_FINDER = {
    "EquiBiotics® LRh"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.24.11HPC CytoFruit® Line G2Light EMotion® Air EquiBiotics® LRh"
  },
  {
@@ -1629,7 +1629,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.24.10HPC EquiBiotics® LA EMotion® Air EMotion® Glow Celus-Bi® Feel VeLLvet"
  },
  {
@@ -1659,7 +1659,7 @@ window.ROELMI_FINDER = {
    "PhytoSerene"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.23.67HPC EMotion® Light EMotion® Air PhytoSerene"
  },
  {
@@ -1687,7 +1687,7 @@ window.ROELMI_FINDER = {
    "Plerasan® Re-balance"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.BA.23.63HPC EMotion® SKin Plerasan® Re-balance"
  },
  {
@@ -1721,7 +1721,7 @@ window.ROELMI_FINDER = {
    "Ener-GY plus"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.23.66HPC EMotion® Silky EMotion® Light EMotion® Air CytoFruit® Line Ener-GY plus"
  },
  {
@@ -1753,7 +1753,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.23.65HPC EMotion® Glow EMotion® Air TechnoHYAL HyaPearl"
  },
  {
@@ -1781,7 +1781,7 @@ window.ROELMI_FINDER = {
    "EMotion® Air"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.23.64HPC EMotion® Air"
  },
  {
@@ -1811,7 +1811,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Signal-10"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.56HPC CytoFruit® Line DefensoWin® PrincipHYAL® Signal-10"
  },
  {
@@ -1842,7 +1842,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Aurora"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.54HPC CytoFruit® Line EquiBiotics® LRh PrincipHYAL® Aurora"
  },
  {
@@ -1867,7 +1867,7 @@ window.ROELMI_FINDER = {
    "Ener-GY plus"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.53HPC CytoFruit® Line Ener-GY plus"
  },
  {
@@ -1907,7 +1907,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.07HPC CytoFruit® Line DefensoWin® EquiBiotics® LRh EMotion® EMotion® SKin Celus-Bi® Feel"
  },
  {
@@ -1940,7 +1940,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.23.06HPC CytoFruit® Line PrincipHYAL® Aurora Ener-GY plus BeauSens® PG4"
  },
  {
@@ -1975,7 +1975,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.23.13HPC EMotion® Olifeel® Pearls CeraFluid® Celus-Bi® Feel VeLLvet"
  },
  {
@@ -2003,7 +2003,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.23.03HPC EMotion® Celus-Bi® Feel"
  },
  {
@@ -2034,7 +2034,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.23.02HPC EquiBiotics® LRh EMotion® Glow Celus-Bi® Feel"
  },
  {
@@ -2066,7 +2066,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.23.01HPC EMotion® Glow EMotion® TechnoHYAL HyaPearl"
  },
  {
@@ -2099,7 +2099,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.23.04HPC EMotion® Air EMotion® Glow EMotion® TechnoHYAL HyaPearl"
  },
  {
@@ -2131,7 +2131,7 @@ window.ROELMI_FINDER = {
    "DefensoWin®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.09HPC CytoFruit® Line PrincipHYAL® Cube3 DefensoWin®"
  },
  {
@@ -2166,7 +2166,7 @@ window.ROELMI_FINDER = {
    "EquiBiotics® LRh"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.08HPC CytoFruit® Line Ener-GY plus PrincipHYAL® Signal-10 DefensoWin® EquiBiotics® LRh"
  },
  {
@@ -2208,7 +2208,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.23.05HPC CytoFruit® Line PrincipHYAL® Signal-10 DefensoWin® Olifeel® Pearls EMotion® CeraFluid® VeLLvet"
  },
  {
@@ -2246,7 +2246,7 @@ window.ROELMI_FINDER = {
    "MeristeM"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.100HPC CytoFruit® Line EquiBiotics® LRh PrincipHYAL® Cube3 MeristeM"
  },
  {
@@ -2284,7 +2284,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.99HPC CytoFruit® Line EquiBiotics® LRh EMotion® Glow CeraFluid® VeLLvet"
  },
  {
@@ -2325,7 +2325,7 @@ window.ROELMI_FINDER = {
    "BeautySYN® Slim"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.98HPC EquiBiotics® LRh Olifeel® Pearls EMotion® SKin EMotion® BeautySYN® Slim"
  },
  {
@@ -2363,7 +2363,7 @@ window.ROELMI_FINDER = {
    "EquiBiotics® LRh"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.22.97HPC EMotion® CytoFruit® Line Ener-GY plus EquiBiotics® LRh"
  },
  {
@@ -2396,7 +2396,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.22.77HPC CytoFruit® Line Ener-GY plus EMotion® Glow BeauSens® PG4"
  },
  {
@@ -2430,7 +2430,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.22.70.1HPC CytoFruit® Line EquiBiotics® LRh EMotion® MeristeM Celus-Bi® Feel"
  },
  {
@@ -2463,7 +2463,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.22.67.1HPC Olifeel® Pearls EMotion® PhytoSerene Celus-Bi® Feel"
  },
  {
@@ -2502,7 +2502,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.65.2HPC CytoFruit® Line Olifeel® Pearls EMotion® MeristeM VeLLvet"
  },
  {
@@ -2535,7 +2535,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.01HPC G2Light EMotion® CeraFluid®"
  },
  {
@@ -2564,7 +2564,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HAir Complex"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.22.56.3HPC BeauSens® PG4 TechnoHYAL HAir Complex"
  },
  {
@@ -2598,7 +2598,7 @@ window.ROELMI_FINDER = {
    "BeauSens® PG4"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/portfolio/texture-2.jpg",
+  "texture": "images/texture/texture-2.jpg",
   "search": "C.HA.22.38.2HPC CytoFruit® Line EMotion® SKin EMotion® Air BeauSens® PG4"
  },
  {
@@ -2633,7 +2633,7 @@ window.ROELMI_FINDER = {
    "Abwax® Rhus Wax"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.CO.22.92HPC EMotion® Air EMotion® Glow PhytoSerene EMotion® Abwax® Rice Abwax® Rhus Wax"
  },
  {
@@ -2666,7 +2666,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.BA.22.44.3HPC Plerasan® Re-balance Olifeel® E-NAT W/O EMotion® Olifeel® Pearls"
  },
  {
@@ -2695,7 +2695,7 @@ window.ROELMI_FINDER = {
    "Plerasan® Re-balance"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.BA.21.134HPC Plerasan® Re-balance"
  },
  {
@@ -2729,7 +2729,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.22.43HPC EMotion® Air EMotion® Celus-Bi® Feel VeLLvet"
  },
  {
@@ -2766,7 +2766,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.22.42HPC CytoFruit® Line EMotion® Air EMotion® Olifeel® Pearls SynerSHIELD™ Sun Celus-Bi® Feel VeLLvet"
  },
  {
@@ -2801,7 +2801,7 @@ window.ROELMI_FINDER = {
    "VeLLvet"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.22.40HPC EMotion® Olifeel® Pearls TechnoHYAL HyaPearl Celus-Bi® Feel VeLLvet"
  },
  {
@@ -2838,7 +2838,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.41HPC Olifeel® Pearls CeraFluid® EMotion® SKin EMotion® Air VeLLvet Celus-Bi® Feel"
  },
  {
@@ -2875,7 +2875,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.14HPC EquiBiotics® LRh EMotion® Air EMotion® Glow BeautySYN® Bright Ener-GY plus Olifeel® Pearls"
  },
  {
@@ -2916,7 +2916,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.13HPC CytoFruit® Line PrincipHYAL® Cube3 CeraFluid® EMotion® Glow EMotion® Ener-GY plus Celus-Bi® Feel"
  },
  {
@@ -2950,7 +2950,7 @@ window.ROELMI_FINDER = {
    "Ener-GY plus"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.22.12HPC CytoFruit® Line EquiBiotics® LRh PrincipHYAL® Signal-10 DefensoWin® Ener-GY plus"
  },
  {
@@ -2985,7 +2985,7 @@ window.ROELMI_FINDER = {
    "Ener-GY plus"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.22.15HPC EMotion® Air CytoFruit® Line PrincipHYAL® Aurora DefensoWin® Ener-GY plus"
  },
  {
@@ -3016,7 +3016,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.TO.21.112HPC BeauSens® PG4 DefensoWin® CytoFruit® Line"
  },
  {
@@ -3051,7 +3051,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.123HPC EMotion® Air EquiBiotics® LRh PrincipHYAL® Aurora Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -3090,7 +3090,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.120.1HPC EMotion® EMotion® SKin EquiBiotics® LRh DefensoWin® Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -3118,7 +3118,7 @@ window.ROELMI_FINDER = {
    "DefensoWin®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.104HPC EMotion® Air DefensoWin®"
  },
  {
@@ -3156,7 +3156,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.96HPC Olifeel® Pearls EMotion® CeraFluid® TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -3185,7 +3185,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.67HPC DefensoWin® CytoFruit® Line"
  },
  {
@@ -3217,7 +3217,7 @@ window.ROELMI_FINDER = {
    "G2Light"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.156HPC CeraFluid® EMotion® G2Light"
  },
  {
@@ -3252,7 +3252,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.153HPC PrincipHYAL® Difference EMotion® SKin Olifeel® Pearls CeraFluid® CytoFruit® Line"
  },
  {
@@ -3281,7 +3281,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.149HPC PrincipHYAL® Signal-10 CytoFruit® Line"
  },
  {
@@ -3315,7 +3315,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.147HPC Olifeel® Pearls DefensoWin® PrincipHYAL® Signal-10 EMotion®"
  },
  {
@@ -3346,7 +3346,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.145HPC EMotion® SKin BeautySYN® Slim CytoFruit® Line"
  },
  {
@@ -3373,7 +3373,7 @@ window.ROELMI_FINDER = {
    "EMotion® Air"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.21.115HPC EMotion® Air"
  },
  {
@@ -3402,7 +3402,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.21.24HPC PrincipHYAL® Cube3 CytoFruit® Line"
  },
  {
@@ -3434,7 +3434,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.20.12HPC EMotion® SKin Olifeel® Pearls PhytoSerene Celus-Bi® Feel"
  },
  {
@@ -3467,7 +3467,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.109HPC EMotion® Air EquiBiotics® LRh Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -3500,7 +3500,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.107HPC PrincipHYAL® Aurora EquiBiotics® LRh DefensoWin® CytoFruit® Line"
  },
  {
@@ -3535,7 +3535,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Aurora"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.106HPC EMotion® Glow EMotion® Air Olifeel® Pearls EquiBiotics® LRh PrincipHYAL® Aurora"
  },
  {
@@ -3569,7 +3569,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.105HPC EMotion® Glow PrincipHYAL® Aurora EquiBiotics® LRh CytoFruit® Line"
  },
  {
@@ -3599,7 +3599,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.101HPC EquiBiotics® LRh CytoFruit® Line"
  },
  {
@@ -3630,7 +3630,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.110HPC EMotion® Air EquiBiotics® LRh Celus-Bi® Feel"
  },
  {
@@ -3662,7 +3662,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.108HPC EMotion® Air EquiBiotics® LRh Celus-Bi® Feel"
  },
  {
@@ -3695,7 +3695,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SU.21.97HPC EMotion® Glow Plerasan® Re-balance Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -3725,7 +3725,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SU.21.93HPC EMotion® Glow EMotion® Celus-Bi® Feel"
  },
  {
@@ -3757,7 +3757,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.99HPC EMotion® Glow Olifeel® Pearls CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -3790,7 +3790,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.BA.21.98HPC EMotion® Glow Olifeel® Pearls PhytoSerene CeraFluid®"
  },
  {
@@ -3824,7 +3824,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Aurora"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.94HPC EMotion® Glow EMotion® Air Olifeel® Pearls BeautySYN® Slim PrincipHYAL® Aurora"
  },
  {
@@ -3856,7 +3856,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.92HPC EMotion® Glow Plerasan® Re-balance CytoFruit® Line"
  },
  {
@@ -3885,7 +3885,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.91HPC EMotion® Glow CeraFluid®"
  },
  {
@@ -3913,7 +3913,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.90HPC EMotion® Glow Celus-Bi® Feel"
  },
  {
@@ -3944,7 +3944,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.165HPC PrincipHYAL® Aurora EMotion® Celus-Bi® Feel"
  },
  {
@@ -3973,7 +3973,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Cube3"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.63HPC PrincipHYAL® Cube3"
  },
  {
@@ -4001,7 +4001,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.82HPC EMotion® Air Celus-Bi® Feel"
  },
  {
@@ -4031,7 +4031,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.84HPC EMotion® SKin EMotion® Air EMotion®"
  },
  {
@@ -4063,7 +4063,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.21.102HPC EMotion® SKin EMotion® Olifeel® Pearls TechnoHYAL HyaPearl"
  },
  {
@@ -4093,7 +4093,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.21.16HPC EMotion® SKin BeauSens® PG4 Celus-Bi® Feel"
  },
  {
@@ -4119,7 +4119,7 @@ window.ROELMI_FINDER = {
    "EMotion® Air"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.21.01HPC EMotion® Air"
  },
  {
@@ -4152,7 +4152,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.83HPC EMotion® Olifeel® Pearls CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -4186,7 +4186,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.52HPC EMotion® Olifeel® Pearls TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -4218,7 +4218,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.20.86.1HPC EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -4240,7 +4240,7 @@ window.ROELMI_FINDER = {
   "description": "A mouth rinse that combats tooth decay, bacteria and plaque, while delivering a minty-fresh sensation without stripping or irritating your teeth and gums. Use as part of your daily oral care routine.",
   "certifications": [],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/portfolio/texture-1.jpg",
+  "texture": "images/texture/texture-1.jpg",
   "search": "Strong mint mouthwash"
  },
  {
@@ -4262,7 +4262,7 @@ window.ROELMI_FINDER = {
   "description": "A rich, creamy toothpaste that offers a tingling sensation while repairing the gums for a sparkling white smile. Use as part of your daily oral care routine.",
   "certifications": [],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/portfolio/texture-1.jpg",
+  "texture": "images/texture/texture-1.jpg",
   "search": "C.OC.21.75HPC"
  },
  {
@@ -4284,7 +4284,7 @@ window.ROELMI_FINDER = {
   "description": "A refreshing, creamy toothpaste that keeps your mouth clean while delivering deep protection and hydration. Use as part of your daily oral care routine.",
   "certifications": [],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/portfolio/texture-1.jpg",
+  "texture": "images/texture/texture-1.jpg",
   "search": "C.OC.21.74HPC"
  },
  {
@@ -4317,7 +4317,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.77HPC PrincipHYAL® Aurora PrincipHYAL® Cube3 CytoFruit® Line"
  },
  {
@@ -4344,7 +4344,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.58HPC Olifeel® Pearls"
  },
  {
@@ -4371,7 +4371,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.59HPC Olifeel® Pearls"
  },
  {
@@ -4398,7 +4398,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.60HPC Olifeel® Pearls"
  },
  {
@@ -4425,7 +4425,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.61HPC Olifeel® Pearls"
  },
  {
@@ -4459,7 +4459,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.65HPC EMotion® SKin Olifeel® Pearls TechnoHYAL HyaPearl CytoFruit® Line"
  },
  {
@@ -4494,7 +4494,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.66HPC EMotion® SKin Olifeel® Pearls CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -4528,7 +4528,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.73HPC EMotion® Air EMotion® Celus-Bi® Feel"
  },
  {
@@ -4560,7 +4560,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.72HPC PrincipHYAL® Cube3 Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -4596,7 +4596,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.71HPC PrincipHYAL® Aurora Plerasan® Re-balance EMotion® CytoFruit® Line"
  },
  {
@@ -4628,7 +4628,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.135HPC DefensoWin® PrincipHYAL® Difference CytoFruit® Line"
  },
  {
@@ -4659,7 +4659,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.69HPC EMotion® Air CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -4690,7 +4690,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.134HPC DefensoWin® CytoFruit® Line"
  },
  {
@@ -4717,7 +4717,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.133HPC CytoFruit® Line"
  },
  {
@@ -4746,7 +4746,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.132HPC PrincipHYAL® Aurora CytoFruit® Line"
  },
  {
@@ -4775,7 +4775,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.131HPC PrincipHYAL® Signal-10 CytoFruit® Line"
  },
  {
@@ -4809,7 +4809,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.22HPC DefensoWin® PrincipHYAL® Aurora BeauSens® PG4 CytoFruit® Line"
  },
  {
@@ -4837,7 +4837,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.51HPC EMotion® Air Celus-Bi® Feel"
  },
  {
@@ -4869,7 +4869,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.48HPC EMotion® SKin Olifeel® Pearls DefensoWin® CytoFruit® Line"
  },
  {
@@ -4907,7 +4907,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.38HPC EMotion® Air CeraFluid® PrincipHYAL® Aurora Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -4945,7 +4945,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.37HPC EMotion® SKin EMotion® Air CeraFluid® Olifeel® Pearls Celus-Bi® Feel"
  },
  {
@@ -4978,7 +4978,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.21.35HPC BeauSens® PG4 DefensoWin® CytoFruit® Line"
  },
  {
@@ -5009,7 +5009,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.31HPC PrincipHYAL® Aurora Olifeel® Pearls EMotion® SKin CytoFruit® Line"
  },
  {
@@ -5038,7 +5038,7 @@ window.ROELMI_FINDER = {
    "EMotion® Air"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.21.39HPC EMotion® EMotion® Air"
  },
  {
@@ -5068,7 +5068,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.21.49HPC EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -5100,7 +5100,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.20.64HPC EMotion® TechnoHYAL HyaPearl Olifeel® Pearls Celus-Bi® Feel"
  },
  {
@@ -5131,7 +5131,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.122HPC PrincipHYAL® Aurora EMotion® EMotion® SKin"
  },
  {
@@ -5160,7 +5160,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.163HPC DefensoWin® EMotion® SKin"
  },
  {
@@ -5193,7 +5193,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.96HPC PrincipHYAL® Aurora CytoFruit® Line"
  },
  {
@@ -5229,7 +5229,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.159.1HPC Olifeel® Pearls CeraFluid® EMotion® PrincipHYAL® Signal-10 CytoFruit® Line"
  },
  {
@@ -5264,7 +5264,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/portfolio/texture-2.jpg",
+  "texture": "images/texture/texture-2.jpg",
   "search": "C.SK.20.29HPC Olifeel® Pearls EMotion® SKin EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -5291,7 +5291,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.20.23HPC EMotion® Celus-Bi® Feel"
  },
  {
@@ -5325,7 +5325,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.137HPC PrincipHYAL® Difference EMotion® SKin BeautySYN® Slim CytoFruit® Line"
  },
  {
@@ -5363,7 +5363,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.136.1HPC PrincipHYAL® Aurora DefensoWin® EMotion® SKin EMotion® Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -5391,7 +5391,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.20.125HPC EMotion® SKin TechnoHYAL HyaPearl"
  },
  {
@@ -5423,7 +5423,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.124HPC BeautySYN® Slim PrincipHYAL® Aurora CytoFruit® Line"
  },
  {
@@ -5451,7 +5451,7 @@ window.ROELMI_FINDER = {
    "DefensoWin®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.30HPC DefensoWin®"
  },
  {
@@ -5486,7 +5486,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.27.1HPC PrincipHYAL® Cube3 EMotion® CytoFruit® Line"
  },
  {
@@ -5515,7 +5515,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.02HPC MeristeM CytoFruit® Line"
  },
  {
@@ -5553,7 +5553,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.138.2HPC PrincipHYAL® Signal-10 Olifeel® Pearls EMotion® BeautySYN® Bright CytoFruit® Line"
  },
  {
@@ -5578,7 +5578,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Aurora"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.90HPC EMotion® PrincipHYAL® Aurora"
  },
  {
@@ -5606,7 +5606,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.20.91HPC EMotion® SKin TechnoHYAL HyaPearl"
  },
  {
@@ -5640,7 +5640,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.20.26.1HPC Olifeel® Pearls EMotion® SKin EMotion® DefensoWin® Celus-Bi® Feel"
  },
  {
@@ -5669,7 +5669,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.19.127HPC EMotion® CeraFluid®"
  },
  {
@@ -5702,7 +5702,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.20.85HPC EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -5732,7 +5732,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.84HPC DefensoWin® EMotion®"
  },
  {
@@ -5762,7 +5762,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.76HPC BeautySYN® Slim CytoFruit® Line"
  },
  {
@@ -5793,7 +5793,7 @@ window.ROELMI_FINDER = {
    "MeristeM"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.81HPC EMotion® PrincipHYAL® Aurora MeristeM"
  },
  {
@@ -5826,7 +5826,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.83HPC PrincipHYAL® Cube3 PrincipHYAL® Aurora CytoFruit® Line"
  },
  {
@@ -5861,7 +5861,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.20.80HPC Olifeel® E-NAT W/O EMotion® SKin Olifeel® Pearls EMotion® TechnoHYAL HyaPearl"
  },
  {
@@ -5892,7 +5892,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.04HPC PrincipHYAL® Cube3 EMotion® EMotion® SKin"
  },
  {
@@ -5925,7 +5925,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.38HPC MeristeM CytoFruit® Line"
  },
  {
@@ -5959,7 +5959,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.25.2HPC EMotion® SKin EMotion® Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -5990,7 +5990,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.03HPC EMotion® EMotion® SKin CeraFluid®"
  },
  {
@@ -6020,7 +6020,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.20.01HPC BeautySYN® Slim EMotion®"
  },
  {
@@ -6051,7 +6051,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.19.100HPC TechnoHYAL HyaPearl Olifeel® Pearls EMotion® SKin"
  },
  {
@@ -6082,7 +6082,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.98HPC PrincipHYAL® Signal-10 EMotion® SKin CytoFruit® Line"
  },
  {
@@ -6113,7 +6113,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.97HPC Plerasan® Re-balance EMotion® SKin CytoFruit® Line"
  },
  {
@@ -6147,7 +6147,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.93.1HPC PrincipHYAL® Aurora Plerasan® Re-balance BeautySYN® Bright EMotion®"
  },
  {
@@ -6176,7 +6176,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.92HPC PrincipHYAL® Difference CytoFruit® Line"
  },
  {
@@ -6214,7 +6214,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.19.121.1HPC EMotion® EMotion® SKin Olifeel® Pearls DefensoWin® SynerSHIELD™ Sun CytoFruit® Line"
  },
  {
@@ -6247,7 +6247,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.19.119HPC EMotion® SKin Olifeel® Pearls PhytoSerene Celus-Bi® Feel"
  },
  {
@@ -6275,7 +6275,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.19.113HPC EMotion® EMotion® SKin"
  },
  {
@@ -6309,7 +6309,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.117HPC EMotion® EMotion® SKin BeautySYN® Bright Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -6339,7 +6339,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.125HPC EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -6370,7 +6370,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.114HPC EMotion® CeraFluid® Celus-Bi® Feel"
  },
  {
@@ -6397,7 +6397,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.19.124HPC EMotion® SKin"
  },
  {
@@ -6429,7 +6429,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-17.jpg",
+  "texture": "images/texture/texture-17.jpg",
   "search": "C.SK.19.123HPC EMotion® SKin Olifeel® Pearls CeraFluid®"
  },
  {
@@ -6461,7 +6461,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.SK.19.122.1HPC EMotion® EMotion® SKin Olifeel® Pearls CeraFluid®"
  },
  {
@@ -6495,7 +6495,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.106.2HPC PrincipHYAL® Aurora Olifeel® Pearls EMotion® SKin CytoFruit® Line"
  },
  {
@@ -6523,7 +6523,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.81HPC DefensoWin® CytoFruit® Line"
  },
  {
@@ -6558,7 +6558,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.77.1HPC EMotion® Olifeel® Pearls EMotion® SKin BeautySYN® Slim CytoFruit® Line"
  },
  {
@@ -6590,7 +6590,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.74HPC EMotion® TechnoHYAL HyaPearl Olifeel® Pearls Celus-Bi® Feel"
  },
  {
@@ -6622,7 +6622,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.73.1HPC EMotion® Olifeel® Pearls DefensoWin® CytoFruit® Line"
  },
  {
@@ -6650,7 +6650,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.19.82HPC TechnoHYAL HAir Complex CytoFruit® Line"
  },
  {
@@ -6683,7 +6683,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.HA.19.76.1HPC TechnoHYAL HAir Complex Olifeel® Pearls EMotion® SKin Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -6713,7 +6713,7 @@ window.ROELMI_FINDER = {
    "PhytoSerene"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.89HPC EMotion® SKin EMotion® PhytoSerene"
  },
  {
@@ -6741,7 +6741,7 @@ window.ROELMI_FINDER = {
    "EMotion® SKin"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.71HPC EMotion® EMotion® SKin"
  },
  {
@@ -6775,7 +6775,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.01.2HPC CeraFluid® EMotion® SKin Olifeel® Pearls EMotion® CytoFruit® Line"
  },
  {
@@ -6802,7 +6802,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.12HPC PrincipHYAL® Cube3 CytoFruit® Line"
  },
  {
@@ -6832,7 +6832,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.14HPC DefensoWin® EMotion® CytoFruit® Line"
  },
  {
@@ -6867,7 +6867,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.15HPC DefensoWin® EMotion® EMotion® SKin Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -6901,7 +6901,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.20.2HPC PrincipHYAL® Cube3 EMotion® SKin EMotion® Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -6933,7 +6933,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.21HPC DefensoWin® EMotion® EMotion® SKin Olifeel® Pearls"
  },
  {
@@ -6961,7 +6961,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-6.jpg",
+  "texture": "images/texture/polvere-6.jpg",
   "search": "C.SK.19.39HPC DefensoWin® CytoFruit® Line"
  },
  {
@@ -6989,7 +6989,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.SK.19.72HPC EMotion® SKin EMotion®"
  },
  {
@@ -7022,7 +7022,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.51HPC CeraFluid® EMotion® SKin Olifeel® Pearls Celus-Bi® Feel"
  },
  {
@@ -7053,7 +7053,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.50HPC EMotion® TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -7080,7 +7080,7 @@ window.ROELMI_FINDER = {
    "PrincipHYAL® Signal-10"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.43HPC PrincipHYAL® Signal-10"
  },
  {
@@ -7111,7 +7111,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.40HPC EMotion® SKin Olifeel® Pearls TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -7144,7 +7144,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.19.38HPC EMotion® SKin EMotion® TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -7173,7 +7173,7 @@ window.ROELMI_FINDER = {
    "TechnoHYAL HyaPearl"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.19.27HPC EMotion® TechnoHYAL HyaPearl"
  },
  {
@@ -7205,7 +7205,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.16.1HPC BeautySYN® Bright Olifeel® Pearls EMotion® Celus-Bi® Feel"
  },
  {
@@ -7240,7 +7240,7 @@ window.ROELMI_FINDER = {
    "Celus-Bi® Feel"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/finder/texture-13.jpg",
+  "texture": "images/texture/texture-13.jpg",
   "search": "C.CO.19.09HPC Olifeel® Pearls EMotion® SKin EMotion® TechnoHYAL HyaPearl Celus-Bi® Feel"
  },
  {
@@ -7269,7 +7269,7 @@ window.ROELMI_FINDER = {
    "CeraFluid®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-10.jpg",
+  "texture": "images/texture/polvere-10.jpg",
   "search": "C.CO.19.04HPC EMotion® CeraFluid®"
  },
  {
@@ -7301,7 +7301,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.19.62.1HPC EMotion® SKin DefensoWin® Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -7336,7 +7336,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-18.jpg",
+  "texture": "images/texture/texture-18.jpg",
   "search": "C.SU.19.02.1HPC PrincipHYAL® Difference EMotion® EMotion® SKin Celus-Bi® Feel CytoFruit® Line"
  },
  {
@@ -7365,7 +7365,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.19.48HPC CytoFruit® Line Olifeel® Pearls"
  },
  {
@@ -7394,7 +7394,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.19.36HPC EMotion® SKin CytoFruit® Line"
  },
  {
@@ -7423,7 +7423,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.19.35HPC EMotion® SKin CytoFruit® Line"
  },
  {
@@ -7452,7 +7452,7 @@ window.ROELMI_FINDER = {
    "Olifeel® Pearls"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.TO.19.25HPC CytoFruit® Line Olifeel® Pearls"
  },
  {
@@ -7482,7 +7482,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.HA.19.07HPC EMotion® Olifeel® Pearls CytoFruit® Line"
  },
  {
@@ -7509,7 +7509,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.HA.19.11HPC CytoFruit® Line"
  },
  {
@@ -7537,7 +7537,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.19.10HPC TechnoHYAL HAir Complex CytoFruit® Line"
  },
  {
@@ -7564,7 +7564,7 @@ window.ROELMI_FINDER = {
    "EMotion®"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/product/texture-16.jpg",
+  "texture": "images/texture/texture-16.jpg",
   "search": "C.HA.19.06HPC EMotion® SKin EMotion®"
  },
  {
@@ -7596,7 +7596,7 @@ window.ROELMI_FINDER = {
    "CytoFruit® Line"
   ],
   "tagsLabel": "ROELMI HPC ingredients",
-  "texture": "images/polveri/polvere-11.jpg",
+  "texture": "images/texture/polvere-11.jpg",
   "search": "C.HA.19.05HPC Olifeel® Pearls EMotion® CeraFluid® CytoFruit® Line"
  }
 ]

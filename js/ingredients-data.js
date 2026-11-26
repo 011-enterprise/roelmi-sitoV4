@@ -23,7 +23,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: ['COSMOS/ICEA', 'Palm oil free'],
     description: 'CytoFruit® is a line of biologically active cosmetic ingredients derived from vegetable water upcycled and extracted during the fruit juice production process in Southern Italy, within a controlled supply chain. This line transforms what would normally be waste from the food and beverage industry into a high-value cosmetic ingredient.',
-    texture: 'images/portfolio/texture-2.jpg',
+    texture: 'images/texture/texture-2.jpg',
     link: 'cytofruit.html'
   },
   {
@@ -43,7 +43,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Weight management'],
     certifications: ['RSPO', 'Palm oil free'],
     description: 'A botanical complex from hop cones designed to nutritionally support metabolic syndrome: it acts on multiple fronts — weight management, insulin sensitivity, lipid profile and metabolic inflammation.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-hope.html'
   },
   {
@@ -63,7 +63,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Active make up', 'Hydration (Long Term)'],
     certifications: ['NATRUE', 'COSMOS/ICEA'],
     description: 'TechnoHYAL HyaPearl is the result of a fine-tuning process that combines biotechnology (HA Tech 2.0) and upcycled olive fractions. It is an advanced functional active with a unique ability to make hyaluronic acid dispersible in oil and, at the same time, increase its epidermal penetration thanks to the active enhancer properties of its lipophilic matrix.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'technohyal-hyapearl.html'
   },
   {
@@ -84,7 +84,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Active make up', 'Pigments dispersant'],
     certifications: ['RSPO', 'Palm oil free'],
     description: 'Ester-coated pigments functionalized with Tripelargonin, an upcycled sustainable ester — for high color release, formulation stability and a weightless, refined skin feel.',
-    texture: 'images/portfolio/texture-5.jpg',
+    texture: 'images/texture/texture-5.jpg',
     link: 'colorglam.html'
   },
   // Prodotti nuovi (testi del cliente, 02/11/2026). color = colore della linea
@@ -107,7 +107,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Hair loss', 'Hair health'],
     certifications: [],
     description: 'Fatty acids and phytosterols from six botanical oils that reduce hair loss and improve density, thickness and shine. Dosage: 400–600 mg a day.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'beaulixir.html'
   },
   {
@@ -128,7 +128,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Dark spots', 'Skin ageing'],
     certifications: [],
     description: 'Polyphenols from olive fruit and licorice root that reduce dark spots and hyperpigmentation for a brighter, more even complexion. Dosage: 200 mg a day.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-glitter.html'
   },
   {
@@ -149,7 +149,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Dark circles', 'Eye bags'],
     certifications: ['COSMOS', 'Halal'],
     description: 'Developed from by-products of Italian leaves of Vitis vinifera (Cultivar Rubra), SeidoTech® Lux is a high-performance patent pending cosmetic ingredient with a unique molecular profile. This fermented extract is supported by a large clinical study involving 120 participants that highlights the ingredient’s positive impact on common eye concerns.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'seidotech-lux.html'
   },
   // 16/11/2026: prodotti nuovi, per ora solo i grafici degli studi (pagine in
@@ -172,7 +172,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Mental well-being'],
     certifications: [],
     description: 'A phytochemical complex designed for mental relaxation and mood improvement: it supports better sleep quality and helps to manage stress and anxiety.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-zen.html'
   },
   {
@@ -192,7 +192,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Hypercholesterolemia control', 'Cardiovascular health'],
     certifications: [],
     description: 'A phytochemical complex of olive polyphenols for cardiovascular health: it reduces LDL and total cholesterol, increases HDL, and modulates several cardiocirculatory parameters.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-optichol.html'
   },
   {
@@ -212,7 +212,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Weight management'],
     certifications: [],
     description: 'A botanical ingredient designed to balance hunger and satiety sensations, supporting dietary and weight management plans.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-libra.html'
   },
   {
@@ -232,7 +232,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Cardiovascular health'],
     certifications: [],
     description: 'A natural solution for blood glycaemia control: it improves cardiometabolic and hepatobiliary health by reducing glycaemia, carbohydrate uptake, serum uric acid and several hepatic enzymes.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-apple.html'
   },
   {
@@ -252,7 +252,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Beauty from within', 'Skin slimming', 'Anti-wrinkles / Preage'],
     certifications: [],
     description: 'A botanical complex of anthocyanins, citrus flavonoids and proteolytic enzymes designed to support body shape and skin beauty from within. It acts on multiple fronts: skin tone and elasticity, microcirculation and draining, and the reduction of cellulite-related imperfections.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'selectsieve-rainbow.html'
   },
   {
@@ -272,7 +272,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Woman health'],
     certifications: [],
     description: 'A complementary approach to menopause discomforts: it improves vaginal dryness, itching, pain, urinary urgency and bone fragility, supporting overall quality of life.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'exceptionhyal-blossom.html'
   },
   {
@@ -292,7 +292,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Eye care'],
     certifications: [],
     description: 'Designed to promote eye well-being and support visual performance: it improves eye moisturization, reducing discomfort caused by blue light, focusing difficulties, eye pain and tearing.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'exceptionhyal-wink.html'
   },
   {
@@ -312,7 +312,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Digestion and gut health'],
     certifications: [],
     description: 'Designed to promote gastro-oesophageal and oral health by reducing the discomfort caused by acid reflux: it reduces GERD symptoms and protects the oral and gastric mucosa from pathogens.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'exceptionhyal-relief.html'
   },
   {
@@ -332,7 +332,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Beauty from within', 'Anti-aging / firming', 'Hydration (Long Term)'],
     certifications: [],
     description: 'A nutricosmetic designed for skin health and aging: it decreases wrinkles and increases skin elasticity and smoothness, for a younger, healthier appearance.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'exceptionhyal-star.html'
   },
   {
@@ -352,7 +352,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Joint care'],
     certifications: [],
     description: 'Designed to support an active lifestyle by promoting harmonic joint function: it improves joint lubrication and mobility, reducing the pain and discomfort typical of osteoarthritis and joint inflammation.',
-    texture: 'images/portfolio/texture-6.jpg',
+    texture: 'images/texture/texture-6.jpg',
     link: 'exceptionhyal-jump.html'
   },
   {
@@ -372,7 +372,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Anti-aging / firming'],
     certifications: [],
     description: 'CeraFluid® is an active ingredient developed to represent an innovation in the field of ceramides, combining biotechnology (Ceramide NP) with upcycling (olive oil processing by-products). Designed for cosmetic brands focused on cold processing, energy savings and advanced dermocosmetic efficacy.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'cerafluid.html'
   },
   {
@@ -392,7 +392,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: 'DefensoWin® is a zwitterionic ingredient with an extremely “gentle” action: it is not photosensitizing and can be used on sensitive skin. Of biotechnological origin, in nature it is produced by microorganisms that live in extreme environmental conditions (salt lakes, deserts), acting as a protective shield for their cells.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'defensowin.html'
   },
   {
@@ -412,7 +412,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Skin Redness'],
     certifications: [],
     description: 'Developed by the synergy between ROELMI HPC and the sister company SynBalance (opens in a new tab), EquiBiotics® LA is a postbiotic ingredient, obtained from a L. acidophilus PBS0066 proprietary strain, with a unique set of enzymes and a safety guarantee QPS status. This tyndallized fermented ingredient is designed to preserve the structural integrity of the cell membrane and some benefits associated with probiotic microorganisms, for a positive impact on baby care treatments.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'equibiotics-la.html'
   },
   {
@@ -432,7 +432,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Woman health'],
     certifications: [],
     description: 'Developed by the synergy between ROELMI HPC and the sister company SynBalance (opens in a new tab), EquiBiotics® LRh is a postbiotic ingredient, obtained from a L. rhamnosus LRH020 proprietary strain, with a unique set of enzymes and a safety guarantee QPS status. This tyndallized fermented ingredient is designed to preserve the structural integrity of the cell membrane and some benefits associated with probiotic microorganisms, for a positive impact on female intimate care treatments.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'equibiotics-lrh.html'
   },
   {
@@ -452,7 +452,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Skin brightening'],
     certifications: [],
     description: 'G2Light is a 100% plant-based cosmetic active ingredient, proposed as a safe and effective alternative to synthetic lightening agents. This high-performance botanical is designed for skin that requires greater luminosity and uniformity of tone, and for complexions with chromatic alterations.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'g2-light.html'
   },
   {
@@ -472,7 +472,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Anti-wrinkles / Preage'],
     certifications: [],
     description: 'The PrincipHYAL® line is the result of a fine-tuning process (HA Tech 2.0) that produces hyaluronic acid across a full-spectrum, proprietary range of molecular weights, each tailored for specific applications. PrincipHYAL® Cube3 is a sodium hyaluronate with a full molecular weight spectrum, from low to high, that creates a gradient of activity throughout the dermo-epidermal system.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'principhyal-cube3.html'
   },
   {
@@ -492,7 +492,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Anti-aging / firming'],
     certifications: [],
     description: 'The PrincipHYAL® line is the result of a fine-tuning process (HA Tech 2.0) that produces hyaluronic acid across a full-spectrum, proprietary range of molecular weights, each tailored for specific applications. PrincipHYAL® Signal-10 is a hyaluronic acid with a very low molecular weight spectrum that acts as a long-term healthy aging active ingredient.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'principhyal-signal-10.html'
   },
   // 18/11/2026: cosmetici attivi con i testi del cliente (pagine nuove)
@@ -513,7 +513,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Hair care'],
     certifications: [],
     description: 'Developed from by-products of pruning of the Italian prickly pear (Opuntia ficus-indica), SeidoTech® Capillys is a high-performance cosmetic ingredient with a unique molecular profile. This fermented prickly pear extract acts on the scalp and hair as an “Active Trigger Technology”, precisely calibrated to activate its protective cascade only in response to stress.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'seidotech-capillys.html'
   },
   {
@@ -533,7 +533,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Skin Regeneration'],
     certifications: [],
     description: 'The PrincipHYAL® line is the result of a fine-tuning process (HA Tech 2.0) that produces hyaluronic acid across a full-spectrum, proprietary range of molecular weights, each tailored for specific applications. PrincipHYAL® Aurora is a sodium hyaluronate with a low molecular weight spectrum that acts on skin reparative processes.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'principhyal-aurora.html'
   },
   {
@@ -553,7 +553,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Hair care'],
     certifications: [],
     description: 'TechnoHYAL HAir Complex is the result of a fine-tuning process that combines biotechnological HA and guar gum. It is an advanced functional active with a unique ability for the care and protection of hair and scalp.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'technohyal-hair-complex.html'
   },
   {
@@ -573,7 +573,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Skin Redness'],
     certifications: [],
     description: 'Plerasan® Re-balance is an efficacy-driven ingredient developed from the Pleurotus ostreatus mushroom through a delicate extraction process that yields a natural polysaccharide with a specific molecular weight.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'plerasan-re-balance.html'
   },
   {
@@ -593,7 +593,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Sensitive skin'],
     certifications: [],
     description: 'PhytoSerene is a high-purity phytosterol complex derived from pine bark. Engineered to structurally mimic cholesterol, it restores the skin’s native lipid architecture while delivering targeted anti-inflammatory and soothing performance. Designed to be integrated into advanced pro-aging treatments, barrier-repair formulas or high-performance sun care.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'phytoserene.html'
   },
   // 18/11/2026: cosmetici esteri e funzionali delle specifiche della cliente,
@@ -615,7 +615,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Hair care'],
     certifications: ['China'],
     description: 'EMotion® Air is an ester derived from plant-based pelargonic acid, obtained through a patented zero-VOC technology. Designed as a functional alternative to cyclic silicones, it acts as a conditioning and detangling agent in hair care.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'emotion-air.html'
   },
   {
@@ -635,7 +635,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Velvet touch', 'UV filters solubilizer'],
     certifications: ['China'],
     description: 'EMotion® Silky is a high-quality ester derived from plant-based pelargonic acid, designed as a solubilizer for first- and second-generation UV filters, with a velvet touch and a soft-focus finish.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'emotion-silky.html'
   },
   {
@@ -655,7 +655,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Dry touch', 'UV filters solubilizer', 'Pigments dispersant'],
     certifications: ['COSMOS/ICEA', 'China'],
     description: 'EMotion® Light is a high-quality ester derived from plant-based pelargonic acid, designed as a UV filter solubilizer and pigment dispersant, with a dry touch, fast absorption and a matte finish.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'emotion-light.html'
   },
   {
@@ -675,7 +675,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Booster of skin penetration'],
     certifications: ['COSMOS/ICEA', 'HALAL', 'China'],
     description: 'EMotion® SKin is a biomimetic emollient developed from upcycled olive oil fractions. Designed as an actives enhancer, it builds structure and body in emulsions with a nourishing, non-greasy skin feel.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'emotion-skin.html'
   },
   {
@@ -695,7 +695,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: ['Pigments dispersant'],
     certifications: ['COSMOS/ICEA', 'HALAL', 'China'],
     description: 'EMotion® Glow is a biomimetic emollient developed from upcycled olive oil fractions. Designed as a pigment dispersant for color cosmetics, it delivers excellent wettability of pigments for a glossy finish.',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'emotion-glow.html'
   },
   {
@@ -716,7 +716,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'colorest.html'
   },
   {
@@ -736,7 +736,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'abwax-rhus-wax.html'
   },
   {
@@ -756,7 +756,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'abwax-revowax.html'
   },
   {
@@ -776,7 +776,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'abwax-sunflower.html'
   },
   {
@@ -796,7 +796,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'abwax-rice.html'
   },
   {
@@ -816,7 +816,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'idrawax-revo.html'
   },
   {
@@ -836,7 +836,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'abwax-revomul.html'
   },
   {
@@ -856,7 +856,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'olifeel-pearls.html'
   },
   {
@@ -876,7 +876,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'celus-bi-feel.html'
   },
   {
@@ -896,7 +896,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'vellvet.html'
   },
   {
@@ -916,7 +916,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'nipseal.html'
   },
   {
@@ -936,7 +936,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'crystal.html'
   },
   {
@@ -956,7 +956,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'beausens-pg4.html'
   },
   {
@@ -976,7 +976,7 @@ window.ROELMI_INGREDIENTS = [
     benefits: [],
     certifications: [],
     description: '',
-    texture: 'images/portfolio/texture-1.jpg',
+    texture: 'images/texture/texture-1.jpg',
     link: 'olifeel-e-nat-wo.html'
   }
 ];

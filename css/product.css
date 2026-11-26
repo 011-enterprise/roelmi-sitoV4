@@ -2112,7 +2112,7 @@ html:not(.js) .pd-charts-nav {
   display: block;
   border-radius: var(--r-stage);
   background-color: var(--cerulean);
-  background-image: url("../images/product/texture-18.jpg");
+  background-image: url("../images/texture/texture-18.jpg");
   background-size: cover;
   background-position: 40% 50%;
   -webkit-backdrop-filter: none;
@@ -2573,7 +2573,7 @@ html:not(.js) .pd-charts-nav {
 
 /* ==========================================================================
    PROVA 11/11/2026 (Chiara): nel riquadro dell'apertura, dietro la goccia,
-   la polvere bianca in macro a onde (images/polveri/polvere-6.jpg) al posto
+   la polvere bianca in macro a onde (images/texture/polvere-6.jpg) al posto
    di texture-18. La polvere è bianca come la goccia: per non farla sparire
    la polvere prende il colore della linea del prodotto in "moltiplica"
    (CytoFruit, senza linea, Cerulean). Le pieghe della polvere restano,
@@ -2582,7 +2582,7 @@ html:not(.js) .pd-charts-nav {
    ========================================================================== */
 .pd-gradient .pd-phero-visual .picto-frame {
   background-color: var(--pd-tint, var(--cerulean));
-  background-image: url("../images/polveri/polvere-6.jpg");
+  background-image: url("../images/texture/polvere-6.jpg");
   background-position: 50% 50%;
   background-blend-mode: multiply;
 }
@@ -2834,7 +2834,7 @@ html:not(.js) .pd-charts-nav {
 }
 
 /* Key benefits con la polvere a pennellate (13/11/2026, Chiara:
-   "una polvere che non abbiamo ancora usato"; provate polvere-2, 1 e 4, ora la 5): images/polveri/polvere-5.jpg
+   "una polvere che non abbiamo ancora usato"; provate polvere-2, 1 e 4, ora la 5): images/texture/polvere-5.jpg
    al posto di texture-17. Come nella chiusura, la polvere bianca prende il
    colore della linea in "moltiplica" (CytoFruit, senza linea, Cerulean); i
    vetri scuri e il testo Ricepaper sopra restano come prima. Immagine dai
@@ -3031,7 +3031,7 @@ html:not(.js) .pd-charts-nav {
 
 /* ==========================================================================
    Apertura del prodotto con la FOTO DELL INGREDIENTE (18/11/2026, immagini
-   della cliente in images/product/ingredienti/, 4:5 come il riquadro).
+   della cliente in images/prodotti/apertura/, 4:5 come il riquadro).
    Il generatore mette la foto sul riquadro (style) e la classe
    .picto--photo quando il file esiste; le altre pagine restano con la
    polvere tinta. La goccia resta davanti (Chiara: è la cosa bella
@@ -3295,7 +3295,7 @@ html:not(.js) .pd-charts-nav {
    NIP ma più coprente (Ricepaper 0.78 invece di 0.50), perché sotto ci sono
    anche foto scure (SelectSIEVE ZEN): sul punto più scuro il fondo resta
    ~#C4C1BA, testo Hard Grey ~10:1, anche nel fuoco (sfocatura più bassa).
-   Foto del cliente (.pd-bg--photo, images/product/benefits/): a colori
+   Foto del cliente (.pd-bg--photo, images/prodotti/key-benefits/): a colori
    pieni, senza la tinta in "moltiplica" della polvere.
    ========================================================================== */
 
