@@ -321,10 +321,20 @@
       <!-- PROVA: reticolo acceso solo qui (data-force-field-on), da mostrare al cliente -->
       <canvas data-force-field-on class="section-field" aria-hidden="true" data-force-field='{"color":[0.259,0.439,0.62],"gridReveal":"both","gridOpacity":0.12,"gridRevealStrength":0.7,"gridRevealRadius":320,"gridFade":0.85,"lineWidth":0.022,"hoverGlow":0.18,"hoverRadius":420,"hoverCharge":0.45,"flashSpeed":0.3,"flashIntensity":0.05,"edgeGlow":0,"rippleSpeed":0.32,"rippleDuration":2.6,"rippleIntensity":0.06,"impactRadius":0.12,"refraction":14,"bloom":0.6,"grain":0.08,"smoothing":0.08}'></canvas>
       <div class="container">
-        <h2 class="np-section-title" id="np-action-title">
-          <span class="eyebrow" data-reveal>Our Sustainability Approach</span>
-          <span data-reveal data-reveal-delay="0.1">Sustainability in action</span>
-        </h2>
+        <div class="section-head">
+          <h2 class="np-section-title" id="np-action-title">
+            <span class="eyebrow" data-reveal>Our Sustainability Approach</span>
+            <span data-reveal data-reveal-delay="0.1">Sustainability in action</span>
+          </h2>
+          <!-- Stop del liquido delle schede e del reticolo nella riga del titolo, a destra (26/11/2026) -->
+          <div class="head-tools" data-reveal data-reveal-delay="0.1">
+            <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
+              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+              <span data-motion-label>Stop animation</span>
+            </button>
+          </div>
+        </div>
         <p class="np-action-intro" data-reveal data-reveal-delay="0.15">Discover how our sustainability initiatives are turning our commitments into concrete results.</p>
 
         <ul class="np-cards" data-reveal data-reveal-delay="0.2">

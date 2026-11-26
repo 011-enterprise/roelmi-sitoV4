@@ -316,16 +316,24 @@
             <span class="eyebrow" data-reveal>Made with</span>
             <span data-reveal data-reveal-delay="0.1">ROELMI HPC ingredients</span>
           </h2>
-          <a class="pd-related-link" href="ingredient-finder.html" data-reveal data-reveal-delay="0.1">All ingredients</a>
+          <!-- Stop del liquido delle schede nella riga del titolo, a destra (26/11/2026) -->
+          <div class="head-tools" data-reveal data-reveal-delay="0.1">
+            <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
+              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+              <span data-motion-label>Stop animation</span>
+            </button>
+            <a class="pd-related-link" href="ingredient-finder.html">All ingredients</a>
+          </div>
         </div>
         <ul class="np-cards pd-related-cards" data-reveal data-reveal-delay="0.15">
           <li>
             <article class="np-card">
-              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-custom" style="--line-color: #F1D563" aria-hidden="true">
                 <img class="np-card-picto" src="images/pittogrammi/CERE-PERLE.png" alt="" loading="lazy" decoding="async">
               </div>
-              <h3 class="np-card-name"><span class="np-card-link np-card-link--none">Idrawax<sup class="reg">®</sup> Revo</span></h3>
-              <p class="market-pills np-card-pills"><span class="market-pill">Personal Care</span></p>
+              <h3 class="np-card-name"><a class="np-card-link" href="idrawax-revo.html">Idrawax<sup class="reg">®</sup> Revo</a></h3>
+              <p class="market-pills np-card-pills"><span class="market-pill market-pill--line" style="background-color: #F1D563; color: #191919">Idrawax</span></p>
             </article>
           </li>
           <li>
@@ -339,11 +347,11 @@
           </li>
           <li>
             <article class="np-card">
-              <div class="np-card-media np-card-media--picto" aria-hidden="true">
+              <div class="np-card-media np-card-media--picto np-card-media--fill picto--line-custom" style="--line-color: #F4DE82" aria-hidden="true">
                 <img class="np-card-picto" src="images/pittogrammi/CERE-PERLE.png" alt="" loading="lazy" decoding="async">
               </div>
-              <h3 class="np-card-name"><span class="np-card-link np-card-link--none">Abwax<sup class="reg">®</sup> Revowax</span></h3>
-              <p class="market-pills np-card-pills"><span class="market-pill">Personal Care</span></p>
+              <h3 class="np-card-name"><a class="np-card-link" href="abwax-revowax.html">Abwax<sup class="reg">®</sup> Revowax</a></h3>
+              <p class="market-pills np-card-pills"><span class="market-pill market-pill--line" style="background-color: #F4DE82; color: #191919">Abwax</span></p>
             </article>
           </li>
         </ul>

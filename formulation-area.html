@@ -393,7 +393,15 @@
         <div class="fx-results">
           <div class="fx-results-head">
             <p class="fx-count" id="fxCount" role="status" aria-live="polite">Loading formulas…</p>
-            <button class="btn btn--outline fx-open" type="button" aria-expanded="false" aria-controls="fxFilters">Filters<span class="fx-open-count"></span></button>
+            <!-- Stop del liquido delle schede nella riga del conteggio, a destra (26/11/2026) -->
+            <div class="head-tools head-tools--row">
+              <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
+                <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+                <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+                <span data-motion-label>Stop animation</span>
+              </button>
+              <button class="btn btn--outline fx-open" type="button" aria-expanded="false" aria-controls="fxFilters">Filters<span class="fx-open-count"></span></button>
+            </div>
           </div>
 
           <ul class="fx-active" aria-label="Active filters"></ul>

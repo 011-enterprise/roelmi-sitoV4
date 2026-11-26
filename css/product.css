@@ -28,7 +28,7 @@
   display: grid;
   align-items: end;
   min-height: min(76vh, 720px);
-  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -161,7 +161,7 @@
   overflow: hidden;
   display: grid;
   gap: clamp(0.6rem, 0.4rem + 1vw, 1.25rem);
-  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -442,7 +442,7 @@
 @media (max-width: 699.98px) {
   .pd-stage {
     min-height: 0;
-    padding: 0.6rem;
+    padding: var(--stage-pad-sm);
     padding-top: 30vh;
     border-radius: var(--r-card);
   }
@@ -458,7 +458,7 @@
 
   .pd-benefits-stage {
     gap: 0.6rem;
-    padding: 0.6rem;
+    padding: var(--stage-pad-sm);
     border-radius: var(--r-card);
   }
 
@@ -3173,12 +3173,10 @@ html:not(.js) .pd-charts-nav {
   }
 }
 
-/* Meno spazio tra Descrizione e Key benefits (19/11/2026, Chiara): le due
-   sezioni sommavano due --section-y (fino a ~144px di vuoto). Tolto il
-   padding sotto la descrizione: resta solo quello sopra Key benefits */
-.pd-desc:has(+ .pd-benefits) {
-  padding-bottom: 0;
-}
+/* Descrizione e Key benefits (19/11/2026, Chiara: troppo spazio): dal
+   26/11 ci pensa la regola globale degli spazi in base.css (un solo
+   --section-y tra sezioni chiare); tolta la regola che azzerava il fondo
+   della descrizione, che con quella globale lasciava spazio zero */
 
 /* Telefono: studi clinici richiudibili (20/11/2026, js/product-collapse.js).
    Il bottone sta dentro l h3 e ne prende lo stile, con la stessa freccia

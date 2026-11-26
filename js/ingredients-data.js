@@ -85,7 +85,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: ['RSPO', 'Palm oil free'],
     description: 'Ester-coated pigments functionalized with Tripelargonin, an upcycled sustainable ester — for high color release, formulation stability and a weightless, refined skin feel.',
     texture: 'images/portfolio/texture-5.jpg',
-    link: '#'
+    link: 'colorglam.html'
   },
   // Prodotti nuovi (testi del cliente, 02/11/2026). color = colore della linea
   // dietro il pittogramma (base.css, --line-…); form scelta da confermare
@@ -700,7 +700,7 @@ window.ROELMI_INGREDIENTS = [
   },
   {
     id: 37,
-    name: 'ColorEST',
+    name: 'ColorEST®',
     hex: '#F46823',
     pillBg: '#F46823',
     pillFg: '#191919',
@@ -717,7 +717,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'colorest.html'
   },
   {
     id: 38,
@@ -737,7 +737,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'abwax-rhus-wax.html'
   },
   {
     id: 39,
@@ -757,7 +757,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'abwax-revowax.html'
   },
   {
     id: 40,
@@ -777,7 +777,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'abwax-sunflower.html'
   },
   {
     id: 41,
@@ -797,7 +797,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'abwax-rice.html'
   },
   {
     id: 42,
@@ -817,7 +817,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'idrawax-revo.html'
   },
   {
     id: 43,
@@ -837,7 +837,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'abwax-revomul.html'
   },
   {
     id: 44,
@@ -857,7 +857,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'olifeel-pearls.html'
   },
   {
     id: 45,
@@ -877,7 +877,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'celus-bi-feel.html'
   },
   {
     id: 46,
@@ -897,7 +897,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'vellvet.html'
   },
   {
     id: 47,
@@ -917,7 +917,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'nipseal.html'
   },
   {
     id: 48,
@@ -937,7 +937,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'crystal.html'
   },
   {
     id: 49,
@@ -957,7 +957,7 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'beausens-pg4.html'
   },
   {
     id: 50,
@@ -977,6 +977,6 @@ window.ROELMI_INGREDIENTS = [
     certifications: [],
     description: '',
     texture: 'images/portfolio/texture-1.jpg',
-    link: '#'
+    link: 'olifeel-e-nat-wo.html'
   }
 ];

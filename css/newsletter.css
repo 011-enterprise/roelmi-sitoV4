@@ -9,7 +9,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -88,6 +88,53 @@
   font-size: var(--fs-small);
   font-weight: 600;
   color: var(--hard-grey);
+}
+
+/* Etichetta Email DENTRO il campo a pillola (26/11/2026, Chiara). A campo
+   vuoto sta al centro come un segnaposto, ma è una vera <label> e non
+   sparisce: quando si scrive (o col focus) sale piccola in alto nel campo.
+   Hard Grey come il testo del campo. Serve placeholder=" " sull input per
+   :placeholder-shown */
+.nl-float {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.nl-float .pill-input {
+  padding-top: 1.05rem;
+}
+
+.nl-label.nl-label--in {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.2;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: top var(--dur-ui) var(--ease-out), font-size var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out);
+}
+
+.nl-float .pill-input:focus + .nl-label--in,
+.nl-float .pill-input:not(:placeholder-shown) + .nl-label--in {
+  top: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nl-label.nl-label--in {
+    transition: none;
+  }
 }
 
 /* Interessi: pillole-checkbox (il checkbox vero resta, solo nascosto alla vista) */
@@ -261,7 +308,7 @@
 /* Mobile: riquadro molto più compatto */
 @media (max-width: 699.98px) {
   .nl-stage {
-    padding: 0.5rem;
+    padding: var(--stage-pad-sm);
     border-radius: var(--r-card);
   }
 

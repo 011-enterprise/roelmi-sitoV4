@@ -1264,13 +1264,43 @@
    (Le regole .ab-philo-*, .ab-steps, .ab-photo* sopra non servono più)
    ========================================================================== */
 
-/* La storia senza foto: il testo su una colonna larga quanto si legge bene */
+/* La storia senza foto (26/11/2026, Chiara: a destra restava tutto vuoto):
+   due colonne come prima, il paragrafo grande a sinistra e il secondo, nel
+   font del testo, a destra in basso dove c era la foto. Sotto 900px uno
+   sotto l altro */
 .ab-story-grid--text {
   grid-template-columns: minmax(0, 1fr);
 }
 
 .ab-story-grid--text .ab-story-text {
-  max-width: 62rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  align-items: end;
+  gap: clamp(1.5rem, 1rem + 4vw, 6rem);
+}
+
+.ab-story-grid--text .ab-lead + .ab-lead {
+  margin-top: 0;
+}
+
+@media (max-width: 899.98px) {
+  .ab-story-grid--text .ab-story-text {
+    display: block;
+  }
+
+  .ab-story-grid--text .ab-lead + .ab-lead {
+    margin-top: clamp(1.25rem, 1rem + 1vw, 2rem);
+  }
+}
+
+/* Timeline (26/11/2026, Chiara: troppo spazio sopra "Since 2000"): la scena
+   ferma era centrata nei 100svh, quindi entrando sopra il titolo c era il
+   suo margine più metà del vuoto. Ora il contenuto parte dall alto, con
+   uno spazio come quello delle sezioni (almeno quanto serve a non finire
+   sotto il menu, che resta fisso) */
+.ab-timeline.is-pinned .ab-tl-stage {
+  justify-content: flex-start;
+  padding-top: max(var(--section-y), calc(var(--header-top) + var(--pill-h) + 1rem));
 }
 
 /* Titoli dei due gruppi di loghi */

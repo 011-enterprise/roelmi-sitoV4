@@ -22,7 +22,7 @@
   display: grid;
   align-items: end;
   min-height: min(68vh, 640px);
-  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -670,7 +670,7 @@
 @media (max-width: 599.98px) {
   .fx-stage {
     min-height: 0;
-    padding: 0.6rem;
+    padding: var(--stage-pad-sm);
     padding-top: 4rem;   /* solo una fascia di texture: il vetro è la prima cosa che si vede */
     border-radius: var(--r-card);
   }
@@ -992,7 +992,7 @@
 @media (max-width: 599.98px) {
   .fx-hero .fx-stage {
     grid-template-columns: minmax(0, 1fr);
-    padding: 1rem;
+    padding: var(--stage-pad-sm);
   }
 
   .fx-hero .fx-glass {

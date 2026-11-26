@@ -60,6 +60,16 @@
   --btn-hover-fg: var(--ricepaper);
 }
 
+/* Vetro CHIARO delle aperture (26/11/2026): bottoni come sui fondi chiari
+   (Ocean + Ricepaper 4.70:1, hover Hard Grey). Vince su .glass:not(...) */
+.page-stage-glass.glass,
+.fx-hero .fx-glass.glass,
+.np-hero.section .np-head.glass {
+  --btn-bg: var(--ocean);
+  --btn-fg: var(--ricepaper);
+  --btn-hover-bg: var(--hard-grey);
+  --btn-hover-fg: var(--ricepaper);
+}
 .theme-ocean {
   --btn-bg: var(--ricepaper);
   --btn-fg: var(--ocean);

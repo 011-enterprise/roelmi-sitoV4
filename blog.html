@@ -357,9 +357,13 @@
           </div>
 
             <form class="nl-form" id="nlForm" novalidate data-reveal data-reveal-delay="0.1">
-              <label class="nl-label" for="nlEmail">Email address</label>
               <div class="pill-field">
-                <input class="pill-input" id="nlEmail" name="email" type="email" autocomplete="email" required aria-describedby="nlEmailErr">
+                <!-- Etichetta DENTRO il campo (26/11/2026, Chiara): al centro
+                     a campo vuoto, piccola in alto quando si scrive -->
+                <span class="nl-float">
+                  <input class="pill-input" id="nlEmail" name="email" type="email" autocomplete="email" required aria-describedby="nlEmailErr" placeholder=" ">
+                  <label class="nl-label nl-label--in" for="nlEmail">Email address</label>
+                </span>
                 <button class="pill-submit" type="submit">Subscribe</button>
               </div>
               <p class="nl-error" id="nlEmailErr"></p>

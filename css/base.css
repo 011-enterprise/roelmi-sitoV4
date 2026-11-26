@@ -82,6 +82,12 @@
   --r-card: 20px;    /* schede e immagini */
   --r-inner: 14px;   /* elementi piccoli dentro le schede */
 
+  /* Margine interno dei GRANDI RIQUADRI (aperture, Key benefits, NIP,
+     Newsletter, fasce finali; 26/11/2026, mail della cliente: "coerenza dei
+     box"): uno solo su desktop, uno solo sul telefono */
+  --stage-pad: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  --stage-pad-sm: 0.75rem;
+
   /* Vetro: due versioni sole, contrasto verificato sul caso peggiore */
   --glass-blur: blur(24px) saturate(1.6);
   /* Scuro 0.68: anche sopra il bianco il fondo resta ≈ #6B6B6B → Ricepaper ≥ 4.5:1 */
@@ -262,6 +268,15 @@ body {
 .section {
   position: relative;
   padding-block: var(--section-y);
+}
+
+/* REGOLA FISSA DEGLI SPAZI (nota 245, resa globale il 26/11/2026): due
+   sezioni CHIARE di fila (theme-light / theme-soft, anche col gradiente,
+   che sfuma sempre nel Ricepaper) = UN SOLO --section-y: la seconda senza
+   spazio sopra. Chiara + piena colorata (Ocean, Hard Grey): ognuna il suo.
+   Vale in tutte le pagine, senza regole caso per caso */
+.section:is(.theme-light, .theme-soft) + .section:is(.theme-light, .theme-soft) {
+  padding-top: 0;
 }
 
 /* Grana leggerissima, come la carta di Until. Statica (nessun movimento).
@@ -742,7 +757,7 @@ a.btn:not(:has(svg)):hover::after,
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -834,7 +849,7 @@ a.btn:not(:has(svg)):hover::after,
 
 @media (max-width: 599.98px) {
   .cta-band {
-    padding: 0.6rem;
+    padding: var(--stage-pad-sm);
     border-radius: var(--r-card);
   }
 
@@ -872,7 +887,7 @@ a.btn:not(:has(svg)):hover::after,
   display: grid;
   align-items: center;
   min-height: min(60vh, 560px);
-  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -940,7 +955,7 @@ a.btn:not(:has(svg)):hover::after,
      (prima c'era una striscia alta sopra e quasi niente sotto) */
   .cta-box {
     min-height: 0;
-    padding: clamp(1rem, 4vw, 1.5rem);
+    padding: var(--stage-pad-sm);
     border-radius: var(--r-card);
   }
 
@@ -1043,7 +1058,50 @@ a.btn:not(:has(svg)):hover::after,
 .motion-controls .motion-toggle {
   grid-column: auto;
   justify-self: auto;
-  color: var(--hard-grey);
+  color: var(--fg, var(--hard-grey));   /* 26/11: colore del testo della sezione (Ricepaper su Ocean 4.70:1) */
+}
+
+/* Dove sta lo Stop (26/11/2026, Chiara: "gli spazi sono sbagliati, vedi tu
+   dove inserirlo"). Mai una riga in più fra titolo e schede:
+   - sezioni con il titolo SOPRA le schede (Related, Our ingredients,
+     Sustainability in action, Portfolio, Finder): nella riga del
+     titolo, a destra (.head-tools), sopra l eventuale link "All …"
+   Key benefits, box NIP e Blog della home NON hanno lo Stop: il reticolo
+   luminoso lì è spento dal CSS (theme-soft / theme-ocean), non si muove
+   niente (26/11/2026, Chiara) */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.head-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.head-tools--row {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.head-tools .motion-toggle {
+  grid-column: auto;
+  justify-self: auto;
+  margin-right: -0.5rem;   /* l icona si allinea al bordo destro del contenuto */
+  color: var(--fg, var(--hard-grey));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .head-tools .motion-toggle {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1101,7 +1159,7 @@ a.btn:not(:has(svg)):hover::after,
   align-items: end;
   min-height: min(68vh, 640px);
   margin-top: 0.75rem;
-  padding: clamp(0.75rem, 0.5rem + 2vw, 2.5rem);
+  padding: var(--stage-pad);
   border-radius: var(--r-stage);
 }
 
@@ -1169,30 +1227,73 @@ a.btn:not(:has(svg)):hover::after,
   line-height: 1.6;
 }
 
-/* Vetro CHIARO dell'apertura (26/11/2026, prova per la cliente su
-   Certifications; riutilizzabile su tutte le aperture .page-stage):
-   Ricepaper 0.72 + sfocatura, testi Hard Grey ≥ 8:1 anche sopra il punto
-   più scuro della foto. Serve una foto con colore (sul bianco sparisce) */
-.page-stage-glass.page-stage-glass--light {
+/* ==========================================================================
+   Vetro CHIARO di TUTTE le aperture (26/11/2026, Chiara: "metti il vetro
+   chiaro su tutte le hero"; prima prova su Certifications). Vale per
+   .page-stage (About, Blog, Contatti, Certifications, Personal Care,
+   Nutraceutical), Finder / Formulation Area (.fx-glass) e NIP (.np-head).
+   Ricepaper 0.72 + sfocatura + ombra leggera (stacca anche sulle foto
+   chiare). Contrasti misurati sul punto più scuro di ogni foto: Hard Grey
+   ≥ 8.4:1; il grigio secondario (3.3:1) e l Ocean (2.5:1) lì NON passano,
+   quindi dentro il vetro tutto il testo è Hard Grey (anche dati, link,
+   testo guida della ricerca, focus) e i bottoni sono Hard Grey pieni con
+   testo Ricepaper (hover Ocean, da .theme-soft). Specificità alta apposta:
+   batte le vecchie regole del vetro scuro nei CSS delle pagine
+   ========================================================================== */
+.page-stage-glass.glass,
+.fx-hero .fx-glass.glass,
+.np-hero.section .np-head.glass {
   --bg: var(--ricepaper);
   --fg: var(--hard-grey);
-  --fg-muted: var(--muted);
-  --accent: var(--ocean);
+  --fg-muted: var(--hard-grey);
+  --accent: var(--hard-grey);
   --rule: var(--line);
   color: var(--hard-grey);
   background-color: rgba(247, 243, 235, 0.72);
   background-image: var(--glass-light-sheen);
-  box-shadow: var(--glass-light-line);
-}
-
-.page-stage-glass--light .page-stage-title {
-  color: var(--hard-grey);
+  box-shadow: var(--glass-light-line), 0 18px 40px -18px rgba(25, 25, 25, 0.28);
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .page-stage-glass.page-stage-glass--light {
+  .page-stage-glass.glass,
+  .fx-hero .fx-glass.glass,
+  .np-hero.section .np-head.glass {
     background-color: rgba(247, 243, 235, 0.92);
   }
+}
+
+/* Testi: titolo, introduzione, dati, link dei dati (Contatti), ricerca */
+.page-stage-glass.glass .page-stage-title,
+.page-stage-glass.glass .page-fact-k,
+.page-stage-glass.glass a.page-fact-v,
+.fx-hero .fx-glass.glass .fx-title,
+.fx-hero .fx-glass.glass .fx-intro,
+.np-hero.section .np-head.glass .np-title {
+  color: var(--hard-grey);
+}
+
+.page-stage-glass.glass .page-stage-facts li {
+  border-left-color: var(--line);
+}
+
+.page-stage-glass.glass .page-stage-facts li:first-child {
+  border-left: 0;
+}
+
+.fx-hero .fx-glass.glass .fx-search-icon {
+  stroke: var(--hard-grey);
+}
+
+.fx-hero .fx-glass.glass .fx-search .pill-input::placeholder {
+  color: var(--hard-grey);
+}
+
+/* Focus nel vetro: Hard Grey (prima Ricepaper, invisibile sul chiaro) */
+.page-stage-glass.glass a.page-fact-v:focus-visible,
+.page-stage-glass.glass :focus-visible,
+.fx-hero .fx-glass.glass :focus-visible,
+.fx-hero .fx-glass.glass .pill-field:focus-within {
+  outline-color: var(--hard-grey);
 }
 
 /* Tre dati in riga, separati da linee sottili */
@@ -1237,7 +1338,7 @@ a.btn:not(:has(svg)):hover::after,
   .page-stage {
     overflow: visible;
     min-height: 0;
-    padding: 1rem;
+    padding: var(--stage-pad-sm);
     padding-top: 2.5rem;
     margin-bottom: 2.75rem;
     border-radius: var(--r-card);

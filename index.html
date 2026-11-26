@@ -313,10 +313,20 @@
       </div>
       <div class="container">
 
-        <h2 class="portfolio-title" id="portfolio-title">
-          <span class="eyebrow" data-reveal>Our Portfolio</span>
-          <span data-reveal data-reveal-delay="0.1">From science to the concept</span>
-        </h2>
+        <div class="section-head">
+          <h2 class="portfolio-title" id="portfolio-title">
+            <span class="eyebrow" data-reveal>Our Portfolio</span>
+            <span data-reveal data-reveal-delay="0.1">From science to the concept</span>
+          </h2>
+          <!-- Stop del liquido delle schede nella riga del titolo, a destra (26/11/2026) -->
+          <div class="head-tools" data-reveal data-reveal-delay="0.1">
+            <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
+              <svg class="ic-stop" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="1.5" width="2.5" height="9"/><rect x="7.5" y="1.5" width="2.5" height="9"/></svg>
+              <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3 1.5l7 4.5-7 4.5z"/></svg>
+              <span data-motion-label>Stop animation</span>
+            </button>
+          </div>
+        </div>
 
         <div class="portfolio-grid">
           <article class="product-card">
@@ -735,9 +745,13 @@
           </div>
 
             <form class="nl-form" id="nlForm" novalidate data-reveal data-reveal-delay="0.1">
-              <label class="nl-label" for="nlEmail">Email address</label>
               <div class="pill-field">
-                <input class="pill-input" id="nlEmail" name="email" type="email" autocomplete="email" required aria-describedby="nlEmailErr">
+                <!-- Etichetta DENTRO il campo (26/11/2026, Chiara): al centro
+                     a campo vuoto, piccola in alto quando si scrive -->
+                <span class="nl-float">
+                  <input class="pill-input" id="nlEmail" name="email" type="email" autocomplete="email" required aria-describedby="nlEmailErr" placeholder=" ">
+                  <label class="nl-label nl-label--in" for="nlEmail">Email address</label>
+                </span>
                 <button class="pill-submit" type="submit">Subscribe</button>
               </div>
               <p class="nl-error" id="nlEmailErr"></p>

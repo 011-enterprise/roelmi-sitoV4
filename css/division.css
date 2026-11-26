@@ -1150,3 +1150,45 @@
 .dv-form + .dv-more {
   padding-top: 0;
 }
+
+/* ==========================================================================
+   Our lines con le foto della cliente (26/11/2026, mail di Costanza: "la
+   seconda immagine della pagina ingrediente"): EMotion® Light, EquiBiotics®
+   LA, SeidoTech® Capillys (images/product/benefits/). Le foto sono scure:
+   in hover / fuoco la scheda diventa SCURA, foto vera (niente moltiplica)
+   sotto un velo Hard Grey 0.65, tutto il testo Ricepaper (anche il link,
+   via --fg). Contrasto anche sul punto più chiaro (bianco puro): ≥ 4.8:1. Su touch
+   resta la scheda chiara
+   ========================================================================== */
+.dv-line--photo {
+  transition:
+    translate 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    border-color 0.5s var(--ease-out),
+    color 0.4s var(--ease-out);
+}
+
+.dv-line--photo .dv-line-bg {
+  background-color: var(--hard-grey);
+}
+
+.dv-line--photo .dv-line-bg img {
+  mix-blend-mode: normal;
+}
+
+.dv-line--photo .dv-line-bg::after {
+  background-color: rgba(25, 25, 25, 0.65);   /* 0.65: Ricepaper ≥ 4.8:1 anche sopra un pixel bianco puro */
+}
+
+@media (hover: hover) {
+  .dv-line--photo:hover {
+    --fg: var(--ricepaper);
+    color: var(--ricepaper);
+  }
+}
+
+.dv-line--photo:focus-within {
+  --fg: var(--ricepaper);
+  color: var(--ricepaper);
+}
+

@@ -14,7 +14,7 @@
   isolation: isolate;
   overflow: hidden;
   border-radius: var(--r-stage);
-  padding: clamp(1rem, 0.5rem + 2vw, 2rem);
+  padding: var(--stage-pad);
   min-height: clamp(380px, 38vw, 540px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -185,7 +185,7 @@
 
 @media (max-width: 599.98px) {
   .nip-stage {
-    --nip-space: 0.6rem;
+    --nip-space: var(--stage-pad-sm);
     min-height: 0;
     padding: var(--nip-space);
     border-radius: var(--r-card);
@@ -691,11 +691,10 @@
    largo"). Il box sta tra Our Impact e Global Presence, chiare tutte e due:
    lo spazio della sezione NIP si sommava al loro e diventava doppio. Ora
    sopra e sotto c'è un solo --section-y, come tra gli altri blocchi */
-@media (max-width: 599.98px) {
-  .nip.section {
-    padding-block: 0;
-  }
-}
+/* 26/11/2026: ora ci pensa la regola globale degli spazi (base.css): la
+   sezione NIP non ha spazio sopra e Global Presence non ne ha sotto il box,
+   quindi resta il solo --section-y sotto il box. Tolto padding-block: 0,
+   che con la regola globale avrebbe attaccato il box a Global Presence */
 
 /* Testo ridotto per il telefono (25/11/2026, testo della cliente): da 600px
    si vede il testo lungo, sotto 600px solo quello corto (display: none
