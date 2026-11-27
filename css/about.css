@@ -1264,23 +1264,34 @@
    (Le regole .ab-philo-*, .ab-steps, .ab-photo* sopra non servono più)
    ========================================================================== */
 
-/* La storia senza foto (26/11/2026, Chiara: a destra restava tutto vuoto):
-   due colonne come prima, il paragrafo grande a sinistra e il secondo, nel
-   font del testo, a destra in basso dove c era la foto. Sotto 900px uno
-   sotto l altro */
+/* ==========================================================================
+   La storia senza foto (27/11/2026, Chiara: "rimane storta"; pagina già in
+   revisione, solo un ritocco di impaginazione, testi e caratteri invariati).
+   Prima: due colonne affiancate di altezza diversa (il secondo paragrafo
+   galleggiava a destra). Ora una griglia a 12 colonne a SCALA: il paragrafo
+   grande occupa le colonne 1–8 in alto; il secondo scende sotto e parte
+   dalla colonna 8, quindi riempie la destra e si legge in ordine (in alto a
+   sinistra, poi in basso a destra). Sotto 900px uno sotto l altro
+   ========================================================================== */
 .ab-story-grid--text {
   grid-template-columns: minmax(0, 1fr);
 }
 
 .ab-story-grid--text .ab-story-text {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  align-items: end;
-  gap: clamp(1.5rem, 1rem + 4vw, 6rem);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+.ab-story-grid--text .ab-lead {
+  grid-column: 1 / 9;
+  max-width: 38ch;
 }
 
 .ab-story-grid--text .ab-lead + .ab-lead {
-  margin-top: 0;
+  grid-column: 8 / -1;
+  max-width: 46ch;
+  margin-top: clamp(2rem, 1rem + 3vw, 3.5rem);
 }
 
 @media (max-width: 899.98px) {
@@ -1289,6 +1300,7 @@
   }
 
   .ab-story-grid--text .ab-lead + .ab-lead {
+    max-width: 60ch;
     margin-top: clamp(1.25rem, 1rem + 1vw, 2rem);
   }
 }

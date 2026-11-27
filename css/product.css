@@ -3463,3 +3463,185 @@ html:not(.js) .pd-charts-nav {
   padding-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
   border-top: 1px solid var(--line);
 }
+
+/* ==========================================================================
+   "Watch the video" nei Technical details (27/11/2026, richiesta della
+   cliente: un bottone invece del video incorporato nella pagina). Riga del
+   titolo: titolo a sinistra, bottone a destra (sotto il titolo sul
+   telefono). Bottone a pillola con contorno Hard Grey e cerchio Ocean con il
+   play: in hover si riempie di Hard Grey (testo Ricepaper 17:1), il cerchio
+   resta Ocean (play Ricepaper 4.70:1). Finestra <dialog> 16:9
+   (js/product-video.js); il video parte solo quando lo avvia chi guarda
+   ========================================================================== */
+.pd-tech-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.pd-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 52px;
+  padding: 0.3rem 1.4rem 0.3rem 0.3rem;
+  border: 1.5px solid var(--hard-grey);
+  border-radius: 999px;
+  background: none;
+  color: var(--hard-grey);
+  font: inherit;
+  font-size: var(--fs-cta);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out);
+}
+
+.pd-watch-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--ocean);
+  color: var(--ricepaper);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.pd-watch-icon svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;   /* il triangolo sembra centrato */
+  fill: currentColor;
+}
+
+.pd-watch:hover {
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+}
+
+.pd-watch:hover .pd-watch-icon {
+  transform: scale(1.06);
+}
+
+.pd-watch:focus-visible {
+  outline: 2px solid var(--hard-grey);
+  outline-offset: 3px;
+}
+
+.motion-paused .pd-watch-icon,
+.motion-paused .pd-watch:hover .pd-watch-icon {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-watch:hover .pd-watch-icon {
+    transform: none;
+  }
+}
+
+/* Finestra del video */
+.pd-video-dialog {
+  width: min(100% - 2rem, 1080px);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-stage);
+  background-color: var(--hard-grey);
+  color: var(--ricepaper);
+  box-shadow: 0 30px 80px -30px rgba(25, 25, 25, 0.6);
+  overflow: auto;
+}
+
+.pd-video-dialog::backdrop {
+  background-color: rgba(25, 25, 25, 0.7);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.pd-video-dialog-inner {
+  position: relative;
+  padding: clamp(1rem, 0.6rem + 1.5vw, 1.75rem);
+}
+
+.pd-video-dialog-title {
+  padding-right: 3.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.pd-video-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-on-dark);
+  border-radius: 50%;
+  background: none;
+  color: var(--ricepaper);
+  cursor: pointer;
+}
+
+.pd-video-close svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.pd-video-close:hover {
+  background-color: var(--ricepaper);
+  color: var(--hard-grey);
+}
+
+.pd-video-close:focus-visible {
+  outline: 2px solid var(--ricepaper);
+  outline-offset: 2px;
+}
+
+.pd-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--r-inner);
+  background-color: var(--hard-grey);
+  display: grid;
+  place-items: center;
+}
+
+.pd-video-frame iframe,
+.pd-video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pd-video-frame .pd-placeholder {
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted-on-dark);
+}
+
+@media (max-width: 599.98px) {
+  .pd-tech-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pd-video-dialog {
+    border-radius: var(--r-card);
+  }
+}

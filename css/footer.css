@@ -702,3 +702,25 @@
     transform: none;
   }
 }
+
+/* Telefono, correzione (27/11/2026, Chiara: screenshot con il WeChat tagliato
+   e le frecce delle tendine fuori dal bordo). Logo (168px) + 4 cerchi da 44px
+   non stavano in una riga sotto i ~390px: la riga del logo allargava la
+   colonna della griglia (1fr = minimo il contenuto) e con lei tutto il
+   footer, che taglia ciò che esce (overflow hidden). Ora la colonna non può
+   superare il contenitore e, se non c è posto, i social vanno a capo sotto
+   il logo, allineati a sinistra */
+@media (max-width: 699.98px) {
+  .ft-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ft-brand {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+
+  .ft-social {
+    flex-wrap: wrap;
+  }
+}

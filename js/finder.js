@@ -98,7 +98,7 @@
   // Gruppo del filtro → campo del dato
   var FIELDS = CFG && CFG.fields ? CFG.fields : {
     line: 'line', market: 'market', tech: 'technology', type: 'type',
-    category: 'category', benefit: 'benefits', cert: 'certifications'
+    category: 'category', application: 'applications', benefit: 'benefits', cert: 'certifications'
   };
   var KEYS = Object.keys(FIELDS);
 

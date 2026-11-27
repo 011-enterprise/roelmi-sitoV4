@@ -344,10 +344,17 @@
          ================================================================== -->
     <section class="pd-tech section theme-light grain" id="technical-details" aria-labelledby="pd-tech-title">
       <div class="container">
-        <h2 class="pd-section-title" id="pd-tech-title">
-          <span class="eyebrow" data-reveal>Technical data</span>
-          <span data-reveal data-reveal-delay="0.1">Technical details</span>
-        </h2>
+        <div class="pd-tech-head">
+          <h2 class="pd-section-title" id="pd-tech-title">
+            <span class="eyebrow" data-reveal>Technical data</span>
+            <span data-reveal data-reveal-delay="0.1">Technical details</span>
+          </h2>
+          <!-- Video (27/11/2026): bottone nella riga del titolo, apre la finestra (js/product-video.js) -->
+          <button class="pd-watch" type="button" aria-haspopup="dialog" aria-controls="pdVideo" data-reveal data-reveal-delay="0.1">
+            <span class="pd-watch-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+            <span class="pd-watch-label">Watch the video</span>
+          </button>
+        </div>
 
         <div class="pd-tech-layout">
           <div class="pd-tech-groups">
@@ -416,28 +423,7 @@
     </section>
 
     
-    <!-- ==================================================================
-         5 · VIDEO (fondo Ocean, SITO 4) — da SITO 3, come SITO 1: anteprima a sinistra, testo a destra.
-         Il clic apre il video su YouTube in una nuova scheda
-         ================================================================== -->
-    <section class="pd-video section theme-ocean grain" id="video" aria-labelledby="pd-video-title">
-      <div class="container pd-video-grid">
-        <a class="pd-video-link" href="#" target="_blank" rel="noopener" data-reveal>
-          <span class="pd-video-ph" aria-hidden="true">Fotogramma del video — da fornire</span>
-          <span class="pd-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 5l11 7-11 7z"/></svg></span>
-          <span class="sr-only">Watch the video on YouTube (opens in a new tab)</span>
-        </a>
-        <div class="pd-video-text">
-          <h2 class="pd-section-title" id="pd-video-title">
-            <span class="eyebrow" data-reveal>Watch</span>
-            <span class="pd-todo" lang="it" data-reveal data-reveal-delay="0.1">Titolo del video — da definire</span>
-          </h2>
-          <p class="pd-video-desc pd-placeholder" lang="it" data-reveal data-reveal-delay="0.15">Una o due righe che dicano che cosa si vede nel video e perché vale la pena guardarlo.</p>
-          <p class="pd-video-meta pd-placeholder" lang="it">Durata da fornire</p>
-        </div>
-      </div>
-    </section>
-
+<!-- 5 · VIDEO: sezione tolta il 27/11/2026, ora è il bottone "Watch the video" nei Technical details -->
     <!-- ==================================================================
          7 · RELATED PRODUCTS (Ocean) — 04/11/2026 (Chiara): stesse schede e
          stesse animazioni di "Sustainability in action" della pagina NIP
@@ -613,6 +599,18 @@
     </div>
   </footer>
 
+  <!-- Finestra del video (27/11/2026): il lettore si carica solo all apertura
+       e si ferma alla chiusura (js/product-video.js) -->
+  <dialog class="pd-video-dialog" id="pdVideo" aria-labelledby="pdVideoTitle">
+    <div class="pd-video-dialog-inner">
+      <h2 class="pd-video-dialog-title" id="pdVideoTitle">SelectSIEVE<sup class="reg">®</sup> Glitter</h2>
+      <button class="pd-video-close" type="button" data-video-close aria-label="Close the video"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="pd-video-frame" data-video-src="" data-video-title="SelectSIEVE® Glitter">
+        <p class="pd-placeholder" lang="it">Video — da fornire dalla cliente (link YouTube o file).</p>
+      </div>
+    </div>
+  </dialog>
+
   <!-- JS -->
   <script src="js/motion.js"></script>
   <script src="js/reveal.js" defer></script>
@@ -626,5 +624,6 @@
   <script src="js/product-benefits.js" defer></script>
   <script src="js/product-collapse.js" defer></script>   <!-- telefono: studi richiudibili, Technical details chiusi -->
   <script src="js/scroll-words.js" defer></script>
+  <script src="js/product-video.js" defer></script>
 </body>
 </html>
