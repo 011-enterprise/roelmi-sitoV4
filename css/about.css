@@ -1265,44 +1265,27 @@
    ========================================================================== */
 
 /* ==========================================================================
-   La storia senza foto (27/11/2026, Chiara: "rimane storta"; pagina già in
-   revisione, solo un ritocco di impaginazione, testi e caratteri invariati).
-   Prima: due colonne affiancate di altezza diversa (il secondo paragrafo
-   galleggiava a destra). Ora una griglia a 12 colonne a SCALA: il paragrafo
-   grande occupa le colonne 1–8 in alto; il secondo scende sotto e parte
-   dalla colonna 8, quindi riempie la destra e si legge in ordine (in alto a
-   sinistra, poi in basso a destra). Sotto 900px uno sotto l altro
+   La storia senza foto (27/11/2026, Chiara: "tutta su una sola colonna che
+   prenda tutta la larghezza, sempre con la distinzione dei due font"; supera
+   la disposizione a scala). Una colonna larga quanto il contenitore: il
+   paragrafo in Iwona e sotto quello nel font del testo, senza limite di
+   larghezza (prima 36–46ch). Testi e caratteri invariati
    ========================================================================== */
 .ab-story-grid--text {
   grid-template-columns: minmax(0, 1fr);
 }
 
 .ab-story-grid--text .ab-story-text {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  display: block;
 }
 
-.ab-story-grid--text .ab-lead {
-  grid-column: 1 / 9;
-  max-width: 38ch;
+.ab-story .ab-story-grid--text .ab-lead,
+.ab-story .ab-story-grid--text .ab-lead.ab-lead--text {
+  max-width: none;
 }
 
-.ab-story-grid--text .ab-lead + .ab-lead {
-  grid-column: 8 / -1;
-  max-width: 46ch;
-  margin-top: clamp(2rem, 1rem + 3vw, 3.5rem);
-}
-
-@media (max-width: 899.98px) {
-  .ab-story-grid--text .ab-story-text {
-    display: block;
-  }
-
-  .ab-story-grid--text .ab-lead + .ab-lead {
-    max-width: 60ch;
-    margin-top: clamp(1.25rem, 1rem + 1vw, 2rem);
-  }
+.ab-story .ab-story-grid--text .ab-lead + .ab-lead {
+  margin-top: clamp(1.25rem, 1rem + 1vw, 2rem);
 }
 
 /* Timeline (26/11/2026, Chiara: troppo spazio sopra "Since 2000"): la scena
